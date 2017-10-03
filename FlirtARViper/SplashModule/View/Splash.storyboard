@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oPo-1V-TM2">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="DlQ-Rt-TUV">
+            <objects>
+                <viewController storyboardIdentifier="splashViewController" id="vKk-ZD-Paa" customClass="SplashViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IWp-uZ-CNt"/>
+                        <viewControllerLayoutGuide type="bottom" id="WEK-AC-XSf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bSt-iN-WsR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newSplashBG" translatesAutoresizingMaskIntoConstraints="NO" id="bsA-5d-6pK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-Pp-I1y">
+                                <rect key="frame" x="0.0" y="20" width="320" height="284"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="SbB-KN-kYW">
+                                        <rect key="frame" x="105" y="87.5" width="110" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="110" id="30P-hG-hM2"/>
+                                            <constraint firstAttribute="height" constant="110" id="u5o-gA-dgK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flirtar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-9f-vaD">
+                                        <rect key="frame" x="103.5" y="207.5" width="114.5" height="52.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="45"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hHx-9f-vaD" firstAttribute="top" secondItem="SbB-KN-kYW" secondAttribute="bottom" constant="10" id="9FB-Gd-xye"/>
+                                    <constraint firstItem="hHx-9f-vaD" firstAttribute="centerX" secondItem="SbB-KN-kYW" secondAttribute="centerX" id="Nmp-m7-1V9"/>
+                                    <constraint firstItem="SbB-KN-kYW" firstAttribute="centerX" secondItem="vT8-Pp-I1y" secondAttribute="centerX" id="Sfc-h7-TYp"/>
+                                    <constraint firstItem="SbB-KN-kYW" firstAttribute="centerY" secondItem="vT8-Pp-I1y" secondAttribute="centerY" id="vzd-AJ-rOb"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKx-kz-zNA">
+                                <rect key="frame" x="0.0" y="304" width="320" height="164"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKl-Md-my1">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cf3-9Z-OcX" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                                <rect key="frame" x="32.5" y="99" width="256" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="clA-nG-AQN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="16"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
+                                                <state key="normal" title="Continue with Facebook" image="fbButtonNew">
+                                                    <color key="titleColor" red="0.92156862745098034" green="0.25490196078431371" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="fbContinueTap:" destination="vKk-ZD-Paa" eventType="touchUpInside" id="Wch-Rp-uUJ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cf3-9Z-OcX" firstAttribute="centerX" secondItem="eKl-Md-my1" secondAttribute="centerX" id="3Qu-Le-hd2"/>
+                                            <constraint firstItem="cf3-9Z-OcX" firstAttribute="width" secondItem="eKl-Md-my1" secondAttribute="width" multiplier="0.8" id="7eD-Ca-T31"/>
+                                            <constraint firstAttribute="bottom" secondItem="cf3-9Z-OcX" secondAttribute="bottom" constant="15" id="Adp-I1-FtW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="eKl-Md-my1" secondAttribute="trailing" id="Kd9-6h-02n"/>
+                                    <constraint firstItem="eKl-Md-my1" firstAttribute="leading" secondItem="UKx-kz-zNA" secondAttribute="leading" id="dbX-uh-T8v"/>
+                                    <constraint firstItem="eKl-Md-my1" firstAttribute="top" secondItem="UKx-kz-zNA" secondAttribute="top" id="mcF-mj-zKN"/>
+                                    <constraint firstAttribute="bottom" secondItem="eKl-Md-my1" secondAttribute="bottom" id="ujP-Mn-ue3"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHf-sO-wfe">
+                                <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-aw-sxg">
+                                        <rect key="frame" x="48" y="10" width="224" height="80"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="We don't post anything to Facebook. By singing in, you agree to our">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Terms of Service">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="and">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="Privacy Policy">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    <integer key="NSUnderline" value="1"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="top" secondItem="hHf-sO-wfe" secondAttribute="top" constant="10" id="6Ft-6h-E4R"/>
+                                    <constraint firstAttribute="height" constant="100" id="OPw-qw-bZw"/>
+                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="width" secondItem="hHf-sO-wfe" secondAttribute="width" multiplier="0.7" id="lt0-Zx-67A"/>
+                                    <constraint firstAttribute="bottom" secondItem="PhD-aw-sxg" secondAttribute="bottom" constant="10" id="mv7-Za-sv7"/>
+                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="centerX" secondItem="hHf-sO-wfe" secondAttribute="centerX" id="wze-vV-eZF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bsA-5d-6pK" secondAttribute="trailing" id="4Fd-VJ-mTk"/>
+                            <constraint firstItem="vT8-Pp-I1y" firstAttribute="leading" secondItem="bSt-iN-WsR" secondAttribute="leading" id="7hq-Cw-761"/>
+                            <constraint firstItem="WEK-AC-XSf" firstAttribute="top" secondItem="hHf-sO-wfe" secondAttribute="bottom" id="Emk-iZ-XKL"/>
+                            <constraint firstItem="hHf-sO-wfe" firstAttribute="top" secondItem="UKx-kz-zNA" secondAttribute="bottom" id="OY0-OH-67C"/>
+                            <constraint firstAttribute="trailing" secondItem="UKx-kz-zNA" secondAttribute="trailing" id="Rls-76-hva"/>
+                            <constraint firstItem="WEK-AC-XSf" firstAttribute="top" secondItem="bsA-5d-6pK" secondAttribute="bottom" id="ZB1-J4-KEr"/>
+                            <constraint firstAttribute="trailing" secondItem="vT8-Pp-I1y" secondAttribute="trailing" id="cPF-I6-y1O"/>
+                            <constraint firstItem="vT8-Pp-I1y" firstAttribute="top" secondItem="IWp-uZ-CNt" secondAttribute="bottom" id="d11-94-QIp"/>
+                            <constraint firstItem="hHf-sO-wfe" firstAttribute="leading" secondItem="bSt-iN-WsR" secondAttribute="leading" id="glP-pt-Y0i"/>
+                            <constraint firstAttribute="trailing" secondItem="hHf-sO-wfe" secondAttribute="trailing" id="ins-VF-VxS"/>
+                            <constraint firstItem="bsA-5d-6pK" firstAttribute="top" secondItem="bSt-iN-WsR" secondAttribute="top" id="lNK-rd-nyo"/>
+                            <constraint firstItem="UKx-kz-zNA" firstAttribute="top" secondItem="vT8-Pp-I1y" secondAttribute="bottom" id="pd4-44-eai"/>
+                            <constraint firstItem="bsA-5d-6pK" firstAttribute="leading" secondItem="bSt-iN-WsR" secondAttribute="leading" id="xXh-YV-Kkq"/>
+                            <constraint firstItem="vT8-Pp-I1y" firstAttribute="height" secondItem="bSt-iN-WsR" secondAttribute="height" multiplier="1:2" id="yIt-RD-tnl"/>
+                            <constraint firstItem="UKx-kz-zNA" firstAttribute="leading" secondItem="bSt-iN-WsR" secondAttribute="leading" id="yab-0f-bV7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="szS-R5-Hbg"/>
+                    <connections>
+                        <outlet property="agreementTextView" destination="PhD-aw-sxg" id="gOy-dE-s5z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qim-6W-2UJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066.875" y="163.73239436619718"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rzs-ou-JsI">
+            <objects>
+                <navigationController storyboardIdentifier="splashNaviagation" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oPo-1V-TM2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yER-mF-m0D">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vKk-ZD-Paa" kind="relationship" relationship="rootViewController" id="eNP-X5-iXa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Bv-FS-9Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="164.16791604197903"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="fbButtonNew" width="34" height="34"/>
+        <image name="logo" width="110" height="110"/>
+        <image name="newSplashBG" width="375" height="667"/>
+    </resources>
+</document>

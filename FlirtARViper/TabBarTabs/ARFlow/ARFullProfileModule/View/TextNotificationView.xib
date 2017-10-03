@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextNotificationView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="roundedView" destination="ghR-3s-ONg" id="adA-4x-Xnu"/>
+                <outlet property="textLabel" destination="eez-jQ-gxK" id="yda-Kb-NG2"/>
+                <outlet property="view" destination="iN0-l3-epB" id="k8m-ly-D9u"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghR-3s-ONg">
+                    <rect key="frame" x="28" y="293.5" width="319" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="eez-jQ-gxK">
+                            <rect key="frame" x="10" y="10" width="299" height="60"/>
+                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                            <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="eez-jQ-gxK" secondAttribute="bottom" constant="10" id="Nbu-ra-nrg"/>
+                        <constraint firstItem="eez-jQ-gxK" firstAttribute="centerY" secondItem="ghR-3s-ONg" secondAttribute="centerY" id="PTx-rs-ihN"/>
+                        <constraint firstAttribute="height" constant="80" id="SnG-t8-cAg"/>
+                        <constraint firstItem="eez-jQ-gxK" firstAttribute="leading" secondItem="ghR-3s-ONg" secondAttribute="leading" constant="10" id="dRT-jz-fPw"/>
+                        <constraint firstAttribute="trailing" secondItem="eez-jQ-gxK" secondAttribute="trailing" constant="10" id="kMu-Ky-dxJ"/>
+                        <constraint firstItem="eez-jQ-gxK" firstAttribute="top" secondItem="ghR-3s-ONg" secondAttribute="top" constant="10" id="mf4-uF-Cet"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ghR-3s-ONg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9Uq-gn-wcM"/>
+                <constraint firstItem="ghR-3s-ONg" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="bXv-6l-R3v"/>
+                <constraint firstItem="ghR-3s-ONg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gic-Lv-Afq"/>
+            </constraints>
+            <point key="canvasLocation" x="115" y="82"/>
+        </view>
+    </objects>
+</document>

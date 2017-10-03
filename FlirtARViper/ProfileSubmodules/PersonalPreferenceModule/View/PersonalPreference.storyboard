@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Personal Preference View Controller-->
+        <scene sceneID="ON5-iN-P9i">
+            <objects>
+                <viewController storyboardIdentifier="PersonalPreferenceViewController" id="oep-Tj-JjM" customClass="PersonalPreferenceViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="twP-e2-Wye"/>
+                        <viewControllerLayoutGuide type="bottom" id="wcR-yo-lfN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mKM-Yx-lJD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="38z-UQ-aEZ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who are you looking for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Iuq-VO-wJ4">
+                                        <rect key="frame" x="40.5" y="15" width="240" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ycV-HW-dwg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                        <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ray-pb-CZb" customClass="GenderPreferenceSwitcher" customModule="FlirtARViper" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="60" width="256" height="65"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="I2T-fO-z0j"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="I'm looking for:"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="femaleItem" value="Women"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="maleItem" value="Men"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="bothItem" value="Both"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGd-Uq-uta" customClass="RangeView" customModule="FlirtARViper" customModuleProvider="target">
+                                        <rect key="frame" x="32" y="140" width="256" height="65"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="eDV-L0-hxg"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Age range:"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Iuq-VO-wJ4" firstAttribute="width" secondItem="38z-UQ-aEZ" secondAttribute="width" multiplier="3:4" id="Ej2-Pn-5d5"/>
+                                    <constraint firstItem="uGd-Uq-uta" firstAttribute="width" secondItem="38z-UQ-aEZ" secondAttribute="width" multiplier="0.8" id="J1q-ah-BG5"/>
+                                    <constraint firstItem="Iuq-VO-wJ4" firstAttribute="centerX" secondItem="38z-UQ-aEZ" secondAttribute="centerX" id="MqU-DP-1xW"/>
+                                    <constraint firstAttribute="height" constant="210" id="O0p-Hy-sr4"/>
+                                    <constraint firstItem="Ray-pb-CZb" firstAttribute="top" secondItem="Iuq-VO-wJ4" secondAttribute="bottom" constant="15" id="Pkl-Fj-HkB"/>
+                                    <constraint firstItem="uGd-Uq-uta" firstAttribute="top" secondItem="Ray-pb-CZb" secondAttribute="bottom" constant="15" id="U0a-p2-mr4"/>
+                                    <constraint firstItem="uGd-Uq-uta" firstAttribute="centerX" secondItem="38z-UQ-aEZ" secondAttribute="centerX" id="VJQ-CE-MeO"/>
+                                    <constraint firstItem="Iuq-VO-wJ4" firstAttribute="top" secondItem="38z-UQ-aEZ" secondAttribute="top" constant="15" id="fKO-yw-iCq"/>
+                                    <constraint firstItem="Ray-pb-CZb" firstAttribute="width" secondItem="38z-UQ-aEZ" secondAttribute="width" multiplier="0.8" id="fY7-FG-q0N"/>
+                                    <constraint firstItem="Ray-pb-CZb" firstAttribute="centerX" secondItem="38z-UQ-aEZ" secondAttribute="centerX" id="wEB-Vc-MT4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="38z-UQ-aEZ" secondAttribute="bottom" id="0ik-fd-5Qt"/>
+                            <constraint firstItem="38z-UQ-aEZ" firstAttribute="top" secondItem="mKM-Yx-lJD" secondAttribute="top" id="BmN-Gf-jH0"/>
+                            <constraint firstItem="38z-UQ-aEZ" firstAttribute="leading" secondItem="mKM-Yx-lJD" secondAttribute="leading" id="fFe-0U-a1O"/>
+                            <constraint firstAttribute="trailing" secondItem="38z-UQ-aEZ" secondAttribute="trailing" id="tCq-b5-BOr"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="210"/>
+                    <connections>
+                        <outlet property="ageRangeView" destination="uGd-Uq-uta" id="q1o-CS-ISo"/>
+                        <outlet property="lookingGenderSwitcher" destination="Ray-pb-CZb" id="jEd-hz-jIT"/>
+                        <outlet property="mainView" destination="38z-UQ-aEZ" id="B8D-f4-4qe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6iZ-0u-8vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76.799999999999997" y="76.911544227886068"/>
+        </scene>
+    </scenes>
+</document>

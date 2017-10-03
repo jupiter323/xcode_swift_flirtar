@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Account Info View Controller-->
+        <scene sceneID="gxk-cF-1B7">
+            <objects>
+                <viewController storyboardIdentifier="AccountInfoViewController" id="aaK-fk-D2q" customClass="AccountInfoViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fGd-PY-73S"/>
+                        <viewControllerLayoutGuide type="bottom" id="tXi-C5-5oP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="McP-TJ-HTZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvc-bm-kSB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-zZ-Js9">
+                                        <rect key="frame" x="47" y="20" width="281" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="gNy-wP-lgo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                        <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Zv-yH-NYj">
+                                        <rect key="frame" x="0.0" y="55" width="375" height="300"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="6Pu-8b-CuZ"/>
+                                        </constraints>
+                                        <color key="separatorColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                        <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="aaK-fk-D2q" id="j28-fa-O35"/>
+                                            <outlet property="delegate" destination="aaK-fk-D2q" id="GeE-D6-Bb1"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Ade-zZ-Js9" firstAttribute="centerX" secondItem="gvc-bm-kSB" secondAttribute="centerX" id="4ia-W8-7nl"/>
+                                    <constraint firstItem="8Zv-yH-NYj" firstAttribute="leading" secondItem="gvc-bm-kSB" secondAttribute="leading" id="7Gs-AV-lAV"/>
+                                    <constraint firstItem="8Zv-yH-NYj" firstAttribute="top" secondItem="Ade-zZ-Js9" secondAttribute="bottom" constant="5" id="EHV-l3-3SO"/>
+                                    <constraint firstItem="Ade-zZ-Js9" firstAttribute="top" secondItem="gvc-bm-kSB" secondAttribute="top" constant="20" id="MJK-pR-zCr"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Zv-yH-NYj" secondAttribute="trailing" id="fyH-6w-xC8"/>
+                                    <constraint firstItem="Ade-zZ-Js9" firstAttribute="width" secondItem="gvc-bm-kSB" secondAttribute="width" multiplier="3:4" id="g3P-nL-ldN"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Zv-yH-NYj" secondAttribute="bottom" id="iFC-UZ-w3l"/>
+                                    <constraint firstAttribute="height" constant="355" id="nqm-bK-bgc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gvc-bm-kSB" firstAttribute="leading" secondItem="McP-TJ-HTZ" secondAttribute="leading" id="ZLB-iX-lsU"/>
+                            <constraint firstAttribute="trailing" secondItem="gvc-bm-kSB" secondAttribute="trailing" id="elv-gI-3Pn"/>
+                            <constraint firstItem="tXi-C5-5oP" firstAttribute="top" secondItem="gvc-bm-kSB" secondAttribute="bottom" id="gKw-u5-f8Q"/>
+                            <constraint firstItem="gvc-bm-kSB" firstAttribute="top" secondItem="McP-TJ-HTZ" secondAttribute="top" id="tTM-ln-eAr"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="355"/>
+                    <connections>
+                        <outlet property="accountTable" destination="8Zv-yH-NYj" id="uGI-3c-d4k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T93-o4-jDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103.2" y="48.125937031484263"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapNotificationView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="messageView" destination="hAk-Tm-YFz" id="FHg-Lv-3ne"/>
+                <outlet property="roundedView" destination="4aq-yB-Ex4" id="eFL-lF-9uR"/>
+                <outlet property="view" destination="iN0-l3-epB" id="dHU-a7-hOT"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aq-yB-Ex4">
+                    <rect key="frame" x="24" y="194" width="272" height="180"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gg8-7M-fCx">
+                            <rect key="frame" x="0.0" y="0.0" width="272" height="90"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAk-Tm-YFz">
+                                    <rect key="frame" x="10" y="15" width="252" height="75"/>
+                                    <string key="text">Please, 
+include who are you looking for</string>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                    <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="hAk-Tm-YFz" secondAttribute="trailing" constant="10" id="0jb-P7-yJT"/>
+                                <constraint firstItem="hAk-Tm-YFz" firstAttribute="leading" secondItem="gg8-7M-fCx" secondAttribute="leading" constant="10" id="Aru-1C-pk5"/>
+                                <constraint firstItem="hAk-Tm-YFz" firstAttribute="top" secondItem="gg8-7M-fCx" secondAttribute="top" constant="15" id="Gxo-OQ-mSv"/>
+                                <constraint firstAttribute="bottom" secondItem="hAk-Tm-YFz" secondAttribute="bottom" id="ap7-HP-WU5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUa-GA-6Fw">
+                            <rect key="frame" x="0.0" y="90" width="272" height="90"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7p-y0-ndf" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                    <rect key="frame" x="45.5" y="22" width="182" height="46"/>
+                                    <color key="backgroundColor" red="0.92156862745098034" green="0.25490196078431371" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="46" id="nB3-Pk-WnL"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                    <state key="normal" title="Profile Settings" backgroundImage="mainButtonBackground">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="profileSettingsTap:" destination="-1" eventType="touchUpInside" id="lt1-BA-yez"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="d7p-y0-ndf" firstAttribute="centerX" secondItem="nUa-GA-6Fw" secondAttribute="centerX" id="dDN-fq-m1a"/>
+                                <constraint firstItem="d7p-y0-ndf" firstAttribute="centerY" secondItem="nUa-GA-6Fw" secondAttribute="centerY" id="dmM-NH-pfG"/>
+                                <constraint firstItem="d7p-y0-ndf" firstAttribute="width" secondItem="nUa-GA-6Fw" secondAttribute="width" multiplier="2:3" id="gcz-tE-bxC"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="gg8-7M-fCx" firstAttribute="height" secondItem="nUa-GA-6Fw" secondAttribute="height" id="7EO-Uh-GcI"/>
+                        <constraint firstAttribute="trailing" secondItem="nUa-GA-6Fw" secondAttribute="trailing" id="IBZ-2d-KVS"/>
+                        <constraint firstItem="gg8-7M-fCx" firstAttribute="top" secondItem="4aq-yB-Ex4" secondAttribute="top" id="IcX-Pu-Xpv"/>
+                        <constraint firstItem="nUa-GA-6Fw" firstAttribute="leading" secondItem="4aq-yB-Ex4" secondAttribute="leading" id="IrS-KI-CQi"/>
+                        <constraint firstItem="gg8-7M-fCx" firstAttribute="leading" secondItem="4aq-yB-Ex4" secondAttribute="leading" id="Irn-Kp-Qbo"/>
+                        <constraint firstAttribute="bottom" secondItem="nUa-GA-6Fw" secondAttribute="bottom" id="TfE-wJ-Mlc"/>
+                        <constraint firstAttribute="height" constant="180" id="XHA-ri-lR0"/>
+                        <constraint firstAttribute="trailing" secondItem="gg8-7M-fCx" secondAttribute="trailing" id="YwX-AG-cpV"/>
+                        <constraint firstItem="nUa-GA-6Fw" firstAttribute="top" secondItem="gg8-7M-fCx" secondAttribute="bottom" id="hpD-3l-3xT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="4aq-yB-Ex4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Cry-ef-afu"/>
+                <constraint firstItem="4aq-yB-Ex4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MVr-wn-W4V"/>
+                <constraint firstItem="4aq-yB-Ex4" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="oP3-cH-BOT"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="-111.5" y="-7"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mainButtonBackground" width="275" height="50"/>
+    </resources>
+</document>

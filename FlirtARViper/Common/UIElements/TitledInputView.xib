@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledInputView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="inputField" destination="v8i-M2-kxH" id="TzK-NZ-FzB"/>
+                <outlet property="subTitleLabel" destination="u7Q-ty-dHH" id="2jM-FA-ekT"/>
+                <outlet property="titleLabel" destination="Jxl-Oo-Ohl" id="upV-Nl-3O5"/>
+                <outlet property="view" destination="iN0-l3-epB" id="IfL-eW-whD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="304" height="138"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="QXF-A2-Eym">
+                    <rect key="frame" x="0.0" y="36.5" width="304" height="65"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hFX-9j-Q4W">
+                            <rect key="frame" x="0.0" y="0.0" width="304" height="20"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxl-Oo-Ohl">
+                                    <rect key="frame" x="0.0" y="0.0" width="25" height="20"/>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                                    <color key="textColor" red="0.78431372549019607" green="0.13725490196078433" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-ty-dHH">
+                                    <rect key="frame" x="35" y="0.0" width="269" height="20"/>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="10"/>
+                                    <color key="textColor" red="0.83529411764705885" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Jxl-Oo-Ohl" firstAttribute="leading" secondItem="hFX-9j-Q4W" secondAttribute="leading" id="01q-4l-hhf"/>
+                                <constraint firstAttribute="height" constant="20" id="2cW-4x-XAK"/>
+                                <constraint firstItem="u7Q-ty-dHH" firstAttribute="leading" secondItem="Jxl-Oo-Ohl" secondAttribute="trailing" constant="10" id="UoP-3f-VwQ"/>
+                                <constraint firstAttribute="bottom" secondItem="u7Q-ty-dHH" secondAttribute="bottom" id="XDl-HJ-Xnq"/>
+                                <constraint firstAttribute="trailing" secondItem="u7Q-ty-dHH" secondAttribute="trailing" id="hX0-Wt-qeB"/>
+                                <constraint firstItem="u7Q-ty-dHH" firstAttribute="top" secondItem="hFX-9j-Q4W" secondAttribute="top" id="mC7-hH-R87"/>
+                                <constraint firstItem="Jxl-Oo-Ohl" firstAttribute="top" secondItem="hFX-9j-Q4W" secondAttribute="top" id="qqD-TH-DJI"/>
+                                <constraint firstAttribute="bottom" secondItem="Jxl-Oo-Ohl" secondAttribute="bottom" id="z8r-xP-gN4"/>
+                            </constraints>
+                        </view>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v8i-M2-kxH" customClass="InputTextField" customModule="FlirtARViper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="21" width="304" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="GGU-kL-T1W"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="QXF-A2-Eym" secondAttribute="trailing" id="DHN-Xw-q49"/>
+                <constraint firstItem="QXF-A2-Eym" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FHC-Bk-Qtp"/>
+                <constraint firstItem="QXF-A2-Eym" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="NaW-78-ZAa"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QXF-A2-Eym" secondAttribute="bottom" id="Tog-ct-0VB"/>
+                <constraint firstItem="QXF-A2-Eym" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" id="zSL-PO-R23"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="0.0" y="-202"/>
+        </view>
+    </objects>
+</document>

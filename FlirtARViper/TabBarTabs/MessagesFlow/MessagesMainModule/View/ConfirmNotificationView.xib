@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfirmNotificationView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="confirmButton" destination="2XV-v0-iDT" id="W27-U4-N1G"/>
+                <outlet property="roundedView" destination="K9d-iH-BaX" id="Mj6-eU-3z5"/>
+                <outlet property="subtitleLabel" destination="yHm-ms-Uap" id="ctk-BE-Srn"/>
+                <outlet property="titleLabel" destination="88I-O5-nDC" id="NsR-hZ-ze1"/>
+                <outlet property="view" destination="iN0-l3-epB" id="R9J-JA-lHy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-iH-BaX">
+                    <rect key="frame" x="28" y="223.5" width="319" height="220"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z8g-jn-f8H">
+                            <rect key="frame" x="0.0" y="0.0" width="319" height="88"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="88I-O5-nDC">
+                                    <rect key="frame" x="0.0" y="30" width="319" height="58"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="26"/>
+                                    <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="88I-O5-nDC" firstAttribute="top" secondItem="z8g-jn-f8H" secondAttribute="top" constant="30" id="3M0-Mu-vyi"/>
+                                <constraint firstAttribute="bottom" secondItem="88I-O5-nDC" secondAttribute="bottom" id="4kq-Vb-AJ4"/>
+                                <constraint firstAttribute="trailing" secondItem="88I-O5-nDC" secondAttribute="trailing" id="Qud-Yw-nPz"/>
+                                <constraint firstItem="88I-O5-nDC" firstAttribute="leading" secondItem="z8g-jn-f8H" secondAttribute="leading" id="wG0-Pm-y4y"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZEi-2X-pEI">
+                            <rect key="frame" x="0.0" y="88" width="319" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Message Chain will be deleted" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="yHm-ms-Uap">
+                                    <rect key="frame" x="0.0" y="0.0" width="319" height="44"/>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                    <color key="textColor" red="0.65098039215686276" green="0.67450980392156867" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="yHm-ms-Uap" secondAttribute="trailing" id="4TC-Yw-Hyf"/>
+                                <constraint firstItem="yHm-ms-Uap" firstAttribute="top" secondItem="ZEi-2X-pEI" secondAttribute="top" id="7BU-ed-QKe"/>
+                                <constraint firstItem="yHm-ms-Uap" firstAttribute="leading" secondItem="ZEi-2X-pEI" secondAttribute="leading" id="M6H-eA-zcu"/>
+                                <constraint firstAttribute="bottom" secondItem="yHm-ms-Uap" secondAttribute="bottom" id="rIH-J3-Y6E"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8J-Fe-hNB">
+                            <rect key="frame" x="0.0" y="132" width="319" height="88"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMQ-AG-rJB">
+                                    <rect key="frame" x="0.0" y="0.0" width="159.5" height="88"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zd8-6r-SAI" customClass="BorderedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="20" width="129.5" height="48"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <state key="normal" title="Cancel">
+                                                <color key="titleColor" red="0.65098039215686276" green="0.67450980392156867" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.91764705882352937" green="0.92549019607843142" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cancelButtonTap:" destination="-1" eventType="touchUpInside" id="j4R-Ye-Y7S"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="zd8-6r-SAI" secondAttribute="bottom" constant="20" id="9OZ-eR-z9W"/>
+                                        <constraint firstItem="zd8-6r-SAI" firstAttribute="leading" secondItem="rMQ-AG-rJB" secondAttribute="leading" constant="20" id="Zq8-Kl-zqR"/>
+                                        <constraint firstItem="zd8-6r-SAI" firstAttribute="top" secondItem="rMQ-AG-rJB" secondAttribute="top" constant="20" id="kSn-nZ-gm4"/>
+                                        <constraint firstAttribute="trailing" secondItem="zd8-6r-SAI" secondAttribute="trailing" constant="10" id="xr7-GY-iYm"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSs-St-ACR">
+                                    <rect key="frame" x="159.5" y="0.0" width="159.5" height="88"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2XV-v0-iDT" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="20" width="129.5" height="48"/>
+                                            <color key="backgroundColor" red="0.92156862745098034" green="0.25490196078431371" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <state key="normal" title="Delete" backgroundImage="mainButtonBackground">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="confirmButtonTap:" destination="-1" eventType="touchUpInside" id="qLt-Xa-1TP"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="2XV-v0-iDT" secondAttribute="bottom" constant="20" id="49p-Ct-K8P"/>
+                                        <constraint firstItem="2XV-v0-iDT" firstAttribute="leading" secondItem="GSs-St-ACR" secondAttribute="leading" constant="10" id="WHF-6W-TkT"/>
+                                        <constraint firstItem="2XV-v0-iDT" firstAttribute="top" secondItem="GSs-St-ACR" secondAttribute="top" constant="20" id="fjr-Ig-7xx"/>
+                                        <constraint firstAttribute="trailing" secondItem="2XV-v0-iDT" secondAttribute="trailing" constant="20" id="lNq-4m-gAj"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="rMQ-AG-rJB" firstAttribute="top" secondItem="U8J-Fe-hNB" secondAttribute="top" id="5KI-Sd-3wX"/>
+                                <constraint firstAttribute="trailing" secondItem="GSs-St-ACR" secondAttribute="trailing" id="6b2-Wx-0On"/>
+                                <constraint firstItem="rMQ-AG-rJB" firstAttribute="leading" secondItem="U8J-Fe-hNB" secondAttribute="leading" id="8ha-W2-RTf"/>
+                                <constraint firstItem="GSs-St-ACR" firstAttribute="leading" secondItem="rMQ-AG-rJB" secondAttribute="trailing" id="Xyd-kN-wmD"/>
+                                <constraint firstAttribute="bottom" secondItem="rMQ-AG-rJB" secondAttribute="bottom" id="Z6G-zb-p1U"/>
+                                <constraint firstItem="GSs-St-ACR" firstAttribute="top" secondItem="U8J-Fe-hNB" secondAttribute="top" id="qI3-w2-6W2"/>
+                                <constraint firstAttribute="bottom" secondItem="GSs-St-ACR" secondAttribute="bottom" id="s1W-i1-bk1"/>
+                                <constraint firstItem="rMQ-AG-rJB" firstAttribute="width" secondItem="GSs-St-ACR" secondAttribute="width" id="yea-CP-vuf"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="z8g-jn-f8H" secondAttribute="trailing" id="2j2-Z5-bDP"/>
+                        <constraint firstAttribute="trailing" secondItem="U8J-Fe-hNB" secondAttribute="trailing" id="2s6-kb-PQR"/>
+                        <constraint firstItem="z8g-jn-f8H" firstAttribute="height" secondItem="ZEi-2X-pEI" secondAttribute="height" multiplier="2" id="6CJ-KL-WaM"/>
+                        <constraint firstItem="z8g-jn-f8H" firstAttribute="height" secondItem="U8J-Fe-hNB" secondAttribute="height" id="AUg-bx-lc2"/>
+                        <constraint firstAttribute="bottom" secondItem="U8J-Fe-hNB" secondAttribute="bottom" id="EZu-qy-wE4"/>
+                        <constraint firstItem="ZEi-2X-pEI" firstAttribute="leading" secondItem="K9d-iH-BaX" secondAttribute="leading" id="WPI-IQ-5X8"/>
+                        <constraint firstItem="z8g-jn-f8H" firstAttribute="top" secondItem="K9d-iH-BaX" secondAttribute="top" id="XtI-x9-qZU"/>
+                        <constraint firstItem="z8g-jn-f8H" firstAttribute="leading" secondItem="K9d-iH-BaX" secondAttribute="leading" id="ZkA-2u-xo1"/>
+                        <constraint firstItem="U8J-Fe-hNB" firstAttribute="top" secondItem="ZEi-2X-pEI" secondAttribute="bottom" id="ftD-2U-MAh"/>
+                        <constraint firstItem="ZEi-2X-pEI" firstAttribute="top" secondItem="z8g-jn-f8H" secondAttribute="bottom" id="ncW-Es-kJw"/>
+                        <constraint firstAttribute="trailing" secondItem="ZEi-2X-pEI" secondAttribute="trailing" id="q9J-ub-8O1"/>
+                        <constraint firstAttribute="height" constant="220" id="tVy-t0-50B"/>
+                        <constraint firstItem="U8J-Fe-hNB" firstAttribute="leading" secondItem="K9d-iH-BaX" secondAttribute="leading" id="vsX-2l-aWO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="K9d-iH-BaX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NZx-JD-bOQ"/>
+                <constraint firstItem="K9d-iH-BaX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RnP-lm-TeC"/>
+                <constraint firstItem="K9d-iH-BaX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="dWC-LW-6ev"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="10" y="-24"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mainButtonBackground" width="275" height="50"/>
+    </resources>
+</document>

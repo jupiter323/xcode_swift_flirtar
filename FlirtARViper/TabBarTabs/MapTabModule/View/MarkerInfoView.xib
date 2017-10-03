@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarkerInfoView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="ageLabel" destination="Lau-me-oD3" id="nd9-Be-GMa"/>
+                <outlet property="avaImage" destination="x8n-2Q-Vq4" id="iMn-y6-xr3"/>
+                <outlet property="nameLabel" destination="oSj-86-Jod" id="YfJ-iH-jlA"/>
+                <outlet property="timeLabel" destination="bgP-GO-YsI" id="9Jd-tg-fIT"/>
+                <outlet property="view" destination="iN0-l3-epB" id="QKA-52-Psi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="158" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapInfoView" translatesAutoresizingMaskIntoConstraints="NO" id="Awz-aO-jYf">
+                    <rect key="frame" x="0.0" y="1" width="158" height="63"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t66-Ig-a6P">
+                    <rect key="frame" x="4" y="0.0" width="150" height="48"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8n-2Q-Vq4">
+                            <rect key="frame" x="4" y="3.5" width="40" height="40"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="W9s-z2-rTk"/>
+                                <constraint firstAttribute="width" constant="40" id="kuX-md-Snb"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="Janie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="oSj-86-Jod">
+                            <rect key="frame" x="53" y="5.5" width="37" height="17.5"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                            <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 y.o" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Lau-me-oD3">
+                            <rect key="frame" x="95" y="10" width="50" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="KEO-AK-4Ln"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="11"/>
+                            <color key="textColor" red="0.47843137254901957" green="0.50196078431372548" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 min ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgP-GO-YsI">
+                            <rect key="frame" x="57" y="26" width="84" height="11"/>
+                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="9"/>
+                            <color key="textColor" red="0.83529411764705885" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="x8n-2Q-Vq4" firstAttribute="centerY" secondItem="t66-Ig-a6P" secondAttribute="centerY" id="1Lc-ZY-n0d"/>
+                        <constraint firstItem="Lau-me-oD3" firstAttribute="leading" secondItem="oSj-86-Jod" secondAttribute="trailing" constant="5" id="1S2-4T-HGd"/>
+                        <constraint firstItem="x8n-2Q-Vq4" firstAttribute="leading" secondItem="t66-Ig-a6P" secondAttribute="leading" constant="4" id="DlO-a3-xYJ"/>
+                        <constraint firstItem="oSj-86-Jod" firstAttribute="leading" secondItem="x8n-2Q-Vq4" secondAttribute="trailing" constant="9" id="Mbp-nn-5ca"/>
+                        <constraint firstItem="bgP-GO-YsI" firstAttribute="top" secondItem="Lau-me-oD3" secondAttribute="bottom" constant="3" id="POE-BR-Ojq"/>
+                        <constraint firstAttribute="trailing" secondItem="Lau-me-oD3" secondAttribute="trailing" constant="5" id="RpX-cC-gnG"/>
+                        <constraint firstItem="bgP-GO-YsI" firstAttribute="trailing" secondItem="Lau-me-oD3" secondAttribute="trailing" constant="-4" id="eB7-wg-XW9"/>
+                        <constraint firstItem="Lau-me-oD3" firstAttribute="bottom" secondItem="oSj-86-Jod" secondAttribute="bottom" id="eOr-EK-0xR"/>
+                        <constraint firstItem="oSj-86-Jod" firstAttribute="top" secondItem="x8n-2Q-Vq4" secondAttribute="top" constant="2" id="eZ1-Hi-9yh"/>
+                        <constraint firstItem="bgP-GO-YsI" firstAttribute="leading" secondItem="oSj-86-Jod" secondAttribute="leading" constant="4" id="xAt-dr-qGk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="t66-Ig-a6P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FWX-pQ-igS"/>
+                <constraint firstAttribute="bottom" secondItem="t66-Ig-a6P" secondAttribute="bottom" constant="16" id="RX8-cw-kJi"/>
+                <constraint firstAttribute="bottom" secondItem="Awz-aO-jYf" secondAttribute="bottom" id="XRm-IC-o4S"/>
+                <constraint firstItem="t66-Ig-a6P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="4" id="adS-tr-zX5"/>
+                <constraint firstAttribute="trailing" secondItem="t66-Ig-a6P" secondAttribute="trailing" constant="4" id="cGc-Lh-804"/>
+                <constraint firstAttribute="trailing" secondItem="Awz-aO-jYf" secondAttribute="trailing" id="evK-BX-SoV"/>
+                <constraint firstItem="Awz-aO-jYf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rA8-81-JKw"/>
+                <constraint firstItem="Awz-aO-jYf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="zGT-HA-qMx"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="-178.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mapInfoView" width="158" height="64"/>
+    </resources>
+</document>

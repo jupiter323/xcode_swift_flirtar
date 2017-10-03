@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TitledInputWithTagsView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="autoCompleteHeight" destination="SY2-V3-sfE" id="LL7-Q8-PCZ"/>
+                <outlet property="autoCompleteShadow" destination="hWi-ZZ-XWo" id="5i8-vw-gRH"/>
+                <outlet property="autoCompleteTable" destination="IRm-fY-VrC" id="T85-c1-E9X"/>
+                <outlet property="inputField" destination="78u-cs-tV4" id="fLr-8r-PSk"/>
+                <outlet property="interestsTagList" destination="Ym6-jm-Ajn" id="7x0-hs-iq7"/>
+                <outlet property="subTitleLabel" destination="Our-ep-HRo" id="6QR-PO-gtC"/>
+                <outlet property="tagListHeight" destination="ATm-g3-IHp" id="9h0-s3-fBR"/>
+                <outlet property="titleLabel" destination="ShC-V3-NB5" id="BDi-5N-SCo"/>
+                <outlet property="view" destination="iN0-l3-epB" id="W6d-JE-cAn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="312"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2DB-HS-EwO">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShC-V3-NB5">
+                            <rect key="frame" x="0.0" y="0.0" width="25" height="20"/>
+                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                            <color key="textColor" red="0.7843137255" green="0.13725490200000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Our-ep-HRo">
+                            <rect key="frame" x="35" y="0.0" width="340" height="20"/>
+                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="10"/>
+                            <color key="textColor" red="0.83529411760000005" green="0.84705882349999995" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Our-ep-HRo" firstAttribute="leading" secondItem="ShC-V3-NB5" secondAttribute="trailing" constant="10" id="04y-9x-mpj"/>
+                        <constraint firstAttribute="trailing" secondItem="Our-ep-HRo" secondAttribute="trailing" id="Dv5-wg-MPH"/>
+                        <constraint firstItem="ShC-V3-NB5" firstAttribute="top" secondItem="2DB-HS-EwO" secondAttribute="top" id="Fxu-vC-PLW"/>
+                        <constraint firstAttribute="height" constant="20" id="Hf0-DP-Asq"/>
+                        <constraint firstAttribute="bottom" secondItem="ShC-V3-NB5" secondAttribute="bottom" id="U6M-Vc-KxJ"/>
+                        <constraint firstItem="ShC-V3-NB5" firstAttribute="leading" secondItem="2DB-HS-EwO" secondAttribute="leading" id="eui-aM-9LP"/>
+                        <constraint firstItem="Our-ep-HRo" firstAttribute="top" secondItem="2DB-HS-EwO" secondAttribute="top" id="gX2-t8-VpI"/>
+                        <constraint firstAttribute="bottom" secondItem="Our-ep-HRo" secondAttribute="bottom" id="jy6-Oh-T0Q"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWi-ZZ-XWo" customClass="ViewWithTitle" customModule="FlirtARViper" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="43" width="375" height="180"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="40" sectionHeaderHeight="20" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRm-fY-VrC">
+                    <rect key="frame" x="0.0" y="43" width="375" height="180"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="SY2-V3-sfE"/>
+                    </constraints>
+                    <color key="separatorColor" red="0.91764705882352937" green="0.92549019607843142" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                    <inset key="separatorInset" minX="13" minY="0.0" maxX="13" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="325-8l-eOV"/>
+                        <outlet property="delegate" destination="-1" id="sAy-fb-fPv"/>
+                    </connections>
+                </tableView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78u-cs-tV4" customClass="InputTextField" customModule="FlirtARViper" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="21" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="k09-Qr-CFB"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="inputChanged:" destination="-1" eventType="editingChanged" id="aIV-26-HYx"/>
+                    </connections>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iI-a7-Tre">
+                    <rect key="frame" x="0.0" y="73" width="375" height="0.0"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ym6-jm-Ajn" customClass="TagListView" customModule="FlirtARViper" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="0.0"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedTextColor">
+                                    <color key="value" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                    <color key="value" red="0.91764705882352937" green="0.92549019607843142" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tagHighlightedBackgroundColor">
+                                    <color key="value" red="0.91764705879999997" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="tagSelectedBackgroundColor">
+                                    <color key="value" red="0.91764705879999997" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedBorderColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                    <real key="value" value="9"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="removeIconLineWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                    <real key="value" value="7"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="removeIconLineColor">
+                                    <color key="value" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableRemoveButton" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Ym6-jm-Ajn" firstAttribute="leading" secondItem="1iI-a7-Tre" secondAttribute="leading" id="0j4-ra-G1P"/>
+                        <constraint firstAttribute="height" id="ATm-g3-IHp"/>
+                        <constraint firstItem="Ym6-jm-Ajn" firstAttribute="top" secondItem="1iI-a7-Tre" secondAttribute="top" id="gwz-0b-kE1"/>
+                        <constraint firstAttribute="bottom" secondItem="Ym6-jm-Ajn" secondAttribute="bottom" id="ize-YX-ACB"/>
+                        <constraint firstAttribute="trailing" secondItem="Ym6-jm-Ajn" secondAttribute="trailing" id="txK-tD-nUE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hWi-ZZ-XWo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0xa-El-SNN"/>
+                <constraint firstItem="1iI-a7-Tre" firstAttribute="top" secondItem="78u-cs-tV4" secondAttribute="bottom" constant="8" id="1aD-We-7GB"/>
+                <constraint firstItem="2DB-HS-EwO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3jG-ks-6SY"/>
+                <constraint firstItem="78u-cs-tV4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BvH-aR-9ej"/>
+                <constraint firstAttribute="trailing" secondItem="1iI-a7-Tre" secondAttribute="trailing" id="Bz0-DG-mra"/>
+                <constraint firstAttribute="trailing" secondItem="78u-cs-tV4" secondAttribute="trailing" id="L8J-j2-TdX"/>
+                <constraint firstAttribute="trailing" secondItem="hWi-ZZ-XWo" secondAttribute="trailing" id="LUS-X5-0Hu"/>
+                <constraint firstItem="hWi-ZZ-XWo" firstAttribute="top" secondItem="IRm-fY-VrC" secondAttribute="top" id="SV1-Ql-dMF"/>
+                <constraint firstItem="1iI-a7-Tre" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WFK-0A-shC"/>
+                <constraint firstItem="IRm-fY-VrC" firstAttribute="trailing" secondItem="78u-cs-tV4" secondAttribute="trailing" id="bWz-mV-zhO"/>
+                <constraint firstItem="2DB-HS-EwO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eCL-6q-Sls"/>
+                <constraint firstItem="IRm-fY-VrC" firstAttribute="top" secondItem="78u-cs-tV4" secondAttribute="bottom" constant="-22" id="euq-Md-rxp"/>
+                <constraint firstAttribute="trailing" secondItem="2DB-HS-EwO" secondAttribute="trailing" id="jh8-Og-BYv"/>
+                <constraint firstItem="78u-cs-tV4" firstAttribute="top" secondItem="2DB-HS-EwO" secondAttribute="bottom" constant="1" id="njJ-tO-052"/>
+                <constraint firstItem="hWi-ZZ-XWo" firstAttribute="height" secondItem="IRm-fY-VrC" secondAttribute="height" id="tpf-Zi-xKW"/>
+                <constraint firstItem="IRm-fY-VrC" firstAttribute="leading" secondItem="78u-cs-tV4" secondAttribute="leading" id="tt3-g9-1Ct"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="48.5" y="-310"/>
+        </view>
+    </objects>
+</document>

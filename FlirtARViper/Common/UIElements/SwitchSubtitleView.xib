@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwitchSubtitleView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="subTitleLabel" destination="0Bi-Cp-9tj" id="Bry-v0-kLw"/>
+                <outlet property="switcher" destination="iuG-9L-jmC" id="aE3-tD-QUH"/>
+                <outlet property="titleLabel" destination="K6L-l4-0ue" id="zIZ-5P-R4D"/>
+                <outlet property="view" destination="iN0-l3-epB" id="aI2-27-Kgh"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="55"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuG-9L-jmC">
+                    <rect key="frame" x="280" y="12" width="51" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="49" id="GI4-D9-EQL"/>
+                    </constraints>
+                    <color key="onTintColor" red="0.92156862750000001" green="0.25490196079999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="se1-wV-r50"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Allow manual position on the Map" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="K6L-l4-0ue">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="55"/>
+                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                    <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="0Bi-Cp-9tj">
+                    <rect key="frame" x="0.0" y="55" width="280" height="0.0"/>
+                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                    <color key="textColor" red="0.83529411764705885" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="iuG-9L-jmC" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5Jm-GY-WAv"/>
+                <constraint firstItem="K6L-l4-0ue" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9zp-Sw-03F"/>
+                <constraint firstAttribute="bottom" secondItem="0Bi-Cp-9tj" secondAttribute="bottom" id="Enq-zR-aEQ"/>
+                <constraint firstAttribute="trailing" secondItem="iuG-9L-jmC" secondAttribute="trailing" id="GPR-Aa-Hpm"/>
+                <constraint firstItem="iuG-9L-jmC" firstAttribute="leading" secondItem="0Bi-Cp-9tj" secondAttribute="trailing" id="bRo-Mw-NTA"/>
+                <constraint firstItem="0Bi-Cp-9tj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cND-YH-hIe"/>
+                <constraint firstItem="K6L-l4-0ue" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dwk-BW-WWY"/>
+                <constraint firstItem="0Bi-Cp-9tj" firstAttribute="top" secondItem="K6L-l4-0ue" secondAttribute="bottom" id="irA-Ws-X6X"/>
+                <constraint firstItem="iuG-9L-jmC" firstAttribute="leading" secondItem="K6L-l4-0ue" secondAttribute="trailing" id="u0Z-JS-vH2"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="84.5" y="-219.5"/>
+        </view>
+    </objects>
+</document>

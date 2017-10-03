@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Horizontal View Controller-->
+        <scene sceneID="Iu9-nn-pHc">
+            <objects>
+                <pageViewController storyboardIdentifier="HorizontalViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="yKn-px-ndX" customClass="HorizontalViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <segue destination="vge-xT-2vj" kind="show" identifier="horizontalSegue" id="TFO-ca-MA4"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1c-ap-wL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186" y="181"/>
+        </scene>
+        <!--Vertical View Controller-->
+        <scene sceneID="mKn-VD-WaE">
+            <objects>
+                <pageViewController storyboardIdentifier="VerticalViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="vertical" spineLocation="none" id="6aw-C3-Bsu" customClass="VerticalViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <segue destination="vge-xT-2vj" kind="show" identifier="verticalSegue" id="FQy-eb-zWD"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xiP-AK-ZNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="185" y="533"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="Bl3-ad-89b">
+            <objects>
+                <viewController storyboardIdentifier="PhotoViewController" id="vge-xT-2vj" customClass="PhotoViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7F9-pR-YrD"/>
+                        <viewControllerLayoutGuide type="bottom" id="YvU-SS-k6n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MNo-On-MWm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="Xdc-O0-Is8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXm-5N-gTl" customClass="PhotoLabel" customModule="FlirtARViper" customModuleProvider="target">
+                                <rect key="frame" x="334" y="260" width="29" height="30"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qcg-qX-lOZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xdc-O0-Is8" firstAttribute="leading" secondItem="MNo-On-MWm" secondAttribute="leading" id="DTs-iA-CNF"/>
+                            <constraint firstItem="YvU-SS-k6n" firstAttribute="top" secondItem="SXm-5N-gTl" secondAttribute="bottom" constant="10" id="FRH-8t-M9u"/>
+                            <constraint firstAttribute="trailing" secondItem="SXm-5N-gTl" secondAttribute="trailing" constant="12" id="TIt-kn-vov"/>
+                            <constraint firstAttribute="trailing" secondItem="Xdc-O0-Is8" secondAttribute="trailing" id="W0Y-hJ-RzR"/>
+                            <constraint firstAttribute="bottom" secondItem="Xdc-O0-Is8" secondAttribute="bottom" id="o0N-D0-CQL"/>
+                            <constraint firstItem="Xdc-O0-Is8" firstAttribute="top" secondItem="MNo-On-MWm" secondAttribute="top" id="rZv-Uw-Bxp"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="bottomLabelConstraint" destination="FRH-8t-M9u" id="OFe-Ms-1BU"/>
+                        <outlet property="photoLabel" destination="SXm-5N-gTl" id="Ize-2x-56D"/>
+                        <outlet property="photoView" destination="Xdc-O0-Is8" id="1nL-OD-6Hz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mWI-Z5-WmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="340"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="photo" width="375" height="350"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FQy-eb-zWD"/>
+    </inferredMetricsTieBreakers>
+</document>

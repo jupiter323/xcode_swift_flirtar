@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LikesAnimationView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="bigLike" destination="gR8-g4-tEk" id="Dfn-Pk-e1w"/>
+                <outlet property="mediumLike" destination="aCx-oX-KHT" id="ZjQ-jY-lLf"/>
+                <outlet property="smallLike" destination="MLQ-Cf-iFY" id="wXX-dr-fCa"/>
+                <outlet property="view" destination="iN0-l3-epB" id="XAC-mt-dTY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="56" height="66"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShapeS" translatesAutoresizingMaskIntoConstraints="NO" id="MLQ-Cf-iFY">
+                    <rect key="frame" x="14.5" y="50" width="17.5" height="16"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="BRh-dX-Zds"/>
+                        <constraint firstAttribute="width" constant="17.5" id="S0l-RD-cbr"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shape" translatesAutoresizingMaskIntoConstraints="NO" id="aCx-oX-KHT">
+                    <rect key="frame" x="31.5" y="33" width="23" height="21"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="S8F-NQ-gms"/>
+                        <constraint firstAttribute="width" constant="23" id="liC-9Q-VPc"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShapeL" translatesAutoresizingMaskIntoConstraints="NO" id="gR8-g4-tEk">
+                    <rect key="frame" x="13.5" y="10" width="27" height="25"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="27" id="O3o-X5-9SR"/>
+                        <constraint firstAttribute="height" constant="25" id="v8s-8m-HAj"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="aCx-oX-KHT" firstAttribute="leading" secondItem="MLQ-Cf-iFY" secondAttribute="leading" constant="17" id="76F-5P-O2z"/>
+                <constraint firstAttribute="bottom" secondItem="MLQ-Cf-iFY" secondAttribute="bottom" id="CSY-dx-knf"/>
+                <constraint firstItem="gR8-g4-tEk" firstAttribute="bottom" secondItem="aCx-oX-KHT" secondAttribute="bottom" constant="-19" id="Kwh-Kd-LeV"/>
+                <constraint firstItem="MLQ-Cf-iFY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-5" id="UJI-PH-pIq"/>
+                <constraint firstItem="aCx-oX-KHT" firstAttribute="bottom" secondItem="MLQ-Cf-iFY" secondAttribute="bottom" constant="-12" id="XrI-yN-6BT"/>
+                <constraint firstItem="gR8-g4-tEk" firstAttribute="trailing" secondItem="aCx-oX-KHT" secondAttribute="trailing" constant="-14" id="Yyg-jU-rH2"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-124" y="-205"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Shape" width="24" height="22"/>
+        <image name="ShapeL" width="28" height="26"/>
+        <image name="ShapeS" width="19" height="17"/>
+    </resources>
+</document>

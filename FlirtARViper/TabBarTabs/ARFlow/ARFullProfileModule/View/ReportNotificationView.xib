@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportNotificationView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="messageRoundedView" destination="ViL-CE-LhE" id="wgx-0h-frW"/>
+                <outlet property="messageTextView" destination="U0b-sN-OAw" id="yVI-zf-qTP"/>
+                <outlet property="roundedMainView" destination="OYx-8D-sQI" id="69y-AY-nEL"/>
+                <outlet property="view" destination="iN0-l3-epB" id="mO5-JX-e3F"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OYx-8D-sQI">
+                    <rect key="frame" x="31" y="233" width="352" height="270"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QmQ-dO-OaX">
+                            <rect key="frame" x="0.0" y="0.0" width="352" height="81"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Report" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LuE-Gr-tJB">
+                                    <rect key="frame" x="0.0" y="30" width="352" height="51"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="26"/>
+                                    <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="LuE-Gr-tJB" firstAttribute="top" secondItem="QmQ-dO-OaX" secondAttribute="top" constant="30" id="FS9-4e-n5d"/>
+                                <constraint firstAttribute="trailing" secondItem="LuE-Gr-tJB" secondAttribute="trailing" id="a7c-L5-jsC"/>
+                                <constraint firstItem="LuE-Gr-tJB" firstAttribute="leading" secondItem="QmQ-dO-OaX" secondAttribute="leading" id="gPd-2h-dzm"/>
+                                <constraint firstAttribute="bottom" secondItem="LuE-Gr-tJB" secondAttribute="bottom" id="szc-EW-tkv"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fki-o3-x5c">
+                            <rect key="frame" x="0.0" y="81" width="352" height="108"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ViL-CE-LhE">
+                                    <rect key="frame" x="18" y="0.0" width="316" height="108"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your message" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U0b-sN-OAw">
+                                            <rect key="frame" x="0.0" y="0.0" width="316" height="108"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="U0b-sN-OAw" firstAttribute="leading" secondItem="ViL-CE-LhE" secondAttribute="leading" id="LaM-rF-tbe"/>
+                                        <constraint firstAttribute="trailing" secondItem="U0b-sN-OAw" secondAttribute="trailing" id="O38-y9-NfH"/>
+                                        <constraint firstAttribute="bottom" secondItem="U0b-sN-OAw" secondAttribute="bottom" id="Tn6-Cv-esl"/>
+                                        <constraint firstItem="U0b-sN-OAw" firstAttribute="top" secondItem="ViL-CE-LhE" secondAttribute="top" id="U0o-zN-D3q"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ViL-CE-LhE" firstAttribute="leading" secondItem="Fki-o3-x5c" secondAttribute="leading" constant="18" id="1hf-UQ-88B"/>
+                                <constraint firstAttribute="trailing" secondItem="ViL-CE-LhE" secondAttribute="trailing" constant="18" id="AfR-Zk-mDe"/>
+                                <constraint firstItem="ViL-CE-LhE" firstAttribute="top" secondItem="Fki-o3-x5c" secondAttribute="top" id="kgH-a8-2tp"/>
+                                <constraint firstAttribute="bottom" secondItem="ViL-CE-LhE" secondAttribute="bottom" id="krb-AQ-Sf5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLH-Nn-dOr">
+                            <rect key="frame" x="0.0" y="189" width="352" height="81"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPQ-EG-UFC">
+                                    <rect key="frame" x="0.0" y="0.0" width="176" height="81"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-CC-Aq8" customClass="BorderedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="20" width="146" height="41"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <state key="normal" title="Cancel">
+                                                <color key="titleColor" red="0.65098039215686276" green="0.67450980392156867" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.91764705882352937" green="0.92549019607843142" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cancelTap:" destination="-1" eventType="touchUpInside" id="xHm-FQ-3QW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="hRG-CC-Aq8" firstAttribute="top" secondItem="MPQ-EG-UFC" secondAttribute="top" constant="20" id="1QQ-ar-ZKU"/>
+                                        <constraint firstAttribute="trailing" secondItem="hRG-CC-Aq8" secondAttribute="trailing" constant="10" id="9vs-3s-pNT"/>
+                                        <constraint firstItem="hRG-CC-Aq8" firstAttribute="leading" secondItem="MPQ-EG-UFC" secondAttribute="leading" constant="20" id="IZt-aq-sqa"/>
+                                        <constraint firstAttribute="bottom" secondItem="hRG-CC-Aq8" secondAttribute="bottom" constant="20" id="dwR-zv-O3H"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOm-YR-JKa">
+                                    <rect key="frame" x="176" y="0.0" width="176" height="81"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQy-tT-khy" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="20" width="146" height="41"/>
+                                            <color key="backgroundColor" red="0.92156862745098034" green="0.25490196078431371" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <state key="normal" title="Send" backgroundImage="mainButtonBackground">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="sendTap:" destination="-1" eventType="touchUpInside" id="ihz-gj-rSR"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="hQy-tT-khy" secondAttribute="trailing" constant="20" id="AJw-Pk-8i2"/>
+                                        <constraint firstItem="hQy-tT-khy" firstAttribute="top" secondItem="eOm-YR-JKa" secondAttribute="top" constant="20" id="K2s-Fh-qCi"/>
+                                        <constraint firstItem="hQy-tT-khy" firstAttribute="leading" secondItem="eOm-YR-JKa" secondAttribute="leading" constant="10" id="aMX-dh-UHp"/>
+                                        <constraint firstAttribute="bottom" secondItem="hQy-tT-khy" secondAttribute="bottom" constant="20" id="o9w-kl-h0H"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="MPQ-EG-UFC" firstAttribute="width" secondItem="eOm-YR-JKa" secondAttribute="width" id="B1c-Tz-7tE"/>
+                                <constraint firstItem="eOm-YR-JKa" firstAttribute="top" secondItem="lLH-Nn-dOr" secondAttribute="top" id="V1z-f4-MC6"/>
+                                <constraint firstItem="MPQ-EG-UFC" firstAttribute="leading" secondItem="lLH-Nn-dOr" secondAttribute="leading" id="fix-6t-vPb"/>
+                                <constraint firstAttribute="trailing" secondItem="eOm-YR-JKa" secondAttribute="trailing" id="hcl-b7-W6k"/>
+                                <constraint firstItem="eOm-YR-JKa" firstAttribute="leading" secondItem="MPQ-EG-UFC" secondAttribute="trailing" id="k62-ia-zbt"/>
+                                <constraint firstAttribute="bottom" secondItem="eOm-YR-JKa" secondAttribute="bottom" id="uKi-oA-OpM"/>
+                                <constraint firstAttribute="bottom" secondItem="MPQ-EG-UFC" secondAttribute="bottom" id="up1-Su-1U3"/>
+                                <constraint firstItem="MPQ-EG-UFC" firstAttribute="top" secondItem="lLH-Nn-dOr" secondAttribute="top" id="z8v-eR-xSx"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="QmQ-dO-OaX" firstAttribute="height" secondItem="Fki-o3-x5c" secondAttribute="height" multiplier="74:98" id="8IQ-wm-20z"/>
+                        <constraint firstItem="QmQ-dO-OaX" firstAttribute="leading" secondItem="OYx-8D-sQI" secondAttribute="leading" id="8MG-a6-XeH"/>
+                        <constraint firstItem="lLH-Nn-dOr" firstAttribute="leading" secondItem="OYx-8D-sQI" secondAttribute="leading" id="HDc-F4-L8H"/>
+                        <constraint firstAttribute="height" constant="270" id="IDi-v0-gdW"/>
+                        <constraint firstItem="QmQ-dO-OaX" firstAttribute="height" secondItem="lLH-Nn-dOr" secondAttribute="height" id="Jen-0t-YXi"/>
+                        <constraint firstAttribute="trailing" secondItem="lLH-Nn-dOr" secondAttribute="trailing" id="Lh9-SF-JzR"/>
+                        <constraint firstAttribute="trailing" secondItem="QmQ-dO-OaX" secondAttribute="trailing" id="NBw-os-RJv"/>
+                        <constraint firstItem="lLH-Nn-dOr" firstAttribute="top" secondItem="Fki-o3-x5c" secondAttribute="bottom" id="QuP-Qc-Z0j"/>
+                        <constraint firstItem="Fki-o3-x5c" firstAttribute="leading" secondItem="OYx-8D-sQI" secondAttribute="leading" id="bLr-3n-TV4"/>
+                        <constraint firstAttribute="trailing" secondItem="Fki-o3-x5c" secondAttribute="trailing" id="tdl-Gy-VXe"/>
+                        <constraint firstAttribute="bottom" secondItem="lLH-Nn-dOr" secondAttribute="bottom" id="uXJ-ZN-e2M"/>
+                        <constraint firstItem="Fki-o3-x5c" firstAttribute="top" secondItem="QmQ-dO-OaX" secondAttribute="bottom" id="unf-xf-RJf"/>
+                        <constraint firstItem="QmQ-dO-OaX" firstAttribute="top" secondItem="OYx-8D-sQI" secondAttribute="top" id="x3e-Dt-gOJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="OYx-8D-sQI" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3cr-Z8-1ie"/>
+                <constraint firstItem="OYx-8D-sQI" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="HdF-Wb-3IR"/>
+                <constraint firstItem="OYx-8D-sQI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cgy-eW-1BR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mainButtonBackground" width="275" height="50"/>
+    </resources>
+</document>

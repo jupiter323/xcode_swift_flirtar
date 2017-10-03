@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Email View Controller-->
+        <scene sceneID="80x-hK-qFk">
+            <objects>
+                <viewController storyboardIdentifier="SUEmailViewController" id="ps5-cP-r6e" customClass="SUEmailViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lPJ-mG-d5A"/>
+                        <viewControllerLayoutGuide type="bottom" id="l8P-HV-OWH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Iv-he-sH7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwc-UL-EsD">
+                                <rect key="frame" x="0.0" y="27.5" width="320" height="452.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-h0-3BP">
+                                        <rect key="frame" x="40.5" y="100" width="239.5" height="82"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="SOJ-FF-HCH">
+                                                <rect key="frame" x="0.0" y="0.0" width="239.5" height="41"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="32"/>
+                                                <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="YRY-mp-OJ3">
+                                                <rect key="frame" x="0.0" y="41" width="239.5" height="41"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="28"/>
+                                                <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="82" id="MPT-zG-Z60"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXr-2I-jUv">
+                                        <rect key="frame" x="39.5" y="202" width="240" height="44"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWY-xc-peZ" customClass="InputTextField" customModule="FlirtARViper" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <connections>
+                                                    <action selector="textEdit:" destination="ps5-cP-r6e" eventType="editingChanged" id="glf-eo-KwY"/>
+                                                    <outlet property="delegate" destination="ps5-cP-r6e" id="48f-Oj-hjB"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="OWY-xc-peZ" secondAttribute="trailing" id="Sd9-j6-v8w"/>
+                                            <constraint firstItem="OWY-xc-peZ" firstAttribute="top" secondItem="oXr-2I-jUv" secondAttribute="top" id="fUK-0g-GQc"/>
+                                            <constraint firstAttribute="height" constant="44" id="gfQ-UQ-pHO"/>
+                                            <constraint firstAttribute="bottom" secondItem="OWY-xc-peZ" secondAttribute="bottom" id="sVG-iG-Vhd"/>
+                                            <constraint firstItem="OWY-xc-peZ" firstAttribute="leading" secondItem="oXr-2I-jUv" secondAttribute="leading" id="xIA-qW-QZU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zF-kE-4GT" customClass="SeparatorView" customModule="FlirtARViper" customModuleProvider="target">
+                                        <rect key="frame" x="39.5" y="246" width="240" height="60"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="21R-WQ-WKe"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="6qQ-Sl-iqm"/>
+                                            <constraint firstAttribute="height" priority="750" constant="80" id="7Oe-c1-LsD"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbo-nH-Vkr" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                        <rect key="frame" x="39.5" y="306" width="240" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Uk9-cF-S6v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="16" maxY="0.0"/>
+                                        <state key="normal" title="Sign Up with Facebook" image="fbButton" backgroundImage="mainButtonBackground">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpFBTap:" destination="ps5-cP-r6e" eventType="touchUpInside" id="j6b-57-UOR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't worry! We never post to Facebook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="qLR-wZ-2KZ">
+                                        <rect key="frame" x="32" y="368.5" width="256" height="16"/>
+                                        <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="13"/>
+                                        <color key="textColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1oX-P3-apW">
+                                        <rect key="frame" x="51" y="412.5" width="218" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="1aN-tQ-iEA"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Already have an Account?">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.65098039215686276" green="0.67450980392156867" blue="0.72549019607843135" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="14" name="VarelaRound"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=" ">
+                                                    <attributes>
+                                                        <font key="NSFont" size="14" name="VarelaRound"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="Log In">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.65098039215686276" green="0.67450980392156867" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="14" name="VarelaRound"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="logInTap:" destination="ps5-cP-r6e" eventType="touchUpInside" id="blG-SI-qeB"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9KO-s7-pdt">
+                                        <rect key="frame" x="0.0" y="397.5" width="320" height="55"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="0.25490196079999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="eKc-VL-1Ld"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="16"/>
+                                        <state key="normal" title="Continue" backgroundImage="continueButton">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="continueTap:" destination="ps5-cP-r6e" eventType="touchUpInside" id="eyZ-7s-DN6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1oX-P3-apW" secondAttribute="bottom" constant="20" id="1rd-Ug-n0O"/>
+                                    <constraint firstItem="XQY-h0-3BP" firstAttribute="centerX" secondItem="rwc-UL-EsD" secondAttribute="centerX" id="88N-Ww-HCd"/>
+                                    <constraint firstItem="1oX-P3-apW" firstAttribute="centerX" secondItem="rwc-UL-EsD" secondAttribute="centerX" id="As4-tv-hmT"/>
+                                    <constraint firstItem="oXr-2I-jUv" firstAttribute="centerX" secondItem="rwc-UL-EsD" secondAttribute="centerX" id="Ba3-EY-4nH"/>
+                                    <constraint firstItem="qLR-wZ-2KZ" firstAttribute="centerX" secondItem="hbo-nH-Vkr" secondAttribute="centerX" id="Eem-Xb-26z"/>
+                                    <constraint firstItem="1oX-P3-apW" firstAttribute="top" secondItem="hbo-nH-Vkr" secondAttribute="bottom" priority="751" constant="20" id="FAq-ip-egR"/>
+                                    <constraint firstAttribute="bottom" secondItem="9KO-s7-pdt" secondAttribute="bottom" id="KOP-os-fat"/>
+                                    <constraint firstItem="7zF-kE-4GT" firstAttribute="centerX" secondItem="rwc-UL-EsD" secondAttribute="centerX" id="LG4-7g-zCm"/>
+                                    <constraint firstItem="qLR-wZ-2KZ" firstAttribute="width" secondItem="rwc-UL-EsD" secondAttribute="width" multiplier="0.8" id="Mjk-ym-HVL"/>
+                                    <constraint firstItem="7zF-kE-4GT" firstAttribute="width" secondItem="rwc-UL-EsD" secondAttribute="width" multiplier="3:4" id="Qut-Bf-ArT"/>
+                                    <constraint firstItem="qLR-wZ-2KZ" firstAttribute="top" secondItem="hbo-nH-Vkr" secondAttribute="bottom" constant="13" id="Xvo-dh-WUV"/>
+                                    <constraint firstItem="XQY-h0-3BP" firstAttribute="top" secondItem="rwc-UL-EsD" secondAttribute="top" constant="100" id="aP7-nt-QUv"/>
+                                    <constraint firstAttribute="trailing" secondItem="9KO-s7-pdt" secondAttribute="trailing" id="gEF-Fu-5Uy"/>
+                                    <constraint firstItem="9KO-s7-pdt" firstAttribute="leading" secondItem="rwc-UL-EsD" secondAttribute="leading" id="hf2-IH-JdH"/>
+                                    <constraint firstItem="oXr-2I-jUv" firstAttribute="width" secondItem="rwc-UL-EsD" secondAttribute="width" multiplier="3:4" id="rzY-kh-lbQ"/>
+                                    <constraint firstItem="XQY-h0-3BP" firstAttribute="width" secondItem="rwc-UL-EsD" secondAttribute="width" multiplier="3:4" id="vea-Rt-Xn6"/>
+                                    <constraint firstItem="hbo-nH-Vkr" firstAttribute="top" secondItem="7zF-kE-4GT" secondAttribute="bottom" id="wOw-tY-f8Z"/>
+                                    <constraint firstItem="hbo-nH-Vkr" firstAttribute="centerX" secondItem="rwc-UL-EsD" secondAttribute="centerX" id="xMW-YY-4yi"/>
+                                    <constraint firstItem="oXr-2I-jUv" firstAttribute="top" secondItem="XQY-h0-3BP" secondAttribute="bottom" constant="20" id="yLc-7E-H4R"/>
+                                    <constraint firstItem="hbo-nH-Vkr" firstAttribute="width" secondItem="rwc-UL-EsD" secondAttribute="width" multiplier="3:4" id="zKV-yG-OBq"/>
+                                    <constraint firstItem="7zF-kE-4GT" firstAttribute="top" secondItem="oXr-2I-jUv" secondAttribute="bottom" id="zdV-G7-gZ0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9n2-9L-qQ6">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shapeNavBar" translatesAutoresizingMaskIntoConstraints="NO" id="cPd-co-Gbl">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP6-QE-q6h">
+                                        <rect key="frame" x="0.0" y="12" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="GuC-NJ-UIW"/>
+                                            <constraint firstAttribute="height" constant="44" id="JNs-NM-PNe"/>
+                                        </constraints>
+                                        <state key="normal" image="backButton"/>
+                                        <connections>
+                                            <action selector="backButtonTap:" destination="ps5-cP-r6e" eventType="touchUpInside" id="XhG-Kf-NMt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cPd-co-Gbl" firstAttribute="top" secondItem="9n2-9L-qQ6" secondAttribute="top" id="4hd-cv-Mqp"/>
+                                    <constraint firstItem="XP6-QE-q6h" firstAttribute="centerY" secondItem="cPd-co-Gbl" secondAttribute="centerY" id="HEg-Bv-8Jn"/>
+                                    <constraint firstAttribute="trailing" secondItem="cPd-co-Gbl" secondAttribute="trailing" id="NsB-Nf-W8P"/>
+                                    <constraint firstAttribute="bottom" secondItem="cPd-co-Gbl" secondAttribute="bottom" id="ah0-wu-jZU"/>
+                                    <constraint firstItem="cPd-co-Gbl" firstAttribute="leading" secondItem="9n2-9L-qQ6" secondAttribute="leading" id="f07-ri-EuQ"/>
+                                    <constraint firstItem="XP6-QE-q6h" firstAttribute="leading" secondItem="9n2-9L-qQ6" secondAttribute="leading" id="jb1-x2-zqn"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rwc-UL-EsD" firstAttribute="leading" secondItem="1Iv-he-sH7" secondAttribute="leading" id="BwU-UG-cnc"/>
+                            <constraint firstItem="rwc-UL-EsD" firstAttribute="top" secondItem="9n2-9L-qQ6" secondAttribute="bottom" constant="-40" id="Hmx-y9-ZgR"/>
+                            <constraint firstItem="9n2-9L-qQ6" firstAttribute="leading" secondItem="1Iv-he-sH7" secondAttribute="leading" id="MFo-mv-nwd"/>
+                            <constraint firstAttribute="trailing" secondItem="9n2-9L-qQ6" secondAttribute="trailing" id="OG1-LE-SNA"/>
+                            <constraint firstItem="9n2-9L-qQ6" firstAttribute="top" secondItem="1Iv-he-sH7" secondAttribute="top" id="XNN-HR-Mw8"/>
+                            <constraint firstItem="l8P-HV-OWH" firstAttribute="top" secondItem="rwc-UL-EsD" secondAttribute="bottom" id="fmL-nu-YYG"/>
+                            <constraint firstAttribute="trailing" secondItem="rwc-UL-EsD" secondAttribute="trailing" id="nid-pU-qx3"/>
+                            <constraint firstItem="9n2-9L-qQ6" firstAttribute="height" secondItem="1Iv-he-sH7" secondAttribute="height" multiplier="94:667" id="orp-4L-aZz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="continueButton" destination="9KO-s7-pdt" id="lzS-9c-9nz"/>
+                        <outlet property="emailTextField" destination="OWY-xc-peZ" id="hR3-Xj-Ncx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oQI-7f-yED" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="124"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backButton" width="8" height="14"/>
+        <image name="continueButton" width="375" height="50"/>
+        <image name="fbButton" width="34" height="34"/>
+        <image name="mainButtonBackground" width="275" height="50"/>
+        <image name="shapeNavBar" width="375" height="94"/>
+    </resources>
+</document>

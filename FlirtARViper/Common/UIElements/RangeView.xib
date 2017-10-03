@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RangeView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="endLabel" destination="So2-K5-vRi" id="aQX-mb-DuO"/>
+                <outlet property="endView" destination="zGQ-kb-wLX" id="Ruk-6b-1Kr"/>
+                <outlet property="inputTextField" destination="chc-y1-XGk" id="sro-9x-kl0"/>
+                <outlet property="startLabel" destination="Gw3-Dj-Es5" id="i2S-rT-Wxa"/>
+                <outlet property="startView" destination="wup-4F-9eK" id="HcG-Y8-UM9"/>
+                <outlet property="titleLabel" destination="M7H-ZW-XOg" id="glC-BE-mj4"/>
+                <outlet property="view" destination="iN0-l3-epB" id="sjJ-Gi-VKa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="446" height="161"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCg-gD-75O">
+                    <rect key="frame" x="0.0" y="58.5" width="446" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wup-4F-9eK">
+                            <rect key="frame" x="0.0" y="0.0" width="208" height="44"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jAO-da-SH8">
+                                    <rect key="frame" x="8" y="0.0" width="192" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="from" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YfE-sy-q8k">
+                                            <rect key="frame" x="0.0" y="0.0" width="58.5" height="44"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                                            <color key="textColor" red="0.47843137254901957" green="0.50196078431372548" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gw3-Dj-Es5">
+                                            <rect key="frame" x="66.5" y="0.0" width="59" height="44"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y.o" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIf-eY-i0e">
+                                            <rect key="frame" x="133.5" y="0.0" width="58.5" height="44"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                                            <color key="textColor" red="0.47843137254901957" green="0.50196078431372548" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="jAO-da-SH8" secondAttribute="trailing" constant="8" id="fdU-yu-d6J"/>
+                                <constraint firstItem="jAO-da-SH8" firstAttribute="top" secondItem="wup-4F-9eK" secondAttribute="top" id="nsF-ZD-tyn"/>
+                                <constraint firstItem="jAO-da-SH8" firstAttribute="leading" secondItem="wup-4F-9eK" secondAttribute="leading" constant="8" id="tXL-dg-4fv"/>
+                                <constraint firstAttribute="bottom" secondItem="jAO-da-SH8" secondAttribute="bottom" id="vVt-dn-gKL"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QYu-FK-QZ9">
+                            <rect key="frame" x="208" y="0.0" width="30" height="44"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjo-cD-yO6">
+                                    <rect key="frame" x="10" y="21.5" width="10" height="1"/>
+                                    <color key="backgroundColor" red="0.47843137254901957" green="0.50196078431372548" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="10" id="bNG-dX-qar"/>
+                                        <constraint firstAttribute="height" constant="1" id="sbO-m8-4Yt"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="QfA-Uk-3kX"/>
+                                <constraint firstItem="pjo-cD-yO6" firstAttribute="centerY" secondItem="QYu-FK-QZ9" secondAttribute="centerY" id="VTK-zB-TKh"/>
+                                <constraint firstItem="pjo-cD-yO6" firstAttribute="centerX" secondItem="QYu-FK-QZ9" secondAttribute="centerX" id="vbJ-o2-FOt"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-kb-wLX">
+                            <rect key="frame" x="238" y="0.0" width="208" height="44"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xh2-Tc-CAI">
+                                    <rect key="frame" x="8" y="0.0" width="192" height="44"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="to" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lko-qV-Iyq">
+                                            <rect key="frame" x="0.0" y="0.0" width="58.5" height="44"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                                            <color key="textColor" red="0.47843137250000001" green="0.50196078430000002" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="So2-K5-vRi">
+                                            <rect key="frame" x="66.5" y="0.0" width="59" height="44"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y.o" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="532-zU-hwv">
+                                            <rect key="frame" x="133.5" y="0.0" width="58.5" height="44"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                                            <color key="textColor" red="0.47843137250000001" green="0.50196078430000002" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="xh2-Tc-CAI" firstAttribute="top" secondItem="zGQ-kb-wLX" secondAttribute="top" id="Iq9-tj-Kki"/>
+                                <constraint firstAttribute="bottom" secondItem="xh2-Tc-CAI" secondAttribute="bottom" id="Jo3-BZ-o0f"/>
+                                <constraint firstItem="xh2-Tc-CAI" firstAttribute="leading" secondItem="zGQ-kb-wLX" secondAttribute="leading" constant="8" id="Phf-dB-pjX"/>
+                                <constraint firstAttribute="trailing" secondItem="xh2-Tc-CAI" secondAttribute="trailing" constant="8" id="iOJ-Lt-hVh"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="wup-4F-9eK" firstAttribute="width" secondItem="zGQ-kb-wLX" secondAttribute="width" id="Rep-rP-4FQ"/>
+                        <constraint firstAttribute="height" constant="44" id="RoD-ll-tar"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age range:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7H-ZW-XOg">
+                    <rect key="frame" x="0.0" y="30.5" width="446" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="sP1-pg-Ami"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="12"/>
+                    <color key="textColor" red="0.7843137255" green="0.13725490200000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chc-y1-XGk">
+                    <rect key="frame" x="0.0" y="0.0" width="446" height="161"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="OCg-gD-75O" secondAttribute="trailing" id="71f-mh-RxT"/>
+                <constraint firstItem="M7H-ZW-XOg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AAD-SZ-fVa"/>
+                <constraint firstItem="OCg-gD-75O" firstAttribute="top" secondItem="M7H-ZW-XOg" secondAttribute="bottom" constant="8" id="G2f-nR-gdM"/>
+                <constraint firstAttribute="bottom" secondItem="chc-y1-XGk" secondAttribute="bottom" id="KhC-Cc-8kR"/>
+                <constraint firstItem="chc-y1-XGk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WEl-7l-bf2"/>
+                <constraint firstItem="OCg-gD-75O" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="exd-WN-Y5G"/>
+                <constraint firstItem="OCg-gD-75O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="faV-ML-ZaT"/>
+                <constraint firstAttribute="trailing" secondItem="chc-y1-XGk" secondAttribute="trailing" id="q2Q-7i-4Ya"/>
+                <constraint firstAttribute="trailing" secondItem="M7H-ZW-XOg" secondAttribute="trailing" id="sQH-vo-aJg"/>
+                <constraint firstItem="chc-y1-XGk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yaT-0a-Vxh"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="72" y="-198.5"/>
+        </view>
+    </objects>
+</document>

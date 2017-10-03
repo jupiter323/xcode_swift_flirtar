@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwitchView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="switcher" destination="gW8-M3-U9D" id="mCZ-TD-x5e"/>
+                <outlet property="titleLabel" destination="otQ-u4-tKZ" id="mqd-2t-huU"/>
+                <outlet property="view" destination="iN0-l3-epB" id="Kdj-c2-qKD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="310" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show me on the Map for other users" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="otQ-u4-tKZ">
+                    <rect key="frame" x="0.0" y="0.0" width="256" height="100"/>
+                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                    <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gW8-M3-U9D">
+                    <rect key="frame" x="261" y="35" width="51" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="49" id="UPC-P4-9hM"/>
+                    </constraints>
+                    <color key="onTintColor" red="0.92156862745098034" green="0.25490196078431371" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="switchValueChanged:" destination="-1" eventType="valueChanged" id="3pN-Ft-qUH"/>
+                    </connections>
+                </switch>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="gW8-M3-U9D" firstAttribute="leading" secondItem="otQ-u4-tKZ" secondAttribute="trailing" constant="5" id="7EM-jw-AID"/>
+                <constraint firstItem="otQ-u4-tKZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tif-tx-geJ"/>
+                <constraint firstAttribute="bottom" secondItem="otQ-u4-tKZ" secondAttribute="bottom" id="cbI-cj-eIa"/>
+                <constraint firstAttribute="trailing" secondItem="gW8-M3-U9D" secondAttribute="trailing" id="eLt-rA-2vG"/>
+                <constraint firstItem="gW8-M3-U9D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="isa-l7-vpg"/>
+                <constraint firstItem="otQ-u4-tKZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jvD-wB-ma9"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-26" y="-87"/>
+        </view>
+    </objects>
+</document>

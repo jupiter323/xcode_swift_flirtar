@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDPhoto" representedClassName=".CDPhoto" syncable="YES">
+        <attribute name="isPrimary" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="photoId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSavedUser" inverseName="userPhotos" inverseEntity="CDSavedUser" syncable="YES"/>
+    </entity>
+    <entity name="CDSavedUser" representedClassName=".CDSavedUser" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="genderPreferences" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="interests" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFacebook" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="maxAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortIntroduction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="showOnMap" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="userPhotos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDPhoto" inverseName="user" inverseEntity="CDPhoto" syncable="YES"/>
+        <relationship name="userToken" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDToken" inverseName="user" inverseEntity="CDToken" syncable="YES"/>
+    </entity>
+    <entity name="CDToken" representedClassName=".CDToken" syncable="YES">
+        <attribute name="tokenValue" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSavedUser" inverseName="userToken" inverseEntity="CDSavedUser" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDSavedUser" positionX="-5391" positionY="-1003" width="128" height="268"/>
+        <element name="CDToken" positionX="-5168" positionY="-945" width="128" height="73"/>
+        <element name="CDPhoto" positionX="-5580" positionY="-748" width="128" height="118"/>
+    </elements>
+</model>
