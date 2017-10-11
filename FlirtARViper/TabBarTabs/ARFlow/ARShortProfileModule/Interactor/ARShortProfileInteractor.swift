@@ -2,8 +2,8 @@
 //  ARShortProfileInteractor.swift
 //  FlirtARViper
 //
-//  Created by Daniel Harold on 16.08.17.
-//  Copyright © 2017 Daniel Harold. All rights reserved.
+//  Created by on 16.08.17.
+//  Copyright © 2017. All rights reserved.
 //
 
 import Foundation

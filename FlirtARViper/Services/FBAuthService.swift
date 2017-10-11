@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import FBSDKCoreKit
-import FBSDKLoginKit
+import FacebookCore
+import FacebookLogin
 
 enum FBAuthError: Error {
     case userCancelFlow
@@ -34,59 +34,53 @@ enum FBAuthError: Error {
 
 class FBAuthService {
     
-    
     //MARK: - Private
-    private var loginManager = FBSDKLoginManager()
+    private var loginManager = LoginManager()
     private func fbLogout() {
         loginManager.logOut()
-        FBSDKAccessToken.setCurrent(nil)
+        AccessToken.current = nil
     }
     
-    private let neededPermissions = ["public_profile", "email", "user_birthday", "user_photos"]
+    
+    
+    private let neededPermissions = [ReadPermission.publicProfile,
+                                     ReadPermission.email,
+                                     ReadPermission.custom("user_birthday"),
+                                     ReadPermission.custom("user_photos")]
     
     //MARK: - Public
     func fbAuthorize(completionHandler: @escaping (_ accessToken: String?, _ error: FBAuthError?) -> ()) {
         
         fbLogout()
         
-        loginManager.loginBehavior = .web
-        loginManager.logIn(withReadPermissions: neededPermissions, from: nil) { (result, error) in
-            if (error != nil) {
-                self.fbLogout()
-                completionHandler(nil, .fbInternalError)
-            } else if (result?.isCancelled)! {
-                self.fbLogout()
-                completionHandler(nil, .userCancelFlow)
-            } else {
-                //Success
-                
-                if self.checkGrantedPermissions(result: result, permissions: self.neededPermissions) {
-                    
-                    guard let accessToken = result?.token?.tokenString else {
-                        completionHandler(nil, .noAccessToken)
-                        return
+        loginManager.loginBehavior = .browser
+        
+        loginManager
+            .logIn(neededPermissions,
+                   viewController: nil) { (result) in
+                    switch result {
+
+                    case .failed(let error):
+                        print("DEBUG FBAuthError: \(error.localizedDescription)")
+                        self.fbLogout()
+                        completionHandler(nil, .fbInternalError)
+                    case .cancelled:
+                        self.fbLogout()
+                        completionHandler(nil, .userCancelFlow)
+                        
+                    case .success(_, let declinedPermissions, let token):
+                        
+                        //all permissions granted
+                        if declinedPermissions.isEmpty {
+                            completionHandler(token.authenticationToken, nil)
+                        } else {
+                            //else
+                            completionHandler(nil, .permissionsNotGranted)
+                        }
+                        
                     }
-                    
-                    completionHandler(accessToken, nil)
-                    
-                } else {
-                    completionHandler(nil, .permissionsNotGranted)
-                }
-            }
         }
 
-    }
-    
-    func checkGrantedPermissions(result: FBSDKLoginManagerLoginResult?, permissions: [String]) -> Bool {
-        
-        
-        for eachPermission in permissions {
-            if result?.grantedPermissions.contains(eachPermission) == false {
-                return false
-            }
-        }
-        
-        return true
     }
     
     

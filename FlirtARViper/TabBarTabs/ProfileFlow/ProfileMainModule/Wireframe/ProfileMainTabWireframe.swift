@@ -42,4 +42,5 @@ class ProfileMainTabWireframe: ProfileMainTabWireframeProtocol {
             sourceView.navigationController?.pushViewController(profileSettingsController, animated: true)
         }
     }
+    
 }

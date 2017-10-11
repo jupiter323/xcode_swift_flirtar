@@ -20,6 +20,9 @@ class ProfileMainTabRemoteDatamanager: ProfileMainTabRemoteDatamanagerInputProto
             if error != nil {
                 self.remoteRequestHandler?.profileRecievingError(method: APIMethod.getProfile, error: error!)
             } else {
+                
+                print(js!)
+                
                 if js!.dictionaryObject != nil {
                     let profile = User(JSON: js!.dictionaryObject!)
                     

@@ -58,7 +58,7 @@ extension MapTabPresenter: MapTabIntercatorOutputProtocol {
         case .authorizedWhenInUse:
             let isShow = UserDefaults.standard.bool(forKey: "location")
             if isShow == false {
-                view?.showLocationServiceNotification(withMessage: .whenInUserMessage)
+                view?.showLocationServiceNotification(withMessage: .whenInUseMessage)
                 UserDefaults.standard.set(true, forKey: "location")
             }
         default:

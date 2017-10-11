@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
                         <viewControllerLayoutGuide type="top" id="xuO-j3-J4e"/>
                         <viewControllerLayoutGuide type="bottom" id="Q8N-8y-aqs"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vO1-LC-U8c">
+                    <view key="view" contentMode="scaleToFill" id="vO1-LC-U8c" customClass="KolodaMainView" customModule="FlirtARViper" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -53,19 +53,22 @@
                                 <rect key="frame" x="10" y="378" width="300" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kao-1l-Q5Y">
-                                        <rect key="frame" x="30" y="0.0" width="240" height="140"/>
+                                        <rect key="frame" x="15" y="0.0" width="270" height="140"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hV-NZ-33M">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="70"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="70"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Il" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="IQk-nr-j6e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="70"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="IQk-nr-j6e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="70"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="26"/>
                                                         <color key="textColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 yo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-Qe-U4x">
-                                                        <rect key="frame" x="26" y="10" width="214" height="60"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="YOu-Qe-U4x">
+                                                        <rect key="frame" x="10" y="10" width="260" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="35" id="Qe7-bt-r4x"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="16"/>
                                                         <color key="textColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -83,21 +86,21 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Uh-SH-cdP">
-                                                <rect key="frame" x="0.0" y="70" width="240" height="70"/>
+                                                <rect key="frame" x="0.0" y="70" width="270" height="70"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxE-3Z-GqF">
-                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="55"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="55"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfV-Kq-Kad" customClass="InterestItemView" customModule="FlirtARViper" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="55"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="55"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt4-rt-bs2" customClass="InterestItemView" customModule="FlirtARViper" customModuleProvider="target">
-                                                                <rect key="frame" x="80" y="0.0" width="80" height="55"/>
+                                                                <rect key="frame" x="90" y="0.0" width="90" height="55"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="040-7B-tNS" customClass="InterestItemView" customModule="FlirtARViper" customModuleProvider="target">
-                                                                <rect key="frame" x="160" y="0.0" width="80" height="55"/>
+                                                                <rect key="frame" x="180" y="0.0" width="90" height="55"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
                                                         </subviews>
@@ -132,13 +135,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="Qk0-Bw-imz"/>
-                                    <constraint firstItem="Kao-1l-Q5Y" firstAttribute="leading" secondItem="p16-L0-i72" secondAttribute="leading" constant="30" id="fJq-NB-Dpx"/>
-                                    <constraint firstAttribute="trailing" secondItem="Kao-1l-Q5Y" secondAttribute="trailing" constant="30" id="qc4-Nw-HYW"/>
+                                    <constraint firstItem="Kao-1l-Q5Y" firstAttribute="leading" secondItem="p16-L0-i72" secondAttribute="leading" constant="15" id="fJq-NB-Dpx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kao-1l-Q5Y" secondAttribute="trailing" constant="15" id="qc4-Nw-HYW"/>
                                     <constraint firstAttribute="bottom" secondItem="Kao-1l-Q5Y" secondAttribute="bottom" id="rqn-fD-OIP"/>
                                     <constraint firstItem="Kao-1l-Q5Y" firstAttribute="top" secondItem="p16-L0-i72" secondAttribute="top" id="wOS-SO-mhX"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw9-WI-swn">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qw9-WI-swn" customClass="KolodaButtonsView" customModule="FlirtARViper" customModuleProvider="target">
                                 <rect key="frame" x="10" y="493" width="300" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Jh-Yk-DYb">
@@ -223,9 +226,13 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="ageLabel" destination="YOu-Qe-U4x" id="l0E-Wk-ytc"/>
+                        <outlet property="buttonsView" destination="qw9-WI-swn" id="diK-65-891"/>
+                        <outlet property="dislikeButton" destination="kLk-d8-XHx" id="lzO-Om-Gl5"/>
                         <outlet property="embedVerticalPhotos" destination="2rF-PA-EV1" id="1oj-lF-vTs"/>
                         <outlet property="firstnameLabel" destination="IQk-nr-j6e" id="vm2-Ol-rkn"/>
+                        <outlet property="generalCardView" destination="vO1-LC-U8c" id="gkq-Fh-TD4"/>
                         <outlet property="infoView" destination="p16-L0-i72" id="9e3-zS-zRC"/>
+                        <outlet property="likeButton" destination="Vdj-uj-ST0" id="oB5-TF-zQ7"/>
                         <outletCollection property="interestsCollection" destination="bfV-Kq-Kad" collectionClass="NSMutableArray" id="X7p-Li-lNe"/>
                         <outletCollection property="interestsCollection" destination="tt4-rt-bs2" collectionClass="NSMutableArray" id="Q54-2N-qpx"/>
                         <outletCollection property="interestsCollection" destination="040-7B-tNS" collectionClass="NSMutableArray" id="cYr-T6-dOd"/>

@@ -17,6 +17,7 @@ extension CDSavedUser {
     @NSManaged var id: Int16
     @NSManaged var interests: String
     @NSManaged var isFacebook: Bool
+    @NSManaged var instagramConnect: Bool
     @NSManaged var maxAge: Int16
     @NSManaged var minAge: Int16
     @NSManaged var password: String

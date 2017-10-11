@@ -35,9 +35,9 @@ class MapTabViewController: UIViewController, MapTabViewProtocol {
     
     //MARK: - Variables
     fileprivate var isInitial = true //show first location and set initial camera
-    fileprivate let minZoom = Float(10) //min zoom for map
+    fileprivate let minZoom = Float(9) //min zoom for map
     fileprivate let initialZoom = Float(13) //initial zoom for map
-    fileprivate let maxZoom = Float(20) //max zoom for map
+    fileprivate let maxZoom = Float(13) //max zoom for map
     fileprivate var markersOnMap = [Int: GMSMarker]() //markers which exist on map
     fileprivate var customUserLocationMarker: GMSMarker?
     
@@ -159,7 +159,7 @@ class MapTabViewController: UIViewController, MapTabViewProtocol {
         }
         
         googleMap.settings.myLocationButton = false
-        googleMap.settings.zoomGestures = false
+        googleMap.settings.zoomGestures = true
         
     }
     

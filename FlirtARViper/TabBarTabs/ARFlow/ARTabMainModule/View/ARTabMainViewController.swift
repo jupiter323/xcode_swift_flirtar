@@ -85,7 +85,16 @@ extension ARTabMainViewController: ARDataSource {
             let annotationView = ARMarkerAnnotationView()
             annotationView.annotation = viewForAnnotation
             annotationView.delegate = self
-            annotationView.frame = CGRect(x: 0, y: 0, width: 130, height: 196)
+            
+            var arBalloonFrame: CGRect!
+            
+            if self.annotationsForAR.count > 5 {
+                arBalloonFrame = CGRect(x: 0, y: 0, width: 130, height: 110)
+            } else {
+                arBalloonFrame = CGRect(x: 0, y: 0, width: 130, height: 151)
+            }
+            
+            annotationView.frame = arBalloonFrame
             annotationView.annotation = viewForAnnotation
             return annotationView
         } else {

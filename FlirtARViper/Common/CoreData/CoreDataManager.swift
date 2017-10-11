@@ -316,6 +316,97 @@ class CoreDataManager {
             
             
         }
+    }
+    
+    func saveUserFBStatus(userId: Int , status: Bool) throws {
+        guard let managedOC = CoreDataEngine.managedObjectContext else {
+            throw CoreDataError.managedObjectContextNotFound
+        }
+        
+        let request: NSFetchRequest<CDSavedUser> = NSFetchRequest(entityName: String(describing: CDSavedUser.self))
+        request.predicate = NSPredicate(format: "id == %d", argumentArray: [userId])
+        
+        
+        let fetchedUser = try managedOC.fetch(request)
+        if fetchedUser.count != 0 {
+            fetchedUser.first!.isFacebook = status
+            try managedOC.save()
+        }
+    }
+    
+    func saveUserInstagramStatus(userId: Int , status: Bool) throws {
+        guard let managedOC = CoreDataEngine.managedObjectContext else {
+            throw CoreDataError.managedObjectContextNotFound
+        }
+        
+        let request: NSFetchRequest<CDSavedUser> = NSFetchRequest(entityName: String(describing: CDSavedUser.self))
+        request.predicate = NSPredicate(format: "id == %d", argumentArray: [userId])
+        
+        
+        let fetchedUser = try managedOC.fetch(request)
+        if fetchedUser.count != 0 {
+            fetchedUser.first!.instagramConnect = status
+            try managedOC.save()
+        }
+    }
+    
+    
+    func getSavedUser() throws -> (user: User, token: String, photos: [Photo])? {
+        
+        guard let managedOC = CoreDataEngine.managedObjectContext else {
+            throw CoreDataError.managedObjectContextNotFound
+        }
+        
+        let request: NSFetchRequest<CDSavedUser> = NSFetchRequest(entityName: String(describing: CDSavedUser.self))
+        
+        let userCoreData = try managedOC.fetch(request).first
+        
+        if userCoreData != nil {
+            var user = User()
+            let token = userCoreData!.userToken.tokenValue
+            
+            user.birthday = userCoreData?.birthday
+            user.email = userCoreData?.email
+            user.firstName = userCoreData?.firstname
+            
+            let gender = Gender(rawValue: Int(userCoreData!.gender))
+            user.gender = gender
+            
+            
+            let genderPreferences = GenderPreference(rawValue: Int(userCoreData!.genderPreferences))
+            user.genderPreferences = genderPreferences
+            
+            user.interests = userCoreData?.interests
+            user.isFacebook = userCoreData?.isFacebook
+            user.instagramConnected = userCoreData?.instagramConnect
+            user.maxAge = Int(userCoreData!.maxAge)
+            user.minAge = Int(userCoreData!.minAge)
+            user.password = userCoreData?.password
+            user.shortIntroduction = userCoreData?.shortIntroduction
+            user.showOnMap = userCoreData?.showOnMap
+            user.userID = Int(userCoreData!.id)
+            
+            var photos = [Photo](repeating: Photo(), count: userCoreData!.userPhotos.count)
+            for dbPhoto in userCoreData!.userPhotos {
+                var photo = Photo()
+                photo.url = dbPhoto.photoUrl
+                photo.isPrimary = dbPhoto.isPrimary
+                photo.photoID = Int(dbPhoto.photoId)
+                
+                let orderNumber = Int(dbPhoto.orderNumber)
+                
+                if orderNumber < photos.count {
+                    photos[orderNumber] = photo
+                }
+            }
+            
+            return (user, token, photos)
+            
+            
+        } else {
+            return nil
+        }
+        
         
     }
 

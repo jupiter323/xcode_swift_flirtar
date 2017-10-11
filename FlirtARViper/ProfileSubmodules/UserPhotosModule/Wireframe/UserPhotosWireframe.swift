@@ -22,7 +22,8 @@ class UserPhotosWireframe {
     
     static func configurePhotosController(withPhotos photos: [Photo],
                                           orientation: UserPhotosSliderOrientation,
-                                          containerType: PhotoContainerType?) -> UIViewController {
+                                          containerType: PhotoContainerType?,
+                                          distance: CGFloat?) -> UIViewController {
         
         if orientation == .horizontal {
             
@@ -30,7 +31,9 @@ class UserPhotosWireframe {
             let photosController = UIStoryboard(name: "UserPhotosModule", bundle: nil).instantiateViewController(withIdentifier: "HorizontalViewController")
             
             if let view = photosController as? HorizontalViewController {
-                view.configure(withPhotos: photos, containerType: containerType)
+                view.configure(withPhotos: photos,
+                               containerType: containerType,
+                               distance: distance)
                 return view
             }
             

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Instagram Auth View Controller-->
+        <scene sceneID="6Gc-Y6-GKX">
+            <objects>
+                <viewController storyboardIdentifier="InstagramAuthViewController" id="yHz-gu-Ud0" customClass="InstagramAuthViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uze-lC-LrM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4W-Zx-R4I">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="TIr-Mf-JRr"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Instagram Auth" id="BhC-Qk-mwV">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cj9-Wc-bV9">
+                                            <connections>
+                                                <action selector="cancelButtonTap:" destination="yHz-gu-Ud0" id="WoC-EZ-ucO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="30U-dv-OMu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yHz-gu-Ud0" id="OOf-C5-Sln"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="30U-dv-OMu" firstAttribute="top" secondItem="Q4W-Zx-R4I" secondAttribute="bottom" id="ADK-8A-9HF"/>
+                            <constraint firstItem="3r7-sj-ffe" firstAttribute="trailing" secondItem="30U-dv-OMu" secondAttribute="trailing" id="HwX-yo-JTW"/>
+                            <constraint firstItem="30U-dv-OMu" firstAttribute="leading" secondItem="3r7-sj-ffe" secondAttribute="leading" id="PZf-Fr-WFz"/>
+                            <constraint firstItem="Q4W-Zx-R4I" firstAttribute="leading" secondItem="3r7-sj-ffe" secondAttribute="leading" id="R0f-dE-0kR"/>
+                            <constraint firstItem="Q4W-Zx-R4I" firstAttribute="trailing" secondItem="3r7-sj-ffe" secondAttribute="trailing" id="Wm1-m2-awv"/>
+                            <constraint firstItem="Q4W-Zx-R4I" firstAttribute="top" secondItem="3r7-sj-ffe" secondAttribute="top" id="XaJ-CN-2b7"/>
+                            <constraint firstItem="3r7-sj-ffe" firstAttribute="bottom" secondItem="30U-dv-OMu" secondAttribute="bottom" id="tvh-A6-E5j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3r7-sj-ffe"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="30U-dv-OMu" id="4Ot-mx-U1v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NMx-Cn-wLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="114" y="104"/>
+        </scene>
+    </scenes>
+</document>

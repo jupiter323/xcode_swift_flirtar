@@ -77,6 +77,7 @@ struct User {
     var maxAge: Int?
     var showOnMap: Bool?
     var isFacebook: Bool?
+    var instagramConnected: Bool?
     
     init() {}
     
@@ -222,6 +223,7 @@ extension User: Mappable {
         
         showOnMap <- map[ServerUserJSONKeys.showOnMap.rawValue]
         isFacebook <- map[ServerUserJSONKeys.isFacebook.rawValue]
+        instagramConnected <- map[ServerUserJSONKeys.instagramConnected.rawValue]
         
     }
 }

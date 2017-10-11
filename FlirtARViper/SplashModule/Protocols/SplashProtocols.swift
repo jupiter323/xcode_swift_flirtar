@@ -45,11 +45,13 @@ protocol SplashInteractorInputProtocol {
 
 protocol SplashIntercatorOutputProtocol: class {
     func loggedInSuccess()
+    func fbAuthFinished()
     func errorWhileLogIn(method: APIMethod, error: Error)
 }
 
 protocol SplashRemoteDatamanagerOutputProtocol: class {
     func loggedIn()
+    func fbAuthFinished()
     func loginError(method: APIMethod, error: Error)
 }
 

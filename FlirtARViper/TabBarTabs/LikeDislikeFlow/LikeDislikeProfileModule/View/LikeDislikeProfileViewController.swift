@@ -13,6 +13,14 @@ protocol LikeDislikeProfileDelegate: class {
     func dislikeButtonTap(forUser userId: Int)
 }
 
+class KolodaMainView: UIView {
+    
+}
+
+class KolodaButtonsView: UIView {
+    
+}
+
 class LikeDislikeProfileViewController: UIViewController {
 
     //MARK: - Outlets
@@ -22,6 +30,16 @@ class LikeDislikeProfileViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     
     @IBOutlet var interestsCollection: [InterestItemView]!
+    
+    
+    
+    @IBOutlet var generalCardView: KolodaMainView!
+    
+    @IBOutlet weak var buttonsView: KolodaButtonsView!
+    @IBOutlet weak var dislikeButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    
     
     
     //MARK: - Variables
@@ -56,11 +74,11 @@ class LikeDislikeProfileViewController: UIViewController {
         firstnameLabel.text = user.firstName ?? "No data"
         ageLabel.text = user.age ?? "No data"
         
-        
         let module = UserPhotosWireframe
             .configurePhotosController(withPhotos: user.photos,
                                        orientation: .vertical,
-                                       containerType: nil)
+                                       containerType: nil,
+                                       distance: nil)
         
         for view in embedVerticalPhotos.subviews {
             view.removeFromSuperview()

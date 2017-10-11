@@ -43,6 +43,10 @@ class ProfileService {
     
     //clear user when logout
     static func clearProfileService() {
+        
+        SocketManager.shared.closeDialogSocket()
+        SocketManager.shared.closeMessageSocket()
+        
         self.currentUser = User()
         self.savedUser = User()
         self.token = nil
@@ -67,7 +71,7 @@ class ProfileService {
     static func isUserLoggedIn() -> Bool {
         do {
             
-            let userTuple = try self.getSavedUser()
+            let userTuple = try CoreDataManager.shared.getSavedUser()
             guard let userInfo = userTuple else {
                 return false
             }
@@ -84,63 +88,5 @@ class ProfileService {
         }
     }
     
-    
-    private static func getSavedUser() throws -> (user: User, token: String, photos: [Photo])? {
-        
-        guard let managedOC = CoreDataEngine.managedObjectContext else {
-            throw CoreDataError.managedObjectContextNotFound
-        }
-        
-        let request: NSFetchRequest<CDSavedUser> = NSFetchRequest(entityName: String(describing: CDSavedUser.self))
-        
-        let userCoreData = try managedOC.fetch(request).first
-        
-        if userCoreData != nil {
-            var user = User()
-            let token = userCoreData!.userToken.tokenValue
-            
-            user.birthday = userCoreData?.birthday
-            user.email = userCoreData?.email
-            user.firstName = userCoreData?.firstname
-            
-            let gender = Gender(rawValue: Int(userCoreData!.gender))
-            user.gender = gender
-            
-            
-            let genderPreferences = GenderPreference(rawValue: Int(userCoreData!.genderPreferences))
-            user.genderPreferences = genderPreferences
-            
-            user.interests = userCoreData?.interests
-            user.isFacebook = userCoreData?.isFacebook
-            user.maxAge = Int(userCoreData!.maxAge)
-            user.minAge = Int(userCoreData!.minAge)
-            user.password = userCoreData?.password
-            user.shortIntroduction = userCoreData?.shortIntroduction
-            user.showOnMap = userCoreData?.showOnMap
-            user.userID = Int(userCoreData!.id)
-            
-            var photos = [Photo](repeating: Photo(), count: userCoreData!.userPhotos.count)
-            for dbPhoto in userCoreData!.userPhotos {
-                var photo = Photo()
-                photo.url = dbPhoto.photoUrl
-                photo.isPrimary = dbPhoto.isPrimary
-                photo.photoID = Int(dbPhoto.photoId)
-                
-                let orderNumber = Int(dbPhoto.orderNumber)
-                
-                if orderNumber < photos.count {
-                    photos[orderNumber] = photo
-                }
-            }
-            
-            return (user, token, photos)
-            
-            
-        } else {
-            return nil
-        }        
-        
-        
-    }
     
 }

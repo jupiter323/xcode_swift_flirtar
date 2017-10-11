@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum PhotosModuleType {
+    case apiPhotos
+    case instagramPhotos
+}
+
 protocol ProfileMainTabViewProtocol: class {
     
     var presenter: ProfileMainTabPresenterProtocol? {get set}
@@ -23,13 +28,13 @@ protocol ProfileMainTabViewProtocol: class {
     
     func showPhotoSourceSelection()
     
-    func embedThisModule(module: UIViewController)
+    func embedThisModule(module: UIViewController,
+                         type: PhotosModuleType)
 }
 
 protocol ProfileMainTabWireframeProtocol {
     static func configureProfileMainTapView() -> UIViewController
     func routeToProfileSettings(fromView view: ProfileMainTabViewProtocol?)
-    
 }
 
 protocol ProfileMainTabPresenterProtocol {
@@ -37,7 +42,7 @@ protocol ProfileMainTabPresenterProtocol {
     var wireframe: ProfileMainTabWireframeProtocol? {get set}
     var interactor: ProfileMainTabInteractorInputProtocol? {get set}
     
-    func viewDidLoad()
+    func viewDidLoad(withDistance distance: CGFloat)
     func viewWillApear()
     func showProfileSettings()
     func startSelectPhotos()

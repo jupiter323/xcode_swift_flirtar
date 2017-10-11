@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+import PKHUD
 
 class SplashRemoteDatamanager: SplashRemoteDatamanagerInputProtocol {
     
@@ -17,6 +18,8 @@ class SplashRemoteDatamanager: SplashRemoteDatamanagerInputProtocol {
         //token not provided, check errors
         let fbService = FBAuthService()
         fbService.fbAuthorize { (token, fbError) in
+            
+            self.remoteRequestHandler?.fbAuthFinished()
             
             guard let accessToken = token  else {
                 self.remoteRequestHandler?.loginError(method: APIMethod.signUpFB, error: fbError!)

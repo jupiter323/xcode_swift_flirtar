@@ -23,16 +23,22 @@ class PhotoViewController: UIViewController {
     
     func confugireView(withPhoto photo: Photo?,
                        andTitle title: String?,
-                       andType containerType: PhotoContainerType?) {
+                       andType containerType: PhotoContainerType?,
+                       andDistance distance: CGFloat?) {
         
         if let containerType = containerType {
             switch containerType {
             case .arProfile:
-                bottomLabelConstraint.constant = 100.0
+                bottomLabelConstraint.constant = 115.0
             case .settingsProfile:
                 bottomLabelConstraint.constant = 60.0
             }
         }
+        
+        if let distance = distance {
+            bottomLabelConstraint.constant = distance
+        }
+        
         photoLabel.layoutIfNeeded()
         
         if let photo = photo {

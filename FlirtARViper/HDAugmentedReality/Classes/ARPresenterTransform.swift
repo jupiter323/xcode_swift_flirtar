@@ -115,15 +115,17 @@ open class ARPresenterStackTransform: ARPresenterTransform
                 
                 let collision = annotationView1.frame.intersects(annotationView2.frame)
                 
+                let spaceBetweenAnnotations: CGFloat! = 25.0
+                
                 if collision
                 {
-                    annotationView1.frame.origin.y = annotationView2.frame.origin.y - annotationView1.frame.size.height + 45.0
+                    annotationView1.frame.origin.y = annotationView2.frame.origin.y - annotationView1.frame.size.height + spaceBetweenAnnotations
                     annotationView1.arAlternateFrame.origin.y = annotationView1.frame.origin.y
                     hasCollision = true
                 }
                 else if hasAlternateFrame && annotationView1.arAlternateFrame.intersects(annotationView2.frame)
                 {
-                    annotationView1.frame.origin.y = annotationView2.frame.origin.y - annotationView1.frame.size.height + 45.0
+                    annotationView1.frame.origin.y = annotationView2.frame.origin.y - annotationView1.frame.size.height + spaceBetweenAnnotations
                     annotationView1.arAlternateFrame.origin.y = annotationView1.frame.origin.y
                     hasCollision = true
                 }

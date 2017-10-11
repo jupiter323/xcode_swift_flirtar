@@ -11,6 +11,7 @@ import SwiftyJSON
 
 class APIParser {
     
+    //MARK: - Parse income JSON
     func parseMarkers(js: [JSON]) -> [Marker] {
         var markers = [Marker]()
         
@@ -208,6 +209,135 @@ class APIParser {
         
         return errorsList
         
+    }
+    
+    func parseStringsArray(js: JSON) -> [String] {
+        var strings = [String]()
+        
+        guard let jsArray = js.array else {
+            return strings
+        }
+        
+        for eachString in jsArray {
+            strings.append(eachString.stringValue)
+        }
+        
+        return strings
+    }
+    
+    func parseInstagramPhotos(js: JSON) -> [String] {
+        
+        var photoLinks = [String]()
+        
+        guard let jsData = js.array else {
+            return photoLinks
+        }
+        
+        for eachPhoto in jsData {
+            let photoLink = eachPhoto["url"].stringValue
+            photoLinks.append(photoLink)
+        }
+        
+        return photoLinks
+        
+    }
+    
+    //MARK: - Serialize outcome Dictiomary
+    func configureUserDictionary(user: User) -> [String: Any] {
+        var userParams = [String: Any]()
+        
+        if user.email != nil {
+            userParams[ServerUserJSONKeys.email.rawValue] = user.email!
+        }
+        if user.password != nil {
+            userParams[ServerUserJSONKeys.password.rawValue] = user.password!
+        }
+        if user.firstName != nil {
+            userParams[ServerUserJSONKeys.firstName.rawValue] = user.firstName!
+        }
+        if user.birthday != nil {
+            let birthday = DateFormatter.apiModelDateFormatter.string(from: user.birthday!)
+            userParams[ServerUserJSONKeys.birthday.rawValue] = birthday
+        }
+        if user.gender?.description != nil {
+            userParams[ServerUserJSONKeys.gender.rawValue] = user.gender?.description
+        }
+        if user.shortIntroduction != nil {
+            userParams[ServerUserJSONKeys.shortIntroduction.rawValue] = user.shortIntroduction!
+        } else {
+            userParams[ServerUserJSONKeys.shortIntroduction.rawValue] = ""
+        }
+        if user.interests != nil {
+            userParams[ServerUserJSONKeys.interests.rawValue] = user.interests!
+        } else {
+            userParams[ServerUserJSONKeys.interests.rawValue] = ""
+        }
+        if user.genderPreferences?.description != nil {
+            userParams[ServerUserJSONKeys.genderPreferences.rawValue] = user.genderPreferences?.description
+        }
+        if user.minAge != nil {
+            userParams[ServerUserJSONKeys.minAge.rawValue] = user.minAge!
+        }
+        if user.maxAge != nil {
+            userParams[ServerUserJSONKeys.maxAge.rawValue] = user.maxAge!
+        }
+        if user.showOnMap != nil {
+            userParams[ServerUserJSONKeys.showOnMap.rawValue] = user.showOnMap!
+        }
+        
+        return userParams
+    }
+    
+    
+    //Notifications
+    func configureNotificationDictionary(notifications: [(type: CellConfiguration.NotificationType, status: Bool)]) -> [String: Any] {
+        var userParams = [String: Any]()
+        
+        for notification in notifications {
+            switch notification.type {
+            case .like:
+                userParams[ServerNotificationsJSONKeys.like.rawValue] = notification.status
+            case .message:
+                userParams[ServerNotificationsJSONKeys.message.rawValue] = notification.status
+            case .newUserInArea:
+                userParams[ServerNotificationsJSONKeys.user.rawValue] = notification.status
+            case .all:
+                break
+            }
+        }
+        
+        return userParams
+    }
+    
+    
+    
+    //Photos
+    func configureCreateUserPhotos(photos: [PhotoTuple]) -> [String: Any] {
+        var photosDictionary = [String: [Any]]()
+        
+        var photosArray = [[ : ]]
+        photosArray.removeAll()
+        for i in 0..<photos.count {
+            
+            if photos[i].primary {
+                let primaryPhoto = ["url":photos[i].link,
+                                    "primary": photos[i].primary] as [String: Any]
+                photosArray.append(primaryPhoto)
+            } else {
+                let photo = ["url": photos[i].link] as [String: Any]
+                photosArray.append(photo)
+            }
+            
+        }
+        
+        photosDictionary["photos"] = photosArray
+        
+        return photosDictionary
+    }
+    
+    func configureUserPhotoForUpdate(photo: PhotoTuple) -> [String: Any] {
+        return ["url":photo.link,
+                "primary":photo.primary]
     }
     
     

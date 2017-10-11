@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RateAppNotificationView" customModule="FlirtARViper" customModuleProvider="target">
+            <connections>
+                <outlet property="messageRoundedView" destination="hbB-E7-h4g" id="6Ut-ef-Qmv"/>
+                <outlet property="messageTextView" destination="PJO-lb-Uqd" id="XI3-kZ-Eb4"/>
+                <outlet property="roundedView" destination="6cJ-1Y-tUX" id="h7K-aa-ghH"/>
+                <outlet property="starsControl" destination="Goe-NO-ySC" id="l0X-9W-8aV"/>
+                <outlet property="subtitleLabel" destination="zdy-XL-4bo" id="ReM-Bg-Ifa"/>
+                <outlet property="titleLabel" destination="j6s-Z9-vsr" id="0Ly-96-BvW"/>
+                <outlet property="view" destination="iN0-l3-epB" id="NQg-JX-SPp"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cJ-1Y-tUX">
+                    <rect key="frame" x="24" y="110" width="272" height="280"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrj-Dd-gAJ">
+                            <rect key="frame" x="0.0" y="0.0" width="272" height="55"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like Flirtar?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="j6s-Z9-vsr">
+                                    <rect key="frame" x="0.0" y="0.0" width="272" height="55"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                                    <color key="textColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="j6s-Z9-vsr" secondAttribute="trailing" id="BvM-S3-TCv"/>
+                                <constraint firstAttribute="height" constant="55" id="Fdd-QF-bTb"/>
+                                <constraint firstItem="j6s-Z9-vsr" firstAttribute="top" secondItem="Yrj-Dd-gAJ" secondAttribute="top" id="qxd-uE-P9n"/>
+                                <constraint firstAttribute="bottom" secondItem="j6s-Z9-vsr" secondAttribute="bottom" id="w6t-xL-B6P"/>
+                                <constraint firstItem="j6s-Z9-vsr" firstAttribute="leading" secondItem="Yrj-Dd-gAJ" secondAttribute="leading" id="wUk-Yb-64d"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jK4-7u-mVK">
+                            <rect key="frame" x="0.0" y="55" width="272" height="34"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the number of stars you'd give us on a scale from 1-5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-XL-4bo">
+                                    <rect key="frame" x="15" y="0.0" width="242" height="34"/>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                    <color key="textColor" red="0.65098039215686276" green="0.67450980392156867" blue="0.72549019607843135" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="zdy-XL-4bo" secondAttribute="trailing" constant="15" id="cnE-mJ-S0P"/>
+                                <constraint firstAttribute="bottom" secondItem="zdy-XL-4bo" secondAttribute="bottom" id="iT0-S7-Zd1"/>
+                                <constraint firstItem="zdy-XL-4bo" firstAttribute="top" secondItem="jK4-7u-mVK" secondAttribute="top" id="kgv-Nf-HOP"/>
+                                <constraint firstItem="zdy-XL-4bo" firstAttribute="leading" secondItem="jK4-7u-mVK" secondAttribute="leading" constant="15" id="tZ3-zg-ddZ"/>
+                                <constraint firstAttribute="height" constant="34" id="vnJ-vh-FxT"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izE-vy-nt6">
+                            <rect key="frame" x="0.0" y="89" width="272" height="58"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-NO-ySC" customClass="RatingControl" customModule="FlirtARViper" customModuleProvider="target">
+                                    <rect key="frame" x="26" y="7" width="220" height="44"/>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="Goe-NO-ySC" firstAttribute="centerX" secondItem="izE-vy-nt6" secondAttribute="centerX" id="Cdb-WG-MqG"/>
+                                <constraint firstItem="Goe-NO-ySC" firstAttribute="centerY" secondItem="izE-vy-nt6" secondAttribute="centerY" id="O2W-Kr-xi0"/>
+                                <constraint firstAttribute="height" constant="58" id="RKA-DS-h8z"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-Cy-TYO">
+                            <rect key="frame" x="0.0" y="147" width="272" height="68"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbB-E7-h4g">
+                                    <rect key="frame" x="18" y="0.0" width="236" height="68"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PJO-lb-Uqd">
+                                            <rect key="frame" x="0.0" y="0.0" width="236" height="68"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="textColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="PJO-lb-Uqd" firstAttribute="top" secondItem="hbB-E7-h4g" secondAttribute="top" id="EEg-S9-63m"/>
+                                        <constraint firstAttribute="bottom" secondItem="PJO-lb-Uqd" secondAttribute="bottom" id="GLF-Ox-g5h"/>
+                                        <constraint firstAttribute="trailing" secondItem="PJO-lb-Uqd" secondAttribute="trailing" id="NMi-zX-8Pd"/>
+                                        <constraint firstItem="PJO-lb-Uqd" firstAttribute="leading" secondItem="hbB-E7-h4g" secondAttribute="leading" id="wF9-QP-Bhg"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="hbB-E7-h4g" firstAttribute="top" secondItem="NiA-Cy-TYO" secondAttribute="top" id="Fbn-L4-geh"/>
+                                <constraint firstAttribute="trailing" secondItem="hbB-E7-h4g" secondAttribute="trailing" constant="18" id="JvA-Qf-zkh"/>
+                                <constraint firstAttribute="bottom" secondItem="hbB-E7-h4g" secondAttribute="bottom" id="bD0-cK-Du9"/>
+                                <constraint firstItem="hbB-E7-h4g" firstAttribute="leading" secondItem="NiA-Cy-TYO" secondAttribute="leading" constant="18" id="hYx-hl-Kqh"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0j-e4-4jw">
+                            <rect key="frame" x="0.0" y="215" width="272" height="65"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-qT-djP">
+                                    <rect key="frame" x="0.0" y="0.0" width="136" height="65"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-5T-Ipx" customClass="BorderedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="15" width="106" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="knP-S7-9B7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <state key="normal" title="Cancel">
+                                                <color key="titleColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.91764705879999997" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="cancelButtonTap:" destination="-1" eventType="touchUpInside" id="qeh-fC-ne7"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="A0u-5T-Ipx" firstAttribute="leading" secondItem="BPZ-qT-djP" secondAttribute="leading" constant="20" id="RFP-WE-Ni0"/>
+                                        <constraint firstAttribute="trailing" secondItem="A0u-5T-Ipx" secondAttribute="trailing" constant="10" id="idc-LJ-2Dk"/>
+                                        <constraint firstItem="A0u-5T-Ipx" firstAttribute="centerY" secondItem="BPZ-qT-djP" secondAttribute="centerY" id="nCG-kT-F9X"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uv-Vh-vmC">
+                                    <rect key="frame" x="136" y="0.0" width="136" height="65"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNh-We-RlN" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="15" width="106" height="35"/>
+                                            <color key="backgroundColor" red="0.92156862750000001" green="0.25490196079999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="Z22-lL-A1G"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                            <state key="normal" title="Rate" backgroundImage="mainButtonBackground">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="rateButtonTap:" destination="-1" eventType="touchUpInside" id="J2X-Rb-T5Y"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="JNh-We-RlN" firstAttribute="centerY" secondItem="8uv-Vh-vmC" secondAttribute="centerY" id="Er9-ED-tpJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="JNh-We-RlN" secondAttribute="trailing" constant="20" id="mcQ-h0-9Jp"/>
+                                        <constraint firstItem="JNh-We-RlN" firstAttribute="leading" secondItem="8uv-Vh-vmC" secondAttribute="leading" constant="10" id="q2c-Jx-nDD"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="8uv-Vh-vmC" secondAttribute="bottom" id="72u-EU-lSn"/>
+                                <constraint firstItem="BPZ-qT-djP" firstAttribute="leading" secondItem="Z0j-e4-4jw" secondAttribute="leading" id="AGk-Nd-cNq"/>
+                                <constraint firstItem="BPZ-qT-djP" firstAttribute="top" secondItem="Z0j-e4-4jw" secondAttribute="top" id="Jpu-UM-2Y7"/>
+                                <constraint firstItem="8uv-Vh-vmC" firstAttribute="leading" secondItem="BPZ-qT-djP" secondAttribute="trailing" id="Nf4-08-qxA"/>
+                                <constraint firstItem="8uv-Vh-vmC" firstAttribute="top" secondItem="Z0j-e4-4jw" secondAttribute="top" id="Rdp-6E-EWg"/>
+                                <constraint firstAttribute="bottom" secondItem="BPZ-qT-djP" secondAttribute="bottom" id="TaW-Wt-cJT"/>
+                                <constraint firstItem="BPZ-qT-djP" firstAttribute="width" secondItem="8uv-Vh-vmC" secondAttribute="width" id="eGC-m1-6uW"/>
+                                <constraint firstAttribute="height" constant="65" id="g4L-sp-bNq"/>
+                                <constraint firstAttribute="trailing" secondItem="8uv-Vh-vmC" secondAttribute="trailing" id="oUK-Nm-hc6"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Z0j-e4-4jw" secondAttribute="trailing" id="4l9-3h-L8l"/>
+                        <constraint firstItem="izE-vy-nt6" firstAttribute="top" secondItem="jK4-7u-mVK" secondAttribute="bottom" id="6Gg-JW-Oau"/>
+                        <constraint firstAttribute="trailing" secondItem="Yrj-Dd-gAJ" secondAttribute="trailing" id="6Lh-cg-7HT"/>
+                        <constraint firstItem="Yrj-Dd-gAJ" firstAttribute="top" secondItem="6cJ-1Y-tUX" secondAttribute="top" id="778-qd-CRO"/>
+                        <constraint firstItem="Z0j-e4-4jw" firstAttribute="top" secondItem="NiA-Cy-TYO" secondAttribute="bottom" id="C0v-O3-2yV"/>
+                        <constraint firstAttribute="bottom" secondItem="Z0j-e4-4jw" secondAttribute="bottom" id="CQH-iz-gWO"/>
+                        <constraint firstItem="jK4-7u-mVK" firstAttribute="top" secondItem="Yrj-Dd-gAJ" secondAttribute="bottom" id="G2q-uM-ffC"/>
+                        <constraint firstAttribute="trailing" secondItem="NiA-Cy-TYO" secondAttribute="trailing" id="M9w-7e-doB"/>
+                        <constraint firstAttribute="height" constant="280" id="Ov0-T5-dem"/>
+                        <constraint firstItem="Z0j-e4-4jw" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="X1H-H1-yEF"/>
+                        <constraint firstAttribute="trailing" secondItem="jK4-7u-mVK" secondAttribute="trailing" id="dc5-JV-z6g"/>
+                        <constraint firstItem="jK4-7u-mVK" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="kG3-Cf-Y0o"/>
+                        <constraint firstItem="izE-vy-nt6" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="pdU-Fn-ZKo"/>
+                        <constraint firstAttribute="trailing" secondItem="izE-vy-nt6" secondAttribute="trailing" id="vHO-P4-ZjJ"/>
+                        <constraint firstItem="NiA-Cy-TYO" firstAttribute="top" secondItem="izE-vy-nt6" secondAttribute="bottom" id="w1T-I1-p2v"/>
+                        <constraint firstItem="NiA-Cy-TYO" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="woa-ce-RIR"/>
+                        <constraint firstItem="Yrj-Dd-gAJ" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="zWx-p5-gUU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="6cJ-1Y-tUX" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="hBm-PW-U0X"/>
+                <constraint firstItem="6cJ-1Y-tUX" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="hVZ-26-Mfc"/>
+                <constraint firstItem="6cJ-1Y-tUX" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.85" id="q6y-lA-KxA"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33" y="100"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mainButtonBackground" width="275" height="50"/>
+    </resources>
+</document>

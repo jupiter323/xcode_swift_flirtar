@@ -43,4 +43,9 @@ enum APIMethod: String {
     case reportUser = "POST /Report"
     case getBlockedUsers = "GET /Blocked"
     
+    case postInstagram = "POST /Instagram"
+    case instagramDisconnect = "DEL /Instagram"
+    
+    case sendFeedback = "POST /Feedback"
+    
 }

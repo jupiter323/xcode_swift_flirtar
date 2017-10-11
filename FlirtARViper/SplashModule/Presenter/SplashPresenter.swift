@@ -14,12 +14,10 @@ class SplashPresenter: SplashPresenterProtocol {
     var interactor: SplashInteractorInputProtocol?
     
     func loginWithFB() {
-        view?.showActivityIndicator()
         interactor?.startLoginWithFB()
     }
     
     func showNextScreen() {
-        
         if ProfileService.recievedPhotos.count != 3 {
             wireframe?.routeToChoosePhotos(fromView: view!)
         } else {
@@ -32,6 +30,10 @@ extension SplashPresenter: SplashIntercatorOutputProtocol {
     func loggedInSuccess() {
         view?.hideActivityIndicator()
         view?.showSuccessLogin()
+    }
+    
+    func fbAuthFinished() {
+        view?.showActivityIndicator()
     }
     
     func errorWhileLogIn(method: APIMethod, error: Error) {

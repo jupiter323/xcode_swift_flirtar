@@ -38,6 +38,10 @@ extension SplashInteractor: SplashRemoteDatamanagerOutputProtocol {
         presenter?.loggedInSuccess()
     }
     
+    func fbAuthFinished() {
+        presenter?.fbAuthFinished()
+    }
+    
     func loginError(method: APIMethod, error: Error) {
         presenter?.errorWhileLogIn(method: method, error: error)
     }

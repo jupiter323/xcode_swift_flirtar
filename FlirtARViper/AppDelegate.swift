@@ -8,10 +8,9 @@
 import UIKit
 import CoreData
 import IQKeyboardManagerSwift
-import FBSDKCoreKit
-//import CoreLocation
 import GoogleMaps
 import UserNotifications
+import FacebookCore
 import Firebase
 
 @UIApplicationMain
@@ -25,9 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Keyboard manager
         IQKeyboardManager.sharedManager().enable = true
-        
-        //FB
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         //GoogleMaps
         GMSServices.provideAPIKey(API.mapsApi)
@@ -55,9 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FIRMessaging.messaging().remoteMessageDelegate = self
         
-        //Clear badge
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        //Firebase Analytics
+        //Production - TRUE
+        //Debug - FALSE
+        FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(false)
         
+        //Clear badge
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+        
+        BadWordHelper.shared.configureContent()
         
         //if launch from notification
         if launchOptions != nil {
@@ -69,42 +73,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        
-        return true
+        //FB
+        return SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let handled: Bool = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: UIApplicationOpenURLOptionsKey.sourceApplication.rawValue, annotation: UIApplicationOpenURLOptionsKey.annotation)
+        return SDKApplicationDelegate.shared.application(app, open: url, options: options)
         
-        // Add any custom logic here.
-        return handled
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        print("DEBUG Delegate: Resign active")
+        RateAppHelper.shared.stopCount()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        print("DEBUG Delegate: Enter background")
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        
-        UIApplication.shared.applicationIconBadgeNumber = 0
+        DispatchQueue.main.async {
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+        print("DEBUG Delegate: Enter foreground")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("DEBUG Delegate: Became active")
+        RateAppHelper.shared.startCount()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+        RateAppHelper.shared.stopCount()
+        print("DEBUG Delegate: Terminate")
     }
     
     
@@ -167,14 +178,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        if application.applicationState == .inactive || application.applicationState == .background {
-            //application background
-            PushNotificationHelper.showProfileForNewLike(forUserInfo: userInfo)
-            
-        } else {
-            //application foreground
-            PushNotificationHelper.showBanner(forUserInfo: userInfo)
+        
+        DispatchQueue.main.async {
+            if application.applicationState == .inactive || application.applicationState == .background {
+                //application background
+                PushNotificationHelper.showProfileForNewLike(forUserInfo: userInfo)
+                
+            } else {
+                //application foreground
+                PushNotificationHelper.showBanner(forUserInfo: userInfo)
+            }
         }
+        
         
     }
     
@@ -198,10 +213,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        
         let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            let options = [NSInferMappingModelAutomaticallyOption: true,
+                           NSMigratePersistentStoresAutomaticallyOption: true]
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: options)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()

@@ -41,6 +41,11 @@ class LikeDislikeTabPresenter: LikeDislikeTabPresenterProtocol {
         interactor?.startBlockUser(userId: userId)
     }
     
+    func openProfile(withUser user: ShortUser) {
+        wireframe?.showFullInfo(fromView: view!,
+                                withUser: user)
+    }
+    
 
     
 }

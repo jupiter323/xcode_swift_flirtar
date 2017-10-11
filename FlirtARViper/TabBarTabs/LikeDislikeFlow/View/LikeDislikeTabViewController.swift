@@ -17,6 +17,9 @@ class LikeDislikeTabViewController: UIViewController, LikeDislikeTabViewProtocol
     @IBOutlet weak var mainBackView: UIView!
     @IBOutlet weak var noMatchLabel: UILabel!
     
+    
+    
+    
     //MARK: - Variables
     fileprivate var users = [ShortUser]()
     fileprivate var controllers = [UIViewController]()
@@ -186,6 +189,10 @@ extension LikeDislikeTabViewController: KolodaViewDelegate {
         presenter?.viewDidLoad()
     }
     
+    func kolodaSwipeThresholdRatioMargin(_ koloda: KolodaView) -> CGFloat? {
+        return 0.5
+    }
+    
     func koloda(_ koloda: KolodaView, shouldSwipeCardAt index: Int, in direction: SwipeResultDirection) -> Bool {
         switch direction {
         case .right:
@@ -228,10 +235,11 @@ extension LikeDislikeTabViewController: KolodaViewDelegate {
             }
         }
         
-//        if (users.count - index) == 10 {
-//            presenter?.loadMoreUsers()
-//        }
-        
+    }
+    
+    func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
+        print("CARD Selected: \(index)")
+        presenter?.openProfile(withUser: users[index])
     }
     
     
@@ -268,8 +276,13 @@ extension LikeDislikeTabViewController: KolodaViewDataSource {
         
         controllers.append(likeDislikeController)
         likeDislikeController.view.frame = profilesKoloda.frame
+        likeDislikeController.generalCardView.frame = profilesKoloda.frame
         
-        return likeDislikeController.view
+        return likeDislikeController.generalCardView
+    }
+    
+    func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
+        return Bundle.main.loadNibNamed("KolodaOverlayView", owner: self, options: nil)?[0] as? OverlayView
     }
     
 }

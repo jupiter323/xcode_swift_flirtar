@@ -192,6 +192,8 @@ class MessagesDetailViewController: UIViewController, MessagesDetailViewProtocol
         IQKeyboardManager.sharedManager().enable = true
         
         NotificationCenter.default.removeObserver(self)
+        
+        SocketManager.shared.closeMessageSocket()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

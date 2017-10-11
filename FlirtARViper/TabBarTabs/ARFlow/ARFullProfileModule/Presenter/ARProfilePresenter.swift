@@ -16,12 +16,24 @@ class ARProfilePresenter: ARProfilePresenterProtocol {
     var selectedUser: ShortUser?
     var selectedUserId: Int?
     
-    func viewWillAppear() {
+    var distance: CGFloat = 115.0
+    
+    func viewDidLoad() {
+        let module = configureEmbendedInstagramModule()
+        view?.embedThisModule(module: module, type: .instagramPhotos)
+    }
+    
+    func viewWillAppear(distance: CGFloat?) {
+        
+        if distance != nil {
+            self.distance = distance!
+        }
         
         if let currentUser = selectedUser {
             view?.showShortProfile(profile: currentUser)
-            let module = configureEmbendedPhotoModule(withPhotos: currentUser.photos)
-            view?.embedThisModule(module: module)
+            let module = configureEmbendedPhotoModule(withPhotos: currentUser.photos,
+                                                      distance: self.distance)
+            view?.embedThisModule(module: module, type: .apiPhotos)
         } else if let userId = selectedUserId {
             //request user from server
             view?.showActivityIndicator()
@@ -102,9 +114,25 @@ class ARProfilePresenter: ARProfilePresenterProtocol {
         wireframe?.backToMainAR(fromView: view!)
     }
     
-    fileprivate func configureEmbendedPhotoModule(withPhotos photos: [Photo]) -> UIViewController {
-        let photoModule = UserPhotosWireframe.configurePhotosController(withPhotos: photos, orientation: .horizontal, containerType: .arProfile)
+    //MARK: - Helpers
+    fileprivate func configureEmbendedPhotoModule(withPhotos photos: [Photo],
+                                                  distance: CGFloat) -> UIViewController {
+        let photoModule = UserPhotosWireframe.configurePhotosController(withPhotos: photos, orientation: .horizontal, containerType: .arProfile, distance: distance)
         return photoModule
+    }
+    
+    fileprivate func configureEmbendedInstagramModule() -> UIViewController {
+        
+        var userId: Int?
+        
+        if selectedUser?.id != nil {
+            userId = (selectedUser?.id)!
+        } else if selectedUserId != nil {
+            userId = selectedUserId!
+        }
+        
+        let instagremPhotosModule = InstagramPhotosWireframe.configureInstagramPhotosView(withUser: userId)
+        return instagremPhotosModule
     }
 
 }
@@ -114,7 +142,7 @@ extension ARProfilePresenter: ARProfileInteractorOutputProtocol {
     func userRecieved(user: ShortUser) {
         view?.hideActivityIndicator()
         selectedUser = user
-        self.viewWillAppear()
+        self.viewWillAppear(distance: nil)
     }
     
     func errorWhileRecievingUser(method: APIMethod, error: Error) {

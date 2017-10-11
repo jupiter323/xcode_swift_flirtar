@@ -16,16 +16,6 @@ protocol TitledInputWithTagsViewDelegate: class {
     func saveInterests(interests: String)
 }
 
-class ViewWithTitle: UIView {
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.layer.frame = self.bounds
-        
-    }
-    
-}
-
 
 class TitledInputWithTagsView: ViewFromXIB {
     //MARK: - Outlets
@@ -34,7 +24,7 @@ class TitledInputWithTagsView: ViewFromXIB {
     @IBOutlet weak var inputField: InputTextField!
     @IBOutlet weak var interestsTagList: TagListView!
     @IBOutlet weak var autoCompleteTable: UITableView!
-    @IBOutlet weak var autoCompleteShadow: ViewWithTitle!
+    @IBOutlet weak var autoCompleteShadow: UIView!
     
     //MARK: - Constraints
     @IBOutlet weak var tagListHeight: NSLayoutConstraint!
@@ -165,15 +155,27 @@ class TitledInputWithTagsView: ViewFromXIB {
     
     //Load suggestion database from file
     private func loadInterestBase() {
-        if let rtfPath = Bundle.main.url(forResource: "interestsF", withExtension: "rtf") {
-            do {
-                let attrString = try NSAttributedString(url: rtfPath, options: [NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType], documentAttributes: nil)
-                let wordsArr = attrString.string.components(separatedBy: CharacterSet.newlines)
-                allData = wordsArr
-            } catch {
-                print("error while loading interests")
-            }
+        
+        let request = APIRouter.getInterestsBase()
+        
+        NetworkManager
+            .shared
+            .sendAPIRequest(request: request) { (js, error) in
+                if js != nil {
+                    self.allData = APIParser().parseStringsArray(js: js!)
+                }
         }
+        
+        //TODO: Previous version for local file
+//        if let rtfPath = Bundle.main.url(forResource: "interestsF", withExtension: "rtf") {
+//            do {
+//                let attrString = try NSAttributedString(url: rtfPath, options: [NSDocumentTypeDocumentAttribute: NSRTFTextDocumentType], documentAttributes: nil)
+//                let wordsArr = attrString.string.components(separatedBy: CharacterSet.newlines)
+//                allData = wordsArr
+//            } catch {
+//                print("error while loading interests")
+//            }
+//        }
     }
     
     //Find suggestions in loaded base

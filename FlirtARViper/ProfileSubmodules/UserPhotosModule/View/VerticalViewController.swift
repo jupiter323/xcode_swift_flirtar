@@ -95,7 +95,10 @@ class VerticalViewController: UIPageViewController {
             return
         }
         
-        photoController.confugireView(withPhoto: photo, andTitle: nil, andType: nil)
+        photoController.confugireView(withPhoto: photo,
+                                      andTitle: nil,
+                                      andType: nil,
+                                      andDistance: nil)
         pages.append(photoController)
         
     }

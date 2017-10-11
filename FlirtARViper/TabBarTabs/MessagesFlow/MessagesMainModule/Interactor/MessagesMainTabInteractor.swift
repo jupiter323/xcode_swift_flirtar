@@ -57,7 +57,7 @@ class MessagesMainTabInteractor: MessagesMainTabInteractorInputProtocol {
     
     func addDialogsObserver() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.newMessageInDialog(_:)), name: NSNotification.Name(MessageNotificationName.postNewDialog.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.newMessageInDialog(_:)), name: NSNotification.Name(NotificationName.postNewDialog.rawValue), object: nil)
         
         
     }

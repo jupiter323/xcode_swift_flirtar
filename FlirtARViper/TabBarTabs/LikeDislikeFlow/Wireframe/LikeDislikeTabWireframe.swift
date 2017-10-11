@@ -35,4 +35,14 @@ class LikeDislikeTabWireframe: LikeDislikeTabWireframeProtocol {
         
         
     }
+    
+    func showFullInfo(fromView view: LikeDislikeTabViewProtocol,
+                      withUser user: ShortUser) {
+        let arProfileDetailController = ARProfileWireframe.configureARFullProfileView(withUser: user)
+        if let sourceView = view as? UIViewController {
+            sourceView.present(arProfileDetailController,
+                               animated: true,
+                               completion: nil)
+        }
+    }
 }

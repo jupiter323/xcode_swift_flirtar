@@ -95,10 +95,11 @@ class DialogCell: SWTableViewCell {
     }
     
     fileprivate func fillMessageText(dialog: Dialog) {
-        guard let messageText = dialog.message?.messageText,
-            let messageAttachmentLink = dialog.message?.fileUrl else {
+        guard let messageText = dialog.message?.messageText else {
                 return
         }
+        
+        let messageAttachmentLink = dialog.message?.fileUrl ?? ""
         
         //new chat
         if messageText.isEmpty && messageAttachmentLink.isEmpty {

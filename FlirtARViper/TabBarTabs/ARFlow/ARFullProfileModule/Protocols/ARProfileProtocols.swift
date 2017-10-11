@@ -19,7 +19,8 @@ protocol ARProfileViewProtocol: class {
     
     func likeStatusChanged(newValue: Bool)
     
-    func embedThisModule(module: UIViewController)
+    func embedThisModule(module: UIViewController,
+                         type: PhotosModuleType)
     
     func showUserBlocked()
     func showUserReported()
@@ -44,8 +45,8 @@ protocol ARProfilePresenterProtocol {
     func reportUser(withText: String)
     func blockUser()
     
-    func viewWillAppear()
-    
+    func viewDidLoad()
+    func viewWillAppear(distance: CGFloat?)
     
     
     func startLike()

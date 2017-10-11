@@ -16,7 +16,7 @@ protocol LocationServiceDelegate: class {
 }
 
 enum LocationServiceNotification: String {
-    case whenInUserMessage = "Your geoposition updating only when you use application. Change it to Always in phone settings and other user can see your realtime geopostion update"
+    case whenInUseMessage = "Your geoposition updates only when you use the application. Change it to \"Always\" in your phone settings so others can see your real-time geolocation."
     case denieMessage = "You set Never for location services. You geolocation is not updating and you can't see other users on the map. Please change permissions in phone settings"
 }
 

@@ -19,16 +19,22 @@ class ProfileMainTabPresenter: ProfileMainTabPresenterProtocol {
     
     fileprivate var newPicker: BSImagePickerViewController!
     fileprivate var fbPicker: GBHFacebookImagePicker!
+    fileprivate var distance: CGFloat!
     
     init() {
         newPicker = BSImagePickerViewController()
         fbPicker = GBHFacebookImagePicker()
+        distance = 0.0
     }
     
     
-    func viewDidLoad() {
+    func viewDidLoad(withDistance distance: CGFloat) {
         view?.showActivityIndicator(withType: .loading)
         interactor?.startLoadingProfile()
+        self.distance = distance
+        
+        let module = configureEmbendedInstagramModule()
+        view?.embedThisModule(module: module, type: .instagramPhotos)
         
     }
     
@@ -87,8 +93,14 @@ class ProfileMainTabPresenter: ProfileMainTabPresenterProtocol {
     }
     
     fileprivate func configureEmbendedPhotoModule(withPhotos photos: [Photo]) -> UIViewController {
-        let photoModule = UserPhotosWireframe.configurePhotosController(withPhotos: photos, orientation: .horizontal, containerType: .settingsProfile)
+        let photoModule = UserPhotosWireframe.configurePhotosController(withPhotos: photos, orientation: .horizontal, containerType: .settingsProfile, distance: self.distance)
         return photoModule
+    }
+    
+    fileprivate func configureEmbendedInstagramModule() -> UIViewController {
+        let userId = ProfileService.savedUser?.userID
+        let instagramPhotosModule = InstagramPhotosWireframe.configureInstagramPhotosView(withUser: userId)
+        return instagramPhotosModule
     }
     
 }
@@ -115,7 +127,8 @@ extension ProfileMainTabPresenter: ProfileMainTabIntercatorOutputProtocol {
         newPicker = BSImagePickerViewController()
         view?.hideActivityIndicator()
         let module = configureEmbendedPhotoModule(withPhotos: photos)
-        view?.embedThisModule(module: module)
+        view?.embedThisModule(module: module,
+                              type: .apiPhotos)
     }
     
     func photosUpdateError(method: APIMethod, error: Error) {

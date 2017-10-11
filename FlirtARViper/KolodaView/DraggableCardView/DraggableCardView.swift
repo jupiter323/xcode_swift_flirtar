@@ -84,7 +84,7 @@ public class DraggableCardView: UIView, UIGestureRecognizerDelegate {
             if let ratio = delegate?.card(cardSwipeThresholdRatioMargin: self) , ratio != 0 {
                 swipePercentageMargin = ratio
             } else {
-                swipePercentageMargin = 1.0
+                swipePercentageMargin = 1
             }
         }
     }
@@ -265,7 +265,42 @@ public class DraggableCardView: UIView, UIGestureRecognizerDelegate {
     }
     
     func tapRecognized(_ recogznier: UITapGestureRecognizer) {
-        delegate?.card(cardWasTapped: self)
+        
+        var touchOnButton = false
+        
+        let touchedView = recogznier.view
+        let touchLocation = recogznier.location(in: self)
+        
+        var foundedView: UIView?
+        if let generalView = touchedView?.subviews.first as? KolodaMainView {
+            
+            for eachView in generalView.subviews {
+                if eachView is KolodaButtonsView {
+                    foundedView = eachView
+                    break
+                }
+            }
+            
+            if foundedView != nil {
+                
+                let newPoint = foundedView!.convert(touchLocation, from: self)
+                
+                if foundedView!.point(inside: newPoint, with: nil) {
+                    print("here")
+                    touchOnButton = true
+                }
+                
+                
+            }
+            
+            
+        }
+        
+        
+        if !touchOnButton {
+            delegate?.card(cardWasTapped: self)
+        }
+        
     }
     
     //MARK: Private

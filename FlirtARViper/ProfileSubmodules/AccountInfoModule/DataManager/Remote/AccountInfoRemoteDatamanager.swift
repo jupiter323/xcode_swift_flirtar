@@ -27,6 +27,37 @@ class AccountInfoRemoteDatamanager: AccountInfoRemoteDatamanagerInputProtocol {
         
     }
     
+    func requestInstagramConnection(withToken token: String) {
+        let request = APIRouter.saveInstagramToken(token: token)
+
+        NetworkManager
+            .shared
+            .sendAPIRequestWithStringResponse(request: request, completionHandler: { (error) in
+
+                if error != nil {
+                    self.remoteRequestHandler?.requestError(method: APIMethod.postInstagram, error: error!)
+                } else {
+                    self.remoteRequestHandler?.instagramConnected()
+                }
+
+            })
+    }
+    
+    func requestInstagramDisconnection() {
+        let request = APIRouter.disconnectInstagram()
+        
+        NetworkManager
+        .shared
+            .sendAPIRequestWithStringResponse(request: request) { (error) in
+                if error != nil {
+                    self.remoteRequestHandler?.requestError(method: APIMethod.instagramDisconnect, error: error!)
+                } else {
+                    self.remoteRequestHandler?.instagramDisconnected()
+                }
+        }
+        
+    }
+    
     func requestUpdateUserLocation(withLongitude: Double, latitude: Double) {
         
         let request = APIRouter.updateUserLocation(longitude: withLongitude, latitude: latitude)

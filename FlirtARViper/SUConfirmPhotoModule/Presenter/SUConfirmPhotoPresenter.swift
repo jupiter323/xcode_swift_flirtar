@@ -45,14 +45,14 @@ class SUConfirmPhotoPresenter: SUConfirmPhotoPresenterProtocol {
     }
     
     func showProfileConfirm() {
-        newPicker = nil
-        fbPicker = nil
+//        newPicker = nil
+//        fbPicker = nil
         wireframe?.routeToProfileConfirm(fromView: view!)
     }
     
     func dismissMe() {
-        newPicker = nil
-        fbPicker = nil
+//        newPicker = nil
+//        fbPicker = nil
         wireframe?.backToPassword(fromView: view!)
     }
     

@@ -11,6 +11,16 @@ import UIKit
 protocol TitledCellDelegate: class {
     func logoutTap()
     func blockedUsersTap()
+    func rateAppStoreTap()
+    func rateCustomTap()
+}
+
+//all methods optional
+extension TitledCellDelegate {
+    func logoutTap() {}
+    func blockedUsersTap() {}
+    func rateAppStoreTap() {}
+    func rateCustomTap() {}
 }
 
 class TitledCell: UITableViewCell {
@@ -40,6 +50,10 @@ class TitledCell: UITableViewCell {
                 delegate?.logoutTap()
             case .Account(.blockUsers):
                 delegate?.blockedUsersTap()
+            case .Feedback(.rateAppStore):
+                delegate?.rateAppStoreTap()
+            case .Feedback(.customRate):
+                delegate?.rateCustomTap()
             default:
                 break
             }
@@ -53,6 +67,10 @@ class TitledCell: UITableViewCell {
             titleLabel.text = "Logout"
         case .Account(.blockUsers):
             titleLabel.text = "Blocked Users"
+        case .Feedback(.rateAppStore):
+            titleLabel.text = "Rating us on App Store"
+        case .Feedback(.customRate):
+            titleLabel.text = "Do you like our app?"
         default:
             break
         }

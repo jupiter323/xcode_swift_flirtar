@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Feedback Module View Controller-->
+        <scene sceneID="MIp-vj-alM">
+            <objects>
+                <viewController storyboardIdentifier="FeedbackModuleViewController" id="QH2-4C-cKl" customClass="FeedbackModuleViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="96b-9x-xjV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ydo-ku-fgJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="hXz-Iv-WiH">
+                                        <rect key="frame" x="46.5" y="15" width="281" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="yDA-Wi-4ya"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qpA-16-Jwm">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="bU2-Ju-jD3"/>
+                                        </constraints>
+                                        <color key="separatorColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
+                                        <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QH2-4C-cKl" id="mQC-he-26O"/>
+                                            <outlet property="delegate" destination="QH2-4C-cKl" id="mzn-3q-ZcE"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="29g-6z-Qvz"/>
+                                    <constraint firstItem="qpA-16-Jwm" firstAttribute="leading" secondItem="Ydo-ku-fgJ" secondAttribute="leading" id="9SD-VP-0DP"/>
+                                    <constraint firstItem="hXz-Iv-WiH" firstAttribute="top" secondItem="Ydo-ku-fgJ" secondAttribute="top" constant="15" id="AOi-ZH-3mr"/>
+                                    <constraint firstItem="hXz-Iv-WiH" firstAttribute="centerX" secondItem="Ydo-ku-fgJ" secondAttribute="centerX" id="SL0-IX-HCM"/>
+                                    <constraint firstItem="hXz-Iv-WiH" firstAttribute="width" secondItem="Ydo-ku-fgJ" secondAttribute="width" multiplier="3:4" id="ato-4R-VJa"/>
+                                    <constraint firstAttribute="bottom" secondItem="qpA-16-Jwm" secondAttribute="bottom" id="b9d-9W-37Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="qpA-16-Jwm" secondAttribute="trailing" id="gFJ-JS-Pnf"/>
+                                    <constraint firstItem="qpA-16-Jwm" firstAttribute="top" secondItem="hXz-Iv-WiH" secondAttribute="bottom" constant="5" id="jfA-Ko-LKQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Ydo-ku-fgJ" secondAttribute="bottom" id="HeN-kh-hbq"/>
+                            <constraint firstAttribute="trailing" secondItem="Ydo-ku-fgJ" secondAttribute="trailing" id="NEy-1Z-Xd7"/>
+                            <constraint firstItem="Ydo-ku-fgJ" firstAttribute="top" secondItem="96b-9x-xjV" secondAttribute="top" id="fn2-1Q-7dB"/>
+                            <constraint firstItem="Ydo-ku-fgJ" firstAttribute="leading" secondItem="96b-9x-xjV" secondAttribute="leading" id="jcS-T2-u9W"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0AR-8h-Ipj"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="170"/>
+                    <connections>
+                        <outlet property="feedbackTableView" destination="qpA-16-Jwm" id="Yul-Ig-Opo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFO-pz-z8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="100" y="106"/>
+        </scene>
+    </scenes>
+</document>

@@ -35,6 +35,17 @@ class AccountInfoPresenter: AccountInfoPresenterProtocol {
         view?.showActivityIndicator()
         interactor?.startFBDisconnection()
     }
+    
+    func instagramConnection(withToken token: String) {
+        view?.showActivityIndicator()
+        interactor?.startInstagramConnection(withToken: token)
+    }
+    
+    func instagramDisconnection() {
+        view?.showActivityIndicator()
+        interactor?.startInstagramDisconnection()
+    }
+    
     func logout() {
         view?.showActivityIndicator()
         interactor?.startLogout()
@@ -47,6 +58,10 @@ class AccountInfoPresenter: AccountInfoPresenterProtocol {
     func showBlockedUsers() {
         wireframe?.routeToBlockedUsers(fromView: view!)
     }
+    
+    func showInstagramAuth() {
+        wireframe?.routeToInstagramAuth(fromView: view!)
+    }
 }
 
 extension AccountInfoPresenter: AccountInfoInteractorOutputProtocol {
@@ -57,7 +72,17 @@ extension AccountInfoPresenter: AccountInfoInteractorOutputProtocol {
 
     func fbDisconnectionSuccess() {
         view?.hideActivityIndicator()
-        view?.showFBDisconnectSuccess(messageType: .fbDisconnected)
+        view?.showFBDisconnectSuccess(messageType: .accountDisconnected)
+    }
+    
+    func instagramConnectionSuccess() {
+        view?.hideActivityIndicator()
+        view?.showInstagramConnectSuccess(messageType: .accountConnected)
+    }
+    
+    func instagramDisconnectionSuccess() {
+        view?.hideActivityIndicator()
+        view?.showInstagramDisconnectSuccess(messageType: .accountDisconnected)
     }
     
     func logoutSuccess() {
@@ -80,6 +105,10 @@ extension AccountInfoPresenter: AccountInfoInteractorOutputProtocol {
             view?.showFBDisconnectError(method: method.rawValue, errorMessage: error.localizedDescription)
         case .updateLocation:
             view?.locationChangeError(method: method.rawValue, errorMessage: error.localizedDescription)
+        case .postInstagram:
+            view?.showInstagramConnectError(method: method.rawValue, errorMessage: error.localizedDescription)
+        case .instagramDisconnect:
+            view?.showInstagramDisconnectError(method: method.rawValue, errorMessage: error.localizedDescription)
         default:
             view?.showRequestError(method: method.rawValue, errorMessage: error.localizedDescription)
         }

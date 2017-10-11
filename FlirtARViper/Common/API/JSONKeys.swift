@@ -24,6 +24,7 @@ enum ServerUserJSONKeys: String {
     case isFacebook = "is_facebook"
     case photo = "photo"
     case age = "age"
+    case instagramConnected = "instagram_connected"
 }
 
 enum ServerSignUpJSONKeys: String {

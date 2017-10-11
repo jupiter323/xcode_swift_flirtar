@@ -26,6 +26,9 @@ protocol LikeDislikeTabViewProtocol: class {
 
 protocol LikeDislikeTabWireframeProtocol {
     static func configureLikeDislikeTabView() -> UIViewController
+    
+    func showFullInfo(fromView view: LikeDislikeTabViewProtocol,
+                      withUser user: ShortUser)
 }
 
 protocol LikeDislikeTabPresenterProtocol {
@@ -41,6 +44,8 @@ protocol LikeDislikeTabPresenterProtocol {
     
     func reportUser(withText: String, andUserId userId: Int)
     func blockUser(userId: Int)
+    
+    func openProfile(withUser user: ShortUser)
     
 }
 

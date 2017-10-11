@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,18 +27,15 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="130" height="141"/>
+            <rect key="frame" x="0.0" y="0.0" width="130" height="151"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bm5-el-WkY">
-                    <rect key="frame" x="0.0" y="0.0" width="130" height="141"/>
+                    <rect key="frame" x="0.0" y="0.0" width="130" height="151"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPB-9y-vLh">
-                            <rect key="frame" x="0.0" y="30" width="130.5" height="111"/>
+                            <rect key="frame" x="0.0" y="30" width="130.5" height="121"/>
                             <subviews>
-                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-6a-btL">
-                                    <rect key="frame" x="0.0" y="0.0" width="130.5" height="111"/>
-                                </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-Jp-8qt">
                                     <rect key="frame" x="14.5" y="10" width="101" height="101"/>
                                     <subviews>
@@ -48,10 +46,9 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="l1G-Dt-dhO" secondAttribute="bottom" id="3u4-by-baB"/>
-                                        <constraint firstAttribute="height" constant="101" id="4L7-mm-8PY"/>
                                         <constraint firstAttribute="trailing" secondItem="l1G-Dt-dhO" secondAttribute="trailing" id="5bR-dr-Bra"/>
-                                        <constraint firstAttribute="width" constant="101" id="Axy-TQ-crI"/>
                                         <constraint firstItem="l1G-Dt-dhO" firstAttribute="top" secondItem="n8W-Jp-8qt" secondAttribute="top" id="ef2-vd-uRA"/>
+                                        <constraint firstAttribute="width" secondItem="n8W-Jp-8qt" secondAttribute="height" multiplier="1:1" id="oir-eH-BqE"/>
                                         <constraint firstItem="l1G-Dt-dhO" firstAttribute="leading" secondItem="n8W-Jp-8qt" secondAttribute="leading" id="t6i-X3-rgv"/>
                                     </constraints>
                                 </view>
@@ -79,13 +76,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="n8W-Jp-8qt" firstAttribute="top" secondItem="nPB-9y-vLh" secondAttribute="top" constant="10" id="2dC-JO-ylf"/>
+                                <constraint firstAttribute="bottom" secondItem="n8W-Jp-8qt" secondAttribute="bottom" constant="10" id="Lz6-bk-Clr"/>
                                 <constraint firstItem="n8W-Jp-8qt" firstAttribute="centerX" secondItem="nPB-9y-vLh" secondAttribute="centerX" id="YkZ-C9-AL0"/>
                                 <constraint firstAttribute="height" constant="111" id="ez5-zY-Xiy"/>
-                                <constraint firstAttribute="trailing" secondItem="gHe-6a-btL" secondAttribute="trailing" id="hue-L4-iZi"/>
-                                <constraint firstAttribute="bottom" secondItem="gHe-6a-btL" secondAttribute="bottom" id="lBY-OF-M9j"/>
-                                <constraint firstItem="gHe-6a-btL" firstAttribute="top" secondItem="nPB-9y-vLh" secondAttribute="top" id="lr8-9V-q65"/>
                                 <constraint firstAttribute="trailing" secondItem="oLK-Y5-JsZ" secondAttribute="trailing" constant="10" id="trg-1w-iFg"/>
-                                <constraint firstItem="gHe-6a-btL" firstAttribute="leading" secondItem="nPB-9y-vLh" secondAttribute="leading" id="uc6-n2-eKN"/>
                                 <constraint firstItem="oLK-Y5-JsZ" firstAttribute="top" secondItem="nPB-9y-vLh" secondAttribute="top" constant="10" id="yg0-RA-HP1"/>
                             </constraints>
                         </view>
@@ -113,6 +107,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="nPB-9y-vLh" secondAttribute="bottom" id="AKs-bt-c3j"/>
                         <constraint firstAttribute="height" constant="141" id="Kbe-by-D53"/>
+                        <constraint firstItem="cWe-r8-G2w" firstAttribute="top" secondItem="bm5-el-WkY" secondAttribute="top" id="NrD-Ou-6Bp"/>
                         <constraint firstItem="nPB-9y-vLh" firstAttribute="top" secondItem="cWe-r8-G2w" secondAttribute="bottom" id="dBI-CC-0s6"/>
                         <constraint firstItem="nPB-9y-vLh" firstAttribute="leading" secondItem="bm5-el-WkY" secondAttribute="leading" id="evr-u4-abK"/>
                         <constraint firstItem="cWe-r8-G2w" firstAttribute="leading" secondItem="bm5-el-WkY" secondAttribute="leading" id="h2u-EI-fkI"/>
@@ -132,10 +127,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-59" y="-105.5"/>
+            <point key="canvasLocation" x="-59" y="-101"/>
         </view>
     </objects>
-    <resources>
-        <image name="arBackground" width="150" height="186"/>
-    </resources>
 </document>

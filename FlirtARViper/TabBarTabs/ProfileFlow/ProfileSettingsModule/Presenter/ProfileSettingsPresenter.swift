@@ -29,8 +29,9 @@ class ProfileSettingsPresenter: ProfileSettingsPresenterProtocol {
         let personalInfo = PersonalInfoWireframe.configureSUProfileInfoView()
         let personalPreference = PersonalPreferenceWireframe.configurePersonalPreferenceView()
         let notificationsInfo = NotificationsInfoWireframe.configureNotificationsInfoView()
+        let feedbackModule = FeedbackModuleWireframe.configureFeedbackModuleView()
         let accountInfo = AccountInfoWireframe.configureAccountInfoView()
-        return [personalInfo, personalPreference, notificationsInfo, accountInfo]
+        return [personalInfo, personalPreference, notificationsInfo, feedbackModule, accountInfo]
     }
     
     func startSavingProfile() {

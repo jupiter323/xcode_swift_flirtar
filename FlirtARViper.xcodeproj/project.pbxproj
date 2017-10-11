@@ -10,6 +10,8 @@
 		1174F5BAF3374F1B4F9D5C6D /* Pods_FlirtARViper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED17B77921EA345236446B03 /* Pods_FlirtARViper.framework */; };
 		AD005CC41F5DE368000DA4B3 /* LikeDislikeProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD005CC31F5DE368000DA4B3 /* LikeDislikeProfile.storyboard */; };
 		AD005CC61F5DE38C000DA4B3 /* LikeDislikeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD005CC51F5DE38C000DA4B3 /* LikeDislikeProfileViewController.swift */; };
+		AD014A151F7953E600FE1F68 /* KolodaOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD014A141F7953E600FE1F68 /* KolodaOverlayView.xib */; };
+		AD014A171F79540C00FE1F68 /* KolodaOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD014A161F79540C00FE1F68 /* KolodaOverlayView.swift */; };
 		AD05F4851F6B125F00F9FDE2 /* SUEmailLocalDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD05F4841F6B125F00F9FDE2 /* SUEmailLocalDatamanager.swift */; };
 		AD093A9A1F3A299000194679 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD093A991F3A299000194679 /* PhotoViewController.swift */; };
 		AD093A9C1F3A29B200194679 /* UserPhotosModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD093A9B1F3A29B200194679 /* UserPhotosModule.storyboard */; };
@@ -68,6 +70,8 @@
 		AD1C7A821F740F1D0054D04E /* BlockedUsersRemoteDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7A811F740F1D0054D04E /* BlockedUsersRemoteDatamanager.swift */; };
 		AD1C7A841F74551E0054D04E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7A831F74551E0054D04E /* CoreDataManager.swift */; };
 		AD1C7A871F745BF80054D04E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7A861F745BF80054D04E /* NetworkManager.swift */; };
+		AD1E9A9C1F79738E0092FB43 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1E9A9B1F79738E0092FB43 /* SocketManager.swift */; };
+		AD208A331F86CC3400B3C81A /* RateAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD208A321F86CC3400B3C81A /* RateAppHelper.swift */; };
 		AD2172F91F460D2600AB6067 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2172F81F460D2600AB6067 /* Message.swift */; };
 		AD2172FD1F461A8700AB6067 /* MessagesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2172FC1F461A8700AB6067 /* MessagesDetailViewController.swift */; };
 		AD2172FF1F461AA800AB6067 /* MessagesDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2172FE1F461AA800AB6067 /* MessagesDetail.storyboard */; };
@@ -131,14 +135,22 @@
 		AD412AFC1F4341CD002E8685 /* TabBarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD412AFB1F4341CD002E8685 /* TabBarProtocols.swift */; };
 		AD412AFF1F43423A002E8685 /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD412AFE1F43423A002E8685 /* TabBarInteractor.swift */; };
 		AD412B031F4342E6002E8685 /* TabBarRemoteDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD412B021F4342E6002E8685 /* TabBarRemoteDatamanager.swift */; };
+		AD43B3961F7C2BC100D51C44 /* InstagramAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD43B3951F7C2BC100D51C44 /* InstagramAPIRouter.swift */; };
 		AD43EFB71F4F45A900F98E9F /* ProfileMainTabLocalDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD43EFB61F4F45A900F98E9F /* ProfileMainTabLocalDatamanager.swift */; };
 		AD43EFBA1F4F47A900F98E9F /* ProfileSettingsLocalDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD43EFB91F4F47A900F98E9F /* ProfileSettingsLocalDatamanager.swift */; };
+		AD49E5781F8664930032729F /* RateAppNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD49E5771F8664930032729F /* RateAppNotificationView.swift */; };
+		AD49E57A1F8664AF0032729F /* RateAppNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD49E5791F8664AF0032729F /* RateAppNotificationView.xib */; };
+		AD49E57C1F86694D0032729F /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD49E57B1F86694C0032729F /* RatingControl.swift */; };
 		AD4D9EA61F4DDAA100446171 /* ConfirmNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4D9EA51F4DDAA100446171 /* ConfirmNotificationView.xib */; };
 		AD4D9EA81F4DDABB00446171 /* ConfirmNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4D9EA71F4DDABB00446171 /* ConfirmNotificationView.swift */; };
 		AD4FFC3C1F472D290001438C /* InterestItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4FFC3B1F472D290001438C /* InterestItemView.xib */; };
 		AD4FFC3E1F472D3A0001438C /* InterestItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FFC3D1F472D3A0001438C /* InterestItemView.swift */; };
 		AD4FFC481F478EC00001438C /* ARProfileAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD4FFC471F478EC00001438C /* ARProfileAnnotationView.xib */; };
 		AD4FFC4A1F478ED60001438C /* ARProfileAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4FFC491F478ED60001438C /* ARProfileAnnotationView.swift */; };
+		AD53E75C1F7D2706008BA821 /* InstagramPhotos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD53E75B1F7D2706008BA821 /* InstagramPhotos.storyboard */; };
+		AD53E75E1F7D2735008BA821 /* InstagramPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD53E75D1F7D2735008BA821 /* InstagramPhotosViewController.swift */; };
+		AD53E7611F7D28BF008BA821 /* InstagramPhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD53E75F1F7D28BF008BA821 /* InstagramPhotoViewCell.swift */; };
+		AD53E7621F7D28BF008BA821 /* InstagramPhotoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD53E7601F7D28BF008BA821 /* InstagramPhotoViewCell.xib */; };
 		AD561AEF1F5092D600D7A5F1 /* UITabBarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD561AEE1F5092D600D7A5F1 /* UITabBarController+Extensions.swift */; };
 		AD561AF11F5093E900D7A5F1 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD561AF01F5093E900D7A5F1 /* Montserrat-SemiBold.ttf */; };
 		AD5BDB271F605E420065BDF9 /* ReportNotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD5BDB261F605E420065BDF9 /* ReportNotificationView.xib */; };
@@ -149,6 +161,10 @@
 		AD64602E1F5844CC00D9C43C /* PushNotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64602D1F5844CC00D9C43C /* PushNotificationHelper.swift */; };
 		AD64A9B01F6402A30050A6EE /* AutoCompleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64A9AE1F6402A30050A6EE /* AutoCompleteCell.swift */; };
 		AD64A9B11F6402A30050A6EE /* AutoCompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD64A9AF1F6402A30050A6EE /* AutoCompleteCell.xib */; };
+		AD64F77C1F896A1100DEBB1C /* InstagramPhotosLocalDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD64F77B1F896A1100DEBB1C /* InstagramPhotosLocalDatamanager.swift */; };
+		AD7567F61F8AA6B600EB1738 /* FeedbackModuleProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7567F51F8AA6B600EB1738 /* FeedbackModuleProtocols.swift */; };
+		AD7567F81F8AA6CC00EB1738 /* FeedbackModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7567F71F8AA6CC00EB1738 /* FeedbackModulePresenter.swift */; };
+		AD7567FA1F8AA6E300EB1738 /* FeedbackModuleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7567F91F8AA6E300EB1738 /* FeedbackModuleWireframe.swift */; };
 		AD7B038F1F4F0D7500D0E7D1 /* CoreDataEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7B038E1F4F0D7500D0E7D1 /* CoreDataEngine.swift */; };
 		AD7B03921F4F0F6000D0E7D1 /* CDSavedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7B03911F4F0F6000D0E7D1 /* CDSavedUser.swift */; };
 		AD7B03941F4F0FBC00D0E7D1 /* CDSavedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7B03931F4F0FBC00D0E7D1 /* CDSavedUser+CoreDataProperties.swift */; };
@@ -178,6 +194,8 @@
 		AD9068441F4B8D3900D496CC /* LikesAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9068411F4B8D3900D496CC /* LikesAnimationView.swift */; };
 		AD9068451F4B8D3900D496CC /* LikesAnimationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD9068421F4B8D3900D496CC /* LikesAnimationView.xib */; };
 		AD917BB41F598C6700B180B4 /* CenteredTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD917BB31F598C6700B180B4 /* CenteredTextView.swift */; };
+		AD91E5361F8A9DE400E463CA /* FeedbackModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD91E5351F8A9DE400E463CA /* FeedbackModule.storyboard */; };
+		AD91E5381F8A9DFC00E463CA /* FeedbackModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD91E5371F8A9DFC00E463CA /* FeedbackModuleViewController.swift */; };
 		AD9251041F50522E000FDBF0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD9251031F50522E000FDBF0 /* GoogleService-Info.plist */; };
 		AD9B0D101F386D5D00C2181F /* TokenAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9B0D0F1F386D5D00C2181F /* TokenAdapter.swift */; };
 		AD9B0D141F38756F00C2181F /* MapTabRemoteDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9B0D131F38756F00C2181F /* MapTabRemoteDatamanager.swift */; };
@@ -236,6 +254,8 @@
 		ADC0F6E01F446764002B4249 /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC0F6DF1F446764002B4249 /* Dialog.swift */; };
 		ADC307801F728F9A0025FC4F /* SUProfileInfoLocalDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC3077F1F728F9A0025FC4F /* SUProfileInfoLocalDatamanager.swift */; };
 		ADC307821F728FCC0025FC4F /* SUProfileInfoRemoteDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC307811F728FCC0025FC4F /* SUProfileInfoRemoteDatamanager.swift */; };
+		ADC41A681F7D84F90055CCB3 /* InstagramAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC41A671F7D84F80055CCB3 /* InstagramAuth.storyboard */; };
+		ADC41A6A1F7D85160055CCB3 /* InstagramAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC41A691F7D85160055CCB3 /* InstagramAuthViewController.swift */; };
 		ADC6DCF91F7405CA00DE4115 /* BlockedUsers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADC6DCF81F7405CA00DE4115 /* BlockedUsers.storyboard */; };
 		ADC6DCFB1F7405E700DE4115 /* BlockedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC6DCFA1F7405E700DE4115 /* BlockedUsersViewController.swift */; };
 		ADC6DCFE1F74078600DE4115 /* BlockedUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC6DCFC1F74078600DE4115 /* BlockedUserCell.swift */; };
@@ -319,6 +339,12 @@
 		ADDC21CB1F30AB2300AFE5B3 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDC21CA1F30AB2300AFE5B3 /* LoginInteractor.swift */; };
 		ADDC21CF1F30AC4D00AFE5B3 /* LoginRemoteDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDC21CE1F30AC4D00AFE5B3 /* LoginRemoteDatamanager.swift */; };
 		ADE1D2AD1F62F900008C8D03 /* interestsF.rtf in Resources */ = {isa = PBXBuildFile; fileRef = ADE1D2AC1F62F900008C8D03 /* interestsF.rtf */; };
+		ADE39DA31F86B3A700736956 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE39DA21F86B3A700736956 /* UILabel+Extensions.swift */; };
+		ADE5D8741F7D53EB000A48EE /* InstagramPhotosWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE5D8731F7D53EB000A48EE /* InstagramPhotosWireframe.swift */; };
+		ADE5D8781F7D54D7000A48EE /* InstagramPhotosProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE5D8771F7D54D7000A48EE /* InstagramPhotosProtocols.swift */; };
+		ADE5D87E1F7D580C000A48EE /* InstagramPhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE5D87D1F7D580C000A48EE /* InstagramPhotosPresenter.swift */; };
+		ADE5D8801F7D5827000A48EE /* InstagramPhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE5D87F1F7D5827000A48EE /* InstagramPhotosInteractor.swift */; };
+		ADE5D8821F7D5876000A48EE /* InstagramPhotosRemoteDatamanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE5D8811F7D5876000A48EE /* InstagramPhotosRemoteDatamanager.swift */; };
 		ADEC05F21F31DBB200422564 /* SUEmailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC05F11F31DBB200422564 /* SUEmailProtocols.swift */; };
 		ADEC05F41F31DE1D00422564 /* SUEmailWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEC05F31F31DE1D00422564 /* SUEmailWireframe.swift */; };
 		ADEC05F61F31DE3700422564 /* SUEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEC05F51F31DE3700422564 /* SUEmail.storyboard */; };
@@ -366,6 +392,8 @@
 		41815F54C3E49672B6028694 /* Pods-FlirtARViper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlirtARViper.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlirtARViper/Pods-FlirtARViper.release.xcconfig"; sourceTree = "<group>"; };
 		AD005CC31F5DE368000DA4B3 /* LikeDislikeProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LikeDislikeProfile.storyboard; path = TabBarTabs/LikeDislikeFlow/LikeDislikeProfileModule/View/LikeDislikeProfile.storyboard; sourceTree = "<group>"; };
 		AD005CC51F5DE38C000DA4B3 /* LikeDislikeProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikeDislikeProfileViewController.swift; path = TabBarTabs/LikeDislikeFlow/LikeDislikeProfileModule/View/LikeDislikeProfileViewController.swift; sourceTree = "<group>"; };
+		AD014A141F7953E600FE1F68 /* KolodaOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = KolodaOverlayView.xib; path = TabBarTabs/LikeDislikeFlow/View/KolodaOverlayView.xib; sourceTree = "<group>"; };
+		AD014A161F79540C00FE1F68 /* KolodaOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KolodaOverlayView.swift; path = TabBarTabs/LikeDislikeFlow/View/KolodaOverlayView.swift; sourceTree = "<group>"; };
 		AD05F4841F6B125F00F9FDE2 /* SUEmailLocalDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUEmailLocalDatamanager.swift; path = SUEmailModule/DataManager/Local/SUEmailLocalDatamanager.swift; sourceTree = "<group>"; };
 		AD093A991F3A299000194679 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = ProfileSubmodules/UserPhotosModule/View/PhotoViewController.swift; sourceTree = "<group>"; };
 		AD093A9B1F3A29B200194679 /* UserPhotosModule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserPhotosModule.storyboard; path = ProfileSubmodules/UserPhotosModule/View/UserPhotosModule.storyboard; sourceTree = "<group>"; };
@@ -427,6 +455,8 @@
 		AD1C7A811F740F1D0054D04E /* BlockedUsersRemoteDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockedUsersRemoteDatamanager.swift; path = ProfileSubmodules/BlockedUsersModule/DataManager/Remote/BlockedUsersRemoteDatamanager.swift; sourceTree = "<group>"; };
 		AD1C7A831F74551E0054D04E /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = Common/CoreData/CoreDataManager.swift; sourceTree = "<group>"; };
 		AD1C7A861F745BF80054D04E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Common/Network/NetworkManager.swift; sourceTree = "<group>"; };
+		AD1E9A9B1F79738E0092FB43 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketManager.swift; path = Common/Network/SocketManager.swift; sourceTree = "<group>"; };
+		AD208A321F86CC3400B3C81A /* RateAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RateAppHelper.swift; path = Common/Helpers/RateAppHelper.swift; sourceTree = "<group>"; };
 		AD2172F81F460D2600AB6067 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Entities/Message.swift; sourceTree = "<group>"; };
 		AD2172FC1F461A8700AB6067 /* MessagesDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesDetailViewController.swift; path = TabBarTabs/MessagesFlow/MessagesDetailModule/View/MessagesDetailViewController.swift; sourceTree = "<group>"; };
 		AD2172FE1F461AA800AB6067 /* MessagesDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MessagesDetail.storyboard; path = TabBarTabs/MessagesFlow/MessagesDetailModule/View/MessagesDetail.storyboard; sourceTree = "<group>"; };
@@ -530,14 +560,22 @@
 		AD412AFB1F4341CD002E8685 /* TabBarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarProtocols.swift; path = TabBarModule/Protocols/TabBarProtocols.swift; sourceTree = "<group>"; };
 		AD412AFE1F43423A002E8685 /* TabBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarInteractor.swift; path = TabBarModule/Interactor/TabBarInteractor.swift; sourceTree = "<group>"; };
 		AD412B021F4342E6002E8685 /* TabBarRemoteDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarRemoteDatamanager.swift; path = TabBarModule/DataManager/Remote/TabBarRemoteDatamanager.swift; sourceTree = "<group>"; };
+		AD43B3951F7C2BC100D51C44 /* InstagramAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramAPIRouter.swift; path = Common/API/InstagramAPIRouter.swift; sourceTree = "<group>"; };
 		AD43EFB61F4F45A900F98E9F /* ProfileMainTabLocalDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileMainTabLocalDatamanager.swift; path = TabBarTabs/ProfileFlow/ProfileMainModule/DataManager/Local/ProfileMainTabLocalDatamanager.swift; sourceTree = "<group>"; };
 		AD43EFB91F4F47A900F98E9F /* ProfileSettingsLocalDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSettingsLocalDatamanager.swift; path = TabBarTabs/ProfileFlow/ProfileSettingsModule/DataManager/Local/ProfileSettingsLocalDatamanager.swift; sourceTree = "<group>"; };
+		AD49E5771F8664930032729F /* RateAppNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RateAppNotificationView.swift; path = Common/UIElements/RateAppNotificationView.swift; sourceTree = "<group>"; };
+		AD49E5791F8664AF0032729F /* RateAppNotificationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RateAppNotificationView.xib; path = Common/UIElements/RateAppNotificationView.xib; sourceTree = "<group>"; };
+		AD49E57B1F86694C0032729F /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		AD4D9EA51F4DDAA100446171 /* ConfirmNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfirmNotificationView.xib; path = TabBarTabs/MessagesFlow/MessagesMainModule/View/ConfirmNotificationView.xib; sourceTree = "<group>"; };
 		AD4D9EA71F4DDABB00446171 /* ConfirmNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmNotificationView.swift; path = TabBarTabs/MessagesFlow/MessagesMainModule/View/ConfirmNotificationView.swift; sourceTree = "<group>"; };
 		AD4FFC3B1F472D290001438C /* InterestItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InterestItemView.xib; path = Common/UIElements/InterestItemView.xib; sourceTree = "<group>"; };
 		AD4FFC3D1F472D3A0001438C /* InterestItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterestItemView.swift; path = Common/UIElements/InterestItemView.swift; sourceTree = "<group>"; };
 		AD4FFC471F478EC00001438C /* ARProfileAnnotationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ARProfileAnnotationView.xib; path = TabBarTabs/ARFlow/ARTabMainModule/View/ARProfileAnnotationView.xib; sourceTree = "<group>"; };
 		AD4FFC491F478ED60001438C /* ARProfileAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARProfileAnnotationView.swift; path = TabBarTabs/ARFlow/ARTabMainModule/View/ARProfileAnnotationView.swift; sourceTree = "<group>"; };
+		AD53E75B1F7D2706008BA821 /* InstagramPhotos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = InstagramPhotos.storyboard; path = ProfileSubmodules/InstagramPhotosModule/View/InstagramPhotos.storyboard; sourceTree = "<group>"; };
+		AD53E75D1F7D2735008BA821 /* InstagramPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosViewController.swift; path = ProfileSubmodules/InstagramPhotosModule/View/InstagramPhotosViewController.swift; sourceTree = "<group>"; };
+		AD53E75F1F7D28BF008BA821 /* InstagramPhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotoViewCell.swift; path = ProfileSubmodules/InstagramPhotosModule/View/InstagramPhotoViewCell.swift; sourceTree = "<group>"; };
+		AD53E7601F7D28BF008BA821 /* InstagramPhotoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = InstagramPhotoViewCell.xib; path = ProfileSubmodules/InstagramPhotosModule/View/InstagramPhotoViewCell.xib; sourceTree = "<group>"; };
 		AD561AEE1F5092D600D7A5F1 /* UITabBarController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITabBarController+Extensions.swift"; path = "Common/Extensions/UITabBarController+Extensions.swift"; sourceTree = "<group>"; };
 		AD561AF01F5093E900D7A5F1 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		AD5BDB261F605E420065BDF9 /* ReportNotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ReportNotificationView.xib; path = TabBarTabs/ARFlow/ARFullProfileModule/View/ReportNotificationView.xib; sourceTree = "<group>"; };
@@ -548,6 +586,10 @@
 		AD64602D1F5844CC00D9C43C /* PushNotificationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationHelper.swift; path = Common/Helpers/PushNotificationHelper.swift; sourceTree = "<group>"; };
 		AD64A9AE1F6402A30050A6EE /* AutoCompleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AutoCompleteCell.swift; path = Common/UIElements/AutoCompleteCell.swift; sourceTree = "<group>"; };
 		AD64A9AF1F6402A30050A6EE /* AutoCompleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AutoCompleteCell.xib; path = Common/UIElements/AutoCompleteCell.xib; sourceTree = "<group>"; };
+		AD64F77B1F896A1100DEBB1C /* InstagramPhotosLocalDatamanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosLocalDatamanager.swift; path = ProfileSubmodules/InstagramPhotosModule/DataManager/Local/InstagramPhotosLocalDatamanager.swift; sourceTree = "<group>"; };
+		AD7567F51F8AA6B600EB1738 /* FeedbackModuleProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackModuleProtocols.swift; path = ProfileSubmodules/FeedbackModule/Protocols/FeedbackModuleProtocols.swift; sourceTree = "<group>"; };
+		AD7567F71F8AA6CC00EB1738 /* FeedbackModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackModulePresenter.swift; path = ProfileSubmodules/FeedbackModule/Presenter/FeedbackModulePresenter.swift; sourceTree = "<group>"; };
+		AD7567F91F8AA6E300EB1738 /* FeedbackModuleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackModuleWireframe.swift; path = ProfileSubmodules/FeedbackModule/Wireframe/FeedbackModuleWireframe.swift; sourceTree = "<group>"; };
 		AD7B038E1F4F0D7500D0E7D1 /* CoreDataEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataEngine.swift; path = Common/CoreData/CoreDataEngine.swift; sourceTree = "<group>"; };
 		AD7B03911F4F0F6000D0E7D1 /* CDSavedUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CDSavedUser.swift; path = Entities/CoreData/CDSavedUser.swift; sourceTree = "<group>"; };
 		AD7B03931F4F0FBC00D0E7D1 /* CDSavedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CDSavedUser+CoreDataProperties.swift"; path = "Entities/CoreData/CDSavedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -560,6 +602,7 @@
 		AD7D5D161F72B96B0030F216 /* KolodaViewAnimatior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KolodaViewAnimatior.swift; sourceTree = "<group>"; };
 		AD7D5D181F72B96B0030F216 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		AD7D5D191F72B96B0030F216 /* SwipeResultDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeResultDirection.swift; sourceTree = "<group>"; };
+		AD8260A61F8955920061CFF5 /* FlirtARViperV2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlirtARViperV2.xcdatamodel; sourceTree = "<group>"; };
 		AD836FEF1F34ADA700A66F45 /* SwitchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SwitchView.xib; path = Common/UIElements/SwitchView.xib; sourceTree = "<group>"; };
 		AD836FF11F34AE3E00A66F45 /* SwitchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwitchView.swift; path = Common/UIElements/SwitchView.swift; sourceTree = "<group>"; };
 		AD836FF51F34B49000A66F45 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = TabBarModule/View/TabBarViewController.swift; sourceTree = "<group>"; };
@@ -577,6 +620,8 @@
 		AD9068411F4B8D3900D496CC /* LikesAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LikesAnimationView.swift; path = TabBarTabs/ARFlow/ARTabMainModule/View/LikesAnimationView.swift; sourceTree = "<group>"; };
 		AD9068421F4B8D3900D496CC /* LikesAnimationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LikesAnimationView.xib; path = TabBarTabs/ARFlow/ARTabMainModule/View/LikesAnimationView.xib; sourceTree = "<group>"; };
 		AD917BB31F598C6700B180B4 /* CenteredTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenteredTextView.swift; path = TabBarTabs/MessagesFlow/MessagesDetailModule/View/CenteredTextView.swift; sourceTree = "<group>"; };
+		AD91E5351F8A9DE400E463CA /* FeedbackModule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = FeedbackModule.storyboard; path = ProfileSubmodules/FeedbackModule/View/FeedbackModule.storyboard; sourceTree = "<group>"; };
+		AD91E5371F8A9DFC00E463CA /* FeedbackModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FeedbackModuleViewController.swift; path = ProfileSubmodules/FeedbackModule/View/FeedbackModuleViewController.swift; sourceTree = "<group>"; };
 		AD9251031F50522E000FDBF0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD9B0D0F1F386D5D00C2181F /* TokenAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TokenAdapter.swift; path = Common/API/TokenAdapter.swift; sourceTree = "<group>"; };
 		AD9B0D131F38756F00C2181F /* MapTabRemoteDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapTabRemoteDatamanager.swift; path = TabBarTabs/MapTabModule/DataManager/Remote/MapTabRemoteDatamanager.swift; sourceTree = "<group>"; };
@@ -635,6 +680,8 @@
 		ADC0F6DF1F446764002B4249 /* Dialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dialog.swift; path = Entities/Dialog.swift; sourceTree = "<group>"; };
 		ADC3077F1F728F9A0025FC4F /* SUProfileInfoLocalDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUProfileInfoLocalDatamanager.swift; path = SUProfileInfoModule/DataManager/Local/SUProfileInfoLocalDatamanager.swift; sourceTree = "<group>"; };
 		ADC307811F728FCC0025FC4F /* SUProfileInfoRemoteDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUProfileInfoRemoteDatamanager.swift; path = SUProfileInfoModule/DataManager/Remote/SUProfileInfoRemoteDatamanager.swift; sourceTree = "<group>"; };
+		ADC41A671F7D84F80055CCB3 /* InstagramAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = InstagramAuth.storyboard; path = ProfileSubmodules/InstagramPhotosModule/View/InstagramAuth.storyboard; sourceTree = "<group>"; };
+		ADC41A691F7D85160055CCB3 /* InstagramAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramAuthViewController.swift; path = ProfileSubmodules/InstagramPhotosModule/View/InstagramAuthViewController.swift; sourceTree = "<group>"; };
 		ADC6DCF81F7405CA00DE4115 /* BlockedUsers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BlockedUsers.storyboard; path = ProfileSubmodules/BlockedUsersModule/View/BlockedUsers.storyboard; sourceTree = "<group>"; };
 		ADC6DCFA1F7405E700DE4115 /* BlockedUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockedUsersViewController.swift; path = ProfileSubmodules/BlockedUsersModule/View/BlockedUsersViewController.swift; sourceTree = "<group>"; };
 		ADC6DCFC1F74078600DE4115 /* BlockedUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockedUserCell.swift; path = ProfileSubmodules/BlockedUsersModule/View/BlockedUserCell.swift; sourceTree = "<group>"; };
@@ -720,6 +767,12 @@
 		ADDC21CA1F30AB2300AFE5B3 /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = LoginModule/Interactor/LoginInteractor.swift; sourceTree = "<group>"; };
 		ADDC21CE1F30AC4D00AFE5B3 /* LoginRemoteDatamanager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRemoteDatamanager.swift; path = LoginModule/DataManager/Remote/LoginRemoteDatamanager.swift; sourceTree = "<group>"; };
 		ADE1D2AC1F62F900008C8D03 /* interestsF.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = interestsF.rtf; sourceTree = "<group>"; };
+		ADE39DA21F86B3A700736956 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UILabel+Extensions.swift"; path = "Common/Extensions/UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		ADE5D8731F7D53EB000A48EE /* InstagramPhotosWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosWireframe.swift; path = ProfileSubmodules/InstagramPhotosModule/Wireframe/InstagramPhotosWireframe.swift; sourceTree = "<group>"; };
+		ADE5D8771F7D54D7000A48EE /* InstagramPhotosProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosProtocols.swift; path = ProfileSubmodules/InstagramPhotosModule/Protocols/InstagramPhotosProtocols.swift; sourceTree = "<group>"; };
+		ADE5D87D1F7D580C000A48EE /* InstagramPhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosPresenter.swift; path = ProfileSubmodules/InstagramPhotosModule/Presenter/InstagramPhotosPresenter.swift; sourceTree = "<group>"; };
+		ADE5D87F1F7D5827000A48EE /* InstagramPhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosInteractor.swift; path = ProfileSubmodules/InstagramPhotosModule/Interactor/InstagramPhotosInteractor.swift; sourceTree = "<group>"; };
+		ADE5D8811F7D5876000A48EE /* InstagramPhotosRemoteDatamanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstagramPhotosRemoteDatamanager.swift; path = ProfileSubmodules/InstagramPhotosModule/DataManager/Remote/InstagramPhotosRemoteDatamanager.swift; sourceTree = "<group>"; };
 		ADEC05F11F31DBB200422564 /* SUEmailProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUEmailProtocols.swift; path = SUEmailModule/Protocols/SUEmailProtocols.swift; sourceTree = "<group>"; };
 		ADEC05F31F31DE1D00422564 /* SUEmailWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SUEmailWireframe.swift; path = SUEmailModule/Wireframe/SUEmailWireframe.swift; sourceTree = "<group>"; };
 		ADEC05F51F31DE3700422564 /* SUEmail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SUEmail.storyboard; path = SUEmailModule/View/SUEmail.storyboard; sourceTree = "<group>"; };
@@ -930,6 +983,8 @@
 				ADCE41351F38B628007354CF /* AccountInfoModule */,
 				ADC6DCF61F74059300DE4115 /* BlockedUsersModule */,
 				AD093A951F3A27F000194679 /* UserPhotosModule */,
+				AD53E7591F7D25CB008BA821 /* InstagramPhotosModule */,
+				AD91E5331F8A9D9200E463CA /* FeedbackModule */,
 			);
 			name = ProfileSubmodules;
 			sourceTree = "<group>";
@@ -1100,6 +1155,7 @@
 			isa = PBXGroup;
 			children = (
 				AD1C7A861F745BF80054D04E /* NetworkManager.swift */,
+				AD1E9A9B1F79738E0092FB43 /* SocketManager.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -1564,14 +1620,73 @@
 			name = Local;
 			sourceTree = "<group>";
 		};
+		AD53E7591F7D25CB008BA821 /* InstagramPhotosModule */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5D87B1F7D57E9000A48EE /* Datamanager */,
+				ADE5D87A1F7D57E4000A48EE /* Interactor */,
+				ADE5D8791F7D57DD000A48EE /* Presenter */,
+				ADE5D8751F7D549B000A48EE /* Protocols */,
+				AD53E75A1F7D266D008BA821 /* View */,
+				ADE5D8721F7D53B6000A48EE /* Wireframe */,
+			);
+			name = InstagramPhotosModule;
+			sourceTree = "<group>";
+		};
+		AD53E75A1F7D266D008BA821 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD53E75B1F7D2706008BA821 /* InstagramPhotos.storyboard */,
+				AD53E75D1F7D2735008BA821 /* InstagramPhotosViewController.swift */,
+				AD53E7601F7D28BF008BA821 /* InstagramPhotoViewCell.xib */,
+				AD53E75F1F7D28BF008BA821 /* InstagramPhotoViewCell.swift */,
+				ADC41A671F7D84F80055CCB3 /* InstagramAuth.storyboard */,
+				ADC41A691F7D85160055CCB3 /* InstagramAuthViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		AD64602A1F58440000D9C43C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				AD64602B1F58448000D9C43C /* AssetHelper.swift */,
 				AD64602D1F5844CC00D9C43C /* PushNotificationHelper.swift */,
 				ADFDDB871F7021BE00D43683 /* BadWordHelper.swift */,
+				AD208A321F86CC3400B3C81A /* RateAppHelper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		AD64F77A1F8969CC00DEBB1C /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				AD64F77B1F896A1100DEBB1C /* InstagramPhotosLocalDatamanager.swift */,
+			);
+			name = Local;
+			sourceTree = "<group>";
+		};
+		AD7567F21F8AA68200EB1738 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				AD7567F91F8AA6E300EB1738 /* FeedbackModuleWireframe.swift */,
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		AD7567F31F8AA68A00EB1738 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				AD7567F71F8AA6CC00EB1738 /* FeedbackModulePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		AD7567F41F8AA68E00EB1738 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AD7567F51F8AA6B600EB1738 /* FeedbackModuleProtocols.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		AD7B038D1F4F0D5400D0E7D1 /* CoreData */ = {
@@ -1740,8 +1855,29 @@
 				AD9B0D0F1F386D5D00C2181F /* TokenAdapter.swift */,
 				AD143B231F3CBDF6006879C6 /* JSONKeys.swift */,
 				AD9FFA7D1F4B322A00FD000D /* Error.swift */,
+				AD43B3951F7C2BC100D51C44 /* InstagramAPIRouter.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		AD91E5331F8A9D9200E463CA /* FeedbackModule */ = {
+			isa = PBXGroup;
+			children = (
+				AD7567F41F8AA68E00EB1738 /* Protocols */,
+				AD7567F31F8AA68A00EB1738 /* Presenter */,
+				AD91E5341F8A9DA900E463CA /* View */,
+				AD7567F21F8AA68200EB1738 /* Wireframe */,
+			);
+			name = FeedbackModule;
+			sourceTree = "<group>";
+		};
+		AD91E5341F8A9DA900E463CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD91E5351F8A9DE400E463CA /* FeedbackModule.storyboard */,
+				AD91E5371F8A9DFC00E463CA /* FeedbackModuleViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		AD9B0D111F38753400C2181F /* DataManager */ = {
@@ -2518,6 +2654,8 @@
 			children = (
 				ADD67EA01F5C4FFA00F78536 /* LikeDislikeTab.storyboard */,
 				ADD67EA21F5C501700F78536 /* LikeDislikeTabViewController.swift */,
+				AD014A141F7953E600FE1F68 /* KolodaOverlayView.xib */,
+				AD014A161F79540C00FE1F68 /* KolodaOverlayView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2732,6 +2870,9 @@
 				ADA2515B1F363A220002B9D5 /* TitleTextView.swift */,
 				AD4FFC3B1F472D290001438C /* InterestItemView.xib */,
 				AD4FFC3D1F472D3A0001438C /* InterestItemView.swift */,
+				AD49E5771F8664930032729F /* RateAppNotificationView.swift */,
+				AD49E5791F8664AF0032729F /* RateAppNotificationView.xib */,
+				AD49E57B1F86694C0032729F /* RatingControl.swift */,
 			);
 			name = UIElements;
 			sourceTree = "<group>";
@@ -2752,6 +2893,7 @@
 				AD6320941F66FCCE00A0FE07 /* UIImageView+Extensions.swift */,
 				ADAB41E91F696F4A00ADD5A6 /* CLGeocoder+Extensions.swift */,
 				ADBB60FB1F71499000066BBF /* UITextView+Extensions.swift */,
+				ADE39DA21F86B3A700736956 /* UILabel+Extensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2825,6 +2967,55 @@
 			isa = PBXGroup;
 			children = (
 				ADDC21CE1F30AC4D00AFE5B3 /* LoginRemoteDatamanager.swift */,
+			);
+			name = Remote;
+			sourceTree = "<group>";
+		};
+		ADE5D8721F7D53B6000A48EE /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5D8731F7D53EB000A48EE /* InstagramPhotosWireframe.swift */,
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		ADE5D8751F7D549B000A48EE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5D8771F7D54D7000A48EE /* InstagramPhotosProtocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		ADE5D8791F7D57DD000A48EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5D87D1F7D580C000A48EE /* InstagramPhotosPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		ADE5D87A1F7D57E4000A48EE /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5D87F1F7D5827000A48EE /* InstagramPhotosInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		ADE5D87B1F7D57E9000A48EE /* Datamanager */ = {
+			isa = PBXGroup;
+			children = (
+				AD64F77A1F8969CC00DEBB1C /* Local */,
+				ADE5D87C1F7D57ED000A48EE /* Remote */,
+			);
+			name = Datamanager;
+			sourceTree = "<group>";
+		};
+		ADE5D87C1F7D57ED000A48EE /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				ADE5D8811F7D5876000A48EE /* InstagramPhotosRemoteDatamanager.swift */,
 			);
 			name = Remote;
 			sourceTree = "<group>";
@@ -3162,7 +3353,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Daniel Harold";
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					ADDC21741F30775300AFE5B3 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -3209,6 +3400,7 @@
 				ADA251501F3621120002B9D5 /* ProfileMainTab.storyboard in Resources */,
 				AD8370001F34B9D400A66F45 /* MapTab.storyboard in Resources */,
 				ADD67EA11F5C4FFA00F78536 /* LikeDislikeTab.storyboard in Resources */,
+				AD53E75C1F7D2706008BA821 /* InstagramPhotos.storyboard in Resources */,
 				ADDC21861F30775300AFE5B3 /* LaunchScreen.storyboard in Resources */,
 				AD2172FF1F461AA800AB6067 /* MessagesDetail.storyboard in Resources */,
 				AD1C2B131F5DA259004B37E5 /* SelectLocation.storyboard in Resources */,
@@ -3219,6 +3411,7 @@
 				AD093A9C1F3A29B200194679 /* UserPhotosModule.storyboard in Resources */,
 				ADBC401D1F3F7CBF009A23E1 /* ARProfile.storyboard in Resources */,
 				AD9DF11E1F5F41A4004CA9A1 /* InterestViewCell.xib in Resources */,
+				AD014A151F7953E600FE1F68 /* KolodaOverlayView.xib in Resources */,
 				ADDC21A41F30895300AFE5B3 /* VarelaRound-Regular.otf in Resources */,
 				ADD67E951F5C48B000F78536 /* SwitchCell.xib in Resources */,
 				ADDC21BB1F3092CF00AFE5B3 /* Login.storyboard in Resources */,
@@ -3236,12 +3429,14 @@
 				ADFD7AC91F6083AF00E6F0D7 /* TextNotificationView.xib in Resources */,
 				ADDC21931F307F4A00AFE5B3 /* Splash.storyboard in Resources */,
 				AD5BDB271F605E420065BDF9 /* ReportNotificationView.xib in Resources */,
+				AD53E7621F7D28BF008BA821 /* InstagramPhotoViewCell.xib in Resources */,
 				AD8911111F3B932500839B0C /* MarkerInfoView.xib in Resources */,
 				ADA251461F3618C10002B9D5 /* DialogCell.xib in Resources */,
 				ADBB43E41F38CE9E00E42682 /* ImagedSwitchCell.xib in Resources */,
 				AD836FF01F34ADA800A66F45 /* SwitchView.xib in Resources */,
 				ADDC21A31F30895300AFE5B3 /* Montserrat-Regular.otf in Resources */,
 				AD3D9E411F32339700E2CA79 /* SUChoosePhoto.storyboard in Resources */,
+				ADC41A681F7D84F90055CCB3 /* InstagramAuth.storyboard in Resources */,
 				AD1B5BAE1F338DCB000D1563 /* RangeView.xib in Resources */,
 				AD3D9E321F3215BB00E2CA79 /* SUPassword.storyboard in Resources */,
 				AD1B5B9E1F337CE9000D1563 /* PersonalPreference.storyboard in Resources */,
@@ -3249,6 +3444,7 @@
 				ADCD1C951F56F71100D64E01 /* hdar_close@2x.png in Resources */,
 				ADDC21C51F309FD600AFE5B3 /* SeparatorView.xib in Resources */,
 				ADEC05F61F31DE3700422564 /* SUEmail.storyboard in Resources */,
+				AD49E57A1F8664AF0032729F /* RateAppNotificationView.xib in Resources */,
 				AD3F25BB1F3104620083B39B /* Recover.storyboard in Resources */,
 				ADCFC4151F49CEAD00253059 /* Assets.xcassets in Resources */,
 				AD1B5B611F332CD4000D1563 /* PhotoViewCell.xib in Resources */,
@@ -3266,6 +3462,7 @@
 				ADFDDB761F6FEC8500D43683 /* SULicense.storyboard in Resources */,
 				AD3D9E591F3249BD00E2CA79 /* SUConfirmPhoto.storyboard in Resources */,
 				ADEC060B1F31F06600422564 /* SUPinCode.storyboard in Resources */,
+				AD91E5361F8A9DE400E463CA /* FeedbackModule.storyboard in Resources */,
 				ADA251401F3617520002B9D5 /* MessagesMainTab.storyboard in Resources */,
 				ADCD1C931F56F71100D64E01 /* DebugMapViewController.xib in Resources */,
 				ADFD7AC51F606AD700E6F0D7 /* AlertTitledCell.xib in Resources */,
@@ -3332,6 +3529,7 @@
 				ADCE411B1F389FE8007354CF /* ProfileMainTabInteractor.swift in Sources */,
 				AD1C7A841F74551E0054D04E /* CoreDataManager.swift in Sources */,
 				AD093AA11F3A2C4800194679 /* UserPhotosWireframe.swift in Sources */,
+				AD7567F61F8AA6B600EB1738 /* FeedbackModuleProtocols.swift in Sources */,
 				ADCE411F1F38A04A007354CF /* ProfileMainTabRemoteDatamanager.swift in Sources */,
 				AD1B5B671F3344D9000D1563 /* SUProfileInfoProtocols.swift in Sources */,
 				AD412AFF1F43423A002E8685 /* TabBarInteractor.swift in Sources */,
@@ -3347,6 +3545,7 @@
 				AD4FFC3E1F472D3A0001438C /* InterestItemView.swift in Sources */,
 				AD005CC61F5DE38C000DA4B3 /* LikeDislikeProfileViewController.swift in Sources */,
 				AD64602C1F58448000D9C43C /* AssetHelper.swift in Sources */,
+				AD43B3961F7C2BC100D51C44 /* InstagramAPIRouter.swift in Sources */,
 				AD1B5B931F336EBD000D1563 /* PersonalInfoInteractor.swift in Sources */,
 				AD1B5B751F334965000D1563 /* SUProfileInfoInteractor.swift in Sources */,
 				ADEC05FC1F31DE7700422564 /* SUEmailInteractor.swift in Sources */,
@@ -3360,7 +3559,9 @@
 				AD3898701F6ACBB100C7025D /* GMUWeightedLatLng.m in Sources */,
 				ADBB43E71F38D11E00E42682 /* TitledCell.swift in Sources */,
 				ADCE41181F389F40007354CF /* ProfileMainTabPresenter.swift in Sources */,
+				ADE5D8821F7D5876000A48EE /* InstagramPhotosRemoteDatamanager.swift in Sources */,
 				ADDA83921F324D210037633B /* SUConfirmPhotoInteractor.swift in Sources */,
+				ADC41A6A1F7D85160055CCB3 /* InstagramAuthViewController.swift in Sources */,
 				ADBB61001F714D5C00066BBF /* SplashInteractor.swift in Sources */,
 				ADC6DCFB1F7405E700DE4115 /* BlockedUsersViewController.swift in Sources */,
 				AD3F25AD1F30CED50083B39B /* String+Extensions.swift in Sources */,
@@ -3399,9 +3600,11 @@
 				ADDC21971F30837900AFE5B3 /* SplashProtocols.swift in Sources */,
 				ADD67E911F5C48B000F78536 /* NotificationsInfoProtocols.swift in Sources */,
 				ADD9F7A21F4F29F900FF3ADD /* CDPhoto+CoreDataProperties.swift in Sources */,
+				ADE5D8741F7D53EB000A48EE /* InstagramPhotosWireframe.swift in Sources */,
 				ADBC40121F3F3FF9009A23E1 /* ARMarkerAnnotationView.swift in Sources */,
 				ADFD7AC71F606AE400E6F0D7 /* ActionData.swift in Sources */,
 				AD3D9E451F3233D000E2CA79 /* SUChoosePhotoProtocols.swift in Sources */,
+				ADE5D8781F7D54D7000A48EE /* InstagramPhotosProtocols.swift in Sources */,
 				ADDC21B71F30920600AFE5B3 /* LoginProtocols.swift in Sources */,
 				AD38985C1F6ACBB100C7025D /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */,
 				ADEC061D1F31FC4B00422564 /* Collection+Extensions.swift in Sources */,
@@ -3416,6 +3619,7 @@
 				AD7D5D1B1F72B96B0030F216 /* KolodaCardStorage.swift in Sources */,
 				ADEC061F1F32057C00422564 /* UINavigationController+Extensions.swift in Sources */,
 				AD4FFC4A1F478ED60001438C /* ARProfileAnnotationView.swift in Sources */,
+				ADE39DA31F86B3A700736956 /* UILabel+Extensions.swift in Sources */,
 				AD8370081F34BB7A00A66F45 /* MapTabWireframe.swift in Sources */,
 				AD1B5B8D1F336E84000D1563 /* PersonalInfoWireframe.swift in Sources */,
 				ADBB611E1F716EAB00066BBF /* ARShortProfileViewController.swift in Sources */,
@@ -3434,8 +3638,10 @@
 				ADBB61191F716EAB00066BBF /* ARShortProfileRemoteDatamanager.swift in Sources */,
 				AD865E511F30BD5500E7E3E3 /* APIRouter.swift in Sources */,
 				ADA251361F3615100002B9D5 /* ARTabMainProtocols.swift in Sources */,
+				AD1E9A9C1F79738E0092FB43 /* SocketManager.swift in Sources */,
 				ADD67E901F5C48B000F78536 /* NotificationsInfoPresenter.swift in Sources */,
 				AD143B241F3CBDF6006879C6 /* JSONKeys.swift in Sources */,
+				AD53E75E1F7D2735008BA821 /* InstagramPhotosViewController.swift in Sources */,
 				AD1B5B7C1F334C0E000D1563 /* FBAuthService.swift in Sources */,
 				AD2172FD1F461A8700AB6067 /* MessagesDetailViewController.swift in Sources */,
 				ADCD1C8F1F56F71100D64E01 /* ARTrackingManager.swift in Sources */,
@@ -3447,6 +3653,7 @@
 				AD3D9E571F32495C00E2CA79 /* SUConfirmPhotoProtocols.swift in Sources */,
 				ADF163591F41D5D000B685AF /* ARTabMainPresenter.swift in Sources */,
 				AD3898631F6ACBB100C7025D /* GMUGeoJSONParser.m in Sources */,
+				AD7567FA1F8AA6E300EB1738 /* FeedbackModuleWireframe.swift in Sources */,
 				AD1B5BA41F337D33000D1563 /* PersonalPreferenceWireframe.swift in Sources */,
 				AD89110F1F3B51EE00839B0C /* Marker.swift in Sources */,
 				ADDC21991F30847800AFE5B3 /* SplashPresenter.swift in Sources */,
@@ -3473,11 +3680,13 @@
 				ADDC21951F307FB800AFE5B3 /* SplashViewController.swift in Sources */,
 				ADFDDB7E1F7001FF00D43683 /* SULicenseInteractor.swift in Sources */,
 				ADBC40221F3F80EC009A23E1 /* ARProfileWireframe.swift in Sources */,
+				AD64F77C1F896A1100DEBB1C /* InstagramPhotosLocalDatamanager.swift in Sources */,
 				ADCB6AC71F61780900FA4B21 /* ARProfileDataHelper.swift in Sources */,
 				AD2173071F4620DB00AB6067 /* MessagesDetailWireframe.swift in Sources */,
 				ADFD7ACB1F6083C800E6F0D7 /* TextNotificationView.swift in Sources */,
 				ADCE41241F38AD4C007354CF /* ProfileSettingsViewController.swift in Sources */,
 				ADD262241F5ACE6C0021E33F /* CloseButton.swift in Sources */,
+				ADE5D8801F7D5827000A48EE /* InstagramPhotosInteractor.swift in Sources */,
 				ADD67EA71F5C505100F78536 /* LikeDislikeTabPresenter.swift in Sources */,
 				ADFDDB881F7021BE00D43683 /* BadWordHelper.swift in Sources */,
 				AD1C7A7C1F740EC80054D04E /* BlockedUsersPresenter.swift in Sources */,
@@ -3486,6 +3695,7 @@
 				AD3898711F6ACBB100C7025D /* GQTPointQuadTree.m in Sources */,
 				ADDC21811F30775300AFE5B3 /* FlirtARViper.xcdatamodeld in Sources */,
 				ADCB77221F34CBC300D3CA5D /* MapTabInteractor.swift in Sources */,
+				AD49E5781F8664930032729F /* RateAppNotificationView.swift in Sources */,
 				AD9FFA7E1F4B322A00FD000D /* Error.swift in Sources */,
 				AD7B038F1F4F0D7500D0E7D1 /* CoreDataEngine.swift in Sources */,
 				AD3D9E601F324AEB00E2CA79 /* SUConfirmPhotoPresenter.swift in Sources */,
@@ -3510,6 +3720,7 @@
 				ADD67E9F1F5C4F6C00F78536 /* LikeDislikeTabProtocols.swift in Sources */,
 				AD1B5BA61F337DCA000D1563 /* PersonalPreferencePresenter.swift in Sources */,
 				ADBB61061F714F9500066BBF /* SplashLocalDatamanager.swift in Sources */,
+				AD014A171F79540C00FE1F68 /* KolodaOverlayView.swift in Sources */,
 				AD412AFA1F4341A2002E8685 /* TabBarPresenter.swift in Sources */,
 				AD9B0D161F387C5800C2181F /* Double+Extensions.swift in Sources */,
 				AD7D5D1A1F72B96B0030F216 /* DraggableCardView.swift in Sources */,
@@ -3527,6 +3738,7 @@
 				ADCD1C8C1F56F71100D64E01 /* ARConfiguration.swift in Sources */,
 				AD38986C1F6ACBB100C7025D /* GMUPolygon.m in Sources */,
 				ADDC21791F30775300AFE5B3 /* AppDelegate.swift in Sources */,
+				AD49E57C1F86694D0032729F /* RatingControl.swift in Sources */,
 				AD7D5D1C1F72B96B0030F216 /* KolodaView.swift in Sources */,
 				ADEC06181F31FB4000422564 /* PinCodeInputView.swift in Sources */,
 				AD1B5B971F3374DB000D1563 /* GenderSwitcher.swift in Sources */,
@@ -3537,6 +3749,7 @@
 				AD1B5B841F33696F000D1563 /* PersonalInfoViewController.swift in Sources */,
 				ADD67E8E1F5C48B000F78536 /* NotificationsInfoRemoteDatamanager.swift in Sources */,
 				ADDC21AA1F308BF400AFE5B3 /* UIView+Extensions.swift in Sources */,
+				AD53E7611F7D28BF008BA821 /* InstagramPhotoViewCell.swift in Sources */,
 				ADD67EA31F5C501700F78536 /* LikeDislikeTabViewController.swift in Sources */,
 				ADF163611F41D85B00B685AF /* ARMarkerAnnotation.swift in Sources */,
 				AD1B5BB61F33980E000D1563 /* User.swift in Sources */,
@@ -3563,6 +3776,7 @@
 				AD7B03941F4F0FBC00D0E7D1 /* CDSavedUser+CoreDataProperties.swift in Sources */,
 				ADEC06151F31F0E400422564 /* SUPinCodeRemoteDatamanager.swift in Sources */,
 				AD9FFA801F4B350F00FD000D /* APIMethod.swift in Sources */,
+				AD7567F81F8AA6CC00EB1738 /* FeedbackModulePresenter.swift in Sources */,
 				ADCB77201F34CBB000D3CA5D /* MapTabPresenter.swift in Sources */,
 				AD64602E1F5844CC00D9C43C /* PushNotificationHelper.swift in Sources */,
 				ADDC21B91F3092BA00AFE5B3 /* LoginViewController.swift in Sources */,
@@ -3582,6 +3796,7 @@
 				AD8370041F34BB2500A66F45 /* MapTabViewController.swift in Sources */,
 				ADBB43D91F38C7D400E42682 /* AccountInfoInteractor.swift in Sources */,
 				ADCE41301F38AFFF007354CF /* ProfileSettingsPresenter.swift in Sources */,
+				ADE5D87E1F7D580C000A48EE /* InstagramPhotosPresenter.swift in Sources */,
 				ADBB611B1F716EAB00066BBF /* ARShortProfilePresenter.swift in Sources */,
 				AD21730D1F46210200AB6067 /* MessagesDetailPresenter.swift in Sources */,
 				AD7D5D1E1F72B96B0030F216 /* OverlayView.swift in Sources */,
@@ -3608,8 +3823,10 @@
 				ADBC40241F3F8109009A23E1 /* ARProfileProtocols.swift in Sources */,
 				ADCE412C1F38AFD3007354CF /* ProfileSettingsWireframe.swift in Sources */,
 				AD836FF21F34AE3E00A66F45 /* SwitchView.swift in Sources */,
+				AD208A331F86CC3400B3C81A /* RateAppHelper.swift in Sources */,
 				AD1B5B901F336EA3000D1563 /* PersonalInfoPresenter.swift in Sources */,
 				AD3F25C51F3106790083B39B /* RecoverRemoteDatamanager.swift in Sources */,
+				AD91E5381F8A9DFC00E463CA /* FeedbackModuleViewController.swift in Sources */,
 				AD3F25C11F3106350083B39B /* RecoverPresenter.swift in Sources */,
 				AD38986E1F6ACBB100C7025D /* GMUGradient.m in Sources */,
 			);
@@ -3789,9 +4006,10 @@
 		ADDC217F1F30775300AFE5B3 /* FlirtARViper.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				AD8260A61F8955920061CFF5 /* FlirtARViperV2.xcdatamodel */,
 				ADDC21801F30775300AFE5B3 /* FlirtARViper.xcdatamodel */,
 			);
-			currentVersion = ADDC21801F30775300AFE5B3 /* FlirtARViper.xcdatamodel */;
+			currentVersion = AD8260A61F8955920061CFF5 /* FlirtARViperV2.xcdatamodel */;
 			path = FlirtARViper.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

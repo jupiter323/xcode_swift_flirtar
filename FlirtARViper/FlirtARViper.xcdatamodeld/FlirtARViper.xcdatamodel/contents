@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CDPhoto" representedClassName=".CDPhoto" syncable="YES">
         <attribute name="isPrimary" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -29,8 +29,8 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDSavedUser" inverseName="userToken" inverseEntity="CDSavedUser" syncable="YES"/>
     </entity>
     <elements>
+        <element name="CDPhoto" positionX="-5580" positionY="-748" width="128" height="118"/>
         <element name="CDSavedUser" positionX="-5391" positionY="-1003" width="128" height="268"/>
         <element name="CDToken" positionX="-5168" positionY="-945" width="128" height="73"/>
-        <element name="CDPhoto" positionX="-5580" positionY="-748" width="128" height="118"/>
     </elements>
 </model>

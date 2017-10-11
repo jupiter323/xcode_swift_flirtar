@@ -10,6 +10,8 @@ import UIKit
 
 protocol ImagedSwitchCellDelegate: class {
     func fbDisconnetion()
+    func instagramStartConnect()
+    func instagramStartDisconnection()
 }
 
 class ImagedSwitchCell: UITableViewCell {
@@ -39,15 +41,21 @@ class ImagedSwitchCell: UITableViewCell {
         case .Account(.fbSwitch):
             switchView.title = "Facebook connection"
             imageIndicator.image = #imageLiteral(resourceName: "facebookIndicator")
+            
+            if state == false {
+                switchView.isUserInteractionEnabled = false
+            }
+            
+        case .Account(.instagramSwitch):
+            switchView.title = "Instagram connection"
+            imageIndicator.image = #imageLiteral(resourceName: "instagramConnect")
         default:
             break
         }
         cellType = type
         switchView.isOn = state
         
-        if state == false {
-            switchView.isUserInteractionEnabled = false
-        }
+        
         
     }
     
@@ -71,6 +79,14 @@ extension ImagedSwitchCell: SwitchViewDelegate {
             } else {
                 print("disconnect here")
                 delegate?.fbDisconnetion()
+            }
+            
+        case .Account(.instagramSwitch):
+            
+            if switchView.isOn {
+                delegate?.instagramStartConnect()
+            } else {
+                delegate?.instagramStartDisconnection()
             }
             
         default:

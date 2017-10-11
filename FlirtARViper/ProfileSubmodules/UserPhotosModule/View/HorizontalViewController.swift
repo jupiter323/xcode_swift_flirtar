@@ -14,6 +14,7 @@ class HorizontalViewController: UIPageViewController {
     fileprivate var pages = [UIViewController]()
     fileprivate var currentIndex = 0
     fileprivate var containerType = PhotoContainerType.settingsProfile
+    fileprivate var distance: CGFloat?
     fileprivate var photos = [Photo]() {
         didSet {
             reloadData()
@@ -38,6 +39,10 @@ class HorizontalViewController: UIPageViewController {
                         subView.frame.origin.y = a.view.frame.height - 120.0
                     case .settingsProfile:
                         subView.frame.origin.y = a.view.frame.height - 85.0
+                    }
+                    
+                    if self.distance != nil {
+                        subView.frame.origin.y = a.view.frame.height - self.distance! - 25.0
                     }
                     
                     self.view.bringSubview(toFront: subView)
@@ -77,11 +82,13 @@ class HorizontalViewController: UIPageViewController {
         
     }
     
-    func configure(withPhotos photos:[Photo], containerType: PhotoContainerType?) {
+    func configure(withPhotos photos:[Photo],
+                   containerType: PhotoContainerType?,
+                   distance: CGFloat?) {
         if let containerType = containerType {
             self.containerType = containerType
         }
-        
+        self.distance = distance
         self.photos = photos
         
         
@@ -94,7 +101,10 @@ class HorizontalViewController: UIPageViewController {
             return
         }
         
-        photoController.confugireView(withPhoto: photo, andTitle: title, andType: containerType)
+        photoController.confugireView(withPhoto: photo,
+                                      andTitle: title,
+                                      andType: containerType,
+                                      andDistance:  distance)
         pages.append(photoController)
         
     }

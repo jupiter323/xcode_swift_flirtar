@@ -60,4 +60,19 @@ class AccountInfoWireframe: AccountInfoWireframeProtocol {
         }
     }
     
+    func routeToInstagramAuth(fromView view: AccountInfoViewProtocol) {
+        let instagramAuthController = UIStoryboard(name: "InstagramAuth", bundle: nil).instantiateViewController(withIdentifier: "InstagramAuthViewController")
+        
+        if let sourceView = view as? AccountInfoViewController {
+            
+            if instagramAuthController is InstagramAuthViewController {
+                (instagramAuthController as! InstagramAuthViewController).delegate = sourceView
+                sourceView.present(instagramAuthController, animated: true, completion: nil)
+            }
+            
+            
+            
+        }
+    }
+    
 }

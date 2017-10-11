@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="VarelaRound-Regular.otf">
+            <string>VarelaRound</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Instagram Photos View Controller-->
+        <scene sceneID="6SE-kQ-DaM">
+            <objects>
+                <viewController storyboardIdentifier="InstagramPhotosViewController" id="zpV-YB-y9X" customClass="InstagramPhotosViewController" customModule="FlirtARViper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dr7-fL-O3l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvI-LA-7D9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Instagram Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hE7-qd-Udk">
+                                        <rect key="frame" x="0.0" y="5" width="331" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="sFZ-lX-rvA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="16"/>
+                                        <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5ew-dF-Zxv">
+                                        <rect key="frame" x="336" y="8" width="39" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="4En-RJ-BoU"/>
+                                        </constraints>
+                                        <color key="pageIndicatorTintColor" red="0.83529411764705885" green="0.84705882352941175" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.92156862745098034" green="0.25490196078431371" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5ew-dF-Zxv" firstAttribute="centerY" secondItem="hE7-qd-Udk" secondAttribute="centerY" id="2UA-QU-e6p"/>
+                                    <constraint firstItem="hE7-qd-Udk" firstAttribute="leading" secondItem="yvI-LA-7D9" secondAttribute="leading" id="3Iv-vi-6Oh"/>
+                                    <constraint firstAttribute="bottom" secondItem="hE7-qd-Udk" secondAttribute="bottom" constant="5" id="6dE-d5-Pru"/>
+                                    <constraint firstAttribute="height" constant="32" id="Cd6-QF-gMK"/>
+                                    <constraint firstItem="hE7-qd-Udk" firstAttribute="top" secondItem="yvI-LA-7D9" secondAttribute="top" constant="5" id="N1K-Kk-yI5"/>
+                                    <constraint firstAttribute="trailing" secondItem="5ew-dF-Zxv" secondAttribute="trailing" id="ZTp-57-U6a"/>
+                                    <constraint firstItem="5ew-dF-Zxv" firstAttribute="leading" secondItem="hE7-qd-Udk" secondAttribute="trailing" constant="5" id="jzn-Ae-7Sj"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-fP-2cf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="32"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagramConnect" translatesAutoresizingMaskIntoConstraints="NO" id="D1E-aX-dtA">
+                                        <rect key="frame" x="5" y="3.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="HUP-CA-J0e"/>
+                                            <constraint firstAttribute="height" constant="25" id="sSf-EJ-H9B"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQ2-nl-YnZ" customClass="SwitchView" customModule="FlirtARViper" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="0.0" width="330" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Instagram Connection"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isOn" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="0pi-dc-7gB"/>
+                                    <constraint firstItem="D1E-aX-dtA" firstAttribute="centerY" secondItem="TGR-fP-2cf" secondAttribute="centerY" id="LM1-0F-f6K"/>
+                                    <constraint firstAttribute="trailing" secondItem="UQ2-nl-YnZ" secondAttribute="trailing" constant="10" id="OTg-3A-Ber"/>
+                                    <constraint firstItem="UQ2-nl-YnZ" firstAttribute="leading" secondItem="D1E-aX-dtA" secondAttribute="trailing" constant="5" id="Q6g-Lq-dbd"/>
+                                    <constraint firstItem="UQ2-nl-YnZ" firstAttribute="top" secondItem="TGR-fP-2cf" secondAttribute="top" id="hAb-n5-2pj"/>
+                                    <constraint firstAttribute="bottom" secondItem="UQ2-nl-YnZ" secondAttribute="bottom" id="qU1-zz-62a"/>
+                                    <constraint firstItem="D1E-aX-dtA" firstAttribute="leading" secondItem="TGR-fP-2cf" secondAttribute="leading" constant="5" id="yfX-qv-b9l"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-S1-gS0">
+                                <rect key="frame" x="0.0" y="32" width="375" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="213-Ny-QXw"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Fh-C4-1lN">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="zpV-YB-y9X" id="lK5-Xo-7Oj"/>
+                                    <outlet property="delegate" destination="zpV-YB-y9X" id="Dyv-GS-iQD"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KJe-SC-K8x" firstAttribute="trailing" secondItem="QgI-S1-gS0" secondAttribute="trailing" id="3Lp-lH-WjV"/>
+                            <constraint firstAttribute="trailing" secondItem="yvI-LA-7D9" secondAttribute="trailing" id="4j6-l1-9pK"/>
+                            <constraint firstItem="KJe-SC-K8x" firstAttribute="trailing" secondItem="TGR-fP-2cf" secondAttribute="trailing" id="HTT-b7-41c"/>
+                            <constraint firstItem="yvI-LA-7D9" firstAttribute="top" secondItem="KJe-SC-K8x" secondAttribute="top" id="OBa-Tp-vMw"/>
+                            <constraint firstItem="QgI-S1-gS0" firstAttribute="leading" secondItem="KJe-SC-K8x" secondAttribute="leading" id="icB-Tu-vIg"/>
+                            <constraint firstItem="TGR-fP-2cf" firstAttribute="leading" secondItem="KJe-SC-K8x" secondAttribute="leading" id="jsr-4O-9pz"/>
+                            <constraint firstItem="yvI-LA-7D9" firstAttribute="leading" secondItem="KJe-SC-K8x" secondAttribute="leading" id="l7s-Wf-tsG"/>
+                            <constraint firstItem="TGR-fP-2cf" firstAttribute="top" secondItem="KJe-SC-K8x" secondAttribute="top" id="n2Q-kU-Key"/>
+                            <constraint firstItem="QgI-S1-gS0" firstAttribute="top" secondItem="yvI-LA-7D9" secondAttribute="bottom" id="rlE-Sg-B3G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KJe-SC-K8x"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="150"/>
+                    <connections>
+                        <outlet property="instagramButtonView" destination="TGR-fP-2cf" id="tM9-X5-PNn"/>
+                        <outlet property="instagramCountView" destination="yvI-LA-7D9" id="Qk9-Cw-KkV"/>
+                        <outlet property="instagramSwitchView" destination="UQ2-nl-YnZ" id="dTn-tg-cDM"/>
+                        <outlet property="photosCollectionHeight" destination="213-Ny-QXw" id="Xmw-NQ-h1e"/>
+                        <outlet property="photosCollectionView" destination="QgI-S1-gS0" id="lqg-g0-yP7"/>
+                        <outlet property="photosCount" destination="hE7-qd-Udk" id="MQW-aX-Uhf"/>
+                        <outlet property="photosPageControl" destination="5ew-dF-Zxv" id="jKi-2F-exB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hwy-BZ-7Vn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="106.14692653673164"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="instagramConnect" width="25" height="25"/>
+    </resources>
+</document>

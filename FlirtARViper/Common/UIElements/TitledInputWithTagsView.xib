@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -60,9 +60,12 @@
                         <constraint firstAttribute="bottom" secondItem="Our-ep-HRo" secondAttribute="bottom" id="jy6-Oh-T0Q"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWi-ZZ-XWo" customClass="ViewWithTitle" customModule="FlirtARViper" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWi-ZZ-XWo">
                     <rect key="frame" x="0.0" y="43" width="375" height="180"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="JHm-WO-Kcp"/>
+                    </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="40" sectionHeaderHeight="20" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRm-fY-VrC">
                     <rect key="frame" x="0.0" y="43" width="375" height="180"/>
@@ -165,16 +168,15 @@
                 <constraint firstItem="2DB-HS-EwO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3jG-ks-6SY"/>
                 <constraint firstItem="78u-cs-tV4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="BvH-aR-9ej"/>
                 <constraint firstAttribute="trailing" secondItem="1iI-a7-Tre" secondAttribute="trailing" id="Bz0-DG-mra"/>
+                <constraint firstItem="hWi-ZZ-XWo" firstAttribute="top" secondItem="78u-cs-tV4" secondAttribute="bottom" constant="-22" id="KlU-QX-ocB"/>
                 <constraint firstAttribute="trailing" secondItem="78u-cs-tV4" secondAttribute="trailing" id="L8J-j2-TdX"/>
                 <constraint firstAttribute="trailing" secondItem="hWi-ZZ-XWo" secondAttribute="trailing" id="LUS-X5-0Hu"/>
-                <constraint firstItem="hWi-ZZ-XWo" firstAttribute="top" secondItem="IRm-fY-VrC" secondAttribute="top" id="SV1-Ql-dMF"/>
                 <constraint firstItem="1iI-a7-Tre" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WFK-0A-shC"/>
                 <constraint firstItem="IRm-fY-VrC" firstAttribute="trailing" secondItem="78u-cs-tV4" secondAttribute="trailing" id="bWz-mV-zhO"/>
                 <constraint firstItem="2DB-HS-EwO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eCL-6q-Sls"/>
                 <constraint firstItem="IRm-fY-VrC" firstAttribute="top" secondItem="78u-cs-tV4" secondAttribute="bottom" constant="-22" id="euq-Md-rxp"/>
                 <constraint firstAttribute="trailing" secondItem="2DB-HS-EwO" secondAttribute="trailing" id="jh8-Og-BYv"/>
                 <constraint firstItem="78u-cs-tV4" firstAttribute="top" secondItem="2DB-HS-EwO" secondAttribute="bottom" constant="1" id="njJ-tO-052"/>
-                <constraint firstItem="hWi-ZZ-XWo" firstAttribute="height" secondItem="IRm-fY-VrC" secondAttribute="height" id="tpf-Zi-xKW"/>
                 <constraint firstItem="IRm-fY-VrC" firstAttribute="leading" secondItem="78u-cs-tV4" secondAttribute="leading" id="tt3-g9-1Ct"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

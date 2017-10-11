@@ -9,13 +9,21 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+protocol RequestRouter {
+    var method: HTTPMethod {get}
+    var path: String {get}
+    var parameters: Parameters? {get}
+}
+
 struct API {
-    static let apiLink = "http://52.204.177.82/api/"
+    static let apiLink = "http://ec2-34-228-32-60.compute-1.amazonaws.com/api"
+    //"http://52.204.177.82/api/"
     static let mapsApi = "AIzaSyCgDLWiOF73WzcKX_F1fShtTSVY7M6Rwg0"
 }
 
 
-enum APIRouter: URLRequestConvertible {
+enum APIRouter: URLRequestConvertible, RequestRouter {
+    
     
     //SignUp/Login Flow
     case checkEmailAvailability(email: String)
@@ -51,6 +59,15 @@ enum APIRouter: URLRequestConvertible {
     case unblockUser(userId: Int)
     case reportUser(userId: Int, reportString: String)
     case getBlockedUsers(page: Int?)
+    case getInterestsBase()
+    case getBadWordsContent()
+    
+    case getInstagramPhotos(userId: Int)
+    case saveInstagramToken(token: String)
+    case disconnectInstagram()
+    
+    //Feedback
+    case sendFeedback(rate: Int, comment: String)
     
     //Notifications
     case updateNotificationSettings([(type: CellConfiguration.NotificationType, status: Bool)])
@@ -66,22 +83,22 @@ enum APIRouter: URLRequestConvertible {
     case removeChat(chatId: Int)
     
     
-    private var method: HTTPMethod {
+    var method: HTTPMethod {
         switch self {
-        case .checkEmailAvailability, .signIn, .signInFB, .signUp, .createUserPhotos, .registerDeviceForNotifications, .recoverPassword, .sendPinCode, .checkPinCode, .reportUser:
+        case .checkEmailAvailability, .signIn, .signInFB, .signUp, .createUserPhotos, .registerDeviceForNotifications, .recoverPassword, .sendPinCode, .checkPinCode, .reportUser, .saveInstagramToken, .sendFeedback:
             return .post
-        case .getUsersLocations, .getUserProfile, .getUser, .getNotifications, .getListMessages, .getMessages, .getMatchUsers, .getBlockedUsers:
+        case .getUsersLocations, .getUserProfile, .getUser, .getNotifications, .getListMessages, .getMessages, .getMatchUsers, .getBlockedUsers, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos:
             return .get
         case .updateUserLocation, .updatePhoto, .likeUser, .dislikeUser, .blockUser:
             return .put
         case .updateUserProfile, .updateNotificationSettings:
             return .patch
-        case .signOut, .disconnectFB, .unlikeUser, .removeChat, .deleteAccount,  .unblockUser:
+        case .signOut, .disconnectFB, .unlikeUser, .removeChat, .deleteAccount,  .unblockUser, .disconnectInstagram:
             return .delete
         }
     }
     
-    private var path: String {
+    var path: String {
         switch self {
         //SignUp/Login Flow
         case .checkEmailAvailability:
@@ -142,6 +159,21 @@ enum APIRouter: URLRequestConvertible {
             return "accounts/\(userId)/report/"
         case .getBlockedUsers:
             return "accounts/block/"
+        case .getInterestsBase:
+            return "accounts/interest/"
+        case .getBadWordsContent:
+            return "accounts/objectionable-content/"
+            
+        case .getInstagramPhotos(let userId):
+            return "accounts/photos/instagram/\(userId)/"
+        case .saveInstagramToken:
+            return "accounts/instagram/"
+        case .disconnectInstagram:
+            return "accounts/instagram/disconnect/"
+            
+        //Feedback
+        case .sendFeedback:
+            return "support/feedback/"
             
         //Notifications
             
@@ -171,7 +203,7 @@ enum APIRouter: URLRequestConvertible {
         
     }
     
-    private var parameters: Parameters? {
+    var parameters: Parameters? {
         switch self {
         case .checkEmailAvailability(let email):
             return ["email": email]
@@ -190,26 +222,26 @@ enum APIRouter: URLRequestConvertible {
                     "code":pinCode]
             
         case .signUp(let user):
-            return configureUserDictionary(user: user)
+            return APIParser().configureUserDictionary(user: user)
         case .updateUserLocation(let longitude, let latitude):
             return ["latitude": latitude, "longitude" : longitude]
         case .getUsersLocations(let distance):
             return ["distance": distance]
         case .updateUserProfile(let user):
-            return configureUserDictionary(user: user)
+            return APIParser().configureUserDictionary(user: user)
         case .getUser(_):
             return ["" : ""]
         case .updateNotificationSettings(let notifications):
-            return configureNotificationDictionary(notifications: notifications)
+            return APIParser().configureNotificationDictionary(notifications: notifications)
         case .registerDeviceForNotifications(let registerId, let type, let deviceId, let status):
             return ["registration_id":registerId,
                     "type": type,
                     "device_id": deviceId,
                     "active": status]
         case .createUserPhotos(let photos):
-            return configureCreateUserPhotos(photos: photos)
+            return APIParser().configureCreateUserPhotos(photos: photos)
         case .updatePhoto(_, let newPhoto):
-            return configureUserPhotoForUpdate(photo: newPhoto)
+            return APIParser().configureUserPhotoForUpdate(photo: newPhoto)
         case .getListMessages(let page):
             if page != nil {
                 return ["page":page!]
@@ -240,7 +272,13 @@ enum APIRouter: URLRequestConvertible {
                 return nil
             }
             
-        case .signOut, .getUserProfile, .disconnectFB, .likeUser, .unlikeUser, .getNotifications, .removeChat, .dislikeUser, .deleteAccount, .blockUser, .unblockUser:
+        case .saveInstagramToken(let token):
+            return ["token":token]
+            
+        case .sendFeedback(let rate, let comment):
+            return ["rate": "\(rate)",
+                    "comment": comment]
+    case .signOut, .getUserProfile, .disconnectFB, .likeUser, .unlikeUser, .getNotifications, .removeChat, .dislikeUser, .deleteAccount, .blockUser, .unblockUser, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos, .disconnectInstagram:
             return nil
         }
     }
@@ -265,106 +303,6 @@ enum APIRouter: URLRequestConvertible {
         }
         
         return urlRequest
-    }
-    
-    
-    //MARK: - Helpers
-    //Profile & Login & SignUp
-    private func configureUserDictionary(user: User) -> [String: Any] {
-        var userParams = [String: Any]()
-        
-        if user.email != nil {
-            userParams[ServerUserJSONKeys.email.rawValue] = user.email!
-        }
-        if user.password != nil {
-            userParams[ServerUserJSONKeys.password.rawValue] = user.password!
-        }
-        if user.firstName != nil {
-            userParams[ServerUserJSONKeys.firstName.rawValue] = user.firstName!
-        }
-        if user.birthday != nil {
-            let birthday = DateFormatter.apiModelDateFormatter.string(from: user.birthday!)
-            userParams[ServerUserJSONKeys.birthday.rawValue] = birthday
-        }
-        if user.gender?.description != nil {
-            userParams[ServerUserJSONKeys.gender.rawValue] = user.gender?.description
-        }
-        if user.shortIntroduction != nil {
-            userParams[ServerUserJSONKeys.shortIntroduction.rawValue] = user.shortIntroduction!
-        } else {
-            userParams[ServerUserJSONKeys.shortIntroduction.rawValue] = ""
-        }
-        if user.interests != nil {
-            userParams[ServerUserJSONKeys.interests.rawValue] = user.interests!
-        } else {
-            userParams[ServerUserJSONKeys.interests.rawValue] = ""
-        }
-        if user.genderPreferences?.description != nil {
-            userParams[ServerUserJSONKeys.genderPreferences.rawValue] = user.genderPreferences?.description
-        }
-        if user.minAge != nil {
-            userParams[ServerUserJSONKeys.minAge.rawValue] = user.minAge!
-        }
-        if user.maxAge != nil {
-            userParams[ServerUserJSONKeys.maxAge.rawValue] = user.maxAge!
-        }
-        if user.showOnMap != nil {
-            userParams[ServerUserJSONKeys.showOnMap.rawValue] = user.showOnMap!
-        }
-        
-        return userParams
-    }
-    
-    
-    //Notifications
-    private func configureNotificationDictionary(notifications: [(type: CellConfiguration.NotificationType, status: Bool)]) -> [String: Any] {
-        var userParams = [String: Any]()
-        
-        for notification in notifications {
-            switch notification.type {
-            case .like:
-                userParams[ServerNotificationsJSONKeys.like.rawValue] = notification.status
-            case .message:
-                userParams[ServerNotificationsJSONKeys.message.rawValue] = notification.status
-            case .newUserInArea:
-                userParams[ServerNotificationsJSONKeys.user.rawValue] = notification.status
-            case .all:
-                break
-            }
-        }
-        
-        return userParams
-    }
-    
-    
-    
-    //Photos
-    private func configureCreateUserPhotos(photos: [PhotoTuple]) -> [String: Any] {
-        var photosDictionary = [String: [Any]]()
-        
-        var photosArray = [[ : ]]
-        photosArray.removeAll()
-        for i in 0..<photos.count {
-            
-            if photos[i].primary {
-                let primaryPhoto = ["url":photos[i].link,
-                                    "primary": photos[i].primary] as [String: Any]
-                photosArray.append(primaryPhoto)
-            } else {
-                let photo = ["url": photos[i].link] as [String: Any]
-                photosArray.append(photo)
-            }
-            
-        }
-        
-        photosDictionary["photos"] = photosArray
-        
-        return photosDictionary
-    }
-    
-    private func configureUserPhotoForUpdate(photo: PhotoTuple) -> [String: Any] {
-        return ["url":photo.link,
-                "primary":photo.primary]
     }
     
 }

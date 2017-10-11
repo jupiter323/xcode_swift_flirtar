@@ -26,8 +26,8 @@ class SplashViewController: UIViewController, SplashViewProtocol {
 
     //MARK: - Helpers
     private func configureTextView() {
-        agreementTextView.addLink(forText: "Terms of Service", url: URL(string: "https://www.flirtar.co/terms")!)
-        agreementTextView.addLink(forText: "Privacy Policy", url: URL(string: "https://www.flirtar.co/privacy")!)
+        agreementTextView.addLink(forText: "Terms of Service", url: URL(string: ExternalLinks.termsOfService.rawValue)!)
+        agreementTextView.addLink(forText: "Privacy Policy", url: URL(string: ExternalLinks.privacyPolicy.rawValue)!)
         agreementTextView.delegate = self
     }
     

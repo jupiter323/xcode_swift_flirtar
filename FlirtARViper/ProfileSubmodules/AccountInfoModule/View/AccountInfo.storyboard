@@ -24,11 +24,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tXi-C5-5oP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="McP-TJ-HTZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvc-bm-kSB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ade-zZ-Js9">
                                         <rect key="frame" x="47" y="20" width="281" height="30"/>
@@ -40,10 +40,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Zv-yH-NYj">
-                                        <rect key="frame" x="0.0" y="55" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="55" width="375" height="360"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="6Pu-8b-CuZ"/>
+                                            <constraint firstAttribute="height" constant="360" id="6Pu-8b-CuZ"/>
                                         </constraints>
                                         <color key="separatorColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
@@ -62,7 +62,7 @@
                                     <constraint firstAttribute="trailing" secondItem="8Zv-yH-NYj" secondAttribute="trailing" id="fyH-6w-xC8"/>
                                     <constraint firstItem="Ade-zZ-Js9" firstAttribute="width" secondItem="gvc-bm-kSB" secondAttribute="width" multiplier="3:4" id="g3P-nL-ldN"/>
                                     <constraint firstAttribute="bottom" secondItem="8Zv-yH-NYj" secondAttribute="bottom" id="iFC-UZ-w3l"/>
-                                    <constraint firstAttribute="height" constant="355" id="nqm-bK-bgc"/>
+                                    <constraint firstAttribute="height" constant="415" id="nqm-bK-bgc"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -78,7 +78,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="355"/>
+                    <size key="freeformSize" width="375" height="415"/>
                     <connections>
                         <outlet property="accountTable" destination="8Zv-yH-NYj" id="uGI-3c-d4k"/>
                     </connections>

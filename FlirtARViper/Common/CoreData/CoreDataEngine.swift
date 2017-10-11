@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+//FirstModel - start model with start structure
+//V2Model - added users instagram auth data 
+
 class CoreDataEngine {
     
     static var persistentStoreCoordinator: NSPersistentStoreCoordinator? {

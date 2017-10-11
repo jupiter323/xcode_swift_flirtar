@@ -19,7 +19,11 @@ protocol AccountInfoViewProtocol: class {
     func fillDataWithUser(user: User)
     func showSuccessMessage(messageType: SuccessMessage)
     func showFBDisconnectSuccess(messageType: SuccessMessage)
+    func showInstagramConnectSuccess(messageType: SuccessMessage)
+    func showInstagramDisconnectSuccess(messageType: SuccessMessage)
     
+    func showInstagramDisconnectError(method: String, errorMessage: String)
+    func showInstagramConnectError(method: String, errorMessage: String)
     func showFBDisconnectError(method: String, errorMessage: String)
     func locationChangeError(method: String, errorMessage: String)
     func showRequestError(method: String, errorMessage: String)
@@ -35,6 +39,7 @@ protocol AccountInfoWireframeProtocol {
                                andPresenter presenter: AccountInfoPresenterProtocol)
     func routeToSplash(fromView view: AccountInfoViewProtocol)
     func routeToBlockedUsers(fromView view: AccountInfoViewProtocol)
+    func routeToInstagramAuth(fromView view: AccountInfoViewProtocol)
 }
 
 protocol AccountInfoPresenterProtocol {
@@ -47,10 +52,14 @@ protocol AccountInfoPresenterProtocol {
     func saveShowOnMap(isEnabled status: Bool)
     func allowUserLocationCanged(isEnabled status: Bool)
     func facebookConnectionDisable()
+    func instagramConnection(withToken token: String)
+    func instagramDisconnection()
     func logout()
     
     func showSplash()
     func showBlockedUsers()
+    
+    func showInstagramAuth()
     
 }
 
@@ -60,6 +69,8 @@ protocol AccountInfoInteractorInputProtocol {
     var localDatamanager: AccountInfoLocalDatamanagerInputProtocol? {get set}
     
     func startFBDisconnection()
+    func startInstagramConnection(withToken token: String)
+    func startInstagramDisconnection()
     func startLogout()
     
     func startUpdateUserLocation(location: CLLocation)
@@ -73,6 +84,8 @@ protocol AccountInfoInteractorInputProtocol {
 protocol AccountInfoInteractorOutputProtocol: class {
     func userRetrieved(user: User)
     func fbDisconnectionSuccess()
+    func instagramConnectionSuccess()
+    func instagramDisconnectionSuccess()
     func logoutSuccess()
     func updateLocationSuccess(address: String)
     func requestError(method: APIMethod, error: Error)
@@ -81,6 +94,8 @@ protocol AccountInfoInteractorOutputProtocol: class {
 
 protocol AccountInfoRemoteDatamanagerOutputProtocol: class {
     func fbDisconnected()
+    func instagramConnected()
+    func instagramDisconnected()
     func logouted()
     
     func locationUpdated(location: CLLocation)
@@ -96,11 +111,15 @@ protocol AccountInfoRemoteDatamanagerInputProtocol: class {
     
     func requestUpdateUserLocation(withLongitude: Double, latitude: Double)
     func requestFBDisconnect()
+    func requestInstagramConnection(withToken token: String)
+    func requestInstagramDisconnection()
     func requestLogout()
 }
 
 protocol AccountInfoLocalDatamanagerInputProtocol: class {
     func clearUser() throws
+    func saveInstagramStatus(userId: Int, status: Bool) throws
+    func saveFacebookStatus(userId: Int, status: Bool) throws
 }
 
 

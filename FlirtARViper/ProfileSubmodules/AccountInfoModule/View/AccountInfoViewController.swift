@@ -13,6 +13,7 @@ import PKHUD
 enum CellConfiguration {
     case Nofitication(NotificationType)
     case Account(AccountCellType)
+    case Feedback(FeedbackCellType)
     
     enum NotificationType {
         case like
@@ -26,7 +27,13 @@ enum CellConfiguration {
         case showOnMapSwitch
         case userLocationSwitch
         case fbSwitch
+        case instagramSwitch
         case logout
+    }
+    
+    enum FeedbackCellType {
+        case rateAppStore
+        case customRate
     }
 }
 
@@ -40,6 +47,8 @@ extension CellConfiguration: Equatable {
             return a1 == a2
         case (.Nofitication(let n1), .Nofitication(let n2)):
             return n1 == n2
+        case (.Feedback(let f1), .Feedback(let f2)):
+            return f1 == f2
         default:
             return false
         }
@@ -54,7 +63,7 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
     @IBOutlet var accountTable: UITableView!
     
     //MARK: - Private
-    fileprivate var accountCells: [CellConfiguration] = [.Account(.blockUsers) ,.Account(.showOnMapSwitch), .Account(.userLocationSwitch), .Account(.fbSwitch), .Account(.logout)]
+    fileprivate var accountCells: [CellConfiguration] = [.Account(.blockUsers) ,.Account(.showOnMapSwitch), .Account(.userLocationSwitch), .Account(.instagramSwitch) ,.Account(.fbSwitch), .Account(.logout)]
     fileprivate var currentUser = User()
     fileprivate var notificationsEnabled = false
     
@@ -117,6 +126,52 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
             let indexPath = IndexPath(row: fbCellRow!, section: 0)
             let cell = accountTable.cellForRow(at: indexPath) as? ImagedSwitchCell
             cell?.switchView.isOn = !(cell?.switchView.isOn)!
+        }
+    }
+    
+    func showInstagramDisconnectSuccess(messageType: SuccessMessage) {
+        HUD.show(.labeledSuccess(title: messageType.rawValue, subtitle: nil))
+        HUD.hide(afterDelay: 3.0)
+        
+        let instagramCellRow = accountCells.index(of: .Account(.instagramSwitch))
+        if instagramCellRow != nil {
+            let indexPath = IndexPath(row: instagramCellRow!, section: 0)
+            let cell = accountTable.cellForRow(at: indexPath) as? ImagedSwitchCell
+            cell?.switchView.isOn = false
+        }
+    }
+    
+    func showInstagramDisconnectError(method: String, errorMessage: String) {
+        HUD.show(.labeledError(title: method, subtitle: errorMessage))
+        HUD.hide(afterDelay: 3.0)
+        let instagramCellRow = accountCells.index(of: .Account(.instagramSwitch))
+        if instagramCellRow != nil {
+            let indexPath = IndexPath(row: instagramCellRow!, section: 0)
+            let cell = accountTable.cellForRow(at: indexPath) as? ImagedSwitchCell
+            cell?.switchView.isOn = true
+        }
+    }
+    
+    func showInstagramConnectSuccess(messageType: SuccessMessage) {
+        HUD.show(.labeledSuccess(title: messageType.rawValue, subtitle: nil))
+        HUD.hide(afterDelay: 3.0)
+        
+        let instagramCellRow = accountCells.index(of: .Account(.instagramSwitch))
+        if instagramCellRow != nil {
+            let indexPath = IndexPath(row: instagramCellRow!, section: 0)
+            let cell = accountTable.cellForRow(at: indexPath) as? ImagedSwitchCell
+            cell?.switchView.isOn = true
+        }
+    }
+    
+    func showInstagramConnectError(method: String, errorMessage: String) {
+        HUD.show(.labeledError(title: method, subtitle: errorMessage))
+        HUD.hide(afterDelay: 3.0)
+        let instagramCellRow = accountCells.index(of: .Account(.instagramSwitch))
+        if instagramCellRow != nil {
+            let indexPath = IndexPath(row: instagramCellRow!, section: 0)
+            let cell = accountTable.cellForRow(at: indexPath) as? ImagedSwitchCell
+            cell?.switchView.isOn = false
         }
     }
     
@@ -206,7 +261,7 @@ extension AccountInfoViewController: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: "switchCell")
         case .Account(.userLocationSwitch):
             cell = tableView.dequeueReusableCell(withIdentifier: "selectLocationCell")
-        case .Account(.fbSwitch):
+        case .Account(.fbSwitch), .Account(.instagramSwitch):
             cell = tableView.dequeueReusableCell(withIdentifier:  "imagedSwitchCell")
         case .Account(.logout):
             cell = tableView.dequeueReusableCell(withIdentifier: "titledCell")
@@ -246,6 +301,10 @@ extension AccountInfoViewController: UITableViewDelegate {
         case .Account(.fbSwitch):
             let imagedSwitchCell = cell as? ImagedSwitchCell
             imagedSwitchCell?.configureCell(withType: .Account(.fbSwitch), state: currentUser.isFacebook ?? false)
+            imagedSwitchCell?.delegate = self
+        case .Account(.instagramSwitch):
+            let imagedSwitchCell = cell as? ImagedSwitchCell
+            imagedSwitchCell?.configureCell(withType: .Account(.instagramSwitch), state: currentUser.instagramConnected ?? false)
             imagedSwitchCell?.delegate = self
         case .Account(.logout):
             let titledCell = cell as? TitledCell
@@ -290,5 +349,30 @@ extension AccountInfoViewController: TitledCellDelegate {
 extension AccountInfoViewController: ImagedSwitchCellDelegate {
     func fbDisconnetion() {
         presenter?.facebookConnectionDisable()
+    }
+    
+    func instagramStartConnect() {
+        presenter?.showInstagramAuth()
+    }
+    
+    func instagramStartDisconnection() {
+        presenter?.instagramDisconnection()
+    }
+    
+}
+
+//MARK: - InstagramAuthViewController
+extension AccountInfoViewController: InstagramAuthDelegate {
+    func authSuccess(token: String) {
+        presenter?.instagramConnection(withToken: token)
+    }
+    
+    func authFail(error: String) {
+        let instagramCellRow = accountCells.index(of: .Account(.instagramSwitch))
+        if instagramCellRow != nil {
+            let indexPath = IndexPath(row: instagramCellRow!, section: 0)
+            let cell = accountTable.cellForRow(at: indexPath) as? ImagedSwitchCell
+            cell?.switchView.isOn = false
+        }
     }
 }

@@ -14,7 +14,7 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
     
     
     //MARK: - Variables
-    fileprivate var socket: WebSocket?
+//    fileprivate var socket: WebSocket?
     
     fileprivate var currentPage: Int?
     fileprivate var previousPage: Int?
@@ -24,35 +24,40 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
     
     //MARK: - MessagesDetailInteractorInputProtocol
     func initSocket(withRoom room: Int) {
-        if socket == nil {
-            guard let token = ProfileService.token else {
-                return
-            }
-            socket = WebSocket("ws://52.204.177.82:8888/chat/\(room)/\(token)/")
-        }
         
-        if socket?.readyState == .closed {
-            socket?.open()
-        }
+        SocketManager.shared.configureMessageSocket(withRoom: room)
+        SocketManager.shared.messageDelegate = self
         
-        //MARK: Socket implementation
-        socket?.event.open = {
-            print("opened")
-        }
         
-        socket?.event.error = { error in
-            print("error \(error)")        }
-        
-        socket?.event.close = { code, reason, clean in
-            print("close")
-            self.socket?.open()
-        }
-        
-        socket?.event.message = { message in
-            
-            self.newIncomeMessage(message: message)
-            
-        }
+//        if socket == nil {
+//            guard let token = ProfileService.token else {
+//                return
+//            }
+//            socket = WebSocket("ws://52.204.177.82:8888/chat/\(room)/\(token)/")
+//        }
+//
+//        if socket?.readyState == .closed {
+//            socket?.open()
+//        }
+//
+//        //MARK: Socket implementation
+//        socket?.event.open = {
+//            print("opened")
+//        }
+//
+//        socket?.event.error = { error in
+//            print("error \(error)")        }
+//
+//        socket?.event.close = { code, reason, clean in
+//            print("close")
+//            self.socket?.open()
+//        }
+//
+//        socket?.event.message = { message in
+//
+//            self.newIncomeMessage(message: message)
+//
+//        }
         
     }
     
@@ -140,7 +145,8 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
             if let image = links.first {
                 let clearedText = BadWordHelper.shared.cleanUp(text)
                 let dataDict = "{\"text\":\"\(clearedText)\",\"file_url\":\"\(image)\",\"file_type\":\"image\"}"
-                self.socket?.send(text: dataDict)
+                SocketManager.shared.sendMessageSocket(messageText: dataDict)
+//                self.socket?.send(text: dataDict)
             } else {
                 self.sendTextMessage(withText: text)
             }
@@ -168,7 +174,8 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
                                     let thumbImageLink = thumbImage {
                                     let clearedText = BadWordHelper.shared.cleanUp(text)
                                     let dataDict = "{\"text\":\"\(clearedText)\",\"file_url\":\"\(videoLink)\",\"file_type\":\"video\",\"thumbnail\":\"\(thumbImageLink)\"}"
-                                    self.socket?.send(text: dataDict)
+//                                    self.socket?.send(text: dataDict)
+                                    SocketManager.shared.sendMessageSocket(messageText: dataDict)
                                     
                                 } else {
                                     self.sendTextMessage(withText: text)
@@ -180,7 +187,8 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
     fileprivate func sendTextMessage(withText text: String) {
         let clearedText = BadWordHelper.shared.cleanUp(text)
         let dataDict = "{\"text\":\"\(clearedText)\"}"
-        socket?.send(text: dataDict)
+        SocketManager.shared.sendMessageSocket(messageText: dataDict)
+//        socket?.send(text: dataDict)
     }
     
     fileprivate func newIncomeMessage(message: Any) {
@@ -207,6 +215,14 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
         }
     }
     
+}
+
+
+//MARK: - MessageSocketDelegate
+extension MessagesDetailInteractor: MessageSocketDelegate {
+    func newMessage(message: Any) {
+        newIncomeMessage(message: message)
+    }
 }
 
 //MARK: - MessagesDetailRemoteDatamanagerOutputProtocol
