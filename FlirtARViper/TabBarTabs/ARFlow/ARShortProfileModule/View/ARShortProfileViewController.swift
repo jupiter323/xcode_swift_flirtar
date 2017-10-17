@@ -211,6 +211,13 @@ class ARShortProfileViewController: UIViewController, ARShortProfileViewProtocol
 
 }
 
+//MARK: - ARProfileViewControllerDelegate
+extension ARShortProfileViewController: ARProfileViewControllerDelegate {
+    func didTapLikeButton(isLike: Bool) {
+        closeTap(self)
+    }
+}
+
 //MARK: - UICollectionViewDataSource
 extension ARShortProfileViewController: UICollectionViewDataSource {
     
@@ -236,7 +243,6 @@ extension ARShortProfileViewController: UICollectionViewDelegate {
         let interestCell = cell as? InterestViewCell
         guard interestCell != nil else { return }
         interestCell!.configureCell(withInterest: interests[indexPath.row],
-                                    maxFontSize: 13.0,
                                     fontColor: UIColor.white,
                                     fontName: "VarelaRound")
     }

@@ -31,6 +31,7 @@ class LikeDislikeProfileViewController: UIViewController {
     
     @IBOutlet var interestsCollection: [InterestItemView]!
     
+    @IBOutlet weak var introductionLabel: UILabel!
     
     
     @IBOutlet var generalCardView: KolodaMainView!
@@ -73,6 +74,7 @@ class LikeDislikeProfileViewController: UIViewController {
         
         firstnameLabel.text = user.firstName ?? "No data"
         ageLabel.text = user.age ?? "No data"
+        introductionLabel.text = user.shortIntroduction ?? "No data"
         
         let module = UserPhotosWireframe
             .configurePhotosController(withPhotos: user.photos,
@@ -109,7 +111,7 @@ class LikeDislikeProfileViewController: UIViewController {
             interestView.isHidden = false
             
             var title = newInterests[i]
-            if i == interestsCollection.count - 1 && interestsArrayByComma.count > 3 {
+            if i == 2 && interestsArrayByComma.count > 3 {
                 title += "..."
             }
             

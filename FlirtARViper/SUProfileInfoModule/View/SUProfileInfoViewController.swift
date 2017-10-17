@@ -103,7 +103,7 @@ class SUProfileInfoViewController: UIViewController, SUProfileInfoViewProtocol {
     func showPhotosUploadedSuccess() {
         let delay = 3.0
         
-        HUD.show(.labeledSuccess(title: SuccessMessage.signedUp.rawValue, subtitle: nil))
+        HUD.show(.labeledSuccess(title: SuccessMessage.saved.rawValue, subtitle: nil))
         HUD.hide(afterDelay: delay)
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
@@ -114,12 +114,12 @@ class SUProfileInfoViewController: UIViewController, SUProfileInfoViewProtocol {
     func showPhotosUploadError(method: String, errorMessage: String) {
         let delay = 3.0
         
-        HUD.show(.labeledError(title: SuccessMessage.signedUpWithoutPhotos.rawValue, subtitle: errorMessage))
+        HUD.show(.labeledError(title: method, subtitle: errorMessage))
         HUD.hide(afterDelay: delay)
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
-            self.presenter?.showTabBarView()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay) {
+//            self.presenter?.showTabBarView()
+//        }
     }
     
     func showError(method: String, errorMessage: String) {

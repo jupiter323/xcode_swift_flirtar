@@ -56,7 +56,10 @@ class InstagramPhotoViewCell: UICollectionViewCell {
             
             if let mainWindow = UIApplication.shared.keyWindow {
                 blackBackground = UIView(frame: mainWindow.frame)
-                blackBackground?.backgroundColor = UIColor.black
+                blackBackground?.backgroundColor = UIColor(red: 62/255,
+                                                           green: 67/255,
+                                                           blue: 79/255,
+                                                           alpha: 0.7)
                 blackBackground?.alpha = 0.0
                 mainWindow.addSubview(blackBackground!)
                 mainWindow.addSubview(zoomImageView)

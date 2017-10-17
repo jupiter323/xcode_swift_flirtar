@@ -318,10 +318,6 @@ extension AccountInfoViewController: UITableViewDelegate {
 
 //MARK: - SwitchCellDelegate
 extension AccountInfoViewController: SwitchCellDelegate {
-    func notificationStatusChanged(isEnabled: Bool, notificationType: CellConfiguration) {
-        return
-    }
-
     func showOnMapStatusChanged(isEnabled: Bool) {
         presenter?.saveShowOnMap(isEnabled: isEnabled)
     }

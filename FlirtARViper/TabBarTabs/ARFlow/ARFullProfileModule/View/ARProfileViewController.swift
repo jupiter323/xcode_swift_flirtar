@@ -9,6 +9,10 @@ import UIKit
 import PKHUD
 import XLActionController
 
+protocol ARProfileViewControllerDelegate: class {
+    func didTapLikeButton(isLike: Bool)
+}
+
 class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     
     //MARK: - Outlets
@@ -37,9 +41,8 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     @IBOutlet var infoBlockHeight: NSLayoutConstraint!
     @IBOutlet var infoBlockInitialHeight: NSLayoutConstraint!
     
-    @IBOutlet var nameAgeInitialConstraintHeight: NSLayoutConstraint!
     @IBOutlet var nameAgeHeight: NSLayoutConstraint!
-
+    
     @IBOutlet var interestsHeight: NSLayoutConstraint!
     
     @IBOutlet weak var interestsViewRight: NSLayoutConstraint!
@@ -48,74 +51,41 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     fileprivate var isLiked = false
     fileprivate var interests = [String]()
     fileprivate var collectionViewInitialHeight: CGFloat = 0.0
+    fileprivate var introductionInitialHeight: CGFloat = 0.0
     fileprivate var introductionIsFullSize: Bool = false
     fileprivate var profile: ShortUser?
+    
+    weak var delegate: ARProfileViewControllerDelegate?
     
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         roundedView.layoutIfNeeded()
         roundedView.round(radius: 3.0)
         
         
         interestsCollectionView.register(UINib(nibName: "InterestViewCell", bundle: nil), forCellWithReuseIdentifier: "interestsFullItem")
         
-        interestsCollectionView.dataSource = self
-        interestsCollectionView.delegate = self
-        
-        interestsCollectionView.layoutIfNeeded()
-        collectionViewInitialHeight = 35.0//interestsCollectionView.bounds.height
-        
-        introductionLabel.isUserInteractionEnabled = true
-        introductionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
+        inititalizeLayouts()
         
         presenter?.viewDidLoad()
         
     }
-  
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         (self.tabBarController as? TabBarViewController)?.animationTabBarHidden(true)
         
-        interestsCollectionView.reloadData()
-        
         roundedViewInset.layoutIfNeeded()
         let distance = roundedViewInset.bounds.height + 20.0
         
         presenter?.viewWillAppear(distance: distance)
         
-        infoBlockView.layoutIfNeeded()
-        
-        if interests.count > 3 {
-            moreInfoButton.isHidden = false
-            interestsViewRight.constant = 70.0
-            interestsView.layoutIfNeeded()
-            interestsCollectionView.collectionViewLayout.invalidateLayout()
-        } else {
-            moreInfoButton.isHidden = true
-            interestsViewRight.constant = 20.0
-            interestsView.layoutIfNeeded()
-            interestsCollectionView.collectionViewLayout.invalidateLayout()
-        }
-        
-        infoBlockInitialHeight.isActive = true
-        infoBlockHeight.constant = infoBlockView.bounds.height
-        infoBlockHeight.isActive = false
-        
-        nameAgeInitialConstraintHeight.isActive = true
-        nameAgeHeight.isActive = false
-        
-        interestsHeight.constant = 35.0
-        interestsHeight.isActive = true
-        
-        introductionIsFullSize = false
-        
-        
-        
-        
+        initializeInterestsLayouts()
+        shortIntroductionLayouts()
         
     }
     
@@ -167,30 +137,15 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     
     @IBAction func moreInfoTap(_ sender: Any) {
         
-        moreInfoButton.isHidden = true
-        interestsViewRight.constant = 15.0
+        //show all interests
+        fullInterestsLayouts()
         
-        interestsView.layoutIfNeeded()
-        interestsCollectionView.layoutIfNeeded()
-        interestsCollectionView.collectionViewLayout.invalidateLayout()
-        
-        nameAgeView.layoutIfNeeded()
-        nameAgeHeight.constant = nameAgeView.bounds.height
-        nameAgeHeight.isActive = true
-        nameAgeInitialConstraintHeight.isActive = false
-        
-        interestsCollectionView.layoutIfNeeded()
-        let contentHeight = interestsCollectionView.contentSize.height
-        interestsHeight.constant = contentHeight
-        interestsHeight.isActive = true
-        
-        
+        //update layout for interests
         infoBlockHeight.constant = calculateInfoBlockHeight()
-        
         infoBlockInitialHeight.isActive = false
         infoBlockHeight.isActive = true
         
-        
+        //add read more label if need
         if !introductionIsFullSize {
             introductionLabel.addReadMoreText(with: " ",
                                               moreText: "Full Desc.",
@@ -199,58 +154,35 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
                                                                      green: 95/255,
                                                                      blue: 119/255,
                                                                      alpha: 1.0))
+            
         }
         
-        
-//        nameAgeView.layoutIfNeeded()
-//        nameAgeHeight.constant = nameAgeView.bounds.height
-//        nameAgeHeight.isActive = true
-//        nameAgeInitialConstraintHeight.isActive = false
-//
-//        let contentHeight = interestsCollectionView.contentSize.height
-//        interestsHeight.constant = contentHeight
-//        interestsHeight.isActive = true
-//
-//
-//        infoBlockHeight.constant = calculateInfoBlockHeight()
-//
-//        infoBlockInitialHeight.isActive = false
-//        infoBlockHeight.isActive = true
     }
     
     
     //MARK: - Helpers
     func calculateInfoBlockHeight() -> CGFloat {
-                
+        roundedView.layoutIfNeeded()
         introductionLabel.layoutIfNeeded()
         let introWidth = introductionLabel.bounds.width
         let font = introductionLabel.font
-        let textHeight = introductionLabel.text!.estimateFrameForText(font: font!,
-                                                                      width: introWidth).height
-        //5 + 5 bottom and top constraints
-        let a = nameAgeHeight.constant + interestsHeight.constant
-        let b = textHeight + 10.0
-        let c = a + b
+        let estimatedTextHeight = introductionLabel.text!.estimateFrameForText(font: font!,
+                                                                               width: introWidth).height
+        var textHeight = introductionInitialHeight
+        if estimatedTextHeight > introductionInitialHeight {
+            textHeight = estimatedTextHeight
+        }
         
-        return c
+        //5 + 5 bottom and top constraints
+        return nameAgeHeight.constant + interestsHeight.constant + textHeight + 10.0
     }
     
     @objc private func introductionTapped(recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
             
-            nameAgeView.layoutIfNeeded()
-            nameAgeHeight.constant = nameAgeView.bounds.height
-            nameAgeHeight.isActive = true
-            nameAgeInitialConstraintHeight.isActive = false
+            fullIntroductionLayouts()
             
-            infoBlockHeight.constant = calculateInfoBlockHeight()
             
-            infoBlockInitialHeight.isActive = false
-            infoBlockHeight.isActive = true
-            
-            introductionIsFullSize = true
-            
-            introductionLabel.text = profile?.shortIntroduction ?? "No data"
             
             
         }
@@ -296,7 +228,7 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
         ageLabel.text = profile.age ?? "No data"
         
         introductionLabel.layoutIfNeeded()
-        introductionLabel.text = "asdasdas asdasd asdasd asdasdas dasdasd asdasdas dasdasd asdas dasd as das dasd as das d as da sd as d asd asdasdas dasdasdas"//profile.shortIntroduction ?? "No data"
+        introductionLabel.text = profile.shortIntroduction ?? "No data"
         
         introductionLabel.addReadMoreText(with: " ",
                                           moreText: "Full Desc.",
@@ -307,14 +239,14 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
                                                                  alpha: 1.0))
         
         guard let isLiked = profile.isLiked else {
-            likeButton.setImage(#imageLiteral(resourceName: "likeButtonAR"), for: .normal)
+            likeButton.setImage(#imageLiteral(resourceName: "likeBigInact"), for: .normal)
             return
         }
-
+        
         if isLiked {
-            likeButton.setImage(#imageLiteral(resourceName: "likeButtonARFilled"), for: .normal)
+            likeButton.setImage(#imageLiteral(resourceName: "likeBigAct"), for: .normal)
         } else {
-            likeButton.setImage(#imageLiteral(resourceName: "likeButtonAR"), for: .normal)
+            likeButton.setImage(#imageLiteral(resourceName: "likeBigInact"), for: .normal)
         }
         
         self.isLiked = isLiked
@@ -325,10 +257,15 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     func likeStatusChanged(newValue: Bool) {
         self.isLiked = newValue
         if isLiked {
-            likeButton.setImage(#imageLiteral(resourceName: "likeButtonARFilled"), for: .normal)
+            likeButton.setImage(#imageLiteral(resourceName: "likeButtonNewAc"), for: .normal)
+            delegate?.didTapLikeButton(isLike: true)
         } else {
-            likeButton.setImage(#imageLiteral(resourceName: "likeButtonAR"), for: .normal)
+            likeButton.setImage(#imageLiteral(resourceName: "likeBigInact"), for: .normal)
+            delegate?.didTapLikeButton(isLike: false)
         }
+        
+        presenter?.dismissMe()
+        
     }
     
     func embedThisModule(module: UIViewController,
@@ -398,8 +335,85 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
         }
     }
     
+    //MARK: - Layouts
+    func inititalizeLayouts() {
+        
+        interestsCollectionView.layoutIfNeeded()
+        collectionViewInitialHeight = 35.0
+        
+        introductionLabel.layoutIfNeeded()
+        introductionInitialHeight = introductionLabel.bounds.height
+        
+        introductionLabel.isUserInteractionEnabled = true
+        introductionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
+        
+    }
     
-
+    func initializeInterestsLayouts() {
+        if interests.count > 3 {
+            moreInfoButton.isHidden = false
+            interestsViewRight.constant = 70.0
+            interestsCollectionView.collectionViewLayout.invalidateLayout()
+        } else {
+            moreInfoButton.isHidden = true
+            interestsViewRight.constant = 20.0
+            interestsCollectionView.collectionViewLayout.invalidateLayout()
+        }
+        
+        shortInterestsLayouts()
+    }
+    
+    func shortInterestsLayouts() {
+        interestsHeight.constant = 35.0
+        interestsHeight.isActive = true
+    }
+    
+    func fullInterestsLayouts() {
+        moreInfoButton.isHidden = true
+        interestsViewRight.constant = 15.0
+        interestsView.layoutIfNeeded()
+        
+        interestsCollectionView.collectionViewLayout.invalidateLayout()
+        
+        interestsCollectionView.layoutIfNeeded()
+        let contentHeight = interestsCollectionView.contentSize.height
+        interestsHeight.constant = contentHeight
+        interestsHeight.isActive = true
+    }
+    
+    func shortIntroductionLayouts() {
+        
+        roundedView.layoutIfNeeded()
+        infoBlockView.layoutIfNeeded()
+        
+        
+        infoBlockInitialHeight.isActive = true
+        infoBlockHeight.constant = infoBlockView.bounds.height
+        infoBlockHeight.isActive = false
+        
+        introductionIsFullSize = false
+        
+        
+        
+        
+    }
+    
+    func fullIntroductionLayouts() {
+        
+        introductionLabel.text = profile?.shortIntroduction ?? "No data"
+        
+        infoBlockHeight.constant = calculateInfoBlockHeight()
+        
+        infoBlockInitialHeight.isActive = false
+        infoBlockHeight.isActive = true
+        
+        introductionIsFullSize = true
+        
+        
+    }
+    
+    
+    
 }
 
 //MARK: - InstagramPhotosViewControllerDelegate
@@ -446,12 +460,11 @@ extension ARProfileViewController: UICollectionViewDelegate {
         let interestCell = cell as? InterestViewCell
         guard interestCell != nil else { return }
         interestCell!.configureCell(withInterest: interests[indexPath.row],
-                                     maxFontSize: 13.0,
-                                     fontColor: UIColor(red: 62/255,
-                                                        green: 67/255,
-                                                        blue: 79/255,
-                                                        alpha: 1.0),
-                                     fontName: "VarelaRound")
+                                    fontColor: UIColor(red: 62/255,
+                                                       green: 67/255,
+                                                       blue: 79/255,
+                                                       alpha: 1.0),
+                                    fontName: "VarelaRound")
     }
     
 }

@@ -14,16 +14,28 @@ class MessagesMainTabViewController: UIViewController, MessagesMainTabViewProtoc
 
     //MARK: - Outlets
     @IBOutlet weak var messagesTable: UITableView!
+    @IBOutlet weak var likesModule: UIView!
+    
+    //MARK: - Constraints
+    @IBOutlet weak var likesBlockHeight: NSLayoutConstraint!
     
     //MARK: - Variables
     fileprivate var dialogs = [Dialog]()
     fileprivate let refreshControl = UIRefreshControl()
+    
+    fileprivate var likesSubmodule: MessagesLikesViewController?
     
     fileprivate var removedRow: Int?
     
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        likesBlockHeight.constant = UIScreen.main.bounds.width / 4.0
+        likesModule.layoutIfNeeded()
+        
+        
+        presenter?.viewDidLoad()
         
         messagesTable.register(UINib(nibName: "DialogCell", bundle: nil), forCellReuseIdentifier: "dialogCell")
         messagesTable.tableFooterView = UIView(frame: .zero)
@@ -122,6 +134,7 @@ class MessagesMainTabViewController: UIViewController, MessagesMainTabViewProtoc
     func dialogRemoved() {
         if removedRow != nil {
             dialogs.remove(at: removedRow!)
+            likesSubmodule?.reloadData()
         }
         messagesTable.reloadData()
     }
@@ -144,7 +157,32 @@ class MessagesMainTabViewController: UIViewController, MessagesMainTabViewProtoc
         removeDialogAlert.delegate = self
         mainView?.addSubview(removeDialogAlert)
     }
+    
+    func embedThisModule(module: UIViewController) {
+        for view in likesModule.subviews {
+            view.removeFromSuperview()
+        }
+        
+        addChildViewController(module)
+        module.view.frame = CGRect(x: 0, y: 0, width: likesModule.frame.size.width, height: likesModule.frame.size.height)
+        likesModule.addSubview(module.view)
+        module.didMove(toParentViewController: self)
+        
+        if module is MessagesLikesViewController {
+            (module as! MessagesLikesViewController).delegate = self
+            likesSubmodule = module as? MessagesLikesViewController
+        }
+    }
+    
+    
 
+}
+
+//MARK: - MessagesLikesViewControllerDelegate
+extension MessagesMainTabViewController: MessagesLikesViewControllerDelegate {
+    func dialogsListNeedUpdate() {
+        presenter?.reloadDialogs()
+    }
 }
 
 //MARK: - RemoveDialogViewDelegate

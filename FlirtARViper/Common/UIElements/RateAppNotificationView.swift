@@ -69,6 +69,8 @@ class RateAppNotificationView: ViewFromXIB {
         titleLabel.text = title
         subtitleLabel.text = subtitle
         isNeedToOpenAppStore = isNeed
+        
+        starsControl.rating = 5
     }
     
     //MARK: - Actions

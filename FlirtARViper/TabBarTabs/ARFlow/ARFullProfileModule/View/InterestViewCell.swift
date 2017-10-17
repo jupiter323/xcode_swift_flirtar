@@ -18,11 +18,11 @@ class InterestViewCell: UICollectionViewCell {
     }
     
     func configureCell(withInterest interest: String,
-                       maxFontSize size: CGFloat,
                        fontColor color: UIColor,
                        fontName: String) {
         interestView.title = interest
         interestView.itemTextColor = color
+        let size = interestView.itemTitle.font.pointSize
         interestView.itemTextFont = UIFont(name: fontName, size: size) ?? UIFont.systemFont(ofSize: size)
     }
 

@@ -11,11 +11,10 @@ import PKHUD
 import IQKeyboardManagerSwift
 
 class ProfileSettingsViewController: UIViewController, ProfileSettingsViewProtocol {
-
+    
     //MARK: - Outlets
     @IBOutlet var embedModules: [UIView]!
     @IBOutlet weak var mainScrollView: UIScrollView!
-    
     
     //MARK: - Constraints
     @IBOutlet weak var personalBlockHeight: NSLayoutConstraint!

@@ -36,7 +36,7 @@ class TabBarWireframe: TabBarWireframeProtocol {
     }
     
     func dismissMe(fromView view: TabBarViewProtocol) {
-        var viewForClear = view
+        let viewForClear = view
         viewForClear.presenter?.interactor?.remoteDatamanager = nil
         viewForClear.presenter?.interactor?.presenter = nil
         viewForClear.presenter?.interactor = nil

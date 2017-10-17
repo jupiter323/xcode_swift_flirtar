@@ -133,6 +133,33 @@ class PhotoUpdateService {
         }
     }
     
+    func replacePhoto(newPhoto: UIImage,
+                      oldPhoto: Photo,
+                      completionHandler: @escaping (_ uploaded: Bool,
+        _ photo: Photo?) -> ()) {
+        
+        awsService.uploadPhoto(images: [newPhoto]) { (links) in
+            guard let link = links.first,
+                let isPrimary = oldPhoto.isPrimary,
+                let replaceId = oldPhoto.photoID else {
+                completionHandler(false, nil)
+                return
+            }
+            
+            let updateTuple = (link: link, primary: isPrimary)
+            self.updatePhoto(newPhoto: updateTuple,
+                             replaceId: replaceId,
+                             completionHandler: { (updated, photo) in
+                        if updated {
+                            completionHandler(true, photo)
+                        }
+            })
+            
+        }
+        
+        
+    }
+    
     
     private func createPhotos(photos: [PhotoTuple],
                               completionHandler: @escaping (_ uploaded: Bool,

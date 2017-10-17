@@ -15,7 +15,7 @@ class ARTabMainPresenter: ARTabMainPresenterProtocol {
     var interactor: ARTabMainInteractorInputProtocol?
     
     func viewWillAppear() {
-        interactor?.startGettingPeoplesForAR(byDistance: 8.0) //2 miles request for 3.2km
+        interactor?.startGettingPeoplesForAR(byDistance: 1.6) //1 mile request for 1.6km
     }
     
     func viewWillDissapear() {

@@ -13,7 +13,7 @@ import SwiftyJSON
 enum ExternalLinks: String {
     case privacyPolicy = "https://www.flirtar.co/privacy.html"
     case termsOfService = "https://www.flirtar.co/terms.html"
-    case itunesLink = "itms://itunes.apple.com/app/id1272001563"
+    case itunesLink = "itms-apps://itunes.apple.com/app/id1272001563"
 }
 
 class NetworkManager {

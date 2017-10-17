@@ -12,10 +12,7 @@ import SwiftyJSON
 
 class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
     
-    
     //MARK: - Variables
-//    fileprivate var socket: WebSocket?
-    
     fileprivate var currentPage: Int?
     fileprivate var previousPage: Int?
     fileprivate var nextPage: Int?
@@ -24,41 +21,8 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
     
     //MARK: - MessagesDetailInteractorInputProtocol
     func initSocket(withRoom room: Int) {
-        
         SocketManager.shared.configureMessageSocket(withRoom: room)
         SocketManager.shared.messageDelegate = self
-        
-        
-//        if socket == nil {
-//            guard let token = ProfileService.token else {
-//                return
-//            }
-//            socket = WebSocket("ws://52.204.177.82:8888/chat/\(room)/\(token)/")
-//        }
-//
-//        if socket?.readyState == .closed {
-//            socket?.open()
-//        }
-//
-//        //MARK: Socket implementation
-//        socket?.event.open = {
-//            print("opened")
-//        }
-//
-//        socket?.event.error = { error in
-//            print("error \(error)")        }
-//
-//        socket?.event.close = { code, reason, clean in
-//            print("close")
-//            self.socket?.open()
-//        }
-//
-//        socket?.event.message = { message in
-//
-//            self.newIncomeMessage(message: message)
-//
-//        }
-        
     }
     
     

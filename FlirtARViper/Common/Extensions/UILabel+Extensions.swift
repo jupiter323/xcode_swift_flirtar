@@ -16,9 +16,20 @@ extension UILabel {
                      moreTextColor: UIColor) {
         let readMoreText: String = trailingText + moreText
         
-        let lengthForVisibleString: Int = self.vissibleTextLength()
+        let visibleTextParameters = self.vissibleTextLength()
+        let lengthForVisibleString: Int = visibleTextParameters.count
+        let isAllTextIsVisible: Bool = visibleTextParameters.allTextIsVisible
         let mutableString: String = self.text!
         
+        //if all text is visible -> return bo nothing
+        if isAllTextIsVisible {
+            return
+        }
+        
+        //if full text shorter than visible -> return do nothing
+        if mutableString.characters.count < lengthForVisibleString {
+            return
+        }
         
         
         let trimmedString: String? = (mutableString as NSString).replacingCharacters(in: NSRange(location: lengthForVisibleString, length: ((self.text?.characters.count)! - lengthForVisibleString)), with: "")
@@ -26,6 +37,7 @@ extension UILabel {
         
         let readMoreLength: Int = (readMoreText.characters.count)
         
+        //if trimmedstring shorter than readmoretext -> return
         if (trimmedString?.characters.count ?? 0) < readMoreLength {
             return
         }
@@ -37,7 +49,7 @@ extension UILabel {
         self.attributedText = answerAttributed
     }
     
-    func vissibleTextLength() -> Int {
+    func vissibleTextLength() -> (count: Int, allTextIsVisible: Bool) {
         let font: UIFont = self.font
         let mode: NSLineBreakMode = self.lineBreakMode
         let labelWidth: CGFloat = self.frame.size.width
@@ -60,8 +72,8 @@ extension UILabel {
                     index = (self.text! as NSString).rangeOfCharacter(from: characterSet, options: [], range: NSRange(location: index + 1, length: self.text!.characters.count - index - 1)).location
                 }
             } while index != NSNotFound && index < self.text!.characters.count && (self.text! as NSString).substring(to: index).boundingRect(with: sizeConstraint, options: .usesLineFragmentOrigin, attributes: attributes as? [String : Any], context: nil).size.height <= labelHeight
-            return prev
+            return (prev, false)
         }
-        return self.text!.characters.count
+        return (self.text!.characters.count, true)
     }
 }

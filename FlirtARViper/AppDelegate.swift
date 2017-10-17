@@ -16,9 +16,7 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    
     var window: UIWindow?
-    fileprivate var bannerColor = UIColor(red:62.0/255.0, green:67.0/255.0, blue:79/255.0, alpha:0.8)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -54,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Firebase Analytics
         //Production - TRUE
         //Debug - FALSE
-        FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(false)
+        FIRAnalyticsConfiguration.sharedInstance().setAnalyticsCollectionEnabled(true)
         
         //Clear badge
         DispatchQueue.main.async {
@@ -78,44 +76,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
-        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-        print("DEBUG Delegate: Resign active")
         RateAppHelper.shared.stopCount()
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        print("DEBUG Delegate: Enter background")
-    }
-
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         DispatchQueue.main.async {
             UIApplication.shared.applicationIconBadgeNumber = 0
         }
-        print("DEBUG Delegate: Enter foreground")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        print("DEBUG Delegate: Became active")
         RateAppHelper.shared.startCount()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
         RateAppHelper.shared.stopCount()
-        print("DEBUG Delegate: Terminate")
     }
     
     

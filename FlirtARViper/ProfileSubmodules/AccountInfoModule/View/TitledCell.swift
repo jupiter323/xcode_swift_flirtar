@@ -68,7 +68,7 @@ class TitledCell: UITableViewCell {
         case .Account(.blockUsers):
             titleLabel.text = "Blocked Users"
         case .Feedback(.rateAppStore):
-            titleLabel.text = "Rating us on App Store"
+            titleLabel.text = "Rating Us on App Store"
         case .Feedback(.customRate):
             titleLabel.text = "Do you like our app?"
         default:

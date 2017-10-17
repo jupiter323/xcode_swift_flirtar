@@ -61,7 +61,7 @@ class ARTabMainViewController: ARViewController, ARTabMainViewProtocol {
         self.presenter.maxVisibleAnnotations = 100
         self.presenter.distanceOffsetMode = .manual
         self.presenter.distanceOffsetMultiplier = 0.1
-        self.presenter.maxDistance = 8000
+        self.presenter.maxDistance = 1600
         self.presenter.presenterTransform = ARPresenterStackTransform()
         self.uiOptions.closeButtonEnabled = false
         

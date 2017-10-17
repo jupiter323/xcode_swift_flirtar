@@ -42,7 +42,11 @@ class SUConfirmPhotoViewController: UIViewController, SUConfirmPhotoViewProtocol
     
     //MARK: - Actions
     @IBAction func confirmTap(_ sender: Any) {
-        presenter?.showProfileConfirm()
+        if profilePhotos.count == 3 {
+            presenter?.showProfileConfirm()
+        } else {
+            errorPhotosCount()
+        }
     }
     
     @IBAction func backButtonTap(_ sender: Any) {

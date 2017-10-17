@@ -40,9 +40,13 @@ class ARShortProfileWireframe: ARShortProfileWireframeProtocol {
     func showFullInfo(fromView view: ARShortProfileViewProtocol,
                       withUser user: ShortUser) {
         
-        let arProfileDetailController = ARProfileWireframe.configureARFullProfileView(withUser: user)
+        let arProfileDetailController = ARProfileWireframe.configureARFullProfileView(withUser: user) as? ARProfileViewController
+        arProfileDetailController?.delegate = view as? ARShortProfileViewController
         if let sourceView = view as? UIViewController {
-            sourceView.navigationController?.pushViewController(arProfileDetailController, animated: true)
+            if arProfileDetailController != nil {
+                sourceView.present(arProfileDetailController!,
+                                   animated: true, completion: nil)
+            }
         }
         
     }

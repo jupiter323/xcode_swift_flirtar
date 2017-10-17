@@ -15,6 +15,11 @@ class MessagesMainTabPresenter: MessagesMainTabPresenterProtocol {
     
     fileprivate var dialog: Dialog?
     
+    func viewDidLoad() {
+        let module = configureEmbendedLikes()
+        view?.embedThisModule(module: module)
+    }
+    
     func viewWillAppear() {
         view?.showActivityIndicator(withType: .loading)
         interactor?.startGettingMessages()
@@ -62,6 +67,11 @@ class MessagesMainTabPresenter: MessagesMainTabPresenterProtocol {
     
     func removeCancel() {
         dialog = nil
+    }
+    
+    fileprivate func configureEmbendedLikes() -> UIViewController {
+        let likesModule = MessagesLikesWireframe.configureMessagesLikesView()
+        return likesModule
     }
     
 }

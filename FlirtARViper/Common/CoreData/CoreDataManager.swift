@@ -97,6 +97,10 @@ class CoreDataManager {
                 dbUser.isFacebook = user.isFacebook!
             }
             
+            if user.instagramConnected != nil {
+                dbUser.instagramConnect = user.instagramConnected!
+            }
+            
             if user.maxAge != nil {
                 dbUser.maxAge = Int16(user.maxAge!)
             }
@@ -172,6 +176,10 @@ class CoreDataManager {
                 dbUser.isFacebook = user.isFacebook!
             }
             
+            if user.instagramConnected != nil {
+                dbUser.instagramConnect = user.instagramConnected!
+            }
+            
             if user.maxAge != nil {
                 dbUser.maxAge = Int16(user.maxAge!)
             }
@@ -238,6 +246,10 @@ class CoreDataManager {
             
             if profile.isFacebook != nil {
                 fetchedUser.first!.isFacebook = profile.isFacebook!
+            }
+            
+            if profile.instagramConnected != nil {
+                fetchedUser.first!.instagramConnect = profile.instagramConnected!
             }
             
             if profile.maxAge != nil {

@@ -10,11 +10,13 @@ import UIKit
 
 class ARProfileWireframe: ARProfileWireframeProtocol {
     
-    
     static func configureARFullProfileView(withUser user: ShortUser) -> UIViewController {
         let arProfileController = UIStoryboard(name: "ARProfile", bundle: nil).instantiateViewController(withIdentifier: "ARProfileViewController")
         
         if let view = arProfileController as? ARProfileViewController {
+            
+            view.modalTransitionStyle = .crossDissolve
+            view.modalPresentationStyle = .custom
             
             let presenter = ARProfilePresenter()
             let interactor = ARProfileInteractor()
@@ -40,6 +42,9 @@ class ARProfileWireframe: ARProfileWireframeProtocol {
         let arProfileController = UIStoryboard(name: "ARProfile", bundle: nil).instantiateViewController(withIdentifier: "ARProfileViewController")
         
         if let view = arProfileController as? ARProfileViewController {
+            
+            view.modalTransitionStyle = .crossDissolve
+            view.modalPresentationStyle = .custom
             
             let presenter = ARProfilePresenter()
             let interactor = ARProfileInteractor()
@@ -70,22 +75,6 @@ class ARProfileWireframe: ARProfileWireframeProtocol {
                 sourceView.dismiss(animated: true, completion: nil)
                 
             }
-            
-            deinitMe(fromView: view)
-            
         }
-    }
-    
-    func deinitMe(fromView view: ARProfileViewProtocol) {
-        var viewForClear = view
-        viewForClear.presenter?.selectedUser = nil
-        viewForClear.presenter?.selectedUserId = nil
-        
-        viewForClear.presenter?.interactor?.remoteDatamanager = nil
-        viewForClear.presenter?.interactor?.presenter = nil
-        viewForClear.presenter?.interactor = nil
-        viewForClear.presenter?.view = nil
-        viewForClear.presenter?.wireframe = nil
-        viewForClear.presenter = nil
     }
 }

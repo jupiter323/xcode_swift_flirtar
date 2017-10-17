@@ -53,6 +53,10 @@ class SelectLocationViewController: UIViewController {
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     //MARK: - Actions
     @IBAction func cancelTap(_ sender: Any) {
         delegate?.selectLocationCancelled()

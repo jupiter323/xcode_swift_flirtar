@@ -28,7 +28,8 @@ class SocketManager {
     func configureDialogSocket() {
         if dialogSocket == nil,
             let token = ProfileService.token {
-            dialogSocket = WebSocket("ws://52.204.177.82:8888/stream/\(token)/")
+            let route = SocketRouter.dialogs(token: token).asStringUrl()
+            dialogSocket = WebSocket(route)
             
             listenDialogSocket()
         }
@@ -37,7 +38,8 @@ class SocketManager {
     func configureMessageSocket(withRoom roomId: Int) {
         if messageSocket == nil,
             let token = ProfileService.token {
-            messageSocket = WebSocket("ws://52.204.177.82:8888/chat/\(roomId)/\(token)/")
+            let route = SocketRouter.messages(roomId: roomId, token: token).asStringUrl()
+            messageSocket = WebSocket(route)
             
             listenMessageSocket()
         }

@@ -21,6 +21,8 @@ class ProfileMainTabPresenter: ProfileMainTabPresenterProtocol {
     fileprivate var fbPicker: GBHFacebookImagePicker!
     fileprivate var distance: CGFloat!
     
+    fileprivate var photo: Photo?
+    
     init() {
         newPicker = BSImagePickerViewController()
         fbPicker = GBHFacebookImagePicker()
@@ -48,21 +50,23 @@ class ProfileMainTabPresenter: ProfileMainTabPresenterProtocol {
         view?.hideActivityIndicator()
     }
     
-    func updateShowOnMap(withStatus status: Bool) {
-        view?.showActivityIndicator(withType: .updating)
-        interactor?.startUpdateShowOnMapStatus(status: status)
-    }
-    
     func updatePhotos(withPhotos photos: [UIImage]) {
         
         print("DEBUG Profile Presenter: Start upload photos")
         print("DEBUG Profile Presenter: Photos - \(photos)")
         
         view?.showActivityIndicator(withType: .uploadingPhotos)
-        interactor?.startUpdatePhotos(withPhotos: photos)
+        
+        if photo != nil,
+            let newPhoto = photos.first {
+            interactor?.startReplacePhoto(withPhoto: newPhoto, replacePhoto: photo!)
+        } else {
+            interactor?.startUpdatePhotos(withPhotos: photos)
+        }
     }
     
-    func startSelectPhotos() {
+    func startSelectPhotos(photo: Photo? = nil) {
+        self.photo = photo
         //check is facebook user
         if let isFBUser = ProfileService.currentUser?.isFacebook {
             //if true -> provide selection
@@ -79,16 +83,24 @@ class ProfileMainTabPresenter: ProfileMainTabPresenterProtocol {
     }
     
     func selectLocalPhotos() {
-        
-        newPicker.maxNumberOfSelections = 3
+        var maxPhotosCount = 3
+        if photo != nil {
+            maxPhotosCount = 1
+        }
+        newPicker.maxNumberOfSelections = maxPhotosCount
         newPicker.takePhotos = true
         view?.showLocalPicker(picker: newPicker)
         
     }
     
     func selectFBPhotos() {
-        GBHFacebookImagePicker.pickerConfig.allowMultipleSelection = true
-        GBHFacebookImagePicker.pickerConfig.maximumSelectedPictures = 3
+        if photo == nil {
+            GBHFacebookImagePicker.pickerConfig.allowMultipleSelection = true
+            GBHFacebookImagePicker.pickerConfig.maximumSelectedPictures = 3
+        } else {
+            GBHFacebookImagePicker.pickerConfig.allowMultipleSelection = false
+            GBHFacebookImagePicker.pickerConfig.maximumSelectedPictures = 1
+        }
         view?.showFbPicker(picker: fbPicker)
     }
     

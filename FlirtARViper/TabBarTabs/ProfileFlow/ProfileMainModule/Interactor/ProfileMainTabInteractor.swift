@@ -21,20 +21,15 @@ class ProfileMainTabInteractor: ProfileMainTabInteractorInputProtocol {
     }
     
     
-    func startUpdateShowOnMapStatus(status: Bool) {
-        mapStatus = ProfileService.currentUser?.showOnMap
-        ProfileService.currentUser?.showOnMap = status
-        
-        guard let user = ProfileService.currentUser else {
-            presenter?.errorWhileUpdatingMapStatus(method: APIMethod.updateProfile, error: UpdateProfileError.internalError)
-            return
-        }
-        remoteDatamanager?.requestUpdateMapStatus(withProfile: user)
-    }
-    
     func startUpdatePhotos(withPhotos photos: [UIImage]) {
         print("DEBUG Profile Interactor: photos - \(photos)")
         remoteDatamanager?.requestUpdatePhotos(images: photos)
+    }
+    
+    func startReplacePhoto(withPhoto newPhoto: UIImage,
+                           replacePhoto oldPhoto: Photo) {
+        remoteDatamanager?.requestReplacePhoto(newPhoto: newPhoto,
+                                               oldPhoto: oldPhoto)
     }
     
     func updateProfileFromService() {
@@ -51,6 +46,28 @@ extension ProfileMainTabInteractor: ProfileMainTabRemoteDatamanagerOutputProtoco
     }
     func profileRecievingError(method: APIMethod, error: Error) {
         presenter?.errorWhileLoading(method: method, error: error)
+    }
+    
+    func photoReplacedSuccess(newPhoto: Photo,
+                              oldPhoto: Photo) {
+        var index: Int?
+        for i in 0..<ProfileService.recievedPhotos.count {
+            let profilePhoto = ProfileService.recievedPhotos[i]
+            if profilePhoto.photoID == newPhoto.photoID {
+                index = i
+                break
+            }
+        }
+        
+        if index != nil {
+            ProfileService.recievedPhotos[index!] = newPhoto
+        }
+        
+        presenter?.photosRecieved(photos: ProfileService.recievedPhotos)
+    }
+    
+    func photoReplaceError(method: APIMethod, error: Error) {
+        presenter?.photosUpdateError(method: method, error: error)
     }
     
     func photosRecievedSuccess(photos: [Photo]) {
@@ -73,34 +90,4 @@ extension ProfileMainTabInteractor: ProfileMainTabRemoteDatamanagerOutputProtoco
         presenter?.photosUpdateError(method: method, error: error)
     }
     
-    func profileUpdatedSuccess() {
-        
-        guard let profile = ProfileService.savedUser else {
-            ProfileService.currentUser?.showOnMap = mapStatus
-            presenter?.errorWhileUpdatingMapStatus(method: APIMethod.updateProfile, error: UpdateProfileError.profileNotValid)
-            return
-        }
-        
-        ProfileService.currentUser = ProfileService.savedUser
-        
-        if let userId = ProfileService.currentUser?.userID,
-            let status = ProfileService.currentUser?.showOnMap {
-            
-            do {
-                try localDatamanager?.saveUserMapStatus(userId: userId, status: status)
-            } catch {
-                print("Error while saving local map status")
-            }
-            
-        }
-        
-        
-        presenter?.profileRecieved(profile: profile)
-        
-    }
-    
-    func profileUpdateError(method: APIMethod, error: Error) {
-        ProfileService.currentUser?.showOnMap = mapStatus
-        presenter?.errorWhileUpdatingMapStatus(method: method, error: error)
-    }
 }

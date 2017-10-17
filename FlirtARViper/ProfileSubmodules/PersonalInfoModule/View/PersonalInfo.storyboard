@@ -39,7 +39,7 @@
                                         <color key="textColor" red="0.24313725490196078" green="0.2627450980392157" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLy-6S-iyl" customClass="TitledInputView" customModule="FlirtARViper" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLy-6S-iyl" customClass="TitledLabelView" customModule="FlirtARViper" customModuleProvider="target">
                                         <rect key="frame" x="32" y="55" width="256" height="65"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -47,11 +47,9 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Your Name:"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholder" value="First name"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitleString" value=" "/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbE-OU-Tr5" customClass="TitledInputView" customModule="FlirtARViper" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbE-OU-Tr5" customClass="TitledLabelView" customModule="FlirtARViper" customModuleProvider="target">
                                         <rect key="frame" x="32" y="135" width="256" height="65"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -59,8 +57,6 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Birth Date:"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="inputPlaceholder" value="January  01  1990"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="subTitleString" value=" "/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lng-DM-81r" customClass="GenderSwitcher" customModule="FlirtARViper" customModuleProvider="target">
@@ -73,6 +69,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Gender:"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="femaleItem" value="Woman"/>
                                             <userDefinedRuntimeAttribute type="string" keyPath="maleItem" value="Man"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isChangeable" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ne-v1-eI7" customClass="TitledInputView" customModule="FlirtARViper" customModuleProvider="target">
@@ -127,22 +124,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZfA-Za-FAN" firstAttribute="leading" secondItem="Ojn-yC-iGy" secondAttribute="leading" id="1Ac-hH-ae0"/>
-                            <constraint firstItem="ZfA-Za-FAN" firstAttribute="top" secondItem="Ojn-yC-iGy" secondAttribute="top" id="DuT-7y-EkG"/>
+                            <constraint firstItem="ZfA-Za-FAN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ojn-yC-iGy" secondAttribute="top" id="DuT-7y-EkG"/>
                             <constraint firstAttribute="trailing" secondItem="ZfA-Za-FAN" secondAttribute="trailing" id="Lh2-aa-dUY"/>
-                            <constraint firstAttribute="bottom" secondItem="ZfA-Za-FAN" secondAttribute="bottom" id="gAx-Up-cWa"/>
+                            <constraint firstItem="ZfA-Za-FAN" firstAttribute="centerY" secondItem="Ojn-yC-iGy" secondAttribute="centerY" id="MHU-sK-zcl"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ZfA-Za-FAN" secondAttribute="bottom" id="gAx-Up-cWa"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="445"/>
                     <connections>
-                        <outlet property="dateOfBirthField" destination="lbE-OU-Tr5" id="tJJ-zw-WKL"/>
+                        <outlet property="dateOfBirthField" destination="lbE-OU-Tr5" id="Mo2-me-9kC"/>
                         <outlet property="genderSwitcher" destination="lng-DM-81r" id="jOE-Ot-NU0"/>
                         <outlet property="interestsBlockHeight" destination="kTq-ZH-FzP" id="uko-UJ-PFl"/>
                         <outlet property="interestsField" destination="tNz-V2-GKZ" id="vtU-dq-fgq"/>
                         <outlet property="introductionField" destination="1Ne-v1-eI7" id="Zwd-go-Xbx"/>
                         <outlet property="mainView" destination="ZfA-Za-FAN" id="Frf-39-VcD"/>
-                        <outlet property="userNameField" destination="XLy-6S-iyl" id="dqR-9O-ivg"/>
+                        <outlet property="userNameField" destination="XLy-6S-iyl" id="WgQ-mT-ITN"/>
                         <outlet property="viewBlockHeight" destination="qGS-tV-N6X" id="23W-eZ-whS"/>
                     </connections>
                 </viewController>

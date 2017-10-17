@@ -18,7 +18,7 @@ enum PhotosProvider {
 }
 
 class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol {
-
+    
     //MARK: - Outlets
     //Data
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -48,20 +48,22 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     @IBOutlet var infoBlockHeight: NSLayoutConstraint!
     @IBOutlet var infoBlockInitialHeight: NSLayoutConstraint!
     
-    @IBOutlet var nameAgeInitialConstraintHeight: NSLayoutConstraint!
     @IBOutlet var nameAgeHeight: NSLayoutConstraint!
     
     @IBOutlet var interestsHeight: NSLayoutConstraint!
-    
-    @IBOutlet weak var interestsViewRight: NSLayoutConstraint!
+    @IBOutlet var interestsViewRight: NSLayoutConstraint!
     
     
     
     //MARK: - Variables
     fileprivate var interests = [String]()
-    fileprivate var collectionViewInitialHeight: CGFloat = 0.0
+    fileprivate var collectionViewInitialHeight: CGFloat = 35.0
     fileprivate var roundedViewInitialHeight: CGFloat = 0.0
+    fileprivate var introductionInitialHeight: CGFloat = 0.0
     fileprivate var introductionIsFullSize: Bool = false
+    
+    fileprivate var photosView: HorizontalViewController?
+    fileprivate var maxSelectablePhotos = 3
     
     //MARK: - UIViewController
     override func viewDidLoad() {
@@ -76,17 +78,10 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
         roundedView.round(radius: 3.0)
         instagramRoundedView.layoutIfNeeded()
         instagramRoundedView.round(radius: 3.0)
-//        showOnMapSwitch.delegate = self
         
         interestsCollection.register(UINib(nibName: "InterestViewCell", bundle: nil), forCellWithReuseIdentifier: "profileInterestCell")
         
-        interestsCollection.layoutIfNeeded()
-        collectionViewInitialHeight = 35.0//interestsCollection.bounds.height
-        
-        roundedViewInitialHeight = roundedView.bounds.height
-        
-        introductionLabel.isUserInteractionEnabled = true
-        introductionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
+        inititalizeLayouts()
         
     }
     
@@ -97,38 +92,15 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
         presenter?.viewWillApear()
         (self.tabBarController as? TabBarViewController)?.animationTabBarHidden(false)
         
-        if interests.count > 3 {
-            moreInfoButton.isHidden = false
-            interestsViewRight.constant = 70.0
-//            interestsView.layoutIfNeeded()
-            interestsCollection.collectionViewLayout.invalidateLayout()
-        } else {
-            moreInfoButton.isHidden = true
-            interestsViewRight.constant = 20.0
-//            interestsView.layoutIfNeeded()
-            interestsCollection.collectionViewLayout.invalidateLayout()
-        }
+        initializeInterestsLayouts()
+        shortIntroductionLayouts()
         
-        
-        roundedView.layoutIfNeeded()
-        
-        infoBlockInitialHeight.isActive = true
-        infoBlockHeight.constant = roundedViewInitialHeight
-        infoBlockHeight.isActive = false
-        
-        nameAgeInitialConstraintHeight.isActive = true
-        nameAgeHeight.isActive = false
-        
-//        interestsCollection.collectionViewLayout.invalidateLayout()
-        interestsHeight.constant = 35.0
-        interestsHeight.isActive = true
-//        interestsCollection.collectionViewLayout.invalidateLayout()
-        
-        introductionIsFullSize = false
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         introductionLabel.layoutIfNeeded()
-        introductionLabel.text = ProfileService.savedUser?.shortIntroduction ?? "No data"
         introductionLabel.addReadMoreText(with: " ",
                                           moreText: "Full Desc.",
                                           moreTextFont: introductionLabel.font,
@@ -136,8 +108,6 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
                                                                  green: 95/255,
                                                                  blue: 119/255,
                                                                  alpha: 1.0))
-        
-        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -154,18 +124,15 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
             ageLabel.text = ""
         }
         
-        
-        
-        introductionLabel.layoutIfNeeded()
         introductionLabel.text = profile.shortIntroduction ?? "No data"
-        
+        introductionLabel.layoutIfNeeded()
         introductionLabel.addReadMoreText(with: " ",
-                                      moreText: "Full Desc.",
-                                      moreTextFont: introductionLabel.font,
-                                      moreTextColor: UIColor(red: 251/255,
-                                                             green: 95/255,
-                                                             blue: 119/255,
-                                                             alpha: 1.0))
+                                          moreText: "Full Desc.",
+                                          moreTextFont: introductionLabel.font,
+                                          moreTextColor: UIColor(red: 251/255,
+                                                                 green: 95/255,
+                                                                 blue: 119/255,
+                                                                 alpha: 1.0))
         
         
         guard let interestsString = profile.interests else {
@@ -187,36 +154,25 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     }
     
     @IBAction func changePhotoTap(_ sender: Any) {
-        presenter?.startSelectPhotos()
+        if let photo = photosView?.selectedPhoto {
+            presenter?.startSelectPhotos(photo: photo)
+        } else {
+            presenter?.startSelectPhotos(photo: nil)
+        }
+        
     }
     
     @IBAction func moreInfoTap(_ sender: Any) {
         
+        //show all interests
+        fullInterestsLayouts()
         
-        moreInfoButton.isHidden = true
-        interestsViewRight.constant = 20.0
-        interestsView.layoutIfNeeded()
-        
-        interestsCollection.collectionViewLayout.invalidateLayout()
-        
-        nameAgeView.layoutIfNeeded()
-        nameAgeHeight.constant = nameAgeView.bounds.height
-        nameAgeHeight.isActive = true
-        nameAgeInitialConstraintHeight.isActive = false
-        
-        interestsCollection.layoutIfNeeded()
-        let contentHeight = interestsCollection.contentSize.height
-        interestsHeight.constant = contentHeight
-        interestsHeight.isActive = true
-        
-        
+        //update layout for interests
         infoBlockHeight.constant = calculateInfoBlockHeight()
-        
         infoBlockInitialHeight.isActive = false
         infoBlockHeight.isActive = true
         
-//        introductionLabel.text = ProfileService.savedUser?.shortIntroduction ?? ""
-        
+        //add read more label if need
         if !introductionIsFullSize {
             introductionLabel.addReadMoreText(with: " ",
                                               moreText: "Full Desc.",
@@ -263,6 +219,11 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
             module.view.frame = CGRect(x: 0, y: 0, width: photoModule.frame.size.width, height: photoModule.frame.size.height)
             photoModule.addSubview(module.view)
             module.didMove(toParentViewController: self)
+            
+            if module is HorizontalViewController {
+                self.photosView = module as? HorizontalViewController
+            }
+            
         case .instagramPhotos:
             
             for view in instagramPhotosModule.subviews {
@@ -286,17 +247,17 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     }
     
     func showLocalPicker(picker: UIViewController) {
-        
+        let imagePicker = picker as! BSImagePickerViewController
         
         bs_presentImagePickerController(
-            picker as! BSImagePickerViewController,
+            imagePicker,
             animated: true,
             select: nil,
             deselect: nil,
             cancel: nil,
             finish: { (assets) in
                 
-                if assets.count != 3 {
+                if assets.count != imagePicker.maxNumberOfSelections {
                     self.errorPhotosCount(provider: .local)
                 } else {
                     //if selected 3 -> save on server
@@ -309,7 +270,7 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
                 }
         },
             completion: nil)
-
+        
         
         
     }
@@ -331,7 +292,7 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
             
             
         }))
-
+        
         //simple cancel
         alert.addAction(UIAlertAction(title: "Cancel selection", style: .destructive, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -345,13 +306,11 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
                                       style: .default,
                                       handler: { (_) in
                                         self.presenter?.selectLocalPhotos()
-                                        //presenter show default
         }))
         
         alert.addAction(UIAlertAction(title: "Facebook",
                                       style: .default,
                                       handler: { (_) in
-                                        //presenter show fb controller
                                         self.presenter?.selectFBPhotos()
         }))
         
@@ -366,40 +325,95 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     //MARK: - Helpers
     func calculateInfoBlockHeight() -> CGFloat {
         
+        roundedView.layoutIfNeeded()
         introductionLabel.layoutIfNeeded()
         let introWidth = introductionLabel.bounds.width
         let font = introductionLabel.font
-        let introductionText = introductionLabel.text ?? ""//ProfileService.savedUser?.shortIntroduction ?? ""
-        let textHeight = introductionText.estimateFrameForText(font: font!,
-                                                               width: introWidth).height
-        //5 + 5 bottom and top constraints
-        let a = nameAgeHeight.constant + interestsHeight.constant
-        let b = textHeight + 10.0
-        let c = a + b
+        let introductionText = introductionLabel.text ?? "No data"
+        let estimatedTextHeight = introductionText.estimateFrameForText(font: font!,
+                                                                        width: introWidth).height
         
-        return c
+        var textHeight = introductionInitialHeight
+        if estimatedTextHeight > introductionInitialHeight {
+            textHeight = estimatedTextHeight
+        }
+        
+        //5 + 5 bottom and top constraints
+        return nameAgeHeight.constant + interestsHeight.constant + textHeight - 17.0
     }
     
     @objc private func introductionTapped(recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            
-            introductionLabel.text = ProfileService.savedUser?.shortIntroduction ?? ""
-            
-            
-            nameAgeView.layoutIfNeeded()
-            nameAgeHeight.constant = nameAgeView.bounds.height
-            nameAgeHeight.isActive = true
-            nameAgeInitialConstraintHeight.isActive = false
-            
-            infoBlockHeight.constant = calculateInfoBlockHeight()
-            
-            infoBlockInitialHeight.isActive = false
-            infoBlockHeight.isActive = true
-            
-            introductionIsFullSize = true
-            
-            
+            fullIntroductionLayouts()
         }
+    }
+    
+    //MARK: - Layouts
+    func inititalizeLayouts() {
+        interestsCollection.layoutIfNeeded()
+        
+        roundedViewInitialHeight = roundedView.bounds.height
+        introductionLabel.layoutIfNeeded()
+        introductionInitialHeight = introductionLabel.bounds.height
+        
+        introductionLabel.isUserInteractionEnabled = true
+        introductionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
+    }
+    
+    func initializeInterestsLayouts() {
+        if interests.count > 3 {
+            moreInfoButton.isHidden = false
+            interestsViewRight.constant = 70.0
+            interestsCollection.collectionViewLayout.invalidateLayout()
+        } else {
+            moreInfoButton.isHidden = true
+            interestsViewRight.constant = 20.0
+            interestsCollection.collectionViewLayout.invalidateLayout()
+        }
+        
+        shortInterestsLayouts()
+    }
+    
+    func shortInterestsLayouts() {
+        interestsHeight.constant = 35.0
+        interestsHeight.isActive = true
+    }
+    
+    func fullInterestsLayouts() {
+        moreInfoButton.isHidden = true
+        interestsViewRight.constant = 20.0
+        interestsView.layoutIfNeeded()
+        
+        interestsCollection.collectionViewLayout.invalidateLayout()
+        
+        interestsCollection.layoutIfNeeded()
+        let contentHeight = interestsCollection.contentSize.height
+        interestsHeight.constant = contentHeight
+        interestsHeight.isActive = true
+    }
+    
+    func shortIntroductionLayouts() {
+        roundedView.layoutIfNeeded()
+        
+        infoBlockInitialHeight.isActive = true
+        infoBlockHeight.constant = roundedViewInitialHeight
+        infoBlockHeight.isActive = false
+        
+        introductionIsFullSize = false
+        
+    }
+    
+    func fullIntroductionLayouts() {
+        
+        introductionLabel.text = ProfileService.savedUser?.shortIntroduction ?? ""
+        
+        infoBlockHeight.constant = calculateInfoBlockHeight()
+        
+        infoBlockInitialHeight.isActive = false
+        infoBlockHeight.isActive = true
+        
+        introductionIsFullSize = true
+        
     }
     
 }
@@ -424,7 +438,9 @@ extension ProfileMainTabViewController: GBHFacebookImagePickerDelegate {
             }
         }
         
-        if images.count != 3 {
+        let maxImages = GBHFacebookImagePicker.pickerConfig.maximumSelectedPictures
+        
+        if images.count != maxImages {
             errorPhotosCount(provider: .fb)
         } else {
             DispatchQueue.main.async {
@@ -433,7 +449,7 @@ extension ProfileMainTabViewController: GBHFacebookImagePickerDelegate {
         }
         
     }
-
+    
     func facebookImagePicker(imagePicker: UIViewController,
                              didFailWithError error: Error?) {
         HUD.show(.labeledError(title: "FB Photos", subtitle: error?.localizedDescription))
@@ -450,13 +466,12 @@ extension ProfileMainTabViewController: GBHFacebookImagePickerDelegate {
     }
 }
 
-
+//MARK: - UICollectionViewDelegate
 extension ProfileMainTabViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let interestCell = cell as? InterestViewCell
         guard interestCell != nil else { return }
         interestCell!.configureCell(withInterest: interests[indexPath.row],
-                                    maxFontSize: 13.0,
                                     fontColor: UIColor(red: 62/255,
                                                        green: 67/255,
                                                        blue: 79/255,
@@ -465,6 +480,7 @@ extension ProfileMainTabViewController: UICollectionViewDelegate {
     }
 }
 
+//MARK: - UICollectionViewDataSource
 extension ProfileMainTabViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return interests.count
@@ -478,7 +494,7 @@ extension ProfileMainTabViewController: UICollectionViewDataSource {
     }
 }
 
-
+//MARK: - UICollectionViewDelegateFlowLayout
 extension ProfileMainTabViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //3 columns
@@ -505,11 +521,3 @@ extension ProfileMainTabViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsetsMake(0,0,0,0);  // top, left, bottom, right
     }
 }
-
-
-
-
-
-
-
-

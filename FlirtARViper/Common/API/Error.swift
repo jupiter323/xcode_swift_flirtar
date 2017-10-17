@@ -9,14 +9,14 @@
 import Foundation
 
 enum SuccessMessage: String {
-    case logInSuccess = "Success"
+    case logInSuccess = "Welcome"
     case emailAvailable = "Email is available"
     case signedUp = "Signed Up"
     case signedUpWithoutPhotos = "Signed Up (photos not uploaded)"
     case accountDisconnected = "Account disconnected"
     case accountConnected = "Account connected"
     case saved = "Saved"
-    case logouted = "Logouted"
+    case logouted = "See you later"
     case deleted = "Deleted"
     case passwordRecovered = "Recover email successfully sent"
     case pinCodeSend = "Check pin code in mail"
@@ -81,47 +81,6 @@ enum DialogError: Error {
         switch self {
         case .selectedChatInvalid:
             return "Selected chat invalid"
-        }
-    }
-    
-}
-
-enum EmailCheckError: Error {
-    case emailNotAvailable
-    
-    var localizedDescription: String {
-        switch self {
-        case .emailNotAvailable:
-            return "Email is not available"
-        }
-    }
-}
-
-enum PinCodeError: Error {
-    case pinCodeNotSent
-    case pinCodeUnmatch
-    case emailNotExist
-    
-    var localizedDescription: String {
-        switch self {
-        case .pinCodeNotSent:
-            return "Pin code not sent"
-        case .pinCodeUnmatch:
-            return "Pin code incorrect"
-        case .emailNotExist:
-            return "No email for checking"
-        }
-    }
-    
-}
-
-enum PasswordRecoverError: Error {
-    case emailNotSended
-    
-    var localizedDescription: String {
-        switch self {
-        case .emailNotSended:
-            return "Recover email not sent"
         }
     }
     

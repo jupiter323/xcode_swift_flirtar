@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oPo-1V-TM2">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,25 +27,25 @@
                         <viewControllerLayoutGuide type="bottom" id="WEK-AC-XSf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bSt-iN-WsR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newSplashBG" translatesAutoresizingMaskIntoConstraints="NO" id="bsA-5d-6pK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashBgImage" translatesAutoresizingMaskIntoConstraints="NO" id="bsA-5d-6pK">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vT8-Pp-I1y">
-                                <rect key="frame" x="0.0" y="20" width="320" height="284"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="368"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="SbB-KN-kYW">
-                                        <rect key="frame" x="105" y="87.5" width="110" height="110"/>
+                                        <rect key="frame" x="152" y="129.66666666666669" width="110" height="110.00000000000003"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="30P-hG-hM2"/>
                                             <constraint firstAttribute="height" constant="110" id="u5o-gA-dgK"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flirtar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-9f-vaD">
-                                        <rect key="frame" x="103.5" y="207.5" width="114.5" height="52.5"/>
+                                        <rect key="frame" x="150.66666666666663" y="249.66666666666669" width="114.33333333333337" height="52.666666666666629"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -60,13 +60,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKx-kz-zNA">
-                                <rect key="frame" x="0.0" y="304" width="320" height="164"/>
+                                <rect key="frame" x="0.0" y="388" width="414" height="248"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKl-Md-my1">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="164"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="248"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cf3-9Z-OcX" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
-                                                <rect key="frame" x="32.5" y="99" width="256" height="50"/>
+                                                <rect key="frame" x="42" y="183" width="331" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="clA-nG-AQN"/>
@@ -98,60 +98,39 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHf-sO-wfe">
-                                <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="636" width="414" height="100"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PhD-aw-sxg">
-                                        <rect key="frame" x="48" y="10" width="224" height="80"/>
+                                        <rect key="frame" x="41.333333333333343" y="15" width="331.33333333333337" height="75"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="We don't post anything to Facebook. By singing in, you agree to our">
+                                            <fragment content="We don't post anything to Facebook. By signing in, you agree to our ">
                                                 <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="system"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="Terms of Service">
                                                 <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="system"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     <integer key="NSUnderline" value="1"/>
                                                 </attributes>
                                             </fragment>
-                                            <fragment content=" ">
+                                            <fragment content=" and ">
                                                 <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content="and">
-                                                <attributes>
-                                                    <color key="NSColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                            <fragment content=" ">
-                                                <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="system"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="Privacy Policy">
                                                 <attributes>
-                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <font key="NSFont" size="13" name="VarelaRound"/>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <font key="NSFont" metaFont="system"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     <integer key="NSUnderline" value="1"/>
                                                 </attributes>
@@ -163,9 +142,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="top" secondItem="hHf-sO-wfe" secondAttribute="top" constant="10" id="6Ft-6h-E4R"/>
+                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="top" secondItem="hHf-sO-wfe" secondAttribute="top" constant="15" id="6Ft-6h-E4R"/>
                                     <constraint firstAttribute="height" constant="100" id="OPw-qw-bZw"/>
-                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="width" secondItem="hHf-sO-wfe" secondAttribute="width" multiplier="0.7" id="lt0-Zx-67A"/>
+                                    <constraint firstItem="PhD-aw-sxg" firstAttribute="width" secondItem="hHf-sO-wfe" secondAttribute="width" multiplier="0.8" id="lt0-Zx-67A"/>
                                     <constraint firstAttribute="bottom" secondItem="PhD-aw-sxg" secondAttribute="bottom" constant="10" id="mv7-Za-sv7"/>
                                     <constraint firstItem="PhD-aw-sxg" firstAttribute="centerX" secondItem="hHf-sO-wfe" secondAttribute="centerX" id="wze-vV-eZF"/>
                                 </constraints>
@@ -220,6 +199,6 @@
     <resources>
         <image name="fbButtonNew" width="34" height="34"/>
         <image name="logo" width="110" height="110"/>
-        <image name="newSplashBG" width="375" height="667"/>
+        <image name="splashBgImage" width="375" height="667"/>
     </resources>
 </document>

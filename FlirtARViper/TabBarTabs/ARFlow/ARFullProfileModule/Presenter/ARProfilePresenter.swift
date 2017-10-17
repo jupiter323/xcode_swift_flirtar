@@ -9,6 +9,7 @@ import UIKit
 
 
 class ARProfilePresenter: ARProfilePresenterProtocol {
+    
     weak var view: ARProfileViewProtocol?
     var wireframe: ARProfileWireframeProtocol?
     var interactor: ARProfileInteractorInputProtocol?

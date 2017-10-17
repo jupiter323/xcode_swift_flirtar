@@ -53,7 +53,8 @@ extension UIView {
     
     func addCircle(centerPoint: CGPoint,
                    radius: CGFloat,
-                   color: CGColor) {
+                   color: CGColor,
+                   width: CGFloat = 6.0) {
         
         let radius = radius
         let circleAroundImage = UIBezierPath(arcCenter: centerPoint,
@@ -66,8 +67,17 @@ extension UIView {
         shapeLayer.path = circleAroundImage.cgPath
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color
-        shapeLayer.lineWidth = 6.0
+        shapeLayer.lineWidth = width
         self.layer.addSublayer(shapeLayer)
+    }
+    
+    func removeShapeLayers() {
+        guard let sublayers = self.layer.sublayers else {return}
+        for eachLayer in sublayers {
+            if eachLayer is CAShapeLayer {
+                eachLayer.removeFromSuperlayer()
+            }
+        }
     }
     
 }

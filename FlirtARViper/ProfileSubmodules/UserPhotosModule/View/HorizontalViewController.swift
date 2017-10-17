@@ -21,6 +21,9 @@ class HorizontalViewController: UIPageViewController {
         }
     }
     
+    //MARK: - Public
+    var selectedPhoto: Photo?
+    
     //MARK: - UIPageViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +61,9 @@ class HorizontalViewController: UIPageViewController {
         pages.removeAll()
         
         if photos.count != 0 {
+            delegate = self
             dataSource = self
+            selectedPhoto = photos.first
             for i in 0..<photos.count {
                 let photo = photos[i]
                 let title = "\(i + 1)/\(photos.count)"
@@ -72,8 +77,10 @@ class HorizontalViewController: UIPageViewController {
             }
             
         } else {
+            delegate = nil
             dataSource = nil
             let title = "No photos"
+            selectedPhoto = nil
             createSlideView(withPhoto: nil, title: title)
         }
         
@@ -113,6 +120,18 @@ class HorizontalViewController: UIPageViewController {
         setViewControllers([page], direction: .forward, animated: true, completion: nil)
     }
 
+}
+
+extension HorizontalViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            if let currentViewController = pageViewController.viewControllers![0] as? PhotoViewController {
+                let index = pages.index(of: currentViewController)
+                guard let foundIndex = index else { return }
+                selectedPhoto = photos[foundIndex]
+            }
+        }
+    }
 }
 
 extension HorizontalViewController: UIPageViewControllerDataSource {

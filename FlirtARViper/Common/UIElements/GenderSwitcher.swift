@@ -38,6 +38,20 @@ class GenderSwitcher: ViewFromXIB {
         }
     }
     
+    @IBInspectable var isChangeable: Bool = true {
+        didSet {
+            if isChangeable == false {
+                isUserInteractionEnabled = false
+                selectedImage = #imageLiteral(resourceName: "genderFillInactive")
+                unselectedImage = #imageLiteral(resourceName: "genderEmptyInactive")
+            } else {
+                isUserInteractionEnabled = true
+                selectedImage = #imageLiteral(resourceName: "selectedGender")
+                unselectedImage = #imageLiteral(resourceName: "unselectedGender")
+            }
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
 
@@ -52,8 +66,8 @@ class GenderSwitcher: ViewFromXIB {
     var selectedGender: Gender = .female
     
     //MARK: - Private
-    private let selectedImage = #imageLiteral(resourceName: "selectedGender")
-    private let unselectedImage = #imageLiteral(resourceName: "unselectedGender")
+    private var selectedImage = #imageLiteral(resourceName: "selectedGender")
+    private var unselectedImage = #imageLiteral(resourceName: "unselectedGender")
     
     private var currentSelectedButton: UIButton! {
         didSet {

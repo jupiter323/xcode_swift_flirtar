@@ -9,21 +9,54 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-protocol RequestRouter {
-    var method: HTTPMethod {get}
+
+//base simple router
+protocol SimpleRouter {
     var path: String {get}
+}
+
+//request router
+protocol RequestRouter: SimpleRouter {
+    var method: HTTPMethod {get}
     var parameters: Parameters? {get}
 }
 
+//websocket router
+protocol WebSocketRouter: SimpleRouter {
+    func asStringUrl () -> String
+}
+
 struct API {
-    static let apiLink = "http://ec2-34-228-32-60.compute-1.amazonaws.com/api"
+    static let apiLink = "http://52.204.177.82/api"
     //"http://52.204.177.82/api/"
+    static let socketLink = "ws://52.204.177.82:8888"
+    //"ws://52.204.177.82:8888/
     static let mapsApi = "AIzaSyCgDLWiOF73WzcKX_F1fShtTSVY7M6Rwg0"
 }
 
-
-enum APIRouter: URLRequestConvertible, RequestRouter {
+//router for Socket requests
+enum SocketRouter: WebSocketRouter {
     
+    case dialogs(token: String)
+    case messages(roomId: Int, token: String)
+    
+    var path: String {
+        switch self {
+        case .dialogs(let token):
+            return "/stream/\(token)/"
+        case .messages(let roomId, let token):
+            return "/chat/\(roomId)/\(token)/"
+        }
+    }
+    
+    func asStringUrl() -> String {
+        return API.socketLink + path
+    }
+    
+}
+
+//router for API requests
+enum APIRouter: URLRequestConvertible, RequestRouter {
     
     //SignUp/Login Flow
     case checkEmailAvailability(email: String)
@@ -40,6 +73,7 @@ enum APIRouter: URLRequestConvertible, RequestRouter {
     case likeUser(userId: Int)
     case unlikeUser(userId: Int)
     case dislikeUser(userId: Int)
+    case getLikesList()
     
     //Like/Dislike
     case getMatchUsers(page: Int?)
@@ -87,7 +121,7 @@ enum APIRouter: URLRequestConvertible, RequestRouter {
         switch self {
         case .checkEmailAvailability, .signIn, .signInFB, .signUp, .createUserPhotos, .registerDeviceForNotifications, .recoverPassword, .sendPinCode, .checkPinCode, .reportUser, .saveInstagramToken, .sendFeedback:
             return .post
-        case .getUsersLocations, .getUserProfile, .getUser, .getNotifications, .getListMessages, .getMessages, .getMatchUsers, .getBlockedUsers, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos:
+        case .getUsersLocations, .getUserProfile, .getUser, .getNotifications, .getListMessages, .getMessages, .getMatchUsers, .getBlockedUsers, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos, .getLikesList:
             return .get
         case .updateUserLocation, .updatePhoto, .likeUser, .dislikeUser, .blockUser:
             return .put
@@ -129,6 +163,8 @@ enum APIRouter: URLRequestConvertible, RequestRouter {
             return "accounts/\(userId)/like/"
         case .dislikeUser(let userId):
             return "accounts/\(userId)/dislike/"
+        case .getLikesList:
+            return "accounts/like/"
             
         //Like/Dislike
         case .getMatchUsers:
@@ -278,7 +314,7 @@ enum APIRouter: URLRequestConvertible, RequestRouter {
         case .sendFeedback(let rate, let comment):
             return ["rate": "\(rate)",
                     "comment": comment]
-    case .signOut, .getUserProfile, .disconnectFB, .likeUser, .unlikeUser, .getNotifications, .removeChat, .dislikeUser, .deleteAccount, .blockUser, .unblockUser, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos, .disconnectInstagram:
+    case .signOut, .getUserProfile, .disconnectFB, .likeUser, .unlikeUser, .getNotifications, .removeChat, .dislikeUser, .deleteAccount, .blockUser, .unblockUser, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos, .disconnectInstagram, .getLikesList:
             return nil
         }
     }

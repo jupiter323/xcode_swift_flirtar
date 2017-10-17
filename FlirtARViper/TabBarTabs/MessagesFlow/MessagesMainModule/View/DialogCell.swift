@@ -14,6 +14,7 @@ class DialogCell: SWTableViewCell {
 
     //MARK: - Outlets
     @IBOutlet weak var photoView: UIImageView!
+    @IBOutlet weak var photoBack: UIView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -101,10 +102,20 @@ class DialogCell: SWTableViewCell {
         
         let messageAttachmentLink = dialog.message?.fileUrl ?? ""
         
+        photoBack.removeShapeLayers()
+        
         //new chat
         if messageText.isEmpty && messageAttachmentLink.isEmpty {
             messageLabel.text = "New chat"
             messageLabel.textColor = UIColor(red: 234/255, green: 236/255, blue: 241/255, alpha: 1.0)
+            photoBack.layoutIfNeeded()
+            photoBack.addCircle(centerPoint: photoView.center,
+                                radius: photoView.bounds.height / 2 + 1,
+                                color: UIColor(red: 201/255,
+                                               green: 35/255,
+                                               blue: 61/255,
+                                               alpha: 1.0).cgColor,
+                                width: 2.0)
             //only attachment
         } else if messageText.isEmpty && !messageAttachmentLink.isEmpty {
             messageLabel.text = "Attachment"

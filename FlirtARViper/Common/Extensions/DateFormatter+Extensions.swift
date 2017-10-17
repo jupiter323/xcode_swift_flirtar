@@ -12,7 +12,7 @@ extension DateFormatter {
     
     static var inputViewDateFormatter: DateFormatter! {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd yyyy"
+        formatter.dateFormat = "MMMM dd yyyy"
         return formatter
     }
     

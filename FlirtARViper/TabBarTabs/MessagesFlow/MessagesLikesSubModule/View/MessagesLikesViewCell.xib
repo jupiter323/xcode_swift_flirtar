@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MessagesLikesViewCell" customModule="FlirtARViper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Far-vY-g2o">
+                        <rect key="frame" x="8" y="8" width="64" height="64"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zgk-nS-nFB">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zgk-nS-nFB" firstAttribute="top" secondItem="Far-vY-g2o" secondAttribute="top" id="3go-Kl-16E"/>
+                            <constraint firstAttribute="bottom" secondItem="zgk-nS-nFB" secondAttribute="bottom" id="4SN-o0-OeQ"/>
+                            <constraint firstAttribute="trailing" secondItem="zgk-nS-nFB" secondAttribute="trailing" id="cwq-xU-wG2"/>
+                            <constraint firstItem="zgk-nS-nFB" firstAttribute="leading" secondItem="Far-vY-g2o" secondAttribute="leading" id="wob-wo-Dfv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Far-vY-g2o" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="JVq-ZT-AYA"/>
+                <constraint firstItem="Far-vY-g2o" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.8" id="WLu-OO-clo"/>
+                <constraint firstItem="Far-vY-g2o" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.8" id="nyE-lW-8Ka"/>
+                <constraint firstItem="Far-vY-g2o" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="rav-uo-1HD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="imageBack" destination="Far-vY-g2o" id="ecL-KX-aI2"/>
+                <outlet property="photoView" destination="zgk-nS-nFB" id="BZY-t8-rMv"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

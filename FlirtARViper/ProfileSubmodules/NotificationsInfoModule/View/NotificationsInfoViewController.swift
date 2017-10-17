@@ -119,12 +119,4 @@ extension NotificationsInfoViewController: SwitchCellDelegate {
     func notificationStatusChanged(isEnabled: Bool, notificationType: CellConfiguration) {
         presenter?.saveNotification(isEnabled: isEnabled, type: notificationType)
     }
-    
-    func allowUserLocationStatusChanged(isEnabled: Bool) {
-        return
-    }
-    
-    func showOnMapStatusChanged(isEnabled: Bool) {
-        return
-    }
 }

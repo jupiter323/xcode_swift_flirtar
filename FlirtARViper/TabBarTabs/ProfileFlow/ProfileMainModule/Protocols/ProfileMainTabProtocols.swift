@@ -45,11 +45,11 @@ protocol ProfileMainTabPresenterProtocol {
     func viewDidLoad(withDistance distance: CGFloat)
     func viewWillApear()
     func showProfileSettings()
-    func startSelectPhotos()
+    func startSelectPhotos(photo: Photo?)
     func selectLocalPhotos()
     func selectFBPhotos()
     
-    func updateShowOnMap(withStatus status: Bool)
+    //func updateShowOnMap(withStatus status: Bool)
     func updatePhotos(withPhotos photos: [UIImage])
 }
 
@@ -62,8 +62,10 @@ protocol ProfileMainTabInteractorInputProtocol {
     func startLoadingProfile()
     func updateProfileFromService()
     
-    func startUpdateShowOnMapStatus(status: Bool)
+//    func startUpdateShowOnMapStatus(status: Bool)
     func startUpdatePhotos(withPhotos photos: [UIImage])
+    func startReplacePhoto(withPhoto newPhoto: UIImage,
+                           replacePhoto oldPhoto: Photo)
 }
 
 protocol ProfileMainTabIntercatorOutputProtocol: class {
@@ -74,7 +76,7 @@ protocol ProfileMainTabIntercatorOutputProtocol: class {
     func photosUpdateError(method: APIMethod, error: Error)
     
     func profileUpdatedFromService(profile: User)
-    func errorWhileUpdatingMapStatus(method: APIMethod, error: Error)
+//    func errorWhileUpdatingMapStatus(method: APIMethod, error: Error)
     
 }
 
@@ -85,21 +87,23 @@ protocol ProfileMainTabRemoteDatamanagerOutputProtocol: class {
     func photosRecievedSuccess(photos: [Photo])
     func photosUpdateError(method: APIMethod, error: Error)
     
-    func profileUpdatedSuccess()
-    func profileUpdateError(method: APIMethod, error: Error)
+    func photoReplacedSuccess(newPhoto: Photo,
+                              oldPhoto: Photo)
+    func photoReplaceError(method: APIMethod, error: Error)
+    
 }
 
 
 protocol ProfileMainTabRemoteDatamanagerInputProtocol: class {
     var remoteRequestHandler:ProfileMainTabRemoteDatamanagerOutputProtocol? {get set}
     func requestUserProfile()
-    func requestUpdateMapStatus(withProfile: User)
     func requestUpdatePhotos(images: [UIImage])
+    func requestReplacePhoto(newPhoto: UIImage,
+                             oldPhoto: Photo)
 }
 
 
 protocol ProfileMainTabLocalDatamanagerInputProtocol: class {
-    func saveUserMapStatus(userId: Int , status: Bool) throws
     func savePhotos(photos: [Photo], forUser userId: Int) throws
 }
 

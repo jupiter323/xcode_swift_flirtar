@@ -36,14 +36,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cJ-1Y-tUX">
-                    <rect key="frame" x="24" y="110" width="272" height="280"/>
+                    <rect key="frame" x="24" y="80" width="272" height="340"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrj-Dd-gAJ">
-                            <rect key="frame" x="0.0" y="0.0" width="272" height="55"/>
+                            <rect key="frame" x="0.0" y="38" width="272" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like Flirtar?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="j6s-Z9-vsr">
-                                    <rect key="frame" x="0.0" y="0.0" width="272" height="55"/>
-                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="24"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="272" height="40"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                     <color key="textColor" red="0.24313725489999999" green="0.26274509800000001" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -51,14 +51,14 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="j6s-Z9-vsr" secondAttribute="trailing" id="BvM-S3-TCv"/>
-                                <constraint firstAttribute="height" constant="55" id="Fdd-QF-bTb"/>
+                                <constraint firstAttribute="height" constant="40" id="Fdd-QF-bTb"/>
                                 <constraint firstItem="j6s-Z9-vsr" firstAttribute="top" secondItem="Yrj-Dd-gAJ" secondAttribute="top" id="qxd-uE-P9n"/>
                                 <constraint firstAttribute="bottom" secondItem="j6s-Z9-vsr" secondAttribute="bottom" id="w6t-xL-B6P"/>
                                 <constraint firstItem="j6s-Z9-vsr" firstAttribute="leading" secondItem="Yrj-Dd-gAJ" secondAttribute="leading" id="wUk-Yb-64d"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jK4-7u-mVK">
-                            <rect key="frame" x="0.0" y="55" width="272" height="34"/>
+                            <rect key="frame" x="0.0" y="78" width="272" height="34"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the number of stars you'd give us on a scale from 1-5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-XL-4bo">
                                     <rect key="frame" x="15" y="0.0" width="242" height="34"/>
@@ -77,27 +77,31 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izE-vy-nt6">
-                            <rect key="frame" x="0.0" y="89" width="272" height="58"/>
+                            <rect key="frame" x="0.0" y="112" width="272" height="52"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Goe-NO-ySC" customClass="RatingControl" customModule="FlirtARViper" customModuleProvider="target">
-                                    <rect key="frame" x="26" y="7" width="220" height="44"/>
+                                    <rect key="frame" x="26" y="4" width="220" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="220" id="ASc-90-Y2S"/>
+                                        <constraint firstAttribute="height" constant="44" id="qHf-Zs-rcA"/>
+                                    </constraints>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="Goe-NO-ySC" firstAttribute="centerX" secondItem="izE-vy-nt6" secondAttribute="centerX" id="Cdb-WG-MqG"/>
                                 <constraint firstItem="Goe-NO-ySC" firstAttribute="centerY" secondItem="izE-vy-nt6" secondAttribute="centerY" id="O2W-Kr-xi0"/>
-                                <constraint firstAttribute="height" constant="58" id="RKA-DS-h8z"/>
+                                <constraint firstAttribute="height" constant="52" id="RKA-DS-h8z"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NiA-Cy-TYO">
-                            <rect key="frame" x="0.0" y="147" width="272" height="68"/>
+                            <rect key="frame" x="0.0" y="164" width="272" height="111"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbB-E7-h4g">
-                                    <rect key="frame" x="18" y="0.0" width="236" height="68"/>
+                                    <rect key="frame" x="18" y="0.0" width="236" height="111"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Optional" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PJO-lb-Uqd">
-                                            <rect key="frame" x="0.0" y="0.0" width="236" height="68"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="236" height="111"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="textColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
@@ -122,77 +126,52 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0j-e4-4jw">
-                            <rect key="frame" x="0.0" y="215" width="272" height="65"/>
+                            <rect key="frame" x="0.0" y="275" width="272" height="65"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-qT-djP">
-                                    <rect key="frame" x="0.0" y="0.0" width="136" height="65"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-5T-Ipx" customClass="BorderedButton" customModule="FlirtARViper" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="15" width="106" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="knP-S7-9B7"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
-                                            <state key="normal" title="Cancel">
-                                                <color key="titleColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                    <color key="value" red="0.91764705879999997" green="0.92549019610000005" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                    <real key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="cancelButtonTap:" destination="-1" eventType="touchUpInside" id="qeh-fC-ne7"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNh-We-RlN" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
+                                    <rect key="frame" x="86" y="9" width="100" height="46"/>
+                                    <color key="backgroundColor" red="0.92156862750000001" green="0.25490196079999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="A0u-5T-Ipx" firstAttribute="leading" secondItem="BPZ-qT-djP" secondAttribute="leading" constant="20" id="RFP-WE-Ni0"/>
-                                        <constraint firstAttribute="trailing" secondItem="A0u-5T-Ipx" secondAttribute="trailing" constant="10" id="idc-LJ-2Dk"/>
-                                        <constraint firstItem="A0u-5T-Ipx" firstAttribute="centerY" secondItem="BPZ-qT-djP" secondAttribute="centerY" id="nCG-kT-F9X"/>
+                                        <constraint firstAttribute="height" constant="46" id="Z22-lL-A1G"/>
+                                        <constraint firstAttribute="width" constant="100" id="cxS-vO-IyX"/>
                                     </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uv-Vh-vmC">
-                                    <rect key="frame" x="136" y="0.0" width="136" height="65"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNh-We-RlN" customClass="RoundedButton" customModule="FlirtARViper" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="15" width="106" height="35"/>
-                                            <color key="backgroundColor" red="0.92156862750000001" green="0.25490196079999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="Z22-lL-A1G"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
-                                            <state key="normal" title="Rate" backgroundImage="mainButtonBackground">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="rateButtonTap:" destination="-1" eventType="touchUpInside" id="J2X-Rb-T5Y"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstItem="JNh-We-RlN" firstAttribute="centerY" secondItem="8uv-Vh-vmC" secondAttribute="centerY" id="Er9-ED-tpJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="JNh-We-RlN" secondAttribute="trailing" constant="20" id="mcQ-h0-9Jp"/>
-                                        <constraint firstItem="JNh-We-RlN" firstAttribute="leading" secondItem="8uv-Vh-vmC" secondAttribute="leading" constant="10" id="q2c-Jx-nDD"/>
-                                    </constraints>
-                                </view>
+                                    <fontDescription key="fontDescription" name="VarelaRound" family="Varela Round" pointSize="14"/>
+                                    <state key="normal" title="Rate" backgroundImage="mainButtonBackground">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="rateButtonTap:" destination="-1" eventType="touchUpInside" id="J2X-Rb-T5Y"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="8uv-Vh-vmC" secondAttribute="bottom" id="72u-EU-lSn"/>
-                                <constraint firstItem="BPZ-qT-djP" firstAttribute="leading" secondItem="Z0j-e4-4jw" secondAttribute="leading" id="AGk-Nd-cNq"/>
-                                <constraint firstItem="BPZ-qT-djP" firstAttribute="top" secondItem="Z0j-e4-4jw" secondAttribute="top" id="Jpu-UM-2Y7"/>
-                                <constraint firstItem="8uv-Vh-vmC" firstAttribute="leading" secondItem="BPZ-qT-djP" secondAttribute="trailing" id="Nf4-08-qxA"/>
-                                <constraint firstItem="8uv-Vh-vmC" firstAttribute="top" secondItem="Z0j-e4-4jw" secondAttribute="top" id="Rdp-6E-EWg"/>
-                                <constraint firstAttribute="bottom" secondItem="BPZ-qT-djP" secondAttribute="bottom" id="TaW-Wt-cJT"/>
-                                <constraint firstItem="BPZ-qT-djP" firstAttribute="width" secondItem="8uv-Vh-vmC" secondAttribute="width" id="eGC-m1-6uW"/>
+                                <constraint firstItem="JNh-We-RlN" firstAttribute="centerX" secondItem="Z0j-e4-4jw" secondAttribute="centerX" id="COR-Wc-4qw"/>
+                                <constraint firstItem="JNh-We-RlN" firstAttribute="centerY" secondItem="Z0j-e4-4jw" secondAttribute="centerY" id="a7J-FR-E8C"/>
                                 <constraint firstAttribute="height" constant="65" id="g4L-sp-bNq"/>
-                                <constraint firstAttribute="trailing" secondItem="8uv-Vh-vmC" secondAttribute="trailing" id="oUK-Nm-hc6"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRs-BT-jDI">
+                            <rect key="frame" x="0.0" y="0.0" width="272" height="38"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0u-5T-Ipx">
+                                    <rect key="frame" x="237" y="7" width="25" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="25" id="8qS-ev-FbK"/>
+                                        <constraint firstAttribute="height" constant="25" id="adi-VI-t3A"/>
+                                    </constraints>
+                                    <state key="normal" image="closeMarkButton">
+                                        <color key="titleColor" red="0.65098039220000004" green="0.67450980390000004" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cancelButtonTap:" destination="-1" eventType="touchUpInside" id="qeh-fC-ne7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="A0u-5T-Ipx" firstAttribute="centerY" secondItem="jRs-BT-jDI" secondAttribute="centerY" id="ZMm-XC-9Rg"/>
+                                <constraint firstAttribute="trailing" secondItem="A0u-5T-Ipx" secondAttribute="trailing" constant="10" id="qmN-PT-lIv"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -201,14 +180,18 @@
                         <constraint firstAttribute="trailing" secondItem="Z0j-e4-4jw" secondAttribute="trailing" id="4l9-3h-L8l"/>
                         <constraint firstItem="izE-vy-nt6" firstAttribute="top" secondItem="jK4-7u-mVK" secondAttribute="bottom" id="6Gg-JW-Oau"/>
                         <constraint firstAttribute="trailing" secondItem="Yrj-Dd-gAJ" secondAttribute="trailing" id="6Lh-cg-7HT"/>
-                        <constraint firstItem="Yrj-Dd-gAJ" firstAttribute="top" secondItem="6cJ-1Y-tUX" secondAttribute="top" id="778-qd-CRO"/>
+                        <constraint firstItem="Yrj-Dd-gAJ" firstAttribute="top" secondItem="6cJ-1Y-tUX" secondAttribute="top" constant="38" id="778-qd-CRO"/>
                         <constraint firstItem="Z0j-e4-4jw" firstAttribute="top" secondItem="NiA-Cy-TYO" secondAttribute="bottom" id="C0v-O3-2yV"/>
                         <constraint firstAttribute="bottom" secondItem="Z0j-e4-4jw" secondAttribute="bottom" id="CQH-iz-gWO"/>
                         <constraint firstItem="jK4-7u-mVK" firstAttribute="top" secondItem="Yrj-Dd-gAJ" secondAttribute="bottom" id="G2q-uM-ffC"/>
+                        <constraint firstItem="jRs-BT-jDI" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="JCh-4A-ZKt"/>
                         <constraint firstAttribute="trailing" secondItem="NiA-Cy-TYO" secondAttribute="trailing" id="M9w-7e-doB"/>
-                        <constraint firstAttribute="height" constant="280" id="Ov0-T5-dem"/>
+                        <constraint firstAttribute="height" constant="340" id="Ov0-T5-dem"/>
+                        <constraint firstAttribute="trailing" secondItem="jRs-BT-jDI" secondAttribute="trailing" id="UQB-Ww-GtL"/>
                         <constraint firstItem="Z0j-e4-4jw" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="X1H-H1-yEF"/>
                         <constraint firstAttribute="trailing" secondItem="jK4-7u-mVK" secondAttribute="trailing" id="dc5-JV-z6g"/>
+                        <constraint firstItem="jRs-BT-jDI" firstAttribute="top" secondItem="6cJ-1Y-tUX" secondAttribute="top" id="fla-2l-XWd"/>
+                        <constraint firstItem="Yrj-Dd-gAJ" firstAttribute="top" secondItem="jRs-BT-jDI" secondAttribute="bottom" id="gCY-mt-xQ8"/>
                         <constraint firstItem="jK4-7u-mVK" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="kG3-Cf-Y0o"/>
                         <constraint firstItem="izE-vy-nt6" firstAttribute="leading" secondItem="6cJ-1Y-tUX" secondAttribute="leading" id="pdU-Fn-ZKo"/>
                         <constraint firstAttribute="trailing" secondItem="izE-vy-nt6" secondAttribute="trailing" id="vHO-P4-ZjJ"/>
@@ -229,6 +212,7 @@
         </view>
     </objects>
     <resources>
+        <image name="closeMarkButton" width="13" height="13"/>
         <image name="mainButtonBackground" width="275" height="50"/>
     </resources>
 </document>

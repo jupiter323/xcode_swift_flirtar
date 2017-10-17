@@ -15,8 +15,8 @@ protocol PersonalInfoViewControllerDelegate: class {
 class PersonalInfoViewController: UIViewController, PersonalInfoViewProtocol {
     
     //MARK: - Outlets
-    @IBOutlet weak var userNameField: TitledInputView!
-    @IBOutlet weak var dateOfBirthField: TitledInputView!
+    @IBOutlet weak var userNameField: TitledLabelView!
+    @IBOutlet weak var dateOfBirthField: TitledLabelView!
     @IBOutlet weak var genderSwitcher: GenderSwitcher!
     @IBOutlet weak var introductionField: TitledInputView!
     @IBOutlet weak var interestsField: TitledInputWithTagsView!
@@ -66,17 +66,17 @@ class PersonalInfoViewController: UIViewController, PersonalInfoViewProtocol {
     
     private func configureDateOfBirthPicker() {
         
-        dateOfBirthField.inputField.inputView = datePicker
-        dateOfBirthField.inputField.tintColor = UIColor.clear
-        dateOfBirthField.inputField.delegate = self
-        
-        datePicker.addTarget(self, action: #selector(actionDatePickerValueChanged(_:)), for: .valueChanged)
+//        dateOfBirthField.inputField.inputView = datePicker
+//        dateOfBirthField.inputField.tintColor = UIColor.clear
+//        dateOfBirthField.inputField.delegate = self
+//
+//        datePicker.addTarget(self, action: #selector(actionDatePickerValueChanged(_:)), for: .valueChanged)
         
         
     }
     
     private func configureTextFieldDelegates() {
-        userNameField.inputField.delegate = self
+//        userNameField.inputField.delegate = self
         introductionField.inputField.delegate = self
         interestsField.delegate = self
     }
@@ -86,14 +86,15 @@ class PersonalInfoViewController: UIViewController, PersonalInfoViewProtocol {
     }
     
     func actionDatePickerValueChanged(_ sender: UIDatePicker) {
-        dateOfBirthField.text = String.formattedString(from: sender.date)
-        presenter?.saveDateOfBirth(dateOfBirth: sender.date)
+//        dateOfBirthField.text = String.formattedString(from: sender.date)
+//        presenter?.saveDateOfBirth(dateOfBirth: sender.date)
     }
     
     fileprivate func saveData(fromField textField: UITextField) {
-        if textField == userNameField.inputField {
-            presenter?.saveUsername(username: (textField.text))
-        } else if textField == introductionField.inputField {
+//        if textField == userNameField.inputField {
+//            presenter?.saveUsername(username: (textField.text))
+//        } else
+        if textField == introductionField.inputField {
             presenter?.saveIntroduction(introduction: textField.text)
         }
     }
@@ -109,10 +110,10 @@ class PersonalInfoViewController: UIViewController, PersonalInfoViewProtocol {
     func fillFieldsWithUser(user: User) {
         
         if let username = user.firstName {
-            userNameField.text = username
+            userNameField.dataText = username
         }
         if let birthday = user.birthday {
-            dateOfBirthField.text = DateFormatter.inputViewDateFormatter.string(from: birthday)
+            dateOfBirthField.dataText = DateFormatter.inputViewDateFormatter.string(from: birthday)
             datePicker.date = birthday
         }
         if let gender = user.gender {
@@ -135,9 +136,9 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         //date not editable by keyboard
-        if textField == dateOfBirthField.inputField {
-            return false
-        }
+//        if textField == dateOfBirthField.inputField {
+//            return false
+//        }
         
         return true
     }
@@ -145,11 +146,12 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         //route for next field
-        if textField == userNameField.inputField {
-            let clearedText = BadWordHelper.shared.cleanUp(userNameField.text!)
-            userNameField.text = clearedText
-            let _ = dateOfBirthField.inputField.becomeFirstResponder()
-        } else if textField == introductionField.inputField {
+//        if textField == userNameField.inputField {
+//            let clearedText = BadWordHelper.shared.cleanUp(userNameField.text!)
+//            userNameField.text = clearedText
+//            let _ = dateOfBirthField.inputField.becomeFirstResponder()
+//        } else
+        if textField == introductionField.inputField {
             let clearedText = BadWordHelper.shared.cleanUp(introductionField.text!)
             introductionField.text = clearedText
             let _ = interestsField.inputField.becomeFirstResponder()
@@ -165,10 +167,11 @@ extension PersonalInfoViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField == userNameField.inputField {
-            let clearedText = BadWordHelper.shared.cleanUp(userNameField.text!)
-            userNameField.text = clearedText
-        } else if textField == introductionField.inputField {
+//        if textField == userNameField.inputField {
+//            let clearedText = BadWordHelper.shared.cleanUp(userNameField.text!)
+//            userNameField.text = clearedText
+//        } else
+        if textField == introductionField.inputField {
             let clearedText = BadWordHelper.shared.cleanUp(introductionField.text!)
             introductionField.text = clearedText
         }

@@ -47,6 +47,19 @@ class TitledInputView: ViewFromXIB {
         }
     }
     
+    @IBInspectable var isChangeable: Bool = true {
+        didSet {
+            if isChangeable == false {
+                isUserInteractionEnabled = false
+                inputField.backgroundColor = UIColor(red: 62/255,
+                                                     green: 67/255,
+                                                     blue: 79/255,
+                                                     alpha: 0.05)
+            }
+        }
+    }
+    
+    
     override func resignFirstResponder() -> Bool {
         return inputField.resignFirstResponder()
     }

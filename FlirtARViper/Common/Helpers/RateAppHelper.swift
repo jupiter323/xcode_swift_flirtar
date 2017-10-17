@@ -24,7 +24,7 @@ class RateAppHelper {
     
     //MARK: - Variables
     fileprivate var isElapsed = false
-    fileprivate let initialTime = 120
+    fileprivate let initialTime = 5*60*60
     fileprivate var timeleft: Int! //time in seconds
     fileprivate var timer: Timer?
     
@@ -81,7 +81,7 @@ class RateAppHelper {
         if mainController is TabBarViewController {
             let mainView = mainController?.view
             let rateApp = RateAppNotificationView(frame: UIScreen.main.bounds)
-            rateApp.configureView(withTitle: "Do you like Flirtar?",
+            rateApp.configureView(withTitle: "Rate",
                                   subTitle: "Tap the number of stars you'd give us on a scale from 1-5",
                                   openAppStore: true)
             mainView?.addSubview(rateApp)

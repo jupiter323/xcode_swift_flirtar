@@ -44,20 +44,7 @@ class MessagesDetailWireframe: MessagesDetailWireframeProtocol {
     func backToDialogs(fromView view: MessagesDetailViewProtocol) {
         if let sourceView = view as? UIViewController {
             let _ = sourceView.navigationController?.popViewController(animated: true)
-            deinitMe(fromView: view)
         }
-    }
-    
-    private func deinitMe(fromView view: MessagesDetailViewProtocol) {
-        var viewForClear = view
-        viewForClear.presenter?.interactor?.remoteDatamanager?.remoteRequestHandler = nil
-        viewForClear.presenter?.interactor?.remoteDatamanager = nil
-        viewForClear.presenter?.interactor?.presenter = nil
-        viewForClear.presenter?.interactor = nil
-        viewForClear.presenter?.selectedDialog = nil
-        viewForClear.presenter?.view = nil
-        viewForClear.presenter?.wireframe = nil
-        viewForClear.presenter = nil
     }
     
 }

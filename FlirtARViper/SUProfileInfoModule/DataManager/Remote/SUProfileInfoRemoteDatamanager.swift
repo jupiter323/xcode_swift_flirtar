@@ -47,10 +47,16 @@ class SUProfileInfoRemoteDatamanager: SUProfileInfoRemoteDatamanagerInputProtoco
     func requestSavingPhotos(withPhotos photos: [UIImage]) {
         print("DEBUG SUProfile RemoteDatamanager: Photos save start")
         let updater = PhotoUpdateService()
-        updater.uploadPhotosToServer(images: photos) { (updated, photos) in
+        updater.uploadPhotosToServer(images: photos) { (updated, uploadedPhotos) in
             if updated {
-                print("DEBUG SUProfile  RemoteDatamanager: Photos saved - \(photos!)")
-                self.remoteRequestHandler?.photosUploaded(photos: photos!)
+                print("DEBUG SUProfile  RemoteDatamanager: Photos saved - \(uploadedPhotos!)")
+                
+                if photos.count == uploadedPhotos?.count {
+                    self.remoteRequestHandler?.photosUploaded(photos: uploadedPhotos!)
+                } else {
+                    self.remoteRequestHandler?.photosUploadError(method: APIMethod.photos, error: PhotosUploadError.photosNotUploaded)
+                }
+            
             } else {
                 print("DEBUG SUProfile  RemoteDatamanager: Photos save error)")
                 self.remoteRequestHandler?.photosUploadError(method: APIMethod.photos, error: PhotosUploadError.photosNotUploaded)

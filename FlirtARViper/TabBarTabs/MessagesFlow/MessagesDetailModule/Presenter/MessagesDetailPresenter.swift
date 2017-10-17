@@ -8,8 +8,8 @@
 
 import Foundation
 
-
 class MessagesDetailPresenter: MessagesDetailPresenterProtocol {
+    
     weak var view: MessagesDetailViewProtocol?
     var wireframe: MessagesDetailWireframeProtocol?
     var interactor: MessagesDetailInteractorInputProtocol?
@@ -93,6 +93,7 @@ class MessagesDetailPresenter: MessagesDetailPresenterProtocol {
     }
 }
 
+//MARK: - MessagesDetailInteractorOutputProtocol
 extension MessagesDetailPresenter: MessagesDetailInteractorOutputProtocol {
     func didMessagesRecived(messages: [Message]) {
         view?.hideActivityIndicator()

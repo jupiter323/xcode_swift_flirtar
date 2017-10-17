@@ -11,7 +11,6 @@ import Alamofire
 import SwiftyJSON
 
 class MessagesDetailRemoteDatamanager: MessagesDetailRemoteDatamanagerInputProtocol {
-    
     weak var remoteRequestHandler:MessagesDetailRemoteDatamanagerOutputProtocol?
     
     func requestUserMessages(withChatId chatId: Int) {

@@ -23,6 +23,8 @@ protocol MessagesMainTabViewProtocol: class {
     func dialogRemoved()
     func hideRemoveDialogAlert()
     func showRemoveDialogAlert()
+    
+    func embedThisModule(module: UIViewController)
 }
 
 protocol MessagesMainTabWireframeProtocol {
@@ -37,6 +39,7 @@ protocol MessagesMainTabPresenterProtocol {
     var wireframe: MessagesMainTabWireframeProtocol? {get set}
     var interactor: MessagesMainTabInteractorInputProtocol? {get set}
     
+    func viewDidLoad()
     func viewWillAppear()
     func viewWillDisappear()
     func reloadDialogs()

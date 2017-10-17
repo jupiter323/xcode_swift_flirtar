@@ -14,6 +14,13 @@ protocol SwitchCellDelegate: class {
     func notificationStatusChanged(isEnabled: Bool, notificationType: CellConfiguration)
 }
 
+//all methods optional
+extension SwitchCellDelegate {
+    func showOnMapStatusChanged(isEnabled: Bool) {}
+    func allowUserLocationStatusChanged(isEnabled: Bool) {}
+    func notificationStatusChanged(isEnabled: Bool, notificationType: CellConfiguration) {}
+}
+
 class SwitchCell: UITableViewCell {
 
     //MARK: - Outlets

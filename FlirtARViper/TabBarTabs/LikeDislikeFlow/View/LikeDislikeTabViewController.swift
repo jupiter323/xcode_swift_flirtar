@@ -33,8 +33,14 @@ class LikeDislikeTabViewController: UIViewController, LikeDislikeTabViewProtocol
         profilesKoloda.delegate = self
         noMatchLabel.isHidden = true
         
-        presenter?.viewDidLoad()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter?.viewDidLoad()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -285,4 +291,19 @@ extension LikeDislikeTabViewController: KolodaViewDataSource {
         return Bundle.main.loadNibNamed("KolodaOverlayView", owner: self, options: nil)?[0] as? OverlayView
     }
     
+}
+
+//MARK: - ARProfileViewControllerDelegate
+extension LikeDislikeTabViewController: ARProfileViewControllerDelegate {
+    func didTapLikeButton(isLike: Bool) {
+        if isLike {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                self.profilesKoloda.swipe(.right)
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() +  0.5) {
+                self.profilesKoloda.swipe(.left)
+            }
+        }
+    }
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileSettingsWireframe: ProfileSettingsWireframeProtocol {
+    
     static func configureProfileSettingsView() -> UIViewController {
         let profileSettingsController = UIStoryboard(name: "ProfileSettings", bundle: nil).instantiateViewController(withIdentifier: "ProfileSettingsViewController")
         
@@ -45,19 +46,6 @@ class ProfileSettingsWireframe: ProfileSettingsWireframeProtocol {
     func backToProfileMainTab(fromView view: ProfileSettingsViewProtocol){
         if let sourceView = view as? UIViewController {
             let _ = sourceView.navigationController?.popViewController(animated: true)
-            deinitMe(fromView: view)
         }
-    }
-    
-    private func deinitMe(fromView view: ProfileSettingsViewProtocol) {
-        var viewForClear = view
-        viewForClear.presenter?.interactor?.remoteDatamanager?.remoteRequestHandler = nil
-        viewForClear.presenter?.interactor?.remoteDatamanager = nil
-        viewForClear.presenter?.interactor?.localDatamanager = nil
-        viewForClear.presenter?.interactor?.presenter = nil
-        viewForClear.presenter?.interactor = nil
-        viewForClear.presenter?.view = nil
-        viewForClear.presenter?.wireframe = nil
-        viewForClear.presenter = nil
     }
 }

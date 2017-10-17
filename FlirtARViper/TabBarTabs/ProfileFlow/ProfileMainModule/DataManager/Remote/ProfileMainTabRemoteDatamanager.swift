@@ -45,25 +45,6 @@ class ProfileMainTabRemoteDatamanager: ProfileMainTabRemoteDatamanagerInputProto
         
     }
     
-    func requestUpdateMapStatus(withProfile: User) {
-        let request = APIRouter.updateUserProfile(user: withProfile)
-        
-        NetworkManager
-            .shared
-            .sendAPIRequest(request: request) { (js, error) in
-                if error != nil {
-                    self.remoteRequestHandler?.profileUpdateError(method: APIMethod.updateProfile, error: error!)
-                } else {
-                    if js!.dictionaryObject != nil {
-                        ProfileService.savedUser = User(JSON: js!.dictionaryObject!)
-                        self.remoteRequestHandler?.profileUpdatedSuccess()
-                    } else {
-                        self.remoteRequestHandler?.photosUpdateError(method: APIMethod.updateProfile, error: UpdateProfileError.profileResponseError)
-                    }
-                }
-        }
-    }
-    
     func requestUpdatePhotos(images: [UIImage]) {
         
         print("DEBUG Profile Remote: Start upload photos")
@@ -74,6 +55,21 @@ class ProfileMainTabRemoteDatamanager: ProfileMainTabRemoteDatamanagerInputProto
                 self.remoteRequestHandler?.photosRecievedSuccess(photos: photos!)
             } else {
                 self.remoteRequestHandler?.photosUpdateError(method: APIMethod.updateProfile, error: PhotosUploadError.photosNotUploaded)
+            }
+        }
+    }
+    
+    func requestReplacePhoto(newPhoto: UIImage,
+                             oldPhoto: Photo) {
+        let updater = PhotoUpdateService()
+        updater.replacePhoto(newPhoto: newPhoto,
+                             oldPhoto: oldPhoto) { (updated, photo) in
+            if updated {
+                
+                self.remoteRequestHandler?.photoReplacedSuccess(newPhoto: photo!,
+                                                                oldPhoto: oldPhoto)
+            } else {
+                self.remoteRequestHandler?.photoReplaceError(method: APIMethod.updateProfile, error: PhotosUploadError.photosNotUploaded)
             }
         }
     }
