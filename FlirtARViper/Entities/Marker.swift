@@ -21,7 +21,7 @@ struct MarkerUser {
     var id: Int?
     var firstname: String?
     var age: String?
-    var photo: String?
+    var photo: Photo?
     var gender: Gender?
     var showOnMap: Bool?
 }
@@ -107,7 +107,6 @@ extension MarkerUser: Mappable {
         id <- map[ServerUserJSONKeys.id.rawValue]
         firstname <- map[ServerUserJSONKeys.firstName.rawValue]
         age <- map[ServerUserJSONKeys.age.rawValue]
-        photo <- map[ServerUserJSONKeys.photo.rawValue]
         
         var genderString: String?
         genderString <- map[ServerUserJSONKeys.gender.rawValue]

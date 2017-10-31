@@ -14,7 +14,7 @@ target 'FlirtARViper' do
   pod 'FacebookLogin'
   pod 'PKHUD', '~> 4.0'
   pod 'SwiftyJSON'
-  pod 'BSImagePicker', '~> 2.4'
+  pod 'BSImagePicker', '~> 2.6'
   pod 'GBHFacebookImagePicker', '~> 1.3.0'
   pod 'pop'
   

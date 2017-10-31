@@ -281,6 +281,10 @@ class CoreDataManager {
             throw CoreDataError.managedObjectContextNotFound
         }
         
+        let deletePhotosFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CDPhoto")
+        let deletePhotosRequest = NSBatchDeleteRequest(fetchRequest: deletePhotosFetch)
+        try managedOC.execute(deletePhotosRequest)
+        
         let request: NSFetchRequest<CDSavedUser> = NSFetchRequest(entityName: String(describing: CDSavedUser.self))
         request.predicate = NSPredicate(format: "id == %d", argumentArray: [userId])
         

@@ -12,7 +12,7 @@ import ObjectMapper
 
 struct Dialog {
     var id: Int?
-    var user: MarkerUser?
+    var user: ShortUser?
     var unreadCount: Int?
     var message: Message?
 }

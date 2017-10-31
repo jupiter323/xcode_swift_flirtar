@@ -18,6 +18,9 @@ class InstagramPhotoViewCell: UICollectionViewCell {
     fileprivate var zoomView: UIImageView?
     fileprivate var blackBackground: UIView?
     fileprivate var startImageFrame: CGRect?
+
+    //MARK: Data
+    fileprivate var photo: Photo?
     
     //MARK: - UICollectionView
     override func awakeFromNib() {
@@ -31,9 +34,15 @@ class InstagramPhotoViewCell: UICollectionViewCell {
     }
     
     //MARK: - Configuration
-    func configureWithPhotoString(photoString: String) {
-        let imageUrl = URL(string: photoString)
-        photoImageView.sd_setImage(with: imageUrl, placeholderImage: #imageLiteral(resourceName: "placeholder"))
+    func configureWithPhotoString(photo: Photo) {
+        self.photo = photo
+        if let photoUrlString = photo.thumbnailUrl {
+            let imageUrl = URL(string: photoUrlString)
+            photoImageView.sd_setImage(with: imageUrl, placeholderImage: #imageLiteral(resourceName: "placeholder"))
+        } else {
+            photoImageView.image = #imageLiteral(resourceName: "placeholder")
+        }
+        
     }
     
     //MARK: - Helpers
@@ -48,7 +57,12 @@ class InstagramPhotoViewCell: UICollectionViewCell {
             startImageFrame = imageView.superview?.convert(imageView.frame, to: nil)
             
             let zoomImageView = UIImageView(frame: startImageFrame!)
-            zoomImageView.image = imageView.image
+            if let fullPhotoString = photo?.url {
+                let url = URL(string: fullPhotoString)
+                zoomImageView.sd_setImage(with: url, placeholderImage: imageView.image)
+            } else {
+                zoomImageView.image = imageView.image
+            }
             zoomImageView.contentMode = .scaleAspectFit
             zoomImageView.clipsToBounds = true
             zoomImageView.isUserInteractionEnabled = true

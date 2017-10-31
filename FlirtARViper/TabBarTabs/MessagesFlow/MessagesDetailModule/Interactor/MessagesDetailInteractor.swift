@@ -103,14 +103,11 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
                                           andImage image: UIImage) {
         
         let awsService = AWSS3Service()
-        
         awsService.uploadPhoto(images: [image], completionHandler: { (links) in
             
             if let image = links.first {
-                let clearedText = BadWordHelper.shared.cleanUp(text)
-                let dataDict = "{\"text\":\"\(clearedText)\",\"file_url\":\"\(image)\",\"file_type\":\"image\"}"
+                let dataDict = APIParser().prepareImageMessageToSend(textMessage: text, imageLink: image)
                 SocketManager.shared.sendMessageSocket(messageText: dataDict)
-//                self.socket?.send(text: dataDict)
             } else {
                 self.sendTextMessage(withText: text)
             }
@@ -136,9 +133,7 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
                                completionHandler: { (link, thumbImage) in
                                 if let videoLink = link,
                                     let thumbImageLink = thumbImage {
-                                    let clearedText = BadWordHelper.shared.cleanUp(text)
-                                    let dataDict = "{\"text\":\"\(clearedText)\",\"file_url\":\"\(videoLink)\",\"file_type\":\"video\",\"thumbnail\":\"\(thumbImageLink)\"}"
-//                                    self.socket?.send(text: dataDict)
+                                    let dataDict = APIParser().prepareVideoMessageToSend(textMessage: text, videoLink: videoLink, thumbnailImageLink: thumbImageLink)
                                     SocketManager.shared.sendMessageSocket(messageText: dataDict)
                                     
                                 } else {
@@ -149,34 +144,19 @@ class MessagesDetailInteractor: MessagesDetailInteractorInputProtocol {
     }
     
     fileprivate func sendTextMessage(withText text: String) {
-        let clearedText = BadWordHelper.shared.cleanUp(text)
-        let dataDict = "{\"text\":\"\(clearedText)\"}"
+        let dataDict = APIParser().prepareTextMessageToSend(textMessage: text)
         SocketManager.shared.sendMessageSocket(messageText: dataDict)
-//        socket?.send(text: dataDict)
     }
     
     fileprivate func newIncomeMessage(message: Any) {
         
-        print(message)
+        let newMessage = APIParser().parseNewIncomeMessage(message: message)
         
-        guard let messageString = message as? String  else {
-            return
+        if newMessage != nil {
+            self.totalCount += 1
+            self.presenter?.newMessageFromSocket(message: newMessage!)
         }
         
-        let js = JSON(parseJSON: messageString) //JSON from string
-        
-        if let messageDictionary = js.dictionaryObject,
-            let senderDictionary = js["sender"].dictionaryObject {
-            var message = Message(JSON: messageDictionary)
-            let sender = MarkerUser(JSON: senderDictionary)
-            message?.sender = sender
-            
-            if message != nil {
-                self.totalCount += 1
-                self.presenter?.newMessageFromSocket(message: message!)
-            }
-            
-        }
     }
     
 }

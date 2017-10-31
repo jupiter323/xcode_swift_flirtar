@@ -22,7 +22,7 @@ protocol MessagesDetailViewProtocol: class {
     
     func appendMoreMessages(messages: [Message])
     
-    func fillGeneralInfo(withUser user: MarkerUser)
+    func fillGeneralInfo(withUser user: ShortUser)
     
     func showUserBlocked()
     func showUserReported()

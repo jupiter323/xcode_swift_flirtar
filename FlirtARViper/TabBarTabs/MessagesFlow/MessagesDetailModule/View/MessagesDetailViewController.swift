@@ -296,8 +296,8 @@ class MessagesDetailViewController: UIViewController, MessagesDetailViewProtocol
         
     }
     
-    func fillGeneralInfo(withUser user: MarkerUser) {
-        nameLabel.text = user.firstname ?? "No data"
+    func fillGeneralInfo(withUser user: ShortUser) {
+        nameLabel.text = user.firstName ?? "No data"
     }
     
     func appendNewMessage(message: Message) {

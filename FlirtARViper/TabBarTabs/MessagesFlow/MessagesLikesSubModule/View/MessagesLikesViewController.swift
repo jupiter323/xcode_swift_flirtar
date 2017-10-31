@@ -41,14 +41,7 @@ class MessagesLikesViewController: UIViewController, MessagesLikesViewProtocol {
         presenter?.reloadData()
     }
     
-    //MARK: - MessagesLikesViewProtocol
-    var presenter: MessagesLikesPresenterProtocol?
-    
-    func showLikes(likes: [ShortUser]) {
-        
-        self.likes = likes
-        likesCollectionView.reloadData()
-        
+    func checkDataIsEmpty() {
         //empty likes
         if likes.count == 0 {
             noLikesLabel.isHidden = false
@@ -58,7 +51,21 @@ class MessagesLikesViewController: UIViewController, MessagesLikesViewProtocol {
             noLikesLabel.isHidden = true
             likesCollectionView.isHidden = false
         }
-        
+    }
+    
+    //MARK: - MessagesLikesViewProtocol
+    var presenter: MessagesLikesPresenterProtocol?
+    
+    func showLikes(likes: [ShortUser]) {
+        self.likes = likes
+        likesCollectionView.reloadData()
+        checkDataIsEmpty()
+    }
+    
+    func appendMoreLikes(likes: [ShortUser]) {
+        self.likes.append(contentsOf: likes)
+        likesCollectionView.reloadData()
+        checkDataIsEmpty()
     }
 
 }
@@ -76,6 +83,10 @@ extension MessagesLikesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let likeCell = cell as? MessagesLikesViewCell
         likeCell?.configureCell(withLike: likes[indexPath.row])
+        
+        if likes.count != 0 && indexPath.row == (likes.count - 1) {
+            presenter?.loadMoreLikes()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

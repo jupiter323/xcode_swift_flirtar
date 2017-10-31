@@ -18,22 +18,18 @@ enum PhotosProvider {
 }
 
 class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol {
-    
+
     //MARK: - Outlets
     //Data
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var interestsCollection: UICollectionView!
-    @IBOutlet weak var introductionLabel: UILabel!
     
-    
+    @IBOutlet weak var introductionTextView: UITextView!
     
     @IBOutlet weak var photoModule: UIView!
     @IBOutlet weak var instagramPhotosModule: UIView!
     @IBOutlet weak var moreInfoButton: UIButton!
-    
-    //Constraints
-    @IBOutlet weak var instagramPhotosHeight: NSLayoutConstraint!
     
     //Draw
     @IBOutlet weak var roundedView: UIView!
@@ -45,29 +41,44 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     @IBOutlet weak var interestsView: UIView!
     
     //MARK: - Constraints
-    @IBOutlet var infoBlockHeight: NSLayoutConstraint!
-    @IBOutlet var infoBlockInitialHeight: NSLayoutConstraint!
-    
-    @IBOutlet var nameAgeHeight: NSLayoutConstraint!
+    @IBOutlet var instagramPhotosHeight: NSLayoutConstraint!
     
     @IBOutlet var interestsHeight: NSLayoutConstraint!
     @IBOutlet var interestsViewRight: NSLayoutConstraint!
     
-    
+    @IBOutlet var introductionViewInitialHeight: NSLayoutConstraint!
+    @IBOutlet var introductionViewHeight: NSLayoutConstraint!
     
     //MARK: - Variables
+    //MARK: Data
     fileprivate var interests = [String]()
-    fileprivate var collectionViewInitialHeight: CGFloat = 35.0
-    fileprivate var roundedViewInitialHeight: CGFloat = 0.0
-    fileprivate var introductionInitialHeight: CGFloat = 0.0
     fileprivate var introductionIsFullSize: Bool = false
     
+    //MARK: Constraints
+    fileprivate var collectionViewInitialHeight: CGFloat = 20.0
+    fileprivate var introductionInitialHeight: CGFloat = 0.0
+    
+    //MARK: Visual
+    fileprivate var introductionTextFont = UIFont(name: "VarelaRound", size: 13.0)  ??
+        UIFont.systemFont(ofSize: 13.0)
+    fileprivate var introductionTextColor = UIColor(red: 166/255,
+                                                    green: 172/255,
+                                                    blue: 185/255,
+                                                    alpha: 1.0)
+    fileprivate var introductionMoreTextColor = UIColor(red: 251/255,
+                                                        green: 95/255,
+                                                        blue: 119/255,
+                                                        alpha: 1.0)
+    fileprivate var introductionMoreText = "Full Desc."
     fileprivate var photosView: HorizontalViewController?
     fileprivate var maxSelectablePhotos = 3
+    
     
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureTextView()
         
         roundedInsetView.layoutIfNeeded()
         let distance = roundedInsetView.bounds.height + 20.0
@@ -100,14 +111,11 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        introductionLabel.layoutIfNeeded()
-        introductionLabel.addReadMoreText(with: " ",
-                                          moreText: "Full Desc.",
-                                          moreTextFont: introductionLabel.font,
-                                          moreTextColor: UIColor(red: 251/255,
-                                                                 green: 95/255,
-                                                                 blue: 119/255,
-                                                                 alpha: 1.0))
+        introductionTextView.layoutIfNeeded()
+        
+        addReadMoreTextToTextView()
+        configureTextView()
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -124,15 +132,12 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
             ageLabel.text = ""
         }
         
-        introductionLabel.text = profile.shortIntroduction ?? "No data"
-        introductionLabel.layoutIfNeeded()
-        introductionLabel.addReadMoreText(with: " ",
-                                          moreText: "Full Desc.",
-                                          moreTextFont: introductionLabel.font,
-                                          moreTextColor: UIColor(red: 251/255,
-                                                                 green: 95/255,
-                                                                 blue: 119/255,
-                                                                 alpha: 1.0))
+        introductionTextView.text = profile.shortIntroduction ?? "No data"
+        introductionTextView.layoutIfNeeded()
+        
+        addReadMoreTextToTextView()
+        configureTextView()
+        
         
         
         guard let interestsString = profile.interests else {
@@ -167,20 +172,10 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
         //show all interests
         fullInterestsLayouts()
         
-        //update layout for interests
-        infoBlockHeight.constant = calculateInfoBlockHeight()
-        infoBlockInitialHeight.isActive = false
-        infoBlockHeight.isActive = true
-        
         //add read more label if need
         if !introductionIsFullSize {
-            introductionLabel.addReadMoreText(with: " ",
-                                              moreText: "Full Desc.",
-                                              moreTextFont: introductionLabel.font,
-                                              moreTextColor: UIColor(red: 251/255,
-                                                                     green: 95/255,
-                                                                     blue: 119/255,
-                                                                     alpha: 1.0))
+            addReadMoreTextToTextView()
+            configureTextView()
         }
         
         
@@ -270,7 +265,7 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
                 }
         },
             completion: nil)
-        
+
         
         
     }
@@ -292,7 +287,7 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
             
             
         }))
-        
+
         //simple cancel
         alert.addAction(UIAlertAction(title: "Cancel selection", style: .destructive, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -323,24 +318,6 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     }
     
     //MARK: - Helpers
-    func calculateInfoBlockHeight() -> CGFloat {
-        
-        roundedView.layoutIfNeeded()
-        introductionLabel.layoutIfNeeded()
-        let introWidth = introductionLabel.bounds.width
-        let font = introductionLabel.font
-        let introductionText = introductionLabel.text ?? "No data"
-        let estimatedTextHeight = introductionText.estimateFrameForText(font: font!,
-                                                                        width: introWidth).height
-        
-        var textHeight = introductionInitialHeight
-        if estimatedTextHeight > introductionInitialHeight {
-            textHeight = estimatedTextHeight
-        }
-        
-        //5 + 5 bottom and top constraints
-        return nameAgeHeight.constant + interestsHeight.constant + textHeight - 17.0
-    }
     
     @objc private func introductionTapped(recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
@@ -348,16 +325,29 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
         }
     }
     
+    func configureTextView() {
+        introductionTextView.font = introductionTextFont
+        introductionTextView.textColor = introductionTextColor
+        introductionTextView.textContainerInset = UIEdgeInsets.zero
+        introductionTextView.textContainer.lineFragmentPadding = 0
+    }
+    
+    func addReadMoreTextToTextView() {
+        introductionTextView.addReadMoreText(with: " ",
+                                             moreText: introductionMoreText,
+                                             moreTextFont: introductionTextFont,
+                                             moreTextColor: introductionMoreTextColor)
+    }
+    
     //MARK: - Layouts
     func inititalizeLayouts() {
         interestsCollection.layoutIfNeeded()
         
-        roundedViewInitialHeight = roundedView.bounds.height
-        introductionLabel.layoutIfNeeded()
-        introductionInitialHeight = introductionLabel.bounds.height
+        introductionTextView.layoutIfNeeded()
+        introductionInitialHeight = introductionTextView.bounds.height
         
-        introductionLabel.isUserInteractionEnabled = true
-        introductionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
+        introductionTextView.isUserInteractionEnabled = true
+        introductionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
     }
     
     func initializeInterestsLayouts() {
@@ -375,7 +365,7 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     }
     
     func shortInterestsLayouts() {
-        interestsHeight.constant = 35.0
+        interestsHeight.constant = 20.0
         interestsHeight.isActive = true
     }
     
@@ -394,10 +384,17 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     
     func shortIntroductionLayouts() {
         roundedView.layoutIfNeeded()
+        introductionTextView.layoutIfNeeded()
         
-        infoBlockInitialHeight.isActive = true
-        infoBlockHeight.constant = roundedViewInitialHeight
-        infoBlockHeight.isActive = false
+        introductionTextView.text = ProfileService.savedUser?.shortIntroduction ?? "No data"
+
+        introductionTextView.layoutIfNeeded()
+        addReadMoreTextToTextView()
+        configureTextView()
+        
+        introductionViewInitialHeight.isActive = true
+        introductionViewHeight.constant = introductionInitialHeight
+        introductionViewHeight.isActive = false
         
         introductionIsFullSize = false
         
@@ -405,12 +402,19 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
     
     func fullIntroductionLayouts() {
         
-        introductionLabel.text = ProfileService.savedUser?.shortIntroduction ?? ""
+        introductionTextView.text = ProfileService.savedUser?.shortIntroduction ?? ""
         
-        infoBlockHeight.constant = calculateInfoBlockHeight()
+        let introWidth = introductionTextView.bounds.width
+        let font = introductionTextFont
+        let estimatedTextHeight = introductionTextView.text!.estimateFrameForText(font: font,
+                                                                               width: introWidth).height
+        configureTextView()
         
-        infoBlockInitialHeight.isActive = false
-        infoBlockHeight.isActive = true
+        if estimatedTextHeight > introductionInitialHeight {
+            introductionViewInitialHeight.isActive = false
+            introductionViewHeight.constant = estimatedTextHeight
+            introductionViewHeight.isActive = true
+        }
         
         introductionIsFullSize = true
         
@@ -420,8 +424,24 @@ class ProfileMainTabViewController: UIViewController, ProfileMainTabViewProtocol
 
 //MARK: - InstagramPhotosViewControllerDelegate
 extension ProfileMainTabViewController: InstagramPhotosViewControllerDelegate {
-    func photosUpdated(moduleHeight: CGFloat) {
+    func photosUpdated(moduleHeight: CGFloat,
+                       photosCount: Int) {
         instagramPhotosHeight.constant = moduleHeight
+        
+        if photosCount != 0 {
+
+            let introWidth = introductionTextView.bounds.width
+            let font = introductionTextFont
+            let estimatedTextHeight = introductionTextView.text!.estimateFrameForText(font: font,
+                                                                                      width: introWidth).height + 4
+
+            if estimatedTextHeight < introductionInitialHeight {
+                introductionViewInitialHeight.isActive = false
+                introductionViewHeight.constant = estimatedTextHeight
+                introductionViewHeight.isActive = true
+            }
+
+        }
     }
 }
 
@@ -449,7 +469,7 @@ extension ProfileMainTabViewController: GBHFacebookImagePickerDelegate {
         }
         
     }
-    
+
     func facebookImagePicker(imagePicker: UIViewController,
                              didFailWithError error: Error?) {
         HUD.show(.labeledError(title: "FB Photos", subtitle: error?.localizedDescription))
@@ -521,3 +541,11 @@ extension ProfileMainTabViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsetsMake(0,0,0,0);  // top, left, bottom, right
     }
 }
+
+
+
+
+
+
+
+

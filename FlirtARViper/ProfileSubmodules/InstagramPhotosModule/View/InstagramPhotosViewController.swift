@@ -10,7 +10,8 @@ import UIKit
 import PKHUD
 
 protocol InstagramPhotosViewControllerDelegate: class {
-    func photosUpdated(moduleHeight: CGFloat)
+    func photosUpdated(moduleHeight: CGFloat,
+                       photosCount: Int)
 }
 
 class InstagramPhotosViewController: UIViewController, InstagramPhotosViewProtocol {
@@ -30,9 +31,11 @@ class InstagramPhotosViewController: UIViewController, InstagramPhotosViewProtoc
     
     
     //MARK: - Variables
-    fileprivate var photos = [String]() {
+    fileprivate var photos = [Photo]() {
         willSet {
-            delegate?.photosUpdated(moduleHeight: calculateModuleHeight(elementsCount: newValue.count))
+            
+            delegate?.photosUpdated(moduleHeight: calculateModuleHeight(elementsCount: newValue.count),
+                                    photosCount: newValue.count)
             
             if newValue.count == 0 {
                 photosCollectionHeight.constant = 0.0
@@ -85,7 +88,7 @@ class InstagramPhotosViewController: UIViewController, InstagramPhotosViewProtoc
     //MARK: - InstagramPhotosViewProtocol
     var presenter: InstagramPhotosPresenterProtocol?
     
-    func showPhotos(photos: [String]) {
+    func showPhotos(photos: [Photo]) {
         
         instagramCountView.isHidden = false
         instagramButtonView.isHidden = true
@@ -110,7 +113,8 @@ class InstagramPhotosViewController: UIViewController, InstagramPhotosViewProtoc
         instagramCountView.isHidden = true
         instagramButtonView.isHidden = false
         
-        delegate?.photosUpdated(moduleHeight: 32.0)
+        delegate?.photosUpdated(moduleHeight: 32.0,
+                                photosCount: 0)
     }
     
     func showRequestError(method: String, errorMessage: String) {
@@ -197,7 +201,7 @@ extension InstagramPhotosViewController: UICollectionViewDataSource {
 extension InstagramPhotosViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let instagramCell = cell as? InstagramPhotoViewCell
-        instagramCell?.configureWithPhotoString(photoString: photos[indexPath.row])
+        instagramCell?.configureWithPhotoString(photo: photos[indexPath.row])
     }
 }
 

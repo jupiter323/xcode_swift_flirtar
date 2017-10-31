@@ -25,6 +25,12 @@ class APIParser {
             var user: MarkerUser?
             if eachJSMarker.dictionaryObject != nil {
                 user = MarkerUser(JSON: eachJSMarker.dictionaryObject!)
+                
+                if eachJSMarker["photo"].dictionaryObject != nil {
+                    let photo = Photo(JSON: eachJSMarker["photo"].dictionaryObject!)
+                    user?.photo = photo
+                }
+                
             }
             
             if location != nil && user != nil {
@@ -37,14 +43,22 @@ class APIParser {
         return markers
     }
     
-    func parseBlockedUsers(js: JSON) -> [MarkerUser] {
-        var users = [MarkerUser]()
+    func parseBlockedUsers(js: JSON) -> [ShortUser] {
+        var users = [ShortUser]()
         
         if let jsArray = js["results"].array {
             for eachUser in jsArray {
                 if eachUser.dictionaryObject != nil {
                     
-                    let user = MarkerUser(JSON: eachUser.dictionaryObject!)
+                    var user = ShortUser(JSON: eachUser.dictionaryObject!)
+                    
+                    if let photoDictionary = eachUser["photo"].dictionaryObject {
+                        let photo = Photo(JSON: photoDictionary)
+                        if photo != nil {
+                            user?.photos.append(photo!)
+                        }
+                    }
+                    
                     
                     if user != nil {
                         users.append(user!)
@@ -65,10 +79,17 @@ class APIParser {
                 if let dialogDictionary = eachDialog.dictionaryObject,
                     let user = eachDialog["user"].dictionaryObject {
                     var dialog = Dialog(JSON: dialogDictionary)
-                    let dialogUser = MarkerUser(JSON: user)
+                    var dialogUser = ShortUser(JSON: user)
                     if let message = eachDialog[ServerMessageJSONKeys.message.rawValue].dictionaryObject {
                         let dialogMessage = Message(JSON: message)
                         dialog?.message = dialogMessage
+                    }
+                    
+                    if let photo = eachDialog["user"]["photo"].dictionaryObject {
+                        let dialogPhoto = Photo(JSON: photo)
+                        if dialogPhoto != nil {
+                            dialogUser?.photos.append(dialogPhoto!)
+                        }
                     }
                     
                     dialog?.user = dialogUser
@@ -95,6 +116,37 @@ class APIParser {
         }
     }
     
+    func parseNewIncomeMessage(message: Any) -> Message? {
+        
+        print(message)
+        
+        guard let messageString = message as? String  else {
+            return nil
+        }
+        
+        let js = JSON(parseJSON: messageString) //JSON from string
+        
+        if let messageDictionary = js.dictionaryObject,
+            let senderDictionary = js["sender"].dictionaryObject {
+            var message = Message(JSON: messageDictionary)
+            var sender = ShortUser(JSON: senderDictionary)
+            
+            if let photoDictionary = js["sender"]["photo"].dictionaryObject {
+                let photo = Photo(JSON: photoDictionary)
+                if photo != nil {
+                    sender?.photos.append(photo!)
+                }
+            }
+            
+            message?.sender = sender
+            
+            return message
+        }
+        
+        return nil
+        
+    }
+    
     
     func parseMessages(js: JSON) -> [Message] {
         
@@ -105,7 +157,15 @@ class APIParser {
                 if let messageDictionary = eachMessage.dictionaryObject,
                     let senderDictionary = eachMessage["sender"].dictionaryObject {
                     var message = Message(JSON: messageDictionary)
-                    let sender = MarkerUser(JSON: senderDictionary)
+                    var sender = ShortUser(JSON: senderDictionary)
+                    
+                    if let photo = eachMessage["sender"]["photo"].dictionaryObject {
+                        let messagePhoto = Photo(JSON: photo)
+                        if messagePhoto != nil {
+                            sender?.photos.append(messagePhoto!)
+                        }
+                    }
+                    
                     message?.sender = sender
                     if message != nil {
                         messages.append(message!)
@@ -225,21 +285,48 @@ class APIParser {
         return strings
     }
     
-    func parseInstagramPhotos(js: JSON) -> [String] {
+    func parseInstagramPhotos(js: JSON) -> [Photo] {
         
-        var photoLinks = [String]()
+        var photoLinks = [Photo]()
         
         guard let jsData = js.array else {
             return photoLinks
         }
         
         for eachPhoto in jsData {
-            let photoLink = eachPhoto["url"].stringValue
-            photoLinks.append(photoLink)
+            
+            if eachPhoto.dictionaryObject != nil {
+                let photo = Photo(JSON: eachPhoto.dictionaryObject!)
+                if photo != nil {
+                    photoLinks.append(photo!)
+                }
+            }
+            
+//            let photoLink = eachPhoto["url"].stringValue
+//            photoLinks.append(photoLink)
         }
         
         return photoLinks
         
+    }
+    
+    //MARK: - Outcome messages
+    func prepareImageMessageToSend(textMessage: String,
+                                   imageLink: String) -> String {
+        let clearedText = BadWordHelper.shared.cleanUp(textMessage)
+        return "{\"text\":\"\(clearedText)\",\"file_url\":\"\(imageLink)\",\"file_type\":\"image\"}"
+    }
+    
+    func prepareVideoMessageToSend(textMessage: String,
+                                   videoLink: String,
+                                   thumbnailImageLink: String) -> String {
+        let clearedText = BadWordHelper.shared.cleanUp(textMessage)
+        return "{\"text\":\"\(clearedText)\",\"file_url\":\"\(videoLink)\",\"file_type\":\"video\",\"thumbnail\":\"\(thumbnailImageLink)\"}"
+    }
+    
+    func prepareTextMessageToSend(textMessage: String) -> String {
+        let clearedText = BadWordHelper.shared.cleanUp(textMessage)
+        return "{\"text\":\"\(clearedText)\"}"
     }
     
     //MARK: - Serialize outcome Dictiomary

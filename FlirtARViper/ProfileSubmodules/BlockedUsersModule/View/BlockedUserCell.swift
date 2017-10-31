@@ -23,7 +23,7 @@ class BlockedUserCell: UITableViewCell {
     
     //MARK: - Variables
     weak var delegate: BlockedUserCellDelegate?
-    var user: MarkerUser!
+    var user: ShortUser!
     
     //MARK: - UITableViewCell
     override func awakeFromNib() {
@@ -33,15 +33,15 @@ class BlockedUserCell: UITableViewCell {
         profileImageView.ovalImage()
     }
     
-    func configureCell(withType user: MarkerUser) {
-        if let imageLink = user.photo {
+    func configureCell(withType user: ShortUser) {
+        if let imageLink = user.photos.first?.thumbnailUrl {
             let imageUrl = URL(string: imageLink)
             profileImageView.sd_setImage(with: imageUrl, placeholderImage: #imageLiteral(resourceName: "placeholder"))
         } else {
             profileImageView.image = #imageLiteral(resourceName: "placeholder")
         }
         
-        nameLabel.text = user.firstname ?? "No name"
+        nameLabel.text = user.firstName ?? "No name"
         
         self.user = user
         

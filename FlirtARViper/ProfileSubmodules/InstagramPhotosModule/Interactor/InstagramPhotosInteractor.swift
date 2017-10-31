@@ -23,7 +23,7 @@ class InstagramPhotosInteractor: InstagramPhotosInteractorInputProtocol {
 }
 
 extension InstagramPhotosInteractor: InstagramPhotosRemoteDatamanagerOutputProtocol {
-    func photosRecieved(photos: [String]) {
+    func photosRecieved(photos: [Photo]) {
         presenter?.didRecievePhotos(photos: photos)
     }
     

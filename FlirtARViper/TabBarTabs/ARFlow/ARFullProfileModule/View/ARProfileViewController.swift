@@ -20,7 +20,8 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var interestsCollectionView: UICollectionView!
-    @IBOutlet weak var introductionLabel: UILabel!
+    @IBOutlet weak var introductionTextView: UITextView!
+    
     
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var photosContainer: UIView!
@@ -37,23 +38,38 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     @IBOutlet weak var moreInfoButton: UIButton!
     
     //MARK: - Constraints
-    @IBOutlet weak var instagramPhotosHeight: NSLayoutConstraint!
-    @IBOutlet var infoBlockHeight: NSLayoutConstraint!
-    @IBOutlet var infoBlockInitialHeight: NSLayoutConstraint!
-    
-    @IBOutlet var nameAgeHeight: NSLayoutConstraint!
-    
+    @IBOutlet var instagramPhotosHeight: NSLayoutConstraint!
+
     @IBOutlet var interestsHeight: NSLayoutConstraint!
+    @IBOutlet var interestsViewRight: NSLayoutConstraint!
     
-    @IBOutlet weak var interestsViewRight: NSLayoutConstraint!
+    @IBOutlet var introductionViewInitialHeight: NSLayoutConstraint!
+    @IBOutlet var introductionViewHeight: NSLayoutConstraint!
     
     //MARK: - Variables
+    //MARK: Data
     fileprivate var isLiked = false
     fileprivate var interests = [String]()
-    fileprivate var collectionViewInitialHeight: CGFloat = 0.0
-    fileprivate var introductionInitialHeight: CGFloat = 0.0
     fileprivate var introductionIsFullSize: Bool = false
     fileprivate var profile: ShortUser?
+    
+    //MARK: Constraints
+    fileprivate var collectionViewInitialHeight: CGFloat = 0.0
+    fileprivate var introductionInitialHeight: CGFloat = 0.0
+    
+    //MARK: Visual
+    fileprivate var introductionTextFont = UIFont(name: "VarelaRound", size: 13.0) ??
+                                            UIFont.systemFont(ofSize: 13.0)
+    fileprivate var introductionTextColor = UIColor(red: 166/255,
+                                                    green: 172/255,
+                                                    blue: 185/255,
+                                                    alpha: 1.0)
+    fileprivate var introductionMoreTextColor = UIColor(red: 251/255,
+                                                        green: 95/255,
+                                                        blue: 119/255,
+                                                        alpha: 1.0)
+    fileprivate var introductionMoreText = "Full Desc."
+    
     
     weak var delegate: ARProfileViewControllerDelegate?
     
@@ -61,6 +77,8 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTextView()
+
         roundedView.layoutIfNeeded()
         roundedView.round(radius: 3.0)
         
@@ -72,7 +90,7 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
         presenter?.viewDidLoad()
         
     }
-    
+  
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -140,51 +158,27 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
         //show all interests
         fullInterestsLayouts()
         
-        //update layout for interests
-        infoBlockHeight.constant = calculateInfoBlockHeight()
-        infoBlockInitialHeight.isActive = false
-        infoBlockHeight.isActive = true
-        
         //add read more label if need
-        if !introductionIsFullSize {
-            introductionLabel.addReadMoreText(with: " ",
-                                              moreText: "Full Desc.",
-                                              moreTextFont: introductionLabel.font,
-                                              moreTextColor: UIColor(red: 251/255,
-                                                                     green: 95/255,
-                                                                     blue: 119/255,
-                                                                     alpha: 1.0))
+        if introductionIsFullSize {
+            //initial height
+        } else {
+            //height is active
+            if !introductionIsFullSize {
+                addReadMoreTextToTextView()
+                
+            }
             
         }
+        
+
         
     }
     
     
     //MARK: - Helpers
-    func calculateInfoBlockHeight() -> CGFloat {
-        roundedView.layoutIfNeeded()
-        introductionLabel.layoutIfNeeded()
-        let introWidth = introductionLabel.bounds.width
-        let font = introductionLabel.font
-        let estimatedTextHeight = introductionLabel.text!.estimateFrameForText(font: font!,
-                                                                               width: introWidth).height
-        var textHeight = introductionInitialHeight
-        if estimatedTextHeight > introductionInitialHeight {
-            textHeight = estimatedTextHeight
-        }
-        
-        //5 + 5 bottom and top constraints
-        return nameAgeHeight.constant + interestsHeight.constant + textHeight + 10.0
-    }
-    
     @objc private func introductionTapped(recognizer: UITapGestureRecognizer) {
         if recognizer.state == .ended {
-            
             fullIntroductionLayouts()
-            
-            
-            
-            
         }
     }
     
@@ -202,6 +196,20 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
         reportNotification.delegate = self
         mainView?.addSubview(reportNotification)
         
+    }
+    
+    func configureTextView() {
+        introductionTextView.font = introductionTextFont
+        introductionTextView.textColor = introductionTextColor
+        introductionTextView.textContainerInset = UIEdgeInsets.zero
+        introductionTextView.textContainer.lineFragmentPadding = 0
+    }
+    
+    func addReadMoreTextToTextView() {
+        introductionTextView.addReadMoreText(with: " ",
+                                             moreText: introductionMoreText,
+                                             moreTextFont: introductionTextFont,
+                                             moreTextColor: introductionMoreTextColor)
     }
     
     
@@ -227,22 +235,16 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
         nameLabel.text = profile.firstName ?? "No data"
         ageLabel.text = profile.age ?? "No data"
         
-        introductionLabel.layoutIfNeeded()
-        introductionLabel.text = profile.shortIntroduction ?? "No data"
+        introductionTextView.text = profile.shortIntroduction ?? "No data"
         
-        introductionLabel.addReadMoreText(with: " ",
-                                          moreText: "Full Desc.",
-                                          moreTextFont: introductionLabel.font,
-                                          moreTextColor: UIColor(red: 251/255,
-                                                                 green: 95/255,
-                                                                 blue: 119/255,
-                                                                 alpha: 1.0))
+        configureTextView()
+        addReadMoreTextToTextView()
         
         guard let isLiked = profile.isLiked else {
             likeButton.setImage(#imageLiteral(resourceName: "likeBigInact"), for: .normal)
             return
         }
-        
+
         if isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "likeBigAct"), for: .normal)
         } else {
@@ -339,13 +341,13 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     func inititalizeLayouts() {
         
         interestsCollectionView.layoutIfNeeded()
-        collectionViewInitialHeight = 35.0
+        collectionViewInitialHeight = 20.0
         
-        introductionLabel.layoutIfNeeded()
-        introductionInitialHeight = introductionLabel.bounds.height
+        introductionTextView.layoutIfNeeded()
+        introductionInitialHeight = introductionTextView.bounds.height
         
-        introductionLabel.isUserInteractionEnabled = true
-        introductionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
+        introductionTextView.isUserInteractionEnabled = true
+        introductionTextView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(introductionTapped(recognizer:))))
         
     }
     
@@ -364,7 +366,7 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     }
     
     func shortInterestsLayouts() {
-        interestsHeight.constant = 35.0
+        interestsHeight.constant = 20.0
         interestsHeight.isActive = true
     }
     
@@ -384,12 +386,18 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     func shortIntroductionLayouts() {
         
         roundedView.layoutIfNeeded()
-        infoBlockView.layoutIfNeeded()
+        introductionTextView.layoutIfNeeded()
         
+        introductionTextView.text = profile?.shortIntroduction ?? "No data"
+        introductionTextView.layoutIfNeeded()
         
-        infoBlockInitialHeight.isActive = true
-        infoBlockHeight.constant = infoBlockView.bounds.height
-        infoBlockHeight.isActive = false
+        configureTextView()
+        
+        addReadMoreTextToTextView()
+        
+        introductionViewInitialHeight.isActive = true
+        introductionViewHeight.constant = introductionInitialHeight
+        introductionViewHeight.isActive = false
         
         introductionIsFullSize = false
         
@@ -400,12 +408,21 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     
     func fullIntroductionLayouts() {
         
-        introductionLabel.text = profile?.shortIntroduction ?? "No data"
+        //
+        introductionTextView.text = profile?.shortIntroduction ?? "No data"
         
-        infoBlockHeight.constant = calculateInfoBlockHeight()
+        let introWidth = introductionTextView.bounds.width
+        let font = introductionTextFont
+        let estimatedTextHeight = introductionTextView.text!.estimateFrameForText(font: font,
+                                                                                  width: introWidth).height + 4
         
-        infoBlockInitialHeight.isActive = false
-        infoBlockHeight.isActive = true
+        configureTextView()
+        
+        if estimatedTextHeight > introductionInitialHeight {
+            introductionViewInitialHeight.isActive = false
+            introductionViewHeight.constant = estimatedTextHeight
+            introductionViewHeight.isActive = true
+        }
         
         introductionIsFullSize = true
         
@@ -413,13 +430,32 @@ class ARProfileViewController: UIViewController, ARProfileViewProtocol {
     }
     
     
-    
+
 }
 
 //MARK: - InstagramPhotosViewControllerDelegate
 extension ARProfileViewController: InstagramPhotosViewControllerDelegate {
-    func photosUpdated(moduleHeight: CGFloat) {
+    func photosUpdated(moduleHeight: CGFloat,
+                       photosCount: Int) {
         instagramPhotosHeight.constant = moduleHeight
+        
+        if photosCount != 0 {
+            
+            let introWidth = introductionTextView.bounds.width
+            let font = introductionTextFont
+            let estimatedTextHeight = introductionTextView.text!.estimateFrameForText(font: font,
+                                                                                      width: introWidth).height + 4
+            
+            if estimatedTextHeight < introductionInitialHeight {
+                introductionViewInitialHeight.isActive = false
+                introductionViewHeight.constant = estimatedTextHeight
+                introductionViewHeight.isActive = true
+            }
+            
+        }
+        
+        
+        
     }
 }
 
@@ -460,11 +496,11 @@ extension ARProfileViewController: UICollectionViewDelegate {
         let interestCell = cell as? InterestViewCell
         guard interestCell != nil else { return }
         interestCell!.configureCell(withInterest: interests[indexPath.row],
-                                    fontColor: UIColor(red: 62/255,
-                                                       green: 67/255,
-                                                       blue: 79/255,
-                                                       alpha: 1.0),
-                                    fontName: "VarelaRound")
+                                     fontColor: UIColor(red: 62/255,
+                                                        green: 67/255,
+                                                        blue: 79/255,
+                                                        alpha: 1.0),
+                                     fontName: "VarelaRound")
     }
     
 }

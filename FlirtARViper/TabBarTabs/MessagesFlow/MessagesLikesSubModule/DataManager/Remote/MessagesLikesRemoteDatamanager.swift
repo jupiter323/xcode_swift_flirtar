@@ -12,14 +12,40 @@ class MessagesLikesRemoteDatamanager: MessagesLikesRemoteDatamanagerInputProtoco
     weak var remoteRequestHandler:MessagesLikesRemoteDatamanagerOutputProtocol?
     
     func requestUserLikes() {
-        let request = APIRouter.getLikesList()
+        let request = APIRouter.getLikesList(page: nil)
         
         NetworkManager.shared.sendAPIRequest(request: request) { (js, error) in
             if error != nil {
                 self.remoteRequestHandler?.errorWhileRecievingLikes()
             } else {
                 let users = APIParser().parseShortUsers(js: js!["results"])
-                self.remoteRequestHandler?.likesRecieved(likes: users)
+                let previous = js!["previous"].int
+                let current = js!["current"].int
+                let next = js!["next"].int
+                
+                self.remoteRequestHandler?.likesRecieved(likes: users,
+                                                         currentPage: current,
+                                                         nextPage: next,
+                                                         previousPage: previous)
+            }
+        }
+    }
+    
+    func requestMoreUserLikes(page: Int) {
+        let request = APIRouter.getLikesList(page: page)
+        
+        NetworkManager.shared.sendAPIRequest(request: request) { (js, error) in
+            if js != nil {
+                let users = APIParser().parseShortUsers(js: js!["results"])
+                let previous = js!["previous"].int
+                let current = js!["current"].int
+                let next = js!["next"].int
+                
+                self.remoteRequestHandler?.appendLikesRecieved(likes: users,
+                                                               currentPage: current,
+                                                               nextPage: next,
+                                                               previousPage: previous)
+                
             }
         }
     }

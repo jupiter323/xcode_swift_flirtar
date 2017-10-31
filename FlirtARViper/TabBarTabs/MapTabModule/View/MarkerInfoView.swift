@@ -38,7 +38,7 @@ class MarkerInfoView: ViewFromXIB {
         
         let user = marker.user
         if user != nil {
-            if let imageLink = user!.photo {
+            if let imageLink = user!.photo?.thumbnailUrl {
                 let imageUrl = URL(string: imageLink)
                 
                 avaImage.sd_setImage(with: imageUrl,

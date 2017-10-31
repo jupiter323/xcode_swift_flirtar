@@ -15,7 +15,7 @@ class BlockedUsersViewController: UIViewController, BlockedUsersViewProtocol {
     @IBOutlet weak var blockedUsersTable: UITableView!
     
     //MARK: - Variables
-    fileprivate var users = [MarkerUser]()
+    fileprivate var users = [ShortUser]()
     fileprivate var removedRow: Int?
     
     //MARK - UIViewController
@@ -72,12 +72,12 @@ class BlockedUsersViewController: UIViewController, BlockedUsersViewProtocol {
         HUD.hide(afterDelay: 3.0)
     }
     
-    func showBlockedUsers(users: [MarkerUser]) {
+    func showBlockedUsers(users: [ShortUser]) {
         self.users = users
         blockedUsersTable.reloadData()
     }
     
-    func appendMoreUsers(users: [MarkerUser]) {
+    func appendMoreUsers(users: [ShortUser]) {
         self.users.append(contentsOf: users)
         blockedUsersTable.reloadData()
     }

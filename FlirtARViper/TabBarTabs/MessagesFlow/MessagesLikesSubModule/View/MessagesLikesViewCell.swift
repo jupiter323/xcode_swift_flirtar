@@ -47,7 +47,7 @@ class MessagesLikesViewCell: UICollectionViewCell {
                             color: subColor,
                             width: 2.0)
         
-        if let imageLink = like.photos.first?.url {
+        if let imageLink = like.photos.first?.thumbnailUrl {
             let imageUrl = URL(string: imageLink)
             photoView.sd_setImage(with: imageUrl, placeholderImage: #imageLiteral(resourceName: "placeholder"))
         } else {

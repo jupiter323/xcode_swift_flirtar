@@ -27,7 +27,7 @@ protocol WebSocketRouter: SimpleRouter {
 }
 
 struct API {
-    static let apiLink = "http://52.204.177.82/api"
+    static let apiLink = "http://52.204.177.82/api/"
     //"http://52.204.177.82/api/"
     static let socketLink = "ws://52.204.177.82:8888"
     //"ws://52.204.177.82:8888/
@@ -73,7 +73,7 @@ enum APIRouter: URLRequestConvertible, RequestRouter {
     case likeUser(userId: Int)
     case unlikeUser(userId: Int)
     case dislikeUser(userId: Int)
-    case getLikesList()
+    case getLikesList(page: Int?)
     
     //Like/Dislike
     case getMatchUsers(page: Int?)
@@ -314,7 +314,14 @@ enum APIRouter: URLRequestConvertible, RequestRouter {
         case .sendFeedback(let rate, let comment):
             return ["rate": "\(rate)",
                     "comment": comment]
-    case .signOut, .getUserProfile, .disconnectFB, .likeUser, .unlikeUser, .getNotifications, .removeChat, .dislikeUser, .deleteAccount, .blockUser, .unblockUser, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos, .disconnectInstagram, .getLikesList:
+            
+        case .getLikesList(let page):
+            if page != nil {
+                return ["page":page!]
+            } else {
+                return nil
+            }
+    case .signOut, .getUserProfile, .disconnectFB, .likeUser, .unlikeUser, .getNotifications, .removeChat, .dislikeUser, .deleteAccount, .blockUser, .unblockUser, .getInterestsBase, .getBadWordsContent, .getInstagramPhotos, .disconnectInstagram:
             return nil
         }
     }

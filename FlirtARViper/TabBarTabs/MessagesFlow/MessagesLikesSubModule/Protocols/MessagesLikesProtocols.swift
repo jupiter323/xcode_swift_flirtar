@@ -13,6 +13,7 @@ protocol MessagesLikesViewProtocol: class {
     var presenter: MessagesLikesPresenterProtocol? {get set}
     
     func showLikes(likes: [ShortUser])
+    func appendMoreLikes(likes: [ShortUser])
     
 }
 
@@ -29,6 +30,7 @@ protocol MessagesLikesPresenterProtocol {
     var interactor: MessagesLikesInteractorInputProtocol? {get set}
     
     func reloadData()
+    func loadMoreLikes()
     func openProfile(withUser user: ShortUser)
     
 }
@@ -38,20 +40,32 @@ protocol MessagesLikesInteractorInputProtocol {
     var remoteDatamanager: MessagesLikesRemoteDatamanagerInputProtocol? {get set}
     
     func startGettingLikes()
+    func startLoadMoreLikes()
 }
 
 protocol MessagesLikesInteractorOutputProtocol: class {
     func didLikesRecived(likes: [ShortUser])
+    func appendLikesRecieved(likes: [ShortUser])
 }
 
 protocol MessagesLikesRemoteDatamanagerOutputProtocol: class {
-    func likesRecieved(likes: [ShortUser])
+    func likesRecieved(likes: [ShortUser],
+                       currentPage: Int?,
+                       nextPage: Int?,
+                       previousPage: Int?)
+    
+    func appendLikesRecieved(likes: [ShortUser],
+                                currentPage: Int?,
+                                nextPage: Int?,
+                                previousPage: Int?)
+    
     func errorWhileRecievingLikes()
 }
 
 protocol MessagesLikesRemoteDatamanagerInputProtocol {
     var remoteRequestHandler:MessagesLikesRemoteDatamanagerOutputProtocol? {get set}
     func requestUserLikes()
+    func requestMoreUserLikes(page: Int)
 }
 
 

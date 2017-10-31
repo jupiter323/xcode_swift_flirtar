@@ -201,7 +201,7 @@ class MessageViewCell: UICollectionViewCell {
     
     private func fillPhoto(message: Message) {
         if message.sender?.id != ProfileService.savedUser?.userID {
-            if let imageLink = message.sender?.photo {
+            if let imageLink = message.sender?.photos.first?.thumbnailUrl {
                 let imageUrl = URL(string: imageLink)
                 profileImage.sd_setImage(with: imageUrl, placeholderImage: #imageLiteral(resourceName: "placeholder"))
             } else {

@@ -18,8 +18,8 @@ protocol BlockedUsersViewProtocol: class {
     func hideUnblockUserAlert()
     
     func showError(method: String, errorMessage: String)
-    func showBlockedUsers(users: [MarkerUser])
-    func appendMoreUsers(users: [MarkerUser])
+    func showBlockedUsers(users: [ShortUser])
+    func appendMoreUsers(users: [ShortUser])
     
     func userUnblocked()
     
@@ -60,20 +60,20 @@ protocol BlockedUsersInteractorInputProtocol {
 }
 
 protocol BlockedUsersInteractorOutputProtocol: class {
-    func usersLoaded(users: [MarkerUser])
-    func moreUserLoaded(users: [MarkerUser])
+    func usersLoaded(users: [ShortUser])
+    func moreUserLoaded(users: [ShortUser])
     func userUnblocked()
     func requestError(method: APIMethod, error: Error)
     
 }
 
 protocol BlockedUsersRemoteDatamanagerOutputProtocol: class {
-    func usersLoaded(users: [MarkerUser],
+    func usersLoaded(users: [ShortUser],
                      currentPage: Int?,
                      nextPage: Int?,
                      previousPage: Int?)
 
-    func moreUserLoaded(users: [MarkerUser],
+    func moreUserLoaded(users: [ShortUser],
                         currentPage: Int?,
                         nextPage: Int?,
                         previousPage: Int?)

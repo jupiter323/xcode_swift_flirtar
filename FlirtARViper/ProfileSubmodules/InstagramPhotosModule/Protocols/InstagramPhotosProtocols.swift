@@ -14,7 +14,7 @@ protocol InstagramPhotosViewProtocol: class {
     
     func showRequestError(method: String, errorMessage: String)
     
-    func showPhotos(photos: [String])
+    func showPhotos(photos: [Photo])
     func showConnectButton()
     
 }
@@ -47,14 +47,14 @@ protocol InstagramPhotosInteractorInputProtocol {
 }
 
 protocol InstagramPhotosInteractorOutputProtocol: class {
-    func didRecievePhotos(photos: [String])
+    func didRecievePhotos(photos: [Photo])
 
     func requestError(method: APIMethod, error: Error)
     
 }
 
 protocol InstagramPhotosRemoteDatamanagerOutputProtocol: class {
-    func photosRecieved(photos: [String])
+    func photosRecieved(photos: [Photo])
     
     func instagramConnected()
     func requestError(method: APIMethod, error: Error)

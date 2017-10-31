@@ -80,7 +80,7 @@ class ARMarkerAnnotationView: ARAnnotationView {
             
             titleLabel.text = annotation.title
             
-            if let photoString = annotation.markers?.first?.user?.photo {
+            if let photoString = annotation.markers?.first?.user?.photo?.thumbnailUrl {
                 let imageURL = URL(string: photoString)
                 photoView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholder"))
             } else {

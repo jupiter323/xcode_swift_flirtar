@@ -46,12 +46,12 @@ class BlockedUsersPresenter: BlockedUsersPresenterProtocol {
 }
 
 extension BlockedUsersPresenter: BlockedUsersInteractorOutputProtocol {
-    func usersLoaded(users: [MarkerUser]) {
+    func usersLoaded(users: [ShortUser]) {
         view?.hideActivityIndicator()
         view?.showBlockedUsers(users: users)
     }
     
-    func moreUserLoaded(users: [MarkerUser]) {
+    func moreUserLoaded(users: [ShortUser]) {
         view?.hideActivityIndicator()
         view?.appendMoreUsers(users: users)
     }

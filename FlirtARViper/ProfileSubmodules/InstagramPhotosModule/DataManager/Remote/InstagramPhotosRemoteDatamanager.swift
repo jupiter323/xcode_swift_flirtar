@@ -17,7 +17,7 @@ class InstagramPhotosRemoteDatamanager: InstagramPhotosRemoteDatamanagerInputPro
         
         NetworkManager.shared.sendAPIRequest(request: request) { (js, error) in
             if error != nil {
-                self.remoteRequestHandler?.photosRecieved(photos: [String]())
+                self.remoteRequestHandler?.photosRecieved(photos: [Photo]())
             } else {
                 let photosLinks = APIParser().parseInstagramPhotos(js: js!)
                 self.remoteRequestHandler?.photosRecieved(photos: photosLinks)

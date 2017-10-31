@@ -50,7 +50,7 @@ class InstagramPhotosPresenter: InstagramPhotosPresenterProtocol {
 }
 
 extension InstagramPhotosPresenter: InstagramPhotosInteractorOutputProtocol {
-    func didRecievePhotos(photos: [String]) {
+    func didRecievePhotos(photos: [Photo]) {
         view?.showPhotos(photos: photos)
     }
     

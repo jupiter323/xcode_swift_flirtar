@@ -12,6 +12,7 @@ import ObjectMapper
 struct Photo {
     var photoID: Int?
     var url: String?
+    var thumbnailUrl: String?
     var isPrimary: Bool?
 }
 
@@ -22,6 +23,7 @@ extension Photo: Mappable {
     mutating func mapping(map: Map) {
         photoID <- map[ServerPhotoJSONKeys.photoId.rawValue]
         url <- map[ServerPhotoJSONKeys.url.rawValue]
+        thumbnailUrl <- map[ServerPhotoJSONKeys.thumbnailUrl.rawValue]
         isPrimary <- map[ServerPhotoJSONKeys.primary.rawValue]
 
         

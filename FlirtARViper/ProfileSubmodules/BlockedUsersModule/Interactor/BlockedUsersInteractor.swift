@@ -29,8 +29,6 @@ class BlockedUsersInteractor: BlockedUsersInteractorInputProtocol {
     
     func startLoadMoreUsers() {
         guard let next = nextPage else {
-            //call presenter
-            presenter?.moreUserLoaded(users: [MarkerUser]())
             return
         }
         
@@ -44,7 +42,7 @@ class BlockedUsersInteractor: BlockedUsersInteractorInputProtocol {
 
 extension BlockedUsersInteractor: BlockedUsersRemoteDatamanagerOutputProtocol {
     
-    func usersLoaded(users: [MarkerUser],
+    func usersLoaded(users: [ShortUser],
                      currentPage: Int?,
                      nextPage: Int?,
                      previousPage: Int?) {
@@ -56,7 +54,7 @@ extension BlockedUsersInteractor: BlockedUsersRemoteDatamanagerOutputProtocol {
         presenter?.usersLoaded(users: users)
     }
     
-    func moreUserLoaded(users: [MarkerUser],
+    func moreUserLoaded(users: [ShortUser],
                         currentPage: Int?,
                         nextPage: Int?,
                         previousPage: Int?) {

@@ -41,7 +41,7 @@ class MessagesMainTabInteractor: MessagesMainTabInteractorInputProtocol {
     func startLoadMoreDialogs() {
         guard let next = nextPage else {
             //call presenter
-            presenter?.appendMessagesRecieved(dialogs: [Dialog]())
+//            presenter?.appendMessagesRecieved(dialogs: [Dialog]())
             return
         }
         

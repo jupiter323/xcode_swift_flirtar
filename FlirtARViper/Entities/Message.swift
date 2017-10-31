@@ -38,7 +38,7 @@ struct Message {
     var thumbnailImageUrl: String?
     var created: Date?
     var isRead: Bool?
-    var sender: MarkerUser?
+    var sender: ShortUser?
     
 }
 

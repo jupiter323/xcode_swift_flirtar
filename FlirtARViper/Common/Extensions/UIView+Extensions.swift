@@ -56,6 +56,9 @@ extension UIView {
                    color: CGColor,
                    width: CGFloat = 6.0) {
         
+        var isFound = false
+        
+        
         let radius = radius
         let circleAroundImage = UIBezierPath(arcCenter: centerPoint,
                                              radius: radius,
@@ -68,7 +71,27 @@ extension UIView {
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.strokeColor = color
         shapeLayer.lineWidth = width
-        self.layer.addSublayer(shapeLayer)
+        
+        if let sublayers = self.layer.sublayers {
+            for eachSublayer in sublayers {
+                if eachSublayer is CAShapeLayer {
+                    
+                    let caLayer = eachSublayer as! CAShapeLayer
+                    if caLayer.path == circleAroundImage.cgPath &&
+                        caLayer.lineWidth == width {
+                        isFound = true
+                    }
+                }
+            }
+        } else {
+            isFound = false
+        }
+        
+        if !isFound {
+            self.layer.addSublayer(shapeLayer)
+        }
+        
+        
     }
     
     func removeShapeLayers() {

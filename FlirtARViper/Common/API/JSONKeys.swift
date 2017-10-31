@@ -36,6 +36,7 @@ enum ServerSignUpJSONKeys: String {
 enum ServerPhotoJSONKeys: String {
     case photoId = "id"
     case url = "url"
+    case thumbnailUrl = "thumbnail_url"
     case primary = "primary"
 }
 

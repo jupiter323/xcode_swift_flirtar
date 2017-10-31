@@ -32,7 +32,7 @@ class DialogCell: SWTableViewCell {
     //MARK: - Public
     func configureCell(withDialog dialog: Dialog) {
 
-        usernameLabel.text = dialog.user?.firstname ?? "No data"
+        usernameLabel.text = dialog.user?.firstName ?? "No data"
         
         fillPhoto(dialog: dialog)
         fillUnreadCountView(dialog: dialog)
@@ -52,7 +52,7 @@ class DialogCell: SWTableViewCell {
     
     //MARK: Configuration data
     fileprivate func fillPhoto(dialog: Dialog) {
-        if let photoString = dialog.user?.photo {
+        if let photoString = dialog.user?.photos.first?.thumbnailUrl {
             let imageURL = URL(string: photoString)
             photoView.sd_setImage(with: imageURL, placeholderImage: #imageLiteral(resourceName: "placeholder"))
         } else {
