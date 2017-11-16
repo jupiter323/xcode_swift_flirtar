@@ -12,7 +12,7 @@ import CoreLocation
 enum UserMapValidation: String {
     case photosInvalid = "Please, \nupload 3 photos with your face"
     case preferencesInvalid = "Please, \ninclude who are you looking for"
-    case internalUserValidationError = "User not exist in app"
+    case internalUserValidationError = "Internal user validation error"
 }
 
 protocol MapTabViewProtocol: class {
@@ -56,6 +56,8 @@ protocol MapTabInteractorInputProtocol {
     func startUpdateUserLocation(location: CLLocation)
     func stopGettingPeoplesNear()
     
+    func syncUserProfile()
+    
     func checkUserIsVisible()
     func validateCurrentProfile()
     
@@ -74,6 +76,8 @@ protocol MapTabIntercatorOutputProtocol: class {
 
 protocol MapTabRemoteDatamanagerOutputProtocol: class {
     func recievedPeoples(peoples: [Marker])
+    func profileRecieved()
+    func errorWhileRecievingProfile()
 }
 
 
@@ -81,4 +85,5 @@ protocol MapTabRemoteDatamanagerInputProtocol: class {
     var remoteRequestHandler:MapTabRemoteDatamanagerOutputProtocol? {get set}
     func requestPeoplesNear(byDistance distance: Double)
     func requestUpdateUserLocation(withLongitude: Double, latitude: Double)
+    func requestUserProfile()
 }

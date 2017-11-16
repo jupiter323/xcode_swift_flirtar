@@ -27,10 +27,8 @@ protocol WebSocketRouter: SimpleRouter {
 }
 
 struct API {
-    static let apiLink = "http://52.204.177.82/api/"
-    //"http://52.204.177.82/api/"
+    static let apiLink = "http://52.204.177.82/api"
     static let socketLink = "ws://52.204.177.82:8888"
-    //"ws://52.204.177.82:8888/
     static let mapsApi = "AIzaSyCgDLWiOF73WzcKX_F1fShtTSVY7M6Rwg0"
 }
 

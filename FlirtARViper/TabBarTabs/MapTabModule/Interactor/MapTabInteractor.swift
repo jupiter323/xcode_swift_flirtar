@@ -90,6 +90,10 @@ class MapTabInteractor: MapTabInteractorInputProtocol {
         }
     }
     
+    func syncUserProfile() {
+        remoteDatamanager?.requestUserProfile()
+    }
+    
     func validateCurrentProfile() {
         let user = ProfileService.savedUser
         guard let currentUser = user else {
@@ -143,6 +147,14 @@ extension MapTabInteractor: MapTabRemoteDatamanagerOutputProtocol {
                                      remove: markersForRemove)
         
         
+    }
+    
+    func profileRecieved() {
+        validateCurrentProfile()
+    }
+    
+    func errorWhileRecievingProfile() {
+        presenter?.userValidationError(reason: .internalUserValidationError)
     }
     
     

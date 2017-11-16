@@ -19,7 +19,10 @@ class MapTabPresenter: MapTabPresenterProtocol {
     
     func viewWillAppear() {
         interactor?.checkUserIsVisible()
-        interactor?.validateCurrentProfile()
+        
+        interactor?.syncUserProfile()
+        
+        //interactor?.validateCurrentProfile()
     }
     
     func viewWillDisappear() {

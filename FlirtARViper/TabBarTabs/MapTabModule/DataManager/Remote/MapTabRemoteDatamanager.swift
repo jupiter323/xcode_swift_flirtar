@@ -15,6 +15,35 @@ class MapTabRemoteDatamanager: MapTabRemoteDatamanagerInputProtocol {
     weak var remoteRequestHandler: MapTabRemoteDatamanagerOutputProtocol?
     
     
+    func requestUserProfile() {
+        let request = APIRouter.getUserProfile()
+        
+        NetworkManager.shared.sendAPIRequest(request: request) { (js, error) in
+            if error != nil {
+                self.remoteRequestHandler?.errorWhileRecievingProfile()
+            } else {
+                
+                print(js!)
+                
+                if js!.dictionaryObject != nil {
+                    let profile = User(JSON: js!.dictionaryObject!)
+                    let photos = APIParser().parsePhotos(js: js!["photos"])
+                    
+                    if profile != nil {
+                        ProfileService.savedUser = profile
+                        ProfileService.currentUser = profile
+                        ProfileService.recievedPhotos = photos
+                        self.remoteRequestHandler?.profileRecieved()
+                    } else {
+                        self.remoteRequestHandler?.errorWhileRecievingProfile()
+                    }
+                } else {
+                    self.remoteRequestHandler?.errorWhileRecievingProfile()
+                }
+            }
+        }
+    }
+    
     
     //need photo
     func requestPeoplesNear(byDistance distance: Double) {
