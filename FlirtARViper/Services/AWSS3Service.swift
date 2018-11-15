@@ -12,8 +12,8 @@ import AWSCore
 import Photos
 
 class AWSS3Service {
-    private let apiAccessKey = "AKIAI6FUYIUPCWF4XJWA"
-    private let apiSercretKey = "G2aqvgEX1Cm8gHBfpyL4SPa5cg5u4sBdBzZo/H7K"
+    private let apiAccessKey = "AKIAI2HWSOP4BDR7ZJ7A"
+    private let apiSercretKey = "pj2tcn3fJRjkf6Nw4x3DMo41vr4I05vrSoIf9LY3"
     private let region = AWSRegionType.USEast1
     private let bucketName = "flirtar-dev"
     
